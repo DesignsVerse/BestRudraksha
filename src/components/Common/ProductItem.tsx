@@ -187,7 +187,7 @@ const ProductItem = ({ item }: { item: Product }) => {
           <p className="text-custom-sm">({item.reviews})</p>
         </div>
 
-        <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
+        <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#800000] mb-1.5">
           <Link href="/shop-details" onClick={handleProductDetails}>
             {item.title}
           </Link>

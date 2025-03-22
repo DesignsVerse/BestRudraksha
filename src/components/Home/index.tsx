@@ -18,7 +18,7 @@ const Home = () => {
       <BestSeller />
       <CounDown />
       <Testimonials />
-      <Newsletter />
+      {/* <Newsletter /> */}
     </main>
   );
 };
