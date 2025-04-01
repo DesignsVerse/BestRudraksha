@@ -9,13 +9,16 @@ const initialState: InitialState = {
   value: {
     title: "",
     reviews: 0,
-    slug: "", // Added missing required field
+    slug: "",
     price: 0,
     discountedPrice: 0,
     img: "",
     id: 0,
-    images: [], // This is now string[] which matches the Product type
-    // Removed imgs from initial state since it's optional
+    images: [],
+    imgs: {  // Now included in initial state
+      thumbnails: [],
+      previews: []
+    },
   },
 };
 

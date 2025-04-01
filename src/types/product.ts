@@ -3,11 +3,11 @@ export type Product = {
   reviews: number;
   slug: string;
   price: number;
-  img:string;
+  img: string;
   discountedPrice: number;
-  images:string[];
+  images: string[];
   id: number;
-  imgs?: {
+  imgs: {  // Remove the ? to make it required
     thumbnails: string[];
     previews: string[];
   };
