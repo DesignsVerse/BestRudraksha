@@ -21,7 +21,7 @@ const ShopDetails = () => {
 
   const storages = [
     {
-      id: "gb128",
+      id: "gb128  ",
       title: "128 GB",
     },
     {
