@@ -1,4 +1,3 @@
-// src/app/(site)/(pages)/shop-details/[slug]/page.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,12 +10,8 @@ import Newsletter from "@/components/Common/Newsletter";
 import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
-interface ShopDetailsPageProps {
-  params: {
-    slug: string;
-  };
-}
-const ShopDetails = ({ params }: ShopDetailsPageProps) => {
+
+const ShopDetails = ({ params }: { params: { slug: string } }) => {
   const router = useRouter();
   const { slug } = params;
 
@@ -28,6 +23,11 @@ const ShopDetails = ({ params }: ShopDetailsPageProps) => {
   const [sim, setSim] = useState("dual");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("tabOne");
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const storages = [
     { id: "gb128", title: "128 GB" },
@@ -56,16 +56,26 @@ const ShopDetails = ({ params }: ShopDetailsPageProps) => {
   // Fetch product from shopData based on slug
   const productFromData = shopData.find((item) => item.slug === slug) as Product;
 
-  // Redux or localStorage fallback
-  const alreadyExist = localStorage.getItem("productDetails");
+  // Redux state
   const productFromStorage = useAppSelector((state) => state.productDetailsReducer.value);
-  const product = productFromData || (alreadyExist ? JSON.parse(alreadyExist) : productFromStorage);
+
+  // Get product with proper client-side check
+  const getProduct = () => {
+    if (productFromData) return productFromData;
+    if (isClient && typeof window !== 'undefined') {
+      const localProduct = localStorage.getItem("productDetails");
+      return localProduct ? JSON.parse(localProduct) : productFromStorage;
+    }
+    return productFromStorage;
+  };
+
+  const product = getProduct();
 
   useEffect(() => {
-    if (product) {
+    if (isClient && product) {
       localStorage.setItem("productDetails", JSON.stringify(product));
     }
-  }, [product]);
+  }, [product, isClient]);
 
   // Fallback if no product is found
   if (!product || !product.title) {
@@ -76,6 +86,7 @@ const ShopDetails = ({ params }: ShopDetailsPageProps) => {
     );
   }
 
+  // Rest of your component remains the same...
   const handlePreviewSlider = () => {
     openPreviewModal();
   };
