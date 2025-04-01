@@ -11,7 +11,16 @@ import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
 
-const ShopDetails = ({ params }: { params: { slug: string } }) => {
+// ... other imports
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams?: {
+    [key: string]: string | string[] | undefined;
+  };
+}
+const ShopDetails = ({ params }: PageProps) => {
   const router = useRouter();
   const { slug } = params;
 
