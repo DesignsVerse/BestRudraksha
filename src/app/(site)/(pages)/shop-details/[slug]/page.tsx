@@ -1,3 +1,4 @@
+// src/app/(site)/(pages)/shop-details/[slug]/page.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,15 +12,12 @@ import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
 
-// ... other imports
 interface PageProps {
   params: {
     slug: string;
   };
-  searchParams?: {
-    [key: string]: string | string[] | undefined;
-  };
 }
+
 const ShopDetails = ({ params }: PageProps) => {
   const router = useRouter();
   const { slug } = params;
@@ -63,13 +61,13 @@ const ShopDetails = ({ params }: PageProps) => {
   const colors = ["red", "blue", "orange", "pink", "purple"];
 
   // Fetch product from shopData based on slug
-  const productFromData = shopData.find((item) => item.slug === slug) as Product;
+  const productFromData = shopData.find((item) => item.slug === slug);
 
   // Redux state
   const productFromStorage = useAppSelector((state) => state.productDetailsReducer.value);
 
-  // Get product with proper client-side check
-  const getProduct = () => {
+  // Safely get product from localStorage if available
+  const getProduct = (): Product | null => {
     if (productFromData) return productFromData;
     if (isClient && typeof window !== 'undefined') {
       const localProduct = localStorage.getItem("productDetails");
@@ -95,7 +93,6 @@ const ShopDetails = ({ params }: PageProps) => {
     );
   }
 
-  // Rest of your component remains the same...
   const handlePreviewSlider = () => {
     openPreviewModal();
   };
@@ -127,19 +124,20 @@ const ShopDetails = ({ params }: PageProps) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    {/* Placeholder: Simple square */}
                     <rect x="2" y="2" width="18" height="18" fill="currentColor" />
                   </svg>
                 </button>
-                <Image
-                  src={product.imgs?.previews[previewImg]}
-                  alt={product.title}
-                  width={400}
-                  height={400}
-                />
+                {product.imgs?.previews && (
+                  <Image
+                    src={product.imgs.previews[previewImg]}
+                    alt={product.title}
+                    width={400}
+                    height={400}
+                  />
+                )}
               </div>
               <div className="flex flex-wrap sm:flex-nowrap gap-4.5 mt-6">
-                {product.imgs?.thumbnails.map((item, key) => (
+                {product.imgs?.thumbnails?.map((item, key) => (
                   <button
                     onClick={() => setPreviewImg(key)}
                     key={key}
@@ -178,7 +176,6 @@ const ShopDetails = ({ params }: PageProps) => {
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          {/* Placeholder: Simple star shape */}
                           <rect x="2" y="2" width="14" height="14" fill="currentColor" />
                         </svg>
                       ))}
@@ -193,7 +190,6 @@ const ShopDetails = ({ params }: PageProps) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    {/* Placeholder: Simple circle */}
                     <circle cx="10" cy="10" r="8" fill="#22AD5C" />
                   </svg>
                   <span className="text-green"> In Stock </span>
@@ -216,7 +212,6 @@ const ShopDetails = ({ params }: PageProps) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    {/* Placeholder: Simple checkmark */}
                     <rect x="4" y="4" width="12" height="12" fill="#800000" />
                   </svg>
                   Free delivery available
@@ -229,7 +224,6 @@ const ShopDetails = ({ params }: PageProps) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    {/* Placeholder: Simple checkmark */}
                     <rect x="4" y="4" width="12" height="12" fill="#800000" />
                   </svg>
                   Sales 30% Off Use Code: PROMO30
@@ -312,7 +306,6 @@ const ShopDetails = ({ params }: PageProps) => {
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  {/* Placeholder: Simple square */}
                                   <rect x="4" y="4" width="16" height="16" fill="#800000" />
                                 </svg>
                               </span>
@@ -362,7 +355,6 @@ const ShopDetails = ({ params }: PageProps) => {
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  {/* Placeholder: Simple square */}
                                   <rect x="4" y="4" width="16" height="16" fill="#800000" />
                                 </svg>
                               </span>
@@ -412,7 +404,6 @@ const ShopDetails = ({ params }: PageProps) => {
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  {/* Placeholder: Simple square */}
                                   <rect x="4" y="4" width="16" height="16" fill="#800000" />
                                 </svg>
                               </span>
@@ -440,7 +431,6 @@ const ShopDetails = ({ params }: PageProps) => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        {/* Placeholder: Simple minus sign */}
                         <rect x="4" y="9" width="12" height="2" fill="currentColor" />
                       </svg>
                     </button>
@@ -460,7 +450,6 @@ const ShopDetails = ({ params }: PageProps) => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        {/* Placeholder: Simple plus sign */}
                         <rect x="9" y="4" width="2" height="12" fill="currentColor" />
                         <rect x="4" y="9" width="12" height="2" fill="currentColor" />
                       </svg>
@@ -486,7 +475,6 @@ const ShopDetails = ({ params }: PageProps) => {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      {/* Placeholder: Simple heart */}
                       <rect x="4" y="4" width="16" height="16" fill="currentColor" />
                     </svg>
                   </a>
