@@ -41,7 +41,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   };
 
   return (
-    <div className="group">
+    <div className="group bg-white p-4 rounded-lg shadow-sm relative">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-[#800000] bg-opacity-5 shadow-1 min-h-[270px] mb-4">
         <Image src={item.imgs.previews[0]} alt="" width={250} height={250} />
 
@@ -148,7 +148,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       </div>
 
       <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-        <Link href="/shop-details"> {item.title} </Link>
+        <Link href={`/shop-details/${item.slug}`}>{item.title}</Link>
       </h3>
 
       <span className="flex items-center gap-2 font-medium text-lg">

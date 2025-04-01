@@ -49,10 +49,10 @@ const NewArrival = () => {
 
         {/* Grid layout: 2 columns on mobile, 4 on desktop */}
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {shopData.map((item) => (
-            <ProductItem key={item.id} item={item} />
-          ))}
-        </div>
+  {shopData.slice(0, 8).map((item) => (
+    <ProductItem key={item.id} item={item} />
+  ))}
+</div>
       </div>
     </section>
   );
