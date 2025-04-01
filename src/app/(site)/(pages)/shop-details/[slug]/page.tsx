@@ -11,8 +11,12 @@ import Newsletter from "@/components/Common/Newsletter";
 import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
-
-const ShopDetails = ({ params }: { params: { slug: string } }) => {
+interface ShopDetailsPageProps {
+  params: {
+    slug: string;
+  };
+}
+const ShopDetails = ({ params }: ShopDetailsPageProps) => {
   const router = useRouter();
   const { slug } = params;
 
