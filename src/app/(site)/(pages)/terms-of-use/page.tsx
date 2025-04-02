@@ -22,7 +22,7 @@ const TermsOfUse: React.FC = () => {
                   1. Acceptance of Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to Rudrak ('we', 'us', or 'our'). By accessing or using our website, purchasing Rudraksha beads, or engaging with our spiritual services, you agree to be bound by these Terms of Use ('Terms'). If you do not agree with these Terms, please refrain from using our services.
+                  Welcome to Rudrak (&apos;we&apos;, &apos;us&apos;, or &apos;our&apos;). By accessing or using our website, purchasing Rudraksha beads, or engaging with our spiritual services, you agree to be bound by these Terms of Use (&apos;Terms&apos;). If you do not agree with these Terms, please refrain from using our services.
                 </p>
               </div>
 
@@ -71,7 +71,7 @@ const TermsOfUse: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>Reproduce, distribute, or modify our content without written consent.</li>
-                  <li>Use our trademarks (e.g., 'Rudrak') for commercial purposes without permission.</li>
+                  <li>Use our trademarks (e.g., &apos;Rudrak&apos;) for commercial purposes without permission.</li>
                 </ul>
                 <p className="text-gray-700 mt-2">
                   Limited use for personal, non-commercial purposes (e.g., sharing product links) is permitted.
@@ -107,7 +107,7 @@ const TermsOfUse: React.FC = () => {
                   To the fullest extent permitted by law:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li>Our services and products are provided 'as is' without warranties beyond those expressly stated.</li>
+                  <li>Our services and products are provided &apos;as is&apos; without warranties beyond those expressly stated.</li>
                   <li>We are not liable for indirect, incidental, or consequential damages arising from your use of our services.</li>
                   <li>Our liability is limited to the amount paid for the product or service in question.</li>
                 </ul>
@@ -147,7 +147,7 @@ const TermsOfUse: React.FC = () => {
                   9. Changes to These Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We may update these Terms periodically. Changes will be posted here with an updated 'Last Updated' date. Continued use of our services after changes constitutes acceptance of the revised Terms.
+                  We may update these Terms periodically. Changes will be posted here with an updated &apos;Last Updated&apos; date. Continued use of our services after changes constitutes acceptance of the revised Terms.
                 </p>
               </div>
 
