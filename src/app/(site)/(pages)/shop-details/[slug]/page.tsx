@@ -579,49 +579,40 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/redux/store";
-import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
-import { use } from "react";
-
 
 interface PageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
+
 const ShopDetails = ({ params }: PageProps) => {
   const router = useRouter();
-  const { slug } = use(params);
+  const { slug } = params; // ✅ Directly access `slug` from params
   const productFromStorage = useAppSelector(
     (state) => state.productDetailsReducer.value
   );
 
-  // **State to store the product**
+  // **State for Product**
   const [storedProduct, setStoredProduct] = useState<Product | null>(null);
-  const [isClient, setIsClient] = useState(false); // Detect if we're on the client
 
-  // **Mark as Client-side Rendering**
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
+  // **Effect to Fetch Product (Client-Side)**
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Fetch product from Local Storage only in the browser
       const localProduct = localStorage.getItem("productDetails");
       const productData = localProduct ? JSON.parse(localProduct) : productFromStorage;
+
+      setStoredProduct(productData);
       
-      setStoredProduct(productData); // Update state
-      localStorage.setItem("productDetails", JSON.stringify(productData)); // Store updated data
+      // ✅ Store product in Local Storage if it doesn't exist
+      if (!localProduct && productData) {
+        localStorage.setItem("productDetails", JSON.stringify(productData));
+      }
     }
-  }, [isClient, productFromStorage]);
+  }, [productFromStorage]);
 
-  // **Avoid accessing localStorage on the server**
-  if (!isClient) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
-  // **Fallback if no product is found**
+  // **Fallback for No Product Found**
   if (!storedProduct || !storedProduct.title) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -630,7 +621,7 @@ const ShopDetails = ({ params }: PageProps) => {
     );
   }
 
-  // **Event handler for adding to cart**
+  // **Event Handler for Adding to Cart**
   const handleAddToCart = () => {
     alert(`${storedProduct.title} added to cart!`);
     router.push("/cart");
@@ -638,8 +629,10 @@ const ShopDetails = ({ params }: PageProps) => {
 
   return (
     <div>
-      <h1 className="text-black mt-[50vh]">{storedProduct.title} hiiiiiiiiii </h1>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <h1 className="text-black mt-[50vh]">{storedProduct.title} hiiiiiiiiii</h1>
+      <button onClick={handleAddToCart} className="bg-blue-500 text-white px-4 py-2 rounded">
+        Add to Cart
+      </button>
     </div>
   );
 };
