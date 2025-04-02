@@ -1,6 +1,7 @@
 import React from "react";
 // import ShopDetails from "@/components/ShopDetails";
 import { Metadata } from "next";
+import ShopWithoutSidebar from "@/components/ShopWithoutSidebar";
 
 export const metadata: Metadata = {
   title: "Shop Details Page | NextCommerce Nextjs E-commerce template",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const ShopDetailsPage = () => {
   return (
     <main>
+      <ShopWithoutSidebar/>
       {/* <ShopDetails /> */}
     </main>
   );

@@ -1,7 +1,24 @@
 import { Menu } from "@/types/Menu";
 
 export const menuData: Menu[] = [
-  
+  {
+    id: 1,
+    title: "Popular",
+    newTab: false,
+    path: "/",
+  },
+  {
+    id: 2,
+    title: "Shop",
+    newTab: false,
+    path: "/shop-details",
+  },
+  {
+    id: 3,
+    title: "Contact",
+    newTab: false,
+    path: "/contact",
+  },
   {
     id: 6,
     title: "pages",
@@ -86,7 +103,13 @@ export const menuData: Menu[] = [
         id: 71,
         title: "Blog Grid with sidebar",
         newTab: false,
-        path: "/blogs",
+        path: "/blogs/blog-grid-with-sidebar",
+      },
+      {
+        id: 72,
+        title: "Blog Grid",
+        newTab: false,
+        path: "/blogs/blog-grid",
       },
       {
         id: 73,
@@ -94,25 +117,12 @@ export const menuData: Menu[] = [
         newTab: false,
         path: "/blogs/blog-details-with-sidebar",
       },
+      {
+        id: 74,
+        title: "Blog details",
+        newTab: false,
+        path: "/blogs/blog-details",
+      },
     ],
   },
-  {
-    id: 2,
-    title: "Shop",
-    newTab: false,
-    path: "/shop-without-sidebar",
-  },
-  {
-    id: 4,
-    title: "Blog",
-    newTab: false,
-    path: "/blogs/blog-grid-with-sidebar",
-  },
-  {
-    id: 3,
-    title: "Contact",
-    newTab: false,
-    path: "/contact",
-  },
-  
 ];
