@@ -34,7 +34,7 @@ const HeroCarousel = () => {
       <SwiperSlide>
         <div className="relative w-full h-full min-h-[450px]"> {/* Adjust min-height as needed */}
           <Image
-            src="/images/hero/hero-1.webp"
+            src="/images/hero/banner.jpg"
             alt="headphone"
             fill
             className="object-cover"

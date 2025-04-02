@@ -3,34 +3,28 @@ import { Category } from "@/types/category"; // Adjust path based on your struct
 
 const data: Category[] = [
   {
-    title: "Televisions",
+    title: "Rudraksha",
     id: 1,
-    img: "/images/categories/categories-01.png",
-    link: "/shop/televisions",
+    img: "/images/categories/rudraksha.jpg",
+    link: "/shop/Rudraksha",
   },
   {
-    title: "Laptop & PC",
+    title: "Gemstones",
     id: 2,
-    img: "/images/categories/categories-02.png",
-    link: "/shop/laptops-pcs",
+    img: "/images/categories/gemstone.jpg",
+    link: "/shop/Gemstones",
   },
   {
-    title: "Mobile & Tablets",
+    title: "Special Rudraksha",
     id: 3,
-    img: "/images/categories/categories-03.png",
-    link: "/shop/mobiles-tablets",
+    img: "/images/categories/special-rudraksha.jpg",
+    link: "/shop/Special Rudraksha",
   },
   {
-    title: "Games & Videos",
+    title: "Rudraksha Mala",
     id: 4,
-    img: "/images/categories/categories-04.png",
-    link: "/shop/games-videos",
-  },
-  {
-    title: "Games & Videos",
-    id: 5,
-    img: "/images/categories/categories-04.png",
-    link: "/shop/games-videos-2",
+    img: "/images/categories/rudraksha-mala.jpg",
+    link: "/shop/Rudraksha Mala",
   },
 ];
 

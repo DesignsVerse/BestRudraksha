@@ -17,9 +17,9 @@ const SingleItem = ({ item }: SingleItemProps) => {
         <Image
           src={item.img}
           alt={item.title}
-          width={120}
-          height={120}
-          className="object-contain w-[60%] h-[60%]"
+          width={180}
+          height={180}
+          className="object-contain w-[100%] h-[100%]"
           priority={false}
         />
       </div>

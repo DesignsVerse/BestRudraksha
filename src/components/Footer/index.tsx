@@ -236,27 +236,27 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="#">
+                <a className="ease-out duration-200 hover:text-[#800000]" href="/privacy-policy">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="#">
+                <a className="ease-out duration-200 hover:text-[#800000]" href="/refund-policy">
                   Refund Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="#">
+                <a className="ease-out duration-200 hover:text-[#800000]" href="/terms-of-use">
                   Terms of Use
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="#">
+                <a className="ease-out duration-200 hover:text-[#800000]" href="/faq">
                   FAQ’s
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="#">
+                <a className="ease-out duration-200 hover:text-[#800000]" href="/contact">
                   Contact
                 </a>
               </li>
