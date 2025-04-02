@@ -67,7 +67,7 @@ const ShopDetails = ({ params }: PageProps) => {
   const getProduct = (): Product | null => {
     if (productFromData) return productFromData;
     if (isClient && typeof window !== "undefined") {
-      const localProduct = global.localStorage.getItem("productDetails");
+      const localProduct = localStorage.getItem("productDetails");
       return localProduct ? JSON.parse(localProduct) : productFromStorage;
     }
     return productFromStorage;
@@ -77,10 +77,10 @@ const ShopDetails = ({ params }: PageProps) => {
 
   // Sync product to localStorage
   useEffect(() => {
-    if (isClient && product) {
-      global.localStorage.setItem("productDetails", JSON.stringify(product));
+    if (isClient && product && typeof window!== "undefined") {
+      localStorage.setItem("productDetails", JSON.stringify(product));
     }
-  }, [product,isClient ]);
+  }, [product, isClient]);
 
   // Fallback for no product
   if (!product || !product.title) {
@@ -572,3 +572,5 @@ const ShopDetails = ({ params }: PageProps) => {
 };
 
 export default ShopDetails;
+
+
