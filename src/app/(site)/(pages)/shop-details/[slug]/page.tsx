@@ -80,7 +80,7 @@ const ShopDetails = ({ params }: PageProps) => {
     if (isClient && product) {
       localStorage.setItem("productDetails", JSON.stringify(product));
     }
-  }, [product, isClient]);
+  }, [isClient,product ]);
 
   // Fallback for no product
   if (!product || !product.title) {
