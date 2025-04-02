@@ -1,5 +1,5 @@
 import React from "react";
-import Breadcrumb from "../../../../components/Common/Breadcrumb"; // Assuming this is also typed in your project
+import Breadcrumb from "@/components/Common/Breadcrumb";
 
 const PrivacyPolicy: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const PrivacyPolicy: React.FC = () => {
                   1. Introduction
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to Rudrak ("we," "us," or "our"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website, purchase Rudraksha beads, or engage with our spiritual services. By using our services, you agree to the terms outlined herein.
+                  Welcome to Rudrak (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website, purchase Rudraksha beads, or engage with our spiritual services. By using our services, you agree to the terms outlined herein.
                 </p>
               </div>
 
@@ -144,7 +144,7 @@ const PrivacyPolicy: React.FC = () => {
                   8. International Data Transfers
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  As a business rooted in India, your data may be processed globally. We ensure compliance with applicable data protection laws, including GDPR and India’s Digital Personal Data Protection Act, where relevant.
+                  As a business rooted in India, your data may be processed globally. We ensure compliance with applicable data protection laws, including GDPR and India&apos;s Digital Personal Data Protection Act, where relevant.
                 </p>
               </div>
 
@@ -154,7 +154,7 @@ const PrivacyPolicy: React.FC = () => {
                   9. Changes to This Policy
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We may update this Privacy Policy periodically. Changes will be posted here with an updated "Last Updated" date. We encourage you to review this page regularly.
+                  We may update this Privacy Policy periodically. Changes will be posted here with an updated &quot;Last Updated&quot; date. We encourage you to review this page regularly.
                 </p>
               </div>
 
