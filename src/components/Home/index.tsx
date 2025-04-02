@@ -4,9 +4,10 @@ import Categories from "./Categories";
 import NewArrival from "./NewArrivals";
 import PromoBanner from "./PromoBanner";
 import BestSeller from "./BestSeller";
-import CounDown from "./Countdown";
+import CounDown from "./Rudraksha";
 import Testimonials from "./Testimonials";
 import Newsletter from "../Common/Newsletter";
+import Rudraksha from "./Rudraksha";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       <NewArrival />
       <PromoBanner />
       <BestSeller />
-      <CounDown />
+      <Rudraksha/>
       <Testimonials />
       {/* <Newsletter /> */}
     </main>

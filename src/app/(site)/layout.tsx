@@ -12,7 +12,8 @@ import CartSidebarModal from "@/components/Common/CartSidebarModal";
 import { PreviewSliderProvider } from "../context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
-import PreLoader from "@/components/Common/PreLoader";
+import NavigationBar from "@/components/Common/Mobileviewcategory";
+
 
 export default function RootLayout({
   children,
@@ -44,6 +45,7 @@ export default function RootLayout({
             </CartModalProvider>
           </ReduxProvider>
           <ScrollToTop />
+          <NavigationBar/>
           <Footer />
         </div>
       </body>
