@@ -45,8 +45,9 @@ export default function RootLayout({
             </CartModalProvider>
           </ReduxProvider>
           <ScrollToTop />
-          <NavigationBar/>
+          
           <Footer />
+          <NavigationBar/>
         </div>
       </body>
     </html>
