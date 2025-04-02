@@ -581,16 +581,17 @@ import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/redux/store";
 import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
+import { use } from "react";
+
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
-
 const ShopDetails = ({ params }: PageProps) => {
   const router = useRouter();
-  const { slug } = params;
+  const { slug } = use(params);
   const productFromStorage = useAppSelector(
     (state) => state.productDetailsReducer.value
   );
