@@ -582,14 +582,12 @@ import { useAppSelector } from "@/redux/store";
 import { Product } from "@/types/product";
 
 interface PageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string }; // ✅ Fix: No Promise
 }
 
 const ShopDetails = ({ params }: PageProps) => {
   const router = useRouter();
-  const { slug } = params; // ✅ Directly access `slug` from params
+  const { slug } = params; // ✅ Directly access slug
   const productFromStorage = useAppSelector(
     (state) => state.productDetailsReducer.value
   );
@@ -604,8 +602,7 @@ const ShopDetails = ({ params }: PageProps) => {
       const productData = localProduct ? JSON.parse(localProduct) : productFromStorage;
 
       setStoredProduct(productData);
-      
-      // ✅ Store product in Local Storage if it doesn't exist
+
       if (!localProduct && productData) {
         localStorage.setItem("productDetails", JSON.stringify(productData));
       }
@@ -629,7 +626,7 @@ const ShopDetails = ({ params }: PageProps) => {
 
   return (
     <div>
-      <h1 className="text-black mt-[50vh]">{storedProduct.title} hiiiiiiiiii</h1>
+      <h1 className="text-black mt-[50vh]">{storedProduct.title}</h1>
       <button onClick={handleAddToCart} className="bg-blue-500 text-white px-4 py-2 rounded">
         Add to Cart
       </button>
