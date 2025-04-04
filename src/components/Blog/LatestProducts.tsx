@@ -20,7 +20,7 @@ const LatestProducts = ({ products }) => {
 
               <div>
                 <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-        <Link href={`/shop-details/${product.slug}`}>{product.title}</Link>
+        <Link href={`/shop/${product.slug}`}>{product.title}</Link>
       </h3>
                 <p className="text-custom-sm">Price: ${product.price}</p>
               </div>
