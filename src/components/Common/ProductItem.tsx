@@ -89,7 +89,7 @@ const ProductItem = ({ item }: { item: Product }) => {
 
         {/* View More Button */}
         <Link
-          href="/shop-details"
+          href="/shop"
           onClick={handleProductDetails}
           className="inline-block bg-[#800000] text-white font-medium text-sm py-2 px-4 rounded hover:bg-[#800000]/90 transition-colors"
         >
@@ -189,7 +189,7 @@ const ProductItem = ({ item }: { item: Product }) => {
 
         
         <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-        <Link href={`/shop-details/${item.slug}`}>{item.title}</Link>
+        <Link href={`/shop/${item.slug}`}>{item.title}</Link>
       </h3>
 
         <span className="flex items-center gap-2 font-medium text-lg">
