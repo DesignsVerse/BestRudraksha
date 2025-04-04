@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "slug": "how-to-start-a-successful-e-commerce-business",
+    "date": "Mar 27, 2022",
+    "views": 300000,
+    "title": "How to Start a Successful E-commerce Business",
+    "img": "/images/blog/blog-01.jpg",
+    "content": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet eros ac ipsum egestas dapibus. Vivamus gravida, ex non placerat tincidunt, lorem felis facilisis tellus, vitae bibendum purus felis eget tellus. In non rutrum ipsum. Morbi ut dui ante.",
+      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus. Maecenas mollis dui nec metus euismod, sed aliquam risus luctus."
+    ],
+    "tags": ["E-commerce", "Business", "Startup"],
+    "author": {
+      "name": "Jhon Drineo",
+      "role": "Entrepreneur",
+      "avatar": "/images/users/user-04.jpg"
+    },
+    "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt labore et dolore magna aliqua."
+  },
+  {
+    "id": 2,
+    "slug": "the-benefits-of-regular-exercise-for-a-healthy-lifestyle",
+    "date": "Mar 27, 2022",
+    "views": 250000,
+    "title": "The Benefits of Regular Exercise for a Healthy Lifestyle",
+    "img": "/images/blog/blog-02.jpg",
+    "content": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus."
+    ],
+    "tags": ["Health", "Fitness", "Lifestyle"],
+    "author": {
+      "name": "Jane Smith",
+      "role": "Fitness Coach",
+      "avatar": "/images/users/user-02.jpg"
+    },
+    "quote": "Exercise is the key to a healthy mind and body."
+  },
+  {
+    "id": 3,
+    "slug": "the-benefits-of-regular-exercise-for-a-healthy-lifestyle",
+    "date": "Mar 27, 2022",
+    "views": 250000,
+    "title": "The Benefits of Regular Exercise for a Healthy Lifestyle",
+    "img": "/images/blog/blog-02.jpg",
+    "content": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus."
+    ],
+    "tags": ["Health", "Fitness", "Lifestyle"],
+    "author": {
+      "name": "Jane Smith",
+      "role": "Fitness Coach",
+      "avatar": "/images/users/user-02.jpg"
+    },
+    "quote": "Exercise is the key to a healthy mind and body."
+  }
+]
