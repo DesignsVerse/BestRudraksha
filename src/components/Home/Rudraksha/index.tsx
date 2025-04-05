@@ -33,7 +33,7 @@ export default function Rudraksha() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white shadow-lg">
               <Image
-                src="/images/blog/blog-01.jpg"
+                src="/images/products/a.png"
                 alt="1-14 Mukhi Rudraksha Mala"
                 width={400}
                 height={300}
@@ -49,14 +49,14 @@ export default function Rudraksha() {
 
             <div className="bg-white shadow-lg">
               <Image
-                src="/images/blog/blog-01.jpg"
+                src="/images/ruby.png"
                 alt="Special Rudraksha"
                 width={400}
                 height={300}
                 className="w-full"
               />
               <div className="p-4">
-                <h2 className="text-lg font-semibold">SPECIAL RUDRAKSHA</h2>
+                <h2 className="text-lg font-semibold">Gemstone</h2>
                 <a href="#" className="text-red-600">
                   Explore More &gt;
                 </a>
@@ -65,7 +65,7 @@ export default function Rudraksha() {
 
             <div className="bg-white shadow-lg">
               <Image
-                src="/images/blog/blog-01.jpg"
+                src="/images/mala.png"
                 alt="Rudraksha Mala"
                 width={400}
                 height={300}

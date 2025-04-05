@@ -3,7 +3,6 @@ import SingleItem from "./SingleItem";
 import Image from "next/image";
 import Link from "next/link";
 import shopData from "@/components/Shop/shopData";
-
 const BestSeller = () => {
   return (
     <section className="overflow-hidden bg-[#FFFAF5]">

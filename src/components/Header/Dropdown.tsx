@@ -1,63 +1,66 @@
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
+import { Menu } from "@/types/Menu";
 
-const Dropdown = ({ menuItem, stickyMenu }) => {
-  const [dropdownToggler, setDropdownToggler] = useState(false);
-  const pathUrl = usePathname();
+interface DropdownProps {
+  menuItem: Menu;
+  stickyMenu: boolean;
+  mobile?: boolean;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ menuItem, stickyMenu, mobile }) => {
+  const [isOpen, setIsOpen] = useState(false); // Default false rakha hai
 
   return (
     <li
-      onClick={() => setDropdownToggler(!dropdownToggler)}
-      className={`group relative before:w-0 before:h-[3px] before:bg-blue before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full ${
-        pathUrl.includes(menuItem.title) && "before:!w-full"
-      }`}
+      className={`relative group ${mobile ? "w-full" : ""}`}
+      onMouseEnter={() => !mobile && setIsOpen(true)} // Desktop hover pe open
+      onMouseLeave={() => !mobile && setIsOpen(false)} // Desktop hover hatne pe close
     >
-      <a
-        href="#"
-        className={`hover:text-blue text-custom-sm font-medium text-dark flex items-center gap-1.5 capitalize ${
+      <div
+        className={`text-[#800000] hover:text-[#800000]/80 text-custom-sm font-medium flex items-center cursor-pointer ${
           stickyMenu ? "xl:py-4" : "xl:py-6"
-        } ${pathUrl.includes(menuItem.title) && "!text-blue"}`}
+        } ${mobile ? "py-2" : ""}`}
+        onClick={() => mobile && setIsOpen(!isOpen)} // Mobile mein click pe toggle
       >
-        {menuItem.title}
+        <Link href={menuItem.path}>{menuItem.title}</Link>
         <svg
-          className="fill-current cursor-pointer"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
+          className="ml-2 w-4 h-4"
           fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M2.95363 5.67461C3.13334 5.46495 3.44899 5.44067 3.65866 5.62038L7.99993 9.34147L12.3412 5.62038C12.5509 5.44067 12.8665 5.46495 13.0462 5.67461C13.2259 5.88428 13.2017 6.19993 12.992 6.37964L8.32532 10.3796C8.13808 10.5401 7.86178 10.5401 7.67453 10.3796L3.00787 6.37964C2.7982 6.19993 2.77392 5.88428 2.95363 5.67461Z"
-            fill=""
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
           />
         </svg>
-      </a>
-
-      {/* <!-- Dropdown Start --> */}
-      <ul
-        className={`dropdown ${dropdownToggler && "flex"} ${
-          stickyMenu
-            ? "xl:group-hover:translate-y-0"
-            : "xl:group-hover:translate-y-0"
-        }`}
-      >
-        {menuItem.submenu.map((item, i) => (
-          <li key={i}>
-            <Link
-              href={item.path}
-              className={`flex text-custom-sm hover:text-blue hover:bg-gray-1 py-[7px] px-4.5 ${
-                pathUrl === item.path && "text-blue bg-gray-1"
-              } `}
-            >
-              {item.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      </div>
+      {isOpen && ( // Sirf jab isOpen true ho tab submenu dikhe
+        <ul
+          className={`${
+            mobile
+              ? "pl-4"
+              : "absolute left-0 top-full bg-[#FFFAF5] shadow-lg border border-[#800000]/20 rounded-md"
+          } w-max`}
+        >
+          {menuItem.submenu?.map((subItem) => (
+            <li key={subItem.id} className="w-full">
+              <Link
+                href={subItem.path}
+                className="text-[#800000] hover:text-[#800000]/80 text-custom-sm font-medium block py-2 px-4 w-full"
+                onClick={() => mobile && setIsOpen(false)} // Mobile mein click pe band ho
+              >
+                {subItem.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </li>
   );
 };
