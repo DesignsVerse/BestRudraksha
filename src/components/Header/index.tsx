@@ -25,7 +25,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleStickyMenu);
   }, []);
 
-  // Icons
+  // Icons (unchanged)
   const SearchIcon = () => (
     <svg className="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M16.5 16.5L12.875 12.875M14.5 8.25C14.5 11.7018 11.7018 14.5 8.25 14.5C4.79822 14.5 2 11.7018 2 8.25C2 4.79822 4.79822 2 8.25 2C11.7018 2 14.5 4.79822 14.5 8.25Z" stroke="#800000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -92,16 +92,16 @@ const Header = () => {
           <div className="hidden xl:flex flex-grow justify-center items-center">
             <nav>
               <ul className="flex items-center gap-8">
-                {menuData.map((menuItem, i) =>
+                {menuData.map((menuItem) =>
                   menuItem.submenu ? (
                     <Dropdown
-                      key={i}
+                      key={menuItem.id}
                       menuItem={menuItem}
                       stickyMenu={stickyMenu}
                     />
                   ) : (
                     <li
-                      key={i}
+                      key={menuItem.id}
                       className="group relative before:w-0 before:h-[3px] before:bg-[#800000] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
                     >
                       <Link
@@ -155,15 +155,16 @@ const Header = () => {
           >
             <nav className="p-5">
               <ul className="flex flex-col gap-4">
-                {menuData.map((menuItem, i) =>
+                {menuData.map((menuItem) =>
                   menuItem.submenu ? (
                     <Dropdown
-                      key={i}
+                      key={menuItem.id}
                       menuItem={menuItem}
                       stickyMenu={stickyMenu}
+                      mobile
                     />
                   ) : (
-                    <li key={i} className="w-full">
+                    <li key={menuItem.id} className="w-full">
                       <Link
                         href={menuItem.path}
                         className="text-[#800000] hover:text-[#800000]/80 text-custom-sm font-medium block py-2 w-full"

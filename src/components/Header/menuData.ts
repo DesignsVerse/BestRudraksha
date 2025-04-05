@@ -12,21 +12,35 @@ export const menuData: Menu[] = [
     title: "Shop",
     newTab: false,
     path: "/shop",
+    submenu: [
+      {
+        id: 50,
+        title: "1-14 Mukhi Rudraksha",
+        newTab: false,
+        path: "/shop-filter/1-14-mukhi-rudraksha",
+      },
+      {
+        id: 51,
+        title: "Gemstones",
+        newTab: false,
+        path: "/shop-filter/gemstones",
+      },
+    ]
   },
   {
-    id: 2,
+    id: 3,
     title: "Blog",
     newTab: false,
     path: "/blog",
   },
   {
-    id: 3,
+    id: 4,
     title: "Contact",
     newTab: false,
     path: "/contact",
   },
   {
-    id: 6,
+    id: 5,
     title: "pages",
     newTab: false,
     path: "/",
@@ -100,7 +114,7 @@ export const menuData: Menu[] = [
     ],
   },
   {
-    id: 7,
+    id: 6,
     title: "blogs",
     newTab: false,
     path: "/",

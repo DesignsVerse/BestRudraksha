@@ -6,7 +6,8 @@ const data: Category[] = [
     title: "Rudraksha",
     id: 1,
     img: "/images/categories/rudraksha.jpg",
-    link: "/shop/Rudraksha",
+    link: "/shop-filter/1-14-mukhi-rudraksha",
+    
   },
   {
     title: "Gemstones",
