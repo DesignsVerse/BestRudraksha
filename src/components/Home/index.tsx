@@ -8,6 +8,7 @@ import CounDown from "./Rudraksha";
 import Testimonials from "./Testimonials";
 import Newsletter from "../Common/Newsletter";
 import Rudraksha from "./Rudraksha";
+import Blog from "./Blog";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <BestSeller />
       <Rudraksha/>
       <Testimonials />
+      <Blog/>
       {/* <Newsletter /> */}
     </main>
   );

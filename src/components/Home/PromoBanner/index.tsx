@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const PromoBanner = () => {
   return (
-    <section className="overflow-hidden py-12 bg-[#f8f3ee]">
+    <section className="overflow-hidden py-12 bg-[#FFFAF5]">
       <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main large promo banner */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#5c3c1a] to-[#8b5a2b] py-10 lg:py-16 px-6 sm:px-10 lg:px-16 mb-6 shadow-lg">

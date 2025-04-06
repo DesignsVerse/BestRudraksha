@@ -1,5 +1,5 @@
-// src/components/Common/ProductItem.tsx
 "use client";
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import { Product } from "@/types/product";
@@ -15,6 +15,7 @@ import Link from "next/link";
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
   const dispatch = useDispatch<AppDispatch>();
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
   const handleQuickViewUpdate = () => {
     dispatch(updateQuickView({ ...item }));
@@ -26,6 +27,7 @@ const ProductItem = ({ item }: { item: Product }) => {
 
   const handleItemToWishList = () => {
     dispatch(addItemToWishlist({ ...item, status: "available", quantity: 1 }));
+    setIsWishlisted((prev) => !prev);
   };
 
   const handleProductDetails = () => {
@@ -149,7 +151,9 @@ const ProductItem = ({ item }: { item: Product }) => {
             <button
               onClick={handleItemToWishList}
               aria-label="Add to wishlist"
-              className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-blue"
+              className={`flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark ${
+                isWishlisted ? "bg-red-500 text-white" : "bg-white hover:text-blue"
+              }`}
             >
               <svg
                 className="fill-current"
@@ -187,10 +191,9 @@ const ProductItem = ({ item }: { item: Product }) => {
           <p className="text-custom-sm">({item.reviews})</p>
         </div>
 
-        
         <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
-        <Link href={`/shop/${item.slug}`}>{item.title}</Link>
-      </h3>
+          <Link href={`/shop/${item.slug}`}>{item.title}</Link>
+        </h3>
 
         <span className="flex items-center gap-2 font-medium text-lg">
           <span className="text-dark">${item.discountedPrice}</span>
