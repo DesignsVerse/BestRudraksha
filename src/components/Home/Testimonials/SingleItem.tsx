@@ -44,7 +44,7 @@ const SingleItem = ({ testimonial }: { testimonial: Testimonial }) => {
 
       {/* Review text */}
       <p className="text-dark-2 mb-4 text-center px-2">
-        "{testimonial.review}"
+        &quot;{testimonial.review}&quot;
       </p>
 
       {/* Author role */}
