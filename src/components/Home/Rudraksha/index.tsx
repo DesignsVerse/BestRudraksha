@@ -23,15 +23,14 @@ export default function Rudraksha() {
         `}</style>
       </Head>
 
-      
-
-      <main className='pt-20 pb-20'>
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-red ">
+      <main className="pt-20 pb-20">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-black">
           Every bead, an ancient blessing
         </h1>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white shadow-lg">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            {/* First small box - visible in both mobile and desktop */}
+            <div className="bg-white shadow-lg col-span-1">
               <Image
                 src="/images/products/a.png"
                 alt="1-14 Mukhi Rudraksha Mala"
@@ -42,12 +41,13 @@ export default function Rudraksha() {
               <div className="p-4">
                 <h2 className="text-lg font-semibold">1-14 MUKHI RUDRAKSHA MALA</h2>
                 <a href="#" className="text-red-600">
-                  Explore More &gt;
+                  Explore More 
                 </a>
               </div>
             </div>
 
-            <div className="bg-white shadow-lg">
+            {/* Second small box - visible in both mobile and desktop */}
+            <div className="bg-white shadow-lg col-span-1">
               <Image
                 src="/images/ruby.png"
                 alt="Special Rudraksha"
@@ -58,12 +58,13 @@ export default function Rudraksha() {
               <div className="p-4">
                 <h2 className="text-lg font-semibold">Gemstone</h2>
                 <a href="#" className="text-red-600">
-                  Explore More &gt;
+                  Explore More 
                 </a>
               </div>
             </div>
 
-            <div className="bg-white shadow-lg">
+            {/* Larger box - takes full width in mobile, third column in desktop */}
+            <div className="bg-white shadow-lg col-span-2 md:col-span-1">
               <Image
                 src="/images/mala.png"
                 alt="Rudraksha Mala"
@@ -74,7 +75,7 @@ export default function Rudraksha() {
               <div className="p-4">
                 <h2 className="text-lg font-semibold">RUDRAKSHA MALA</h2>
                 <a href="#" className="text-red-600">
-                  Explore More &gt;
+                  Explore More 
                 </a>
               </div>
             </div>
@@ -84,8 +85,6 @@ export default function Rudraksha() {
     </div>
   );
 }
-
-
 
 
 // "use client";
