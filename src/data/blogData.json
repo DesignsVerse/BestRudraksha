@@ -1,59 +1,47 @@
 [
-  {
-    "id": 1,
-    "slug": "how-to-start-a-successful-e-commerce-business",
-    "date": "Mar 27, 2022",
-    "views": 300000,
-    "title": "How to Start a Successful E-commerce Business",
-    "img": "/images/blog/blog-01.jpg",
-    "content": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet eros ac ipsum egestas dapibus. Vivamus gravida, ex non placerat tincidunt, lorem felis facilisis tellus, vitae bibendum purus felis eget tellus. In non rutrum ipsum. Morbi ut dui ante.",
-      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus. Maecenas mollis dui nec metus euismod, sed aliquam risus luctus."
-    ],
-    "tags": ["E-commerce", "Business", "Startup"],
-    "author": {
-      "name": "Jhon Drineo",
-      "role": "Entrepreneur",
-      "avatar": "/images/users/user-04.jpg"
-    },
-    "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt labore et dolore magna aliqua."
-  },
+  
   {
     "id": 2,
-    "slug": "the-benefits-of-regular-exercise-for-a-healthy-lifestyle",
-    "date": "Mar 27, 2022",
-    "views": 250000,
-    "title": "The Benefits of Regular Exercise for a Healthy Lifestyle",
-    "img": "/images/blog/blog-02.jpg",
+    "slug": "how-to-choose-the-right-rudraksha-for-your-zodiac-sign",
+    "date": "Apr 6, 2025",
+    "views": 150000,
+    "title": "How to Choose the Right Rudraksha for Your Zodiac Sign",
+    "img": "/images/blog/rudraksha-zodiac.jpg",
     "content": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus."
+      "Rudraksha beads are sacred seeds revered in Hinduism and Ayurveda for their spiritual and healing properties. Wearing the **best Rudraksha** aligned with your zodiac sign can amplify cosmic energies, bringing balance, success, and protection. But how do you pick the right one? Let’s explore the ideal **Nepali Rudraksha** or **Ujjain Rudraksha** for each zodiac sign.",
+
+      "### 1. **Aries (March 21 – April 19)**  \nAries, ruled by Mars, benefits from a **3-mukhi Rudraksha** to enhance courage and reduce anger. For career growth, pair it with a **real Rudraksha** like the 10-mukhi for Saturn’s stability.",
+
+      "### 2. **Taurus (April 20 – May 20)**  \nVenus-ruled Taurus should wear a **6-mukhi Rudraksha** for harmony in relationships and finances. **Nepali Rudraksha** beads are ideal for their purity and vibrational energy.",
+
+      "### 3. **Gemini (May 21 – June 20)**  \nMercury’s influence calls for a **4-mukhi Rudraksha** to boost communication and intellect. A **5-mukhi Ujjain Rudraksha** can also calm Gemini’s restless mind.",
+
+      "### 4. **Cancer (June 21 – July 22)**  \nMoon-ruled Cancerians thrive with a **2-mukhi Rudraksha** for emotional balance. Combine it with a **11-mukhi** (for Jupiter) to attract wisdom.",
+
+      "### 5. **Leo (July 23 – August 22)**  \nThe Sun’s sign needs a **1-mukhi Rudraksha** for leadership and confidence. Ensure it’s a **real Rudraksha** sourced from Nepal for maximum potency.",
+
+      "### 6. **Virgo (August 23 – September 22)**  \nA **10-mukhi Rudraksha** (Saturn) helps detail-oriented Virgos overcome anxiety. Pair it with a **4-mukhi** for Mercury’s clarity.",
+
+      "### 7. **Libra (September 23 – October 22)**  \nLibrans benefit from a **7-mukhi Rudraksha** (Venus) for love and creativity. **Ujjain Rudraksha** beads are renowned for their Venusian energy.",
+
+      "### 8. **Scorpio (October 23 – November 21)**  \nMars-ruled Scorpios should wear a **3-mukhi** for courage or a **14-mukhi** (Hanuman) for protection against negativity.",
+
+      "### 9. **Sagittarius (November 22 – December 21)**  \nJupiter’s children need a **5-mukhi** for health or a **12-mukhi** for spiritual growth. **Nepali Rudraksha** beads align well with their fiery energy.",
+
+      "### 10. **Capricorn (December 22 – January 19)**  \nA **7-mukhi** (Saturn) aids discipline, while a **10-mukhi** mitigates Saturn’s harsh effects. Choose a **real Rudraksha** with deep grooves.",
+
+      "### 11. **Aquarius (January 20 – February 18)**  \nInnovative Aquarians benefit from a **4-mukhi** (Mercury) or **6-mukhi** (Venus) for social connections.",
+
+      "### 12. **Pisces (February 19 – March 20)**  \nA **2-mukhi** (Moon) or **11-mukhi** (Jupiter) enhances Pisces’ intuition. **Ujjain Rudraksha** beads infused with lunar energy are ideal.",
+
+      "### Pro Tips:  \n- Always buy **real Rudraksha** from trusted sellers (Nepal/Ujjain).  \n- Cleanse beads in milk/Ganga jal before wearing.  \n- Pair with your birthstone for amplified effects."
     ],
-    "tags": ["Health", "Fitness", "Lifestyle"],
+    "tags": ["Rudraksha", "Zodiac", "Astrology", "Spirituality"],
     "author": {
-      "name": "Jane Smith",
-      "role": "Fitness Coach",
-      "avatar": "/images/users/user-02.jpg"
+      "name": "Guru Dev",
+      "role": "Vedic Astrologer",
+      "avatar": "/images/users/rudraksha-expert.jpg"
     },
-    "quote": "Exercise is the key to a healthy mind and body."
-  },
-  {
-    "id": 3,
-    "slug": "the-benefits-of-regular-exercise-for-a-healthy-lifestyle",
-    "date": "Mar 27, 2022",
-    "views": 250000,
-    "title": "The Benefits of Regular Exercise for a Healthy Lifestyle",
-    "img": "/images/blog/blog-02.jpg",
-    "content": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Nunc faucibus libero sem, quis placerat nisl pellentesque eget. Morbi porta velit ut leo sollicitudin, a faucibus purus faucibus."
-    ],
-    "tags": ["Health", "Fitness", "Lifestyle"],
-    "author": {
-      "name": "Jane Smith",
-      "role": "Fitness Coach",
-      "avatar": "/images/users/user-02.jpg"
-    },
-    "quote": "Exercise is the key to a healthy mind and body."
+    "quote": "A genuine Rudraksha aligned with your zodiac sign is a bridge between earthly life and cosmic blessings."
   }
 ]

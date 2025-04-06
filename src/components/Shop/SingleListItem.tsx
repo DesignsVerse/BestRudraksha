@@ -115,8 +115,8 @@ const SingleListItem = ({ item }: { item: Product }) => {
         <Link href={`/shop/${item.slug}`}>{item.title}</Link>
       </h3>
             <span className="flex items-center gap-2 font-medium text-lg">
-              <span className="text-dark">${item.discountedPrice}</span>
-              <span className="text-dark-4 line-through">${item.price}</span>
+              <span className="text-dark">₹{item.discountedPrice}</span>
+              <span className="text-dark-4 line-through">₹{item.price}</span>
             </span>
           </div>
 

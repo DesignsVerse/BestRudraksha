@@ -11,6 +11,7 @@ const initialState = {
     reviews: 0,
     slug:"",
     price: 0,
+    description:"",
     discountedPrice: 0,
     img: "",
     images: [],

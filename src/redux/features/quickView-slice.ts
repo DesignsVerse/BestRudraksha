@@ -12,6 +12,8 @@ const initialState: InitialState = {
     slug: "",
     price: 0,
     discountedPrice: 0,
+    description: "", // Added missing field
+
     img: "",
     id: 0,
     images: [],
