@@ -82,10 +82,10 @@ const ProductItem = ({ item }: { item: Product }) => {
         {/* Price */}
         <div className="flex items-center justify-center gap-2 mb-3">
           <span className="text-dark font-semibold text-lg">
-            ₹{item.discountedPrice.toFixed(2)}
+          ₹{item.discountedPrice.toFixed(2)}
           </span>
           <span className="text-gray-500 line-through text-sm">
-            ₹{item.price.toFixed(2)}
+          ₹{item.price.toFixed(2)}
           </span>
         </div>
 
@@ -196,8 +196,8 @@ const ProductItem = ({ item }: { item: Product }) => {
         </h3>
 
         <span className="flex items-center gap-2 font-medium text-lg">
-          <span className="text-dark">${item.discountedPrice}</span>
-          <span className="text-dark-4 line-through">${item.price}</span>
+          <span className="text-dark">₹{item.discountedPrice}</span>
+          <span className="text-dark-4 line-through">₹{item.price}</span>
         </span>
       </div>
     </div>
