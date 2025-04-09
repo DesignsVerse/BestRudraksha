@@ -10,17 +10,20 @@ const initialState: InitialState = {
     title: "",
     reviews: 0,
     slug: "",
-    price: 0,
-    discountedPrice: 0,
-    description: "", // Added missing field
-
+    price: 0, // Default top-level price (optional)
+    discountedPrice: 0, // Default top-level discounted price (optional)
+    description: "",
     img: "",
     id: 0,
     images: [],
-    imgs: {  // Now included in initial state
+    imgs: {
       thumbnails: [],
       previews: []
     },
+    sizes: [
+      { name: "Regular", price: 0, discountedPrice: 0 }, // Default size
+      { name: "Premium", price: 0, discountedPrice: 0 }  // Default size
+    ]
   },
 };
 

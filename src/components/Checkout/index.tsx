@@ -84,7 +84,7 @@ const Checkout = () => {
                         <p className="text-dark">Asus RT Dual Band Router</p>
                       </div>
                       <div>
-                        <p className="text-dark text-right">$129.00</p>
+                        <p className="text-dark text-right">₹129.00</p>
                       </div>
                     </div>
 
