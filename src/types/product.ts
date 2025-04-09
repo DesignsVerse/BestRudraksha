@@ -1,8 +1,14 @@
 export type Product = {
   title: string;
   reviews: number;
+  price: number; // Optional ab, sizes pe depend karega
   slug: string;
-  price: number;
+  sizes: {
+    name: string;
+    price: number;
+    discountedPrice?: number;
+    // any other size-specific fields
+  }[];
   img: string;
   description:string,
   discountedPrice: number;

@@ -5,7 +5,6 @@ import blogData from "../../data/blogData.json"; // Import JSON file
 import SearchForm from "../Blog/SearchForm";
 import LatestPosts from "../Blog/LatestPosts";
 import LatestProducts from "../Blog/LatestProducts";
-import Categories from "../Blog/Categories";
 import shopData from "@/components/Shop/shopData";
 
 const BlogGridWithSidebar = () => {
@@ -76,7 +75,6 @@ const BlogGridWithSidebar = () => {
               <SearchForm />
               <LatestPosts blogs={blogData} />
               <LatestProducts products={shopData} />
-              <Categories categories={categories} />
               <div className="shadow-1 bg-white rounded-xl mt-7.5">
                 <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">
                   <h2 className="font-medium text-lg text-dark">Tags</h2>

@@ -34,9 +34,10 @@ const ProductItem = ({ item }: { item: Product }) => {
     dispatch(updateproductDetails({ ...item }));
   };
 
-  // Calculate discount percentage
+  // Use "Regular" size (index 0) as default for price display
+  const regularSize = item.sizes[0]; // Assuming "Regular" is always first
   const discountPercentage = Math.round(
-    ((item.price - item.discountedPrice) / item.price) * 100
+    ((regularSize.price - (regularSize.discountedPrice || regularSize.price)) / regularSize.price) * 100
   );
 
   return (
@@ -79,13 +80,13 @@ const ProductItem = ({ item }: { item: Product }) => {
             ))}
         </div>
 
-        {/* Price */}
+        {/* Price - Updated to use regularSize */}
         <div className="flex items-center justify-center gap-2 mb-3">
           <span className="text-dark font-semibold text-lg">
-          ₹{item.discountedPrice.toFixed(2)}
+            ₹{regularSize.discountedPrice?.toFixed(2) || regularSize.price.toFixed(2)}
           </span>
           <span className="text-gray-500 line-through text-sm">
-          ₹{item.price.toFixed(2)}
+            ₹{regularSize.price.toFixed(2)}
           </span>
         </div>
 
@@ -195,9 +196,14 @@ const ProductItem = ({ item }: { item: Product }) => {
           <Link href={`/shop/${item.slug}`}>{item.title}</Link>
         </h3>
 
+        {/* Price - Updated to use regularSize */}
         <span className="flex items-center gap-2 font-medium text-lg">
-          <span className="text-dark">₹{item.discountedPrice}</span>
-          <span className="text-dark-4 line-through">₹{item.price}</span>
+          <span className="text-dark">
+            ₹{ regularSize.price.toLocaleString("en-IN")}
+          </span>
+          <span className="text-dark-4 line-through">
+            ₹{regularSize.discountedPrice?.toLocaleString("en-IN") }
+          </span>
         </span>
       </div>
     </div>

@@ -8,15 +8,15 @@ import LatestProducts from "@/components/Blog/LatestProducts";
 import Image from "next/image";
 import shopData from "@/components/Shop/shopData";
 import blogData from "@/data/blogData.json";
-import { useParams } from "next/navigation"; // Use useParams instead of useRouter
+import { useParams } from "next/navigation";
 
 const BlogDetailsWithSidebar = () => {
-  const params = useParams(); // Get dynamic route params
-  const slug = params?.slug; // Extract slug from params
+  const params = useParams();
+  const slug = params?.slug;
 
-  console.log("Slug:", slug); // Debug: Check the slug
+  console.log("Slug:", slug);
   const blog = blogData.find((b) => b.slug === slug);
-  console.log("Blog:", blog); // Debug: Check if blog is found
+  console.log("Blog:", blog);
 
   if (!slug) {
     return <p>No slug found in URL</p>;
@@ -25,6 +25,41 @@ const BlogDetailsWithSidebar = () => {
   if (!blog) {
     return <p>No blog found for slug: {slug}</p>;
   }
+
+  // Function to render content dynamically
+  const renderContent = (paragraph, index) => {
+    // Split by double space and newline to separate heading and description
+    const parts = paragraph.split("  \n");
+    const hasHeading = parts.length > 1 || index === 0;
+
+    if (index === 0 && parts.length === 1) {
+      // First paragraph is the intro (no heading)
+      return (
+        <p key={index} className="mb-6 text-gray-700 leading-relaxed">
+          {paragraph}
+        </p>
+      );
+    } else if (hasHeading) {
+      // Paragraph with a heading and optional description
+      const heading = parts[0];
+      const description = parts[1] || "";
+      return (
+        <div key={index} className="mb-8">
+          <h3 className="text-xl font-semibold text-dark mb-3">{heading}</h3>
+          {description && (
+            <p className="text-gray-600 leading-relaxed">{description}</p>
+          )}
+        </div>
+      );
+    } else {
+      // Plain paragraph without heading
+      return (
+        <p key={index} className="mb-6 text-gray-600 leading-relaxed">
+          {paragraph}
+        </p>
+      );
+    }
+  };
 
   return (
     <>
@@ -55,15 +90,11 @@ const BlogDetailsWithSidebar = () => {
                   </a>
                 </span>
 
-                <h2 className="font-medium text-dark text-xl lg:text-2xl xl:text-custom-4xl mb-4">
+                <h2 className="font-medium text-dark text-xl lg:text-2xl xl:text-custom-4xl mb-6">
                   {blog.title}
                 </h2>
 
-                {blog.content.map((paragraph, index) => (
-                  <p key={index} className="mb-6">
-                    {paragraph}
-                  </p>
-                ))}
+                {blog.content.map((paragraph, index) => renderContent(paragraph, index))}
 
                 <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-7.5">
                   <p className="italic text-dark text-center">{`"${blog.quote}"`}</p>
@@ -142,24 +173,7 @@ const BlogDetailsWithSidebar = () => {
               <SearchForm />
               <LatestPosts blogs={blogData} />
               <LatestProducts products={shopData} />
-              <div className="shadow-1 bg-white rounded-xl mt-7.5">
-                <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">
-                  <h2 className="font-medium text-lg text-dark">
-                    Popular Category
-                  </h2>
-                </div>
-                <div className="p-4 sm:p-6">
-                  <div className="flex flex-col gap-3">
-                    <button className="group flex items-center justify-between ease-out duration-200 text-dark hover:text-blue">
-                      Desktop
-                      <span className="inline-flex rounded-[30px] bg-gray-2 text-custom-xs px-1.5 ease-out duration-200 group-hover:text-white group-hover:bg-blue">
-                        12
-                      </span>
-                    </button>
-                    {/* Add more categories dynamically if needed */}
-                  </div>
-                </div>
-              </div>
+              
 
               <div className="shadow-1 bg-white rounded-xl mt-7.5">
                 <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">

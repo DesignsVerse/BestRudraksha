@@ -251,9 +251,9 @@ const Header: React.FC = () => {
                             <div>
                               <h3 className="text-[#800000] font-medium text-sm">{item.title}</h3>
                               <div className="flex items-center gap-2 mt-1">
-                                <span className="text-[#800000] font-semibold">${item.discountedPrice.toFixed(2)}</span>
+                                <span className="text-[#800000] font-semibold">₹{item.discountedPrice.toFixed(2)}</span>
                                 {item.discountedPrice < item.price && (
-                                  <span className="text-[#800000]/50 line-through text-xs">${item.price.toFixed(2)}</span>
+                                  <span className="text-[#800000]/50 line-through text-xs">₹{item.price.toFixed(2)}</span>
                                 )}
                               </div>
                               <div className="text-[#800000]/70 text-xs mt-1">{item.reviews} reviews</div>

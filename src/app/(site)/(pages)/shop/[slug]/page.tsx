@@ -11,6 +11,10 @@ import Newsletter from "@/components/Common/Newsletter";
 import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { addItemToCart } from "@/redux/features/cart-slice";
+import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 
 interface PageProps {
   params: Promise<{
@@ -18,22 +22,32 @@ interface PageProps {
   }>;
 }
 
-const ProductCard = ({ product, onAddToCart, onToggleWishlist }) => {
+const ProductCard = ({ product, onToggleWishlist }) => {
+  const dispatch = useDispatch<AppDispatch>();
   const [quantity, setQuantity] = useState(1);
-  const [activeColor, setActiveColor] = useState("");
   const [isWishlisted, setIsWishlisted] = useState(false);
-  const [selectedStyle, setSelectedStyle] = useState("without Silver Pendant");
-  const [selectedSize, setSelectedSize] = useState("Regular");
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]); // Default to first size
 
   const handleAddToCartLocal = () => {
-    onAddToCart(product, quantity);
-    toast.success(`${product.title} added to cart!`, {
+    dispatch(addItemToCart({ 
+      ...product, 
+      quantity,
+      selectedSize: selectedSize.name,
+      price: selectedSize.price,
+      discountedPrice: selectedSize.discountedPrice
+    }));
+    toast.success(`${product.title} (${selectedSize.name}) added to cart!`, {
       position: "top-right",
       autoClose: 3000,
     });
   };
 
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+  };
+
   const handleToggleWishlist = () => {
+    dispatch(addItemToWishlist({ ...product, status: "available", quantity: 1 }));
     setIsWishlisted(!isWishlisted);
     onToggleWishlist(product, !isWishlisted);
     toast.info(
@@ -78,46 +92,48 @@ const ProductCard = ({ product, onAddToCart, onToggleWishlist }) => {
         </div>
       </div>
 
+      {/* Fixed Price Display */}
       <div className="mb-6">
-        <h3 style={{ fontWeight: 'bold', color: '#000000' }} className="text-2xl font-semibold text-gray-700">
-          Rs. {product.price?.toLocaleString("en-IN") || "1,49,900"}
-          
-        </h3>
+        <div className="flex items-center gap-3">
+          <h3 className="text-2xl font-semibold text-[#800000]">
+            ₹{selectedSize.price.toLocaleString("en-IN")}
+            {selectedSize.name !== "Regular" && (
+              <span className="text-sm text-gray-500 ml-2">({selectedSize.name})</span>
+            )}
+          </h3>
+          {selectedSize.discountedPrice && selectedSize.discountedPrice !== selectedSize.price && (
+            <span className="text-gray-500 line-through">
+              ₹{selectedSize.discountedPrice.toLocaleString("en-IN")}
+            </span>
+          )}
+        </div>
       </div>
 
       <div style={{ marginBottom: '1rem', color: '#374151' }}>
         <span style={{ fontWeight: 'bold', color: '#000000' }}>Origin:</span> <span style={{color: '#000000' }}>Nepali</span> <br />
-        <span style={{ fontWeight: 'bold', color: '#000000' }}>Description:</span> <span style={{  color: '#000000' }}>{product.description}</span>
+        <span style={{ fontWeight: 'bold', color: '#000000' }}>Description:</span> <span style={{ color: '#000000' }}>{product.description}</span>
       </div>
 
-      {/* Size and Style Options */}
+      {/* Size Selector */}
       <div className="mb-6">
         <div className="flex flex-col gap-4">
           <div>
             <h4 style={{ fontWeight: 'bold', color: '#000000' }} className="text-md font-medium text-gray-700">Size</h4>
             <div className="flex gap-2 mt-2">
-              <button
-                type="button"
-                onClick={() => setSelectedSize("Regular")}
-                className={`px-4 py-2 border rounded-lg ${
-                  selectedSize === "Regular"
-                    ? "bg-gray-200 border-gray-400"
-                    : "bg-white border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                Regular
-              </button>
-              <button
-                type="button"
-                onClick={() => setSelectedSize("Medium")}
-                className={`px-4 py-2 border rounded-lg ${
-                  selectedSize === "Medium"
-                    ? "bg-gray-200 border-gray-400"
-                    : "bg-white border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                Premiem
-              </button>
+              {product.sizes.map((size) => (
+                <button
+                  key={size.name}
+                  type="button"
+                  onClick={() => handleSizeChange(size)}
+                  className={`px-4 py-2 border rounded-lg ${
+                    selectedSize.name === size.name
+                      ? "bg-gray-200 border-gray-400"
+                      : "bg-white border-gray-300 hover:bg-gray-100"
+                  }`}
+                >
+                  {size.name}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -194,7 +210,6 @@ const ProductCard = ({ product, onAddToCart, onToggleWishlist }) => {
         </div>
       </form>
 
-      {/* Buy Now and Checkout Buttons */}
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
         <button
           type="button"
@@ -230,13 +245,8 @@ const ShopDetails = ({ params }: PageProps) => {
     );
   }
 
-  const handleAddToCart = (product: Product, quantity: number) => {
-    // Add your cart logic here (e.g., Redux dispatch, local storage)
-    router.push("/cart");
-  };
-
   const handleToggleWishlist = (product: Product, isWishlisted: boolean) => {
-    // Add your wishlist logic here
+    // Additional wishlist logic if needed
   };
 
   const handlePreviewSlider = () => {
@@ -286,7 +296,7 @@ const ShopDetails = ({ params }: PageProps) => {
                     key={key}
                     className={`flex items-center justify-center bg-[#D8CFC2] w-16 h-16 rounded-lg bg-gray-100 shadow-md overflow-hidden transition-all duration-200 ${
                       key === previewImg
-                        ? "border-2 border-indigo-600"
+                        ? "border-2 border-indigo-600"  
                         : "border-2 border-transparent hover:border-indigo-300"
                     }`}
                   >
@@ -305,7 +315,6 @@ const ShopDetails = ({ params }: PageProps) => {
             {/* Product Details */}
             <ProductCard
               product={product}
-              onAddToCart={handleAddToCart}
               onToggleWishlist={handleToggleWishlist}
             />
           </div>
