@@ -19,6 +19,7 @@ const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const { openCartModal } = useCartModalContext();
   const product = useAppSelector((state) => state.cartReducer.items);
+  const wishlist = useAppSelector((state) => state.wishlistReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
 
   const handleOpenCartModal = (): void => openCartModal();
@@ -155,14 +156,16 @@ const Header: React.FC = () => {
             >
               <SearchIcon />
             </button>
-            <Link href="/wishlist" className="flex items-center relative">
-              <HeartIcon />
-              {product.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#800000] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  {product.length}
-                </span>
-              )}
-            </Link>
+
+              <Link href="/wishlist" className="flex items-center relative">
+                <HeartIcon />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-[#800000] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+
             <Link href="/profile" className="hidden md:flex items-center relative"><UserIcon /></Link>
             <button onClick={handleOpenCartModal} className="flex items-center relative">
               <CartIcon />
