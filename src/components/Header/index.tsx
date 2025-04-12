@@ -166,7 +166,7 @@ const Header: React.FC = () => {
                 )}
               </Link>
 
-            <Link href="/profile" className="hidden md:flex items-center relative"><UserIcon /></Link>
+            <Link href="/signin" className="hidden md:flex items-center relative"><UserIcon /></Link>
             <button onClick={handleOpenCartModal} className="flex items-center relative">
               <CartIcon />
               {product.length > 0 && (
