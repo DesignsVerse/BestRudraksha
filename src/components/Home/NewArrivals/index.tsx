@@ -6,7 +6,7 @@ import shopData from "@/components/Shop/shopData";
 
 const NewArrival = () => {
   return (
-    <section className="overflow-hidden py-16 bg-gradient-to-b from-amber-50 to-white">
+    <section className="overflow-hidden py-16 bg-[#FFFAF5]">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         {/* Section Title - Centered with Rudraksha Theme */}
         <div className="mb-10 flex flex-col items-center justify-center text-center">
