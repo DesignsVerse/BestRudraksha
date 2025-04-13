@@ -10,13 +10,13 @@ const initialState = {
     title: "",
     reviews: 0,
     slug:"",
-    price: 0,
     description:"",
-    discountedPrice: 0,
-    img: "",
+    
     images: [],
     id: 0,
     imgs: { thumbnails: [], previews: [] },
+  
+
   },
 } as InitialState;
 

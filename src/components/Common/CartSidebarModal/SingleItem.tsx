@@ -28,8 +28,8 @@ const SingleItem = ({ item, removeItemFromCart }) => {
       <div className="flex items-center gap-4 flex-1 min-w-0">
         <div className="flex-shrink-0 rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
           <Image 
-            src={item.imgs?.thumbnails[0]} 
-            alt="product" 
+            src={item.imgs?.thumbnails[0] || "/placeholder.jpg"} 
+            alt={item.title} 
             width={80} 
             height={80}
             className="object-contain w-full h-full"
@@ -39,11 +39,20 @@ const SingleItem = ({ item, removeItemFromCart }) => {
         <div className="min-w-0">
           <h3 className="font-medium text-gray-900 truncate mb-1 hover:text-blue-600 transition-colors">
             <a href="#" className="focus:outline-none"> 
-              {item.title} 
+              {item.title} ({item.selectedSize})
             </a>
           </h3>
-          <p className="text-sm text-gray-600">₹{item.discountedPrice}</p>
-          
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium text-[#800000]">
+              ₹{item.price.toLocaleString("en-IN")}
+            </span>
+            {item.discountedPrice && item.discountedPrice !== item.price && (
+              <span className="text-sm text-gray-500 line-through">
+                ₹{item.discountedPrice.toLocaleString("en-IN")}
+              </span>
+            )}
+          </div>
+
           {/* Quantity Controls */}
           <div className="flex items-center mt-2">
             <button
@@ -74,8 +83,8 @@ const SingleItem = ({ item, removeItemFromCart }) => {
       </div>
 
       <div className="flex flex-col items-end">
-        <p className="text-lg font-medium mb-2">
-          ₹{(item.discountedPrice * item.quantity).toFixed(2)}
+        <p className="text-lg font-medium mb-2 text-[#800000]">
+          ₹{(item.price * item.quantity).toLocaleString("en-IN")}
         </p>
         
         <button
