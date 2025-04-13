@@ -27,18 +27,30 @@ const OrderSummary = () => {
           </div>
 
           {/* <!-- product item --> */}
-          {cartItems.map((item, key) => (
-            <div key={key} className="flex items-center justify-between py-5 border-b border-gray-3">
-              <div>
-                <p className="text-dark">{item.title}</p>
+          <div className="px-7.5 py-5 bg-gray-1">
+                {cartItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between py-5 border-b border-gray-3 last:border-b-0"
+                  >
+                    <div>
+                      <p className="text-dark">{item.title}</p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <p className="text-dark text-right">
+                      ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+
+                      </p>
+                      {item.discountedPrice !== item.price && (
+                        <p className="text-dark-4 text-right line-through">
+                        ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <p className="text-dark text-right">
-                ₹ {item.discountedPrice * item.quantity}
-                </p>
-              </div>
-            </div>
-          ))}
+            
 
           {/* <!-- total --> */}
           <div className="flex items-center justify-between pt-5">
@@ -62,6 +74,7 @@ const OrderSummary = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 
