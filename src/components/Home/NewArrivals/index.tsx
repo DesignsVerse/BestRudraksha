@@ -6,14 +6,14 @@ import shopData from "@/components/Shop/shopData";
 
 const NewArrival = () => {
   return (
-    <section className="overflow-hidden py-16 bg-[#FFFAF5]">
-      <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+    <section className="overflow-hidden py-12 bg-[#FFF7F0]">
+      <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title - Centered with Rudraksha Theme */}
         <div className="mb-10 flex flex-col items-center justify-center text-center">
-          <span className="flex items-center gap-2.5 font-medium text-amber-700 mb-3">
+          <span className="flex items-center gap-2.5 font-semibold text-amber-700 mb-4">
             <svg
-              width="22"
-              height="22"
+              width="24"
+              height="24"
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -32,13 +32,13 @@ const NewArrival = () => {
             </svg>
             This Week’s
           </span>
-          <h2 className="font-semibold text-2xl xl:text-4xl text-gray-800 tracking-wide">
+          <h2 className="font-bold text-2xl md:text-3xl xl:text-4xl text-gray-900 tracking-tight">
             New Arrivals
           </h2>
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
           {shopData.slice(0, 4).map((item) => (
             <ProductItem key={item.id} item={item} />
           ))}
@@ -48,7 +48,7 @@ const NewArrival = () => {
         <div className="mt-10 text-center">
           <Link
             href="/shop-with-sidebar"
-            className="inline-flex font-medium text-sm py-3 px-8 rounded-full bg-amber-600 text-white border border-amber-600 ease-out duration-300 hover:bg-amber-700 hover:border-amber-700"
+            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-amber-600 rounded-full shadow-md hover:bg-amber-700 transition-all duration-300"
           >
             View All
           </Link>
