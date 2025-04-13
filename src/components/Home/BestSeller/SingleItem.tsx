@@ -33,7 +33,7 @@ const SingleItem = ({ item }: { item: Product }) => {
     dispatch(
       addItemToCart({
         id: item.id,
-        img:item.img,
+        imgs:item.imgs,
         title: item.title,
         slug: item.slug,
         price: regularSize.price,
@@ -49,7 +49,7 @@ const SingleItem = ({ item }: { item: Product }) => {
       addItemToWishlist({
         id: item.id,
         title: item.title,
-        img:item.img,
+        imgs:item.imgs,
 
         slug: item.slug,
         price: regularSize.price,
