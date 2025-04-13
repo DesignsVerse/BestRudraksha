@@ -1,16 +1,66 @@
 import React from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy | BestRudraksha.com - Asli Rudraksha India",
+  description:
+    "BestRudraksha.com ki refund policy janiye. Asli Rudraksha beads, malas ke liye easy returns aur refunds India mein. Apki satisfaction guaranteed!",
+  keywords: [
+    "Rudraksha refund policy",
+    "asli Rudraksha returns",
+    "BestRudraksha refund",
+    "Rudraksha shop India",
+    "spiritual shopping refund",
+  ],
+  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
+  openGraph: {
+    title: "Refund Policy | BestRudraksha.com",
+    description:
+      "BestRudraksha.com pe asli Rudraksha ke liye easy refund policy. India mein secure returns aur satisfaction!",
+    url: "https://bestrudraksha.com/refund-policy",
+    siteName: "BestRudraksha.com",
+    images: [
+      {
+        url: "https://bestrudraksha.com/images/refund-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BestRudraksha Refund Policy",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Refund Policy | BestRudraksha.com",
+    description:
+      "Janiye BestRudraksha.com ki refund policy - asli Rudraksha ke liye easy returns. India ke liye trusted!",
+    images: ["https://bestrudraksha.com/images/refund-twitter-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://bestrudraksha.com/refund-policy",
+  },
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "India",
+    "geo.position": "20.5937;78.9629",
+    "ICBM": "20.5937, 78.9629",
+  },
+};
 
 const RefundPolicy: React.FC = () => {
   return (
     <>
-      <Breadcrumb title={"Rudrak Refund Policy"} pages={["refund-policy"]} />
+      <Breadcrumb title={"Refund Policy"} pages={["refund-policy"]} />
 
       <section className="overflow-hidden py-20 bg-orange-50">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="bg-white rounded-xl shadow-lg border-t-4 border-orange-600 p-6 sm:p-10">
             <h1 className="text-3xl sm:text-4xl font-bold text-orange-800 mb-6">
-              Rudrak Refund Policy
+              Refund Policy
             </h1>
             <p className="text-gray-600 mb-4 italic">
               Last Updated: April 02, 2025
@@ -23,7 +73,7 @@ const RefundPolicy: React.FC = () => {
                   1. Our Commitment
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  At Rudrak, we strive to provide you with authentic Rudraksha beads and spiritual products of the highest quality. We understand the sacred value of these items and are dedicated to ensuring your satisfaction. This Refund Policy outlines the conditions under which refunds, returns, or exchanges are available.
+                  At BestRudraksha.com, we strive to provide you with authentic Rudraksha beads and spiritual products of the highest quality. We understand the sacred value of these items and are dedicated to ensuring your satisfaction. This Refund Policy outlines the conditions under which refunds, returns, or exchanges are available.
                 </p>
               </div>
 
@@ -65,8 +115,11 @@ const RefundPolicy: React.FC = () => {
                 <ol className="list-decimal pl-6 mt-2 text-gray-700">
                   <li>
                     <strong>Contact Us:</strong> Email us at{" "}
-                    <a href="mailto:support@rudrak.com" className="text-orange-600 hover:underline">
-                      support@rudrak.com
+                    <a
+                      href="mailto:support@bestrudraksha.com"
+                      className="text-orange-600 hover:underline"
+                    >
+                      support@bestrudraksha.com
                     </a>{" "}
                     or call +91 98765 43210 within 7 days of receiving your order.
                   </li>
@@ -74,7 +127,7 @@ const RefundPolicy: React.FC = () => {
                     <strong>Provide Details:</strong> Include your order number, a description of the issue, and photos (if applicable) of the product.
                   </li>
                   <li>
-                    <strong>Return the Item:</strong> Ship the item back to us at Rudrak Temple Complex, 123 Spiritual Lane, Varanasi, UP 221001, India, using a trackable courier service. Shipping costs for returns are borne by the customer unless the item is defective or incorrect.
+                    <strong>Return the Item:</strong> Ship the item back to us at BestRudraksha, 123 Spiritual Lane, Varanasi, UP 221001, India, using a trackable courier service. Shipping costs for returns are borne by the customer unless the item is defective or incorrect.
                   </li>
                   <li>
                     <strong>Processing:</strong> Once we receive and inspect the returned item, we will notify you via email about the approval or rejection of your refund.
@@ -146,8 +199,11 @@ const RefundPolicy: React.FC = () => {
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
                   You may cancel your order before it is shipped by contacting us at{" "}
-                  <a href="mailto:support@rudrak.com" className="text-orange-600 hover:underline">
-                    support@rudrak.com
+                  <a
+                    href="mailto:support@bestrudraksha.com"
+                    className="text-orange-600 hover:underline"
+                  >
+                    support@bestrudraksha.com
                   </a>. If the order has already shipped, standard return policies apply.
                 </p>
               </div>
@@ -162,16 +218,22 @@ const RefundPolicy: React.FC = () => {
                 </p>
                 <div className="mt-4 space-y-2 text-gray-700">
                   <p>
-                    <strong>Rudrak Support Team</strong>
+                    <strong>BestRudraksha Support Team</strong>
                   </p>
                   <p>
                     Email:{" "}
-                    <a href="mailto:support@rudrak.com" className="text-orange-600 hover:underline">
-                      support@rudrak.com
+                    <a
+                      href="mailto:support@bestrudraksha.com"
+                      className="text-orange-600 hover:underline"
+                    >
+                      support@bestrudraksha.com
                     </a>
                   </p>
                   <p>Phone: +91 98765 43210</p>
-                  <p>Address: Rudrak Temple Complex, 123 Spiritual Lane, Varanasi, UP 221001, India</p>
+                  <p>
+                    Address: BestRudraksha, 123 Spiritual Lane, Varanasi, UP
+                    221001, India
+                  </p>
                 </div>
               </div>
             </div>
