@@ -10,10 +10,7 @@ const initialState: InitialState = {
     title: "",
     reviews: 0,
     slug: "",
-    price: 0, // Default top-level price (optional)
-    discountedPrice: 0, // Default top-level discounted price (optional)
     description: "",
-    img: "",
     id: 0,
     images: [],
     imgs: {
