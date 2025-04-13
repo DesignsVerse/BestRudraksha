@@ -13,7 +13,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/1.png"]
     },
     sizes: [
-      { name: "Regular", price: 1800, discountedPrice: 2100 },
+      { name: "Regular", price: 2100, discountedPrice: 1800 },
       { name: "Premium", price: 2500, discountedPrice: 2000 }
     ]
   },
@@ -29,7 +29,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/2.png"]
     },
     sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 },
+      { name: "Regular", price: 1200, discountedPrice: 1500 },
       { name: "Premium", price: 1800, discountedPrice: 1500 }
     ]
   },
