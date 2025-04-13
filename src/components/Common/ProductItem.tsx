@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import React from "react";
 import Image from "next/image";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
@@ -21,12 +20,36 @@ const ProductItem = ({ item }: { item: Product }) => {
     dispatch(updateQuickView({ ...item }));
   };
 
+  // Use "Regular" size (index 0) as default for price display
+  const regularSize = item.sizes[0]; // Assuming "Regular" is always first
+
   const handleAddToCart = () => {
-    dispatch(addItemToCart({ ...item, quantity: 1 }));
+    dispatch(
+      addItemToCart({
+        id: item.id,
+        title: item.title,
+        slug: item.slug,
+        imgs: item.imgs,
+        price: regularSize.price,
+        discountedPrice: regularSize.discountedPrice,
+        quantity: 1,
+      })
+    );
   };
 
   const handleItemToWishList = () => {
-    dispatch(addItemToWishlist({ ...item, status: "available", quantity: 1 }));
+    dispatch(
+      addItemToWishlist({
+        id: item.id,
+        title: item.title,
+        slug: item.slug,
+        imgs: item.imgs,
+        price: regularSize.price,
+        discountedPrice: regularSize.discountedPrice,
+        status: "available",
+        quantity: 1,
+      })
+    );
     setIsWishlisted((prev) => !prev);
   };
 
@@ -34,18 +57,21 @@ const ProductItem = ({ item }: { item: Product }) => {
     dispatch(updateproductDetails({ ...item }));
   };
 
-  // Use "Regular" size (index 0) as default for price display
-  const regularSize = item.sizes[0]; // Assuming "Regular" is always first
-  const discountPercentage = Math.round(
-    ((regularSize.price - (regularSize.discountedPrice || regularSize.price)) / regularSize.price) * 100
-  );
+  const discountPercentage =
+    regularSize.discountedPrice && regularSize.discountedPrice !== regularSize.price
+      ? Math.round(
+          ((regularSize.discountedPrice - regularSize.price) / regularSize.discountedPrice) * 100
+        )
+      : 0;
 
   return (
     <div className="group bg-white p-4 rounded-lg shadow-sm relative">
-      {/* Discount Badge (Visible on both mobile and desktop) */}
-      <div className="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
-        {discountPercentage}% off
-      </div>
+      {/* Discount Badge (Visible only if there's a discount) */}
+      {discountPercentage > 0 && (
+        <div className="absolute top-2 left-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+          {discountPercentage}% off
+        </div>
+      )}
 
       {/* Mobile View (below md) */}
       <div className="md:hidden text-center">
@@ -61,9 +87,7 @@ const ProductItem = ({ item }: { item: Product }) => {
         </div>
 
         {/* Product Info */}
-        <h3 className="font-semibold text-dark text-base mb-1">
-          {item.title}
-        </h3>
+        <h3 className="font-semibold text-dark text-base mb-1">{item.title}</h3>
 
         {/* Rating */}
         <div className="flex items-center justify-center gap-1 mb-2">
@@ -80,14 +104,17 @@ const ProductItem = ({ item }: { item: Product }) => {
             ))}
         </div>
 
-        {/* Price - Updated to use regularSize */}
+        {/* Price */}
         <div className="flex items-center justify-center gap-2 mb-3">
-          <span className="text-dark font-semibold text-lg">
-            ₹{regularSize.discountedPrice?.toFixed(2) || regularSize.price.toFixed(2)}
+          <span className="text-[#800000] font-semibold text-lg">
+            ₹{regularSize.price.toLocaleString("en-IN")}
           </span>
-          <span className="text-gray-500 line-through text-sm">
-            ₹{regularSize.price.toFixed(2)}
-          </span>
+          {regularSize.discountedPrice &&
+            regularSize.discountedPrice !== regularSize.price && (
+              <span className="text-gray-500 line-through text-sm">
+                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+              </span>
+            )}
         </div>
 
         {/* View More Button */}
@@ -196,14 +223,17 @@ const ProductItem = ({ item }: { item: Product }) => {
           <Link href={`/shop/${item.slug}`}>{item.title}</Link>
         </h3>
 
-        {/* Price - Updated to use regularSize */}
+        {/* Price */}
         <span className="flex items-center gap-2 font-medium text-lg">
-          <span className="text-dark">
-            ₹{ regularSize.price.toLocaleString("en-IN")}
+          <span className="text-[#800000]">
+            ₹{regularSize.price.toLocaleString("en-IN")}
           </span>
-          <span className="text-dark-4 line-through">
-            ₹{regularSize.discountedPrice?.toLocaleString("en-IN") }
-          </span>
+          {regularSize.discountedPrice &&
+            regularSize.discountedPrice !== regularSize.price && (
+              <span className="text-gray-500 line-through">
+                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+              </span>
+            )}
         </span>
       </div>
     </div>

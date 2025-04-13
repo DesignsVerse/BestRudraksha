@@ -8,6 +8,7 @@ type InitialState = {
 type CartItem = {
   id: number;
   title: string;
+  slug: string; // Added slug
   price: number;
   discountedPrice: number;
   quantity: number;
@@ -26,7 +27,7 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'> & { quantity?: number }>) => {
-      const { id, title, price, quantity = 1, discountedPrice, imgs } = action.payload;
+      const { id, title, slug, price, quantity = 1, discountedPrice, imgs} = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
@@ -34,7 +35,9 @@ export const cart = createSlice({
       } else {
         state.items.push({
           id,
+          
           title,
+          slug,
           price,
           quantity,
           discountedPrice,
@@ -85,7 +88,7 @@ export const selectCartItems = (state: RootState) => state.cartReducer.items;
 
 export const selectTotalPrice = createSelector([selectCartItems], (items) => {
   return items.reduce((total, item) => {
-    return total + item.discountedPrice * item.quantity;
+    return total + item.price * item.quantity;
   }, 0);
 });
 
