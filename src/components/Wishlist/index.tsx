@@ -4,6 +4,7 @@ import { useAppSelector, AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import Breadcrumb from "../Common/Breadcrumb";
 import SingleItem from "./SingleItem";
+import Link from "next/link";
 
 // Define WishListItem type for clarity (same as SingleItem.tsx)
 type WishListItem = {
@@ -38,12 +39,12 @@ export const Wishlist = () => {
             {wishlistItems.length === 0 ? (
               <div className="py-10 text-center text-dark-2">
                 <p className="text-lg">Your wishlist is empty.</p>
-                <a
+                <Link
                   href="/shop"
                   className="mt-2 inline-block text-blue hover:underline"
                 >
                   Browse products
-                </a>
+                </Link>
               </div>
             ) : (
               <div className="w-full overflow-x-auto">
