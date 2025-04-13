@@ -73,7 +73,13 @@ const PrivacyPolicy: React.FC = () => {
                   1. Introduction
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to BestRudraksha.com ("we," "us," or "our"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website, purchase Rudraksha beads, or engage with our spiritual services. By using our services, you agree to the terms outlined herein.
+                  Welcome to BestRudraksha.com (&quot;we,&quot; &quot;us,&quot; or
+                  &quot;our&quot;). We are committed to protecting your privacy and
+                  ensuring the security of your personal information. This Privacy
+                  Policy outlines how we collect, use, disclose, and safeguard
+                  your data when you visit our website, purchase Rudraksha beads,
+                  or engage with our spiritual services. By using our services,
+                  you agree to the terms outlined herein.
                 </p>
               </div>
 
@@ -83,20 +89,29 @@ const PrivacyPolicy: React.FC = () => {
                   2. Information We Collect
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We collect information to provide you with the best possible experience. This includes:
+                  We collect information to provide you with the best possible
+                  experience. This includes:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    <strong>Personal Information:</strong> Name, email address, phone number, shipping address, and payment details when you place an order for Rudraksha products.
+                    <strong>Personal Information:</strong> Name, email address,
+                    phone number, shipping address, and payment details when you
+                    place an order for Rudraksha products.
                   </li>
                   <li>
-                    <strong>Spiritual Preferences:</strong> Information about your Rudraksha preferences or spiritual inquiries (e.g., specific bead types or consultation requests).
+                    <strong>Spiritual Preferences:</strong> Information about your
+                    Rudraksha preferences or spiritual inquiries (e.g., specific
+                    bead types or consultation requests).
                   </li>
                   <li>
-                    <strong>Usage Data:</strong> IP address, browser type, pages visited, and time spent on our website, collected via cookies and analytics tools.
+                    <strong>Usage Data:</strong> IP address, browser type, pages
+                    visited, and time spent on our website, collected via cookies
+                    and analytics tools.
                   </li>
                   <li>
-                    <strong>Communication Data:</strong> Details from emails, forms, or chats when you contact our BestRudraksha Support Team.
+                    <strong>Communication Data:</strong> Details from emails,
+                    forms, or chats when you contact our BestRudraksha Support
+                    Team.
                   </li>
                 </ul>
               </div>
@@ -107,12 +122,19 @@ const PrivacyPolicy: React.FC = () => {
                   3. How We Use Your Information
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Your information helps us serve you better in the following ways:
+                  Your information helps us serve you better in the following
+                  ways:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>Process and fulfill your Rudraksha orders.</li>
-                  <li>Provide personalized spiritual guidance and product recommendations.</li>
-                  <li>Communicate updates, offers, and newsletters (with your consent).</li>
+                  <li>
+                    Provide personalized spiritual guidance and product
+                    recommendations.
+                  </li>
+                  <li>
+                    Communicate updates, offers, and newsletters (with your
+                    consent).
+                  </li>
                   <li>Improve our website and services through analytics.</li>
                   <li>Ensure compliance with legal obligations and prevent fraud.</li>
                 </ul>
@@ -128,13 +150,17 @@ const PrivacyPolicy: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    <strong>Service Providers:</strong> With trusted partners (e.g., shipping companies, payment processors) to fulfill orders.
+                    <strong>Service Providers:</strong> With trusted partners
+                    (e.g., shipping companies, payment processors) to fulfill
+                    orders.
                   </li>
                   <li>
-                    <strong>Legal Requirements:</strong> When required by law or to protect our rights.
+                    <strong>Legal Requirements:</strong> When required by law or
+                    to protect our rights.
                   </li>
                   <li>
-                    <strong>No Third-Party Sales:</strong> We do not sell your personal information to third parties.
+                    <strong>No Third-Party Sales:</strong> We do not sell your
+                    personal information to third parties.
                   </li>
                 </ul>
               </div>
@@ -150,7 +176,10 @@ const PrivacyPolicy: React.FC = () => {
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>Essential cookies for website functionality.</li>
                   <li>Analytics cookies to understand user behavior.</li>
-                  <li>Marketing cookies for personalized offers (optional, with consent).</li>
+                  <li>
+                    Marketing cookies for personalized offers (optional, with
+                    consent).
+                  </li>
                 </ul>
                 <p className="text-gray-700 mt-2">
                   You can manage cookie preferences through your browser settings.
@@ -163,7 +192,10 @@ const PrivacyPolicy: React.FC = () => {
                   6. Data Security
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We implement advanced security measures, including encryption and secure servers, to protect your data. However, no online system is 100% secure, and we encourage you to safeguard your account credentials.
+                  We implement advanced security measures, including encryption
+                  and secure servers, to protect your data. However, no online
+                  system is 100% secure, and we encourage you to safeguard your
+                  account credentials.
                 </p>
               </div>
 
@@ -197,7 +229,10 @@ const PrivacyPolicy: React.FC = () => {
                   8. International Data Transfers
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  As a business rooted in India, your data may be processed globally. We ensure compliance with applicable data protection laws, including India's Digital Personal Data Protection Act, where relevant.
+                  As a business rooted in India, your data may be processed
+                  globally. We ensure compliance with applicable data protection
+                  laws, including India&apos;s Digital Personal Data Protection
+                  Act, where relevant.
                 </p>
               </div>
 
@@ -207,7 +242,9 @@ const PrivacyPolicy: React.FC = () => {
                   9. Changes to This Policy
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We may update this Privacy Policy periodically. Changes will be posted here with an updated "Last Updated" date. We encourage you to review this page regularly.
+                  We may update this Privacy Policy periodically. Changes will be
+                  posted here with an updated &quot;Last Updated&quot; date. We
+                  encourage you to review this page regularly.
                 </p>
               </div>
 
@@ -217,7 +254,8 @@ const PrivacyPolicy: React.FC = () => {
                   10. Contact Us
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  For questions or concerns about this Privacy Policy, reach out to:
+                  For questions or concerns about this Privacy Policy, reach out
+                  to:
                 </p>
                 <div className="mt-4 space-y-2 text-gray-700">
                   <p>
@@ -241,7 +279,6 @@ const PrivacyPolicy: React.FC = () => {
               </div>
             </div>
 
-            {/* Back to Top Button */}
             <div className="mt-10 text-center">
               <a
                 href="#top"

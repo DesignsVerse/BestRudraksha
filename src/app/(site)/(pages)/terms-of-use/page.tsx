@@ -72,10 +72,11 @@ const TermsOfUse: React.FC = () => {
                   1. Acceptance of Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to BestRudraksha.com ("we," "us," or "our"). By
-                  accessing or using our website, purchasing Rudraksha beads, or
-                  engaging with our spiritual services, you agree to be bound by
-                  these Terms of Use ("Terms"). If you do not agree with these
+                  Welcome to BestRudraksha.com ("we," "us," or
+                  "our"). By accessing or using our website,
+                  purchasing Rudraksha beads, or engaging with our spiritual
+                  services, you agree to be bound by these Terms of Use
+                  ("Terms"). If you do not agree with these
                   Terms, please refrain from using our services.
                 </p>
               </div>
@@ -89,9 +90,17 @@ const TermsOfUse: React.FC = () => {
                   unless otherwise agreed. You agree to:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li>Use the website and products in accordance with applicable laws.</li>
-                  <li>Not misuse, modify, or resell Rudraksha products without permission.</li>
-                  <li>Provide accurate information during purchases or interactions.</li>
+                  <li>
+                    Use the website and products in accordance with applicable
+                    laws.
+                  </li>
+                  <li>
+                    Not misuse, modify, or resell Rudraksha products without
+                    permission.
+                  </li>
+                  <li>
+                    Provide accurate information during purchases or interactions.
+                  </li>
                   <li>Respect the spiritual significance of Rudraksha beads.</li>
                 </ul>
               </div>
@@ -105,7 +114,9 @@ const TermsOfUse: React.FC = () => {
                   create an account. You are responsible for:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li>Maintaining the confidentiality of your account credentials.</li>
+                  <li>
+                    Maintaining the confidentiality of your account credentials.
+                  </li>
                   <li>
                     Notifying us immediately of any unauthorized use at{" "}
                     <a
@@ -115,7 +126,9 @@ const TermsOfUse: React.FC = () => {
                       support@bestrudraksha.com
                     </a>.
                   </li>
-                  <li>Ensuring all information provided is accurate and up-to-date.</li>
+                  <li>
+                    Ensuring all information provided is accurate and up-to-date.
+                  </li>
                 </ul>
               </div>
 
@@ -130,10 +143,13 @@ const TermsOfUse: React.FC = () => {
                   intellectual property laws. You may not:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li>Reproduce, distribute, or modify our content without written consent.</li>
                   <li>
-                    Use our trademarks (e.g., "BestRudraksha") for commercial
-                    purposes without permission.
+                    Reproduce, distribute, or modify our content without written
+                    consent.
+                  </li>
+                  <li>
+                    Use our trademarks (e.g., "BestRudraksha")
+                    for commercial purposes without permission.
                   </li>
                 </ul>
                 <p className="text-gray-700 mt-2">
@@ -150,8 +166,13 @@ const TermsOfUse: React.FC = () => {
                   When purchasing Rudraksha beads or other items:
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li>Prices are as listed, subject to change without notice.</li>
-                  <li>Payment must be completed via accepted methods (e.g., credit card, UPI).</li>
+                  <li>
+                    Prices are as listed, subject to change without notice.
+                  </li>
+                  <li>
+                    Payment must be completed via accepted methods (e.g., credit
+                    card, UPI).
+                  </li>
                   <li>
                     Shipping terms are outlined at checkout; delays due to
                     external factors (e.g., customs) are not our responsibility.
@@ -177,8 +198,8 @@ const TermsOfUse: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    Our services and products are provided "as is" without
-                    warranties beyond those expressly stated.
+                    Our services and products are provided "as is"
+                    without warranties beyond those expressly stated.
                   </li>
                   <li>
                     We are not liable for indirect, incidental, or consequential
@@ -230,9 +251,9 @@ const TermsOfUse: React.FC = () => {
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
                   We may update these Terms periodically. Changes will be posted
-                  here with an updated "Last Updated" date. Continued use of our
-                  services after changes constitutes acceptance of the revised
-                  Terms.
+                  here with an updated "Last Updated" date.
+                  Continued use of our services after changes constitutes
+                  acceptance of the revised Terms.
                 </p>
               </div>
 

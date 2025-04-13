@@ -73,7 +73,12 @@ const RefundPolicy: React.FC = () => {
                   1. Our Commitment
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  At BestRudraksha.com, we strive to provide you with authentic Rudraksha beads and spiritual products of the highest quality. We understand the sacred value of these items and are dedicated to ensuring your satisfaction. This Refund Policy outlines the conditions under which refunds, returns, or exchanges are available.
+                  At BestRudraksha.com, we strive to provide you with authentic
+                  Rudraksha beads and spiritual products of the highest quality.
+                  We understand the sacred value of these items and are dedicated
+                  to ensuring your satisfaction. This Refund Policy outlines the
+                  conditions under which refunds, returns, or exchanges are
+                  available.
                 </p>
               </div>
 
@@ -87,20 +92,30 @@ const RefundPolicy: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    <strong>Damaged or Defective Products:</strong> If your Rudraksha beads or other items arrive damaged, cracked, or defective, you are eligible for a refund or replacement.
+                    <strong>Damaged or Defective Products:</strong> If your
+                    Rudraksha beads or other items arrive damaged, cracked, or
+                    defective, you are eligible for a refund or replacement.
                   </li>
                   <li>
-                    <strong>Incorrect Items:</strong> If you receive an item different from what you ordered (e.g., wrong bead type or size).
+                    <strong>Incorrect Items:</strong> If you receive an item
+                    different from what you ordered (e.g., wrong bead type or
+                    size).
                   </li>
                   <li>
-                    <strong>Non-Delivery:</strong> If your order does not arrive within the estimated delivery timeframe due to an error on our part.
+                    <strong>Non-Delivery:</strong> If your order does not arrive
+                    within the estimated delivery timeframe due to an error on our
+                    part.
                   </li>
                   <li>
-                    <strong>Change of Mind:</strong> Refunds for change of mind are accepted within 7 days of delivery, provided the item is unused, unstrung, and in its original packaging.
+                    <strong>Change of Mind:</strong> Refunds for change of mind
+                    are accepted within 7 days of delivery, provided the item is
+                    unused, unstrung, and in its original packaging.
                   </li>
                 </ul>
                 <p className="text-gray-700 mt-2 italic">
-                  Note: Due to the spiritual nature of Rudraksha, items that have been consecrated, worn, or used in rituals are not eligible for return unless defective.
+                  Note: Due to the spiritual nature of Rudraksha, items that have
+                  been consecrated, worn, or used in rituals are not eligible for
+                  return unless defective.
                 </p>
               </div>
 
@@ -124,13 +139,21 @@ const RefundPolicy: React.FC = () => {
                     or call +91 98765 43210 within 7 days of receiving your order.
                   </li>
                   <li>
-                    <strong>Provide Details:</strong> Include your order number, a description of the issue, and photos (if applicable) of the product.
+                    <strong>Provide Details:</strong> Include your order number, a
+                    description of the issue, and photos (if applicable) of the
+                    product.
                   </li>
                   <li>
-                    <strong>Return the Item:</strong> Ship the item back to us at BestRudraksha, 123 Spiritual Lane, Varanasi, UP 221001, India, using a trackable courier service. Shipping costs for returns are borne by the customer unless the item is defective or incorrect.
+                    <strong>Return the Item:</strong> Ship the item back to us at
+                    BestRudraksha, 123 Spiritual Lane, Varanasi, UP 221001,
+                    India, using a trackable courier service. Shipping costs for
+                    returns are borne by the customer unless the item is
+                    defective or incorrect.
                   </li>
                   <li>
-                    <strong>Processing:</strong> Once we receive and inspect the returned item, we will notify you via email about the approval or rejection of your refund.
+                    <strong>Processing:</strong> Once we receive and inspect the
+                    returned item, we will notify you via email about the approval
+                    or rejection of your refund.
                   </li>
                 </ol>
               </div>
@@ -145,13 +168,18 @@ const RefundPolicy: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    <strong>Approval:</strong> Within 3-5 business days of receiving your return.
+                    <strong>Approval:</strong> Within 3-5 business days of
+                    receiving your return.
                   </li>
                   <li>
-                    <strong>Payment:</strong> Refunds will be credited to your original payment method within 7-10 business days, depending on your bank or payment provider.
+                    <strong>Payment:</strong> Refunds will be credited to your
+                    original payment method within 7-10 business days, depending
+                    on your bank or payment provider.
                   </li>
                   <li>
-                    <strong>Partial Refunds:</strong> May apply if the returned item is not in its original condition (excluding defective items).
+                    <strong>Partial Refunds:</strong> May apply if the returned
+                    item is not in its original condition (excluding defective
+                    items).
                   </li>
                 </ul>
               </div>
@@ -168,7 +196,9 @@ const RefundPolicy: React.FC = () => {
                   <li>Customized or consecrated Rudraksha products.</li>
                   <li>Items damaged due to misuse or improper handling.</li>
                   <li>Products returned after 7 days (unless defective).</li>
-                  <li>Gift cards or digital services (e.g., online consultations).</li>
+                  <li>
+                    Gift cards or digital services (e.g., online consultations).
+                  </li>
                 </ul>
               </div>
 
@@ -178,7 +208,10 @@ const RefundPolicy: React.FC = () => {
                   6. Exchanges
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  If you prefer an exchange over a refund (e.g., for a different Rudraksha bead type), please contact us within 7 days of delivery. Exchanges are subject to availability, and you may need to cover additional shipping costs.
+                  If you prefer an exchange over a refund (e.g., for a different
+                  Rudraksha bead type), please contact us within 7 days of
+                  delivery. Exchanges are subject to availability, and you may
+                  need to cover additional shipping costs.
                 </p>
               </div>
 
@@ -188,7 +221,10 @@ const RefundPolicy: React.FC = () => {
                   7. Shipping Costs
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Original shipping costs are non-refundable unless the return is due to our error (e.g., defective or incorrect items). For defective products, we will reimburse reasonable return shipping costs upon approval.
+                  Original shipping costs are non-refundable unless the return is
+                  due to our error (e.g., defective or incorrect items). For
+                  defective products, we will reimburse reasonable return
+                  shipping costs upon approval.
                 </p>
               </div>
 
@@ -198,13 +234,16 @@ const RefundPolicy: React.FC = () => {
                   8. Order Cancellations
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  You may cancel your order before it is shipped by contacting us at{" "}
+                  You may cancel your order before it is shipped by contacting us
+                  at{" "}
                   <a
                     href="mailto:support@bestrudraksha.com"
                     className="text-orange-600 hover:underline"
                   >
                     support@bestrudraksha.com
-                  </a>. If the order has already shipped, standard return policies apply.
+                  </a>
+                  . If the order has already shipped, standard return policies
+                  apply.
                 </p>
               </div>
 
@@ -214,7 +253,8 @@ const RefundPolicy: React.FC = () => {
                   9. Contact Us
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  For any questions or assistance with refunds, please reach out to:
+                  For any questions or assistance with refunds, please reach out
+                  to:
                 </p>
                 <div className="mt-4 space-y-2 text-gray-700">
                   <p>
@@ -238,7 +278,6 @@ const RefundPolicy: React.FC = () => {
               </div>
             </div>
 
-            {/* Back to Top Button */}
             <div className="mt-10 text-center">
               <a
                 href="#top"
