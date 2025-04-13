@@ -41,41 +41,46 @@ const Blog = () => {
           </h2>
         </div>
 
-        <div className="relative">
+        <div className="relative ">
           <Swiper
             ref={sliderRef}
             slidesPerView={3}
             spaceBetween={30}
-        
             breakpoints={{
               0: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1200: { slidesPerView: 3 },
             }}
           >
-            {blogData.map((blog, key) => (
-              <SwiperSlide key={key} >
-                <div className="bg-white rounded-lg shadow-lg mb-10 p-5 transform hover:scale-105 transition-all duration-300">
-                  <Link href={`/blog/${blog.slug}`} className="block rounded-lg overflow-hidden">
+            {blogData.map((blog) => (
+              <SwiperSlide key={blog.id}>
+                <div className="bg-white mt-5 mb-5 first-letter:rounded-lg shadow-lg p-5 transform hover:scale-105 transition-all duration-300 flex flex-col h-[400px]">
+                  <Link
+                    href={`/blog/${blog.slug}`}
+                    className="block rounded-lg overflow-hidden relative h-48"
+                  >
                     <Image
                       src={blog.img}
-                      alt="blog"
-                      className="rounded-lg w-full h-30 object-cover"
+                      alt={blog.title}
+                      className="rounded-lg w-full h-full object-cover"
                       width={330}
                       height={210}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </Link>
 
-                  <div className="mt-6">
-                    <span className="flex items-center justify-center gap-3 mb-3 text-sm text-gray-600">
-                      <span>{blog.date}</span>
-                      <span className="block w-px h-4 bg-amber-300"></span>
-                      <span>{blog.views} Views</span>
-                    </span>
+                  <div className="mt-4 flex flex-col flex-1 justify-between">
+                    <div>
+                      <span className="flex items-center justify-center gap-3 mb-3 text-sm text-gray-600">
+                        <span>{blog.date}</span>
+                        <span className="block w-px h-4 bg-amber-300"></span>
+                        <span>{blog.views} Views</span>
+                      </span>
 
-                    <h2 className="font-medium text-lg sm:text-xl text-gray-800 mb-4 hover:text-amber-600 transition-colors text-center">
-                      <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
-                    </h2>
+                      <h2 className="font-medium text-lg sm:text-xl text-gray-800 mb-4 hover:text-amber-600 transition-colors text-center line-clamp-2">
+                        <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
+                      </h2>
+                    </div>
 
                     <Link
                       href={`/blog/${blog.slug}`}
@@ -100,14 +105,15 @@ const Blog = () => {
                     </Link>
                   </div>
                 </div>
-              </SwiperSlide >
+              </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Navigation Buttons - Positioned on Left and Right */}
+          {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
             className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-amber-600 text-white p-3 rounded-full shadow-md hover:bg-amber-700 transition-colors z-10"
+            aria-label="Previous slide"
           >
             <svg
               className="fill-current"
@@ -129,6 +135,7 @@ const Blog = () => {
           <button
             onClick={handleNext}
             className="absolute top-1/2 -right-12 transform -translate-y-1/2 bg-amber-600 text-white p-3 rounded-full shadow-md hover:bg-amber-700 transition-colors z-10"
+            aria-label="Next slide"
           >
             <svg
               className="fill-current"

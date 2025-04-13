@@ -1,33 +1,40 @@
-import React, { useState } from "react";
+"use client";
+import React from "react";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import {
   removeItemFromCart,
   updateCartItemQuantity,
 } from "@/redux/features/cart-slice";
-
 import Image from "next/image";
+import Link from "next/link";
+import { toast } from "react-toastify";
 
-const SingleItem = ({ item }) => {
-  const [quantity, setQuantity] = useState(item.quantity);
+type CartItem = {
+  id: number;
+  title: string;
+  slug: string;
+  price: number;
+  discountedPrice: number;
+  quantity: number;
+  imgs: { thumbnails: string[]; previews: string[] };
+};
 
+const SingleItem = ({ item }: { item: CartItem }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleRemoveFromCart = () => {
     dispatch(removeItemFromCart(item.id));
+    toast.success("Removed from cart!");
   };
 
   const handleIncreaseQuantity = () => {
-    setQuantity(quantity + 1);
-    dispatch(updateCartItemQuantity({ id: item.id, quantity: quantity + 1 }));
+    dispatch(updateCartItemQuantity({ id: item.id, quantity: item.quantity + 1 }));
   };
 
   const handleDecreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-      dispatch(updateCartItemQuantity({ id: item.id, quantity: quantity - 1 }));
-    } else {
-      return;
+    if (item.quantity > 1) {
+      dispatch(updateCartItemQuantity({ id: item.id, quantity: item.quantity - 1 }));
     }
   };
 
@@ -37,12 +44,18 @@ const SingleItem = ({ item }) => {
         <div className="flex items-center justify-between gap-5">
           <div className="w-full flex items-center gap-5.5">
             <div className="flex items-center justify-center rounded-[5px] bg-gray-2 max-w-[80px] w-full h-17.5">
-              <Image width={200} height={200} src={item.imgs?.thumbnails[0]} alt="product" />
+              <Image
+                width={80}
+                height={80}
+                src={item.imgs?.thumbnails?.[0] || "/images/placeholder.png"}
+                alt={item.title}
+                style={{ objectFit: "contain" }}
+              />
             </div>
 
             <div>
               <h3 className="text-dark ease-out duration-200 hover:text-blue">
-                <a href="#"> {item.title} </a>
+                <Link href={`/shop/${item.slug}`}>{item.title}</Link>
               </h3>
             </div>
           </div>
@@ -50,15 +63,18 @@ const SingleItem = ({ item }) => {
       </div>
 
       <div className="min-w-[180px]">
-        <p className="text-dark">₹{item.discountedPrice}</p>
+        <p className="text-dark">
+          ₹{item.price.toLocaleString("en-IN")}
+        </p>
       </div>
 
       <div className="min-w-[275px]">
         <div className="w-max flex items-center rounded-md border border-gray-3">
           <button
-            onClick={() => handleDecreaseQuantity()}
-            aria-label="button for remove product"
-            className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-blue"
+            onClick={handleDecreaseQuantity}
+            aria-label="Decrease quantity"
+            disabled={item.quantity <= 1}
+            className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-blue disabled:text-dark-4 disabled:cursor-not-allowed"
           >
             <svg
               className="fill-current"
@@ -76,12 +92,12 @@ const SingleItem = ({ item }) => {
           </button>
 
           <span className="flex items-center justify-center w-16 h-11.5 border-x border-gray-4">
-            {quantity}
+            {item.quantity}
           </span>
 
           <button
-            onClick={() => handleIncreaseQuantity()}
-            aria-label="button for add product"
+            onClick={handleIncreaseQuantity}
+            aria-label="Increase quantity"
             className="flex items-center justify-center w-11.5 h-11.5 ease-out duration-200 hover:text-blue"
           >
             <svg
@@ -106,13 +122,15 @@ const SingleItem = ({ item }) => {
       </div>
 
       <div className="min-w-[200px]">
-        <p className="text-dark">₹{item.discountedPrice * quantity}</p>
+        <p className="text-dark">
+          ₹{(item.price* item.quantity).toLocaleString("en-IN")}
+        </p>
       </div>
 
       <div className="min-w-[50px] flex justify-end">
         <button
-          onClick={() => handleRemoveFromCart()}
-          aria-label="button for remove product from cart"
+          onClick={handleRemoveFromCart}
+          aria-label="Remove from cart"
           className="flex items-center justify-center rounded-lg max-w-[38px] w-full h-9.5 bg-gray-2 border border-gray-3 text-dark ease-out duration-200 hover:bg-red-light-6 hover:border-red-light-4 hover:text-red"
         >
           <svg
