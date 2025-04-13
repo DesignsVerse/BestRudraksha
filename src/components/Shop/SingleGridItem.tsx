@@ -35,7 +35,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       addItemToCart({
         id: item.id,
         title: item.title,
-        img:item.img,
+        imgs:item.imgs,
 
         slug: item.slug,
         price: regularSize.price,
@@ -53,7 +53,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         id: item.id,
         title: item.title,
         slug: item.slug,
-        img:item.img,
+        imgs:item.imgs,
 
         price: regularSize.price,
         discountedPrice: regularSize.discountedPrice,
