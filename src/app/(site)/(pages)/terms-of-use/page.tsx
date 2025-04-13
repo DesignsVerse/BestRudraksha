@@ -72,11 +72,11 @@ const TermsOfUse: React.FC = () => {
                   1. Acceptance of Terms
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
-                  Welcome to BestRudraksha.com ("we," "us," or
-                  "our"). By accessing or using our website,
+                  Welcome to BestRudraksha.com (&quot;we,&quot; &quot;us,&quot; or
+                  &quot;our&quot;). By accessing or using our website,
                   purchasing Rudraksha beads, or engaging with our spiritual
                   services, you agree to be bound by these Terms of Use
-                  ("Terms"). If you do not agree with these
+                  (&quot;Terms&quot;). If you do not agree with these
                   Terms, please refrain from using our services.
                 </p>
               </div>
@@ -148,7 +148,7 @@ const TermsOfUse: React.FC = () => {
                     consent.
                   </li>
                   <li>
-                    Use our trademarks (e.g., "BestRudraksha")
+                    Use our trademarks (e.g., &quot;BestRudraksha&quot;)
                     for commercial purposes without permission.
                   </li>
                 </ul>
@@ -198,7 +198,7 @@ const TermsOfUse: React.FC = () => {
                 </p>
                 <ul className="list-disc pl-6 mt-2 text-gray-700">
                   <li>
-                    Our services and products are provided "as is"
+                    Our services and products are provided &quot;as is&quot;
                     without warranties beyond those expressly stated.
                   </li>
                   <li>
@@ -251,7 +251,7 @@ const TermsOfUse: React.FC = () => {
                 </h2>
                 <p className="text-gray-700 leading-relaxed">
                   We may update these Terms periodically. Changes will be posted
-                  here with an updated "Last Updated" date.
+                  here with an updated &quot;Last Updated&quot; date.
                   Continued use of our services after changes constitutes
                   acceptance of the revised Terms.
                 </p>
