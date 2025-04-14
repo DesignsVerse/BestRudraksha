@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Gemstones from "@/components/product-filter/Gemstones";
 
 export const metadata: Metadata = {
-  title: "blog",
+  title: "Gemstones",
   description: "This is Shop Details Page for NextCommerce Template",
   // other metadata
 };
