@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import ShopWithoutSidebar from "@/components/ShopWithoutSidebar";
+import ShopWithoutSidebar from "@/components/Shop/ShopWithoutSidebar";
 
 export const metadata: Metadata = {
   title: "Shop | BestRudraksha.com - Asli Rudraksha Beads India",

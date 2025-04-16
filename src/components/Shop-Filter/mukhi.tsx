@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
-import CustomSelect from "../ShopWithSidebar/CustomSelect";
+import CustomSelect from "../Shop/CustomSelect";
 import shopData from "@/components/Shop/shopData";
 const Mukhi = () => {
   const [productStyle, setProductStyle] = useState("grid");
@@ -29,7 +29,7 @@ const Mukhi = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="relative">
-                      <CustomSelect />
+                      <CustomSelect/>
                     </div>
                     <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
                       <span>{itemsToShow} Products</span>

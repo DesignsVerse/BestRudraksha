@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchForm from "@/components/Blog/SearchForm";
 import LatestPosts from "@/components/Blog/LatestPosts";
@@ -12,49 +12,52 @@ import { useParams } from "next/navigation";
 
 const BlogDetailsWithSidebar = () => {
   const params = useParams();
-  const slug = params?.slug;
+  const slug = params?.slug as string;
+  const [activeSection, setActiveSection] = useState<string>("");
 
-  console.log("Slug:", slug);
   const blog = blogData.find((b) => b.slug === slug);
-  console.log("Blog:", blog);
 
   if (!slug) {
-    return <p>No slug found in URL</p>;
+    return <p className="text-center text-red-500">No slug found in URL</p>;
   }
 
   if (!blog) {
-    return <p>No blog found for slug: {slug}</p>;
+    return <p className="text-center text-red-500">No blog found for slug: {slug}</p>;
   }
 
-  // Function to render content dynamically
-  const renderContent = (paragraph, index) => {
-    // Split by double space and newline to separate heading and description
+  // Extract headings for Table of Contents
+  const toc = blog.content
+    .map((paragraph, index) => {
+      const parts = paragraph.split("  \n");
+      return index > 0 && parts[0] ? { id: `section-${index}`, title: parts[0] } : null;
+    })
+    .filter(Boolean);
+
+  // Render content dynamically
+  const renderContent = (paragraph: string, index: number) => {
     const parts = paragraph.split("  \n");
     const hasHeading = parts.length > 1 || index === 0;
 
     if (index === 0 && parts.length === 1) {
-      // First paragraph is the intro (no heading)
       return (
-        <p key={index} className="mb-6 text-gray-700 leading-relaxed">
+        <p key={index} className="mb-6 text-gray-700 leading-relaxed text-lg">
           {paragraph}
         </p>
       );
     } else if (hasHeading) {
-      // Paragraph with a heading and optional description
       const heading = parts[0];
       const description = parts[1] || "";
       return (
-        <div key={index} className="mb-8">
-          <h3 className="text-xl font-semibold text-dark mb-3">{heading}</h3>
+        <div key={index} id={`section-${index}`} className="mb-10 scroll-mt-20">
+          <h3 className="text-2xl font-bold text-dark mb-4 tracking-tight">{heading}</h3>
           {description && (
-            <p className="text-gray-600 leading-relaxed">{description}</p>
+            <p className="text-gray-600 leading-relaxed text-base">{description}</p>
           )}
         </div>
       );
     } else {
-      // Plain paragraph without heading
       return (
-        <p key={index} className="mb-6 text-gray-600 leading-relaxed">
+        <p key={index} className="mb-6 text-gray-600 leading-relaxed text-base">
           {paragraph}
         </p>
       );
@@ -64,40 +67,63 @@ const BlogDetailsWithSidebar = () => {
   return (
     <>
       <Breadcrumb title={blog.title} pages={["blog details sidebar"]} />
-      <section className="overflow-hidden py-20 bg-[#FFFAF5]">
+      <section className="overflow-hidden py-0 bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-12.5">
             {/* Blog Details */}
             <div className="lg:max-w-[750px] w-full">
-              <div className="rounded-[10px] overflow-hidden mb-7.5">
+              <div className="rounded-[10px] overflow-hidden mb-10">
                 <Image
-                  className="rounded-[10px]"
+                  className="rounded-[10px] w-full object-cover"
                   src={blog.img}
                   alt="details"
                   width={750}
                   height={477}
+                  priority
                 />
               </div>
 
+              {/* Table of Contents */}
+              {toc.length > 0 && (
+                <div className="mb-10 p-6 bg-white rounded-xl shadow-sm">
+                  <h3 className="text-xl font-semibold text-dark mb-4">Table of Contents</h3>
+                  <ul className="list-disc pl-5 space-y-2">
+                    {toc.map((item) => (
+                      <li key={item.id}>
+                        <a
+                          href={`#${item.id}`}
+                          className={`text-gray-600 hover:text-blue transition-colors duration-200 ${
+                            activeSection === item.id ? "text-blue font-semibold" : ""
+                          }`}
+                          onClick={() => setActiveSection(item.id)}
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div>
-                <span className="flex items-center gap-3 mb-4">
-                  <a href="#" className="ease-out duration-200 hover:text-blue">
+                <span className="flex items-center gap-3 mb-4 text-sm text-gray-500">
+                  <a href="#" className="hover:text-blue transition-colors duration-200">
                     {blog.date}
                   </a>
                   <span className="block w-px h-4 bg-gray-4"></span>
-                  <a href="#" className="ease-out duration-200 hover:text-blue">
+                  <a href="#" className="hover:text-blue transition-colors duration-200">
                     {blog.views} Views
                   </a>
                 </span>
 
-                <h2 className="font-medium text-dark text-xl lg:text-2xl xl:text-custom-4xl mb-6">
+                <h2 className="font-bold text-dark text-2xl lg:text-3xl xl:text-4xl mb-8 tracking-tight">
                   {blog.title}
                 </h2>
 
                 {blog.content.map((paragraph, index) => renderContent(paragraph, index))}
 
-                <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-7.5">
-                  <p className="italic text-dark text-center">{`"${blog.quote}"`}</p>
+                <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-10 shadow-sm">
+                  <p className="italic text-dark text-center text-lg">"{blog.quote}"</p>
                   <a
                     href="#"
                     className="flex items-center justify-center gap-3 mt-5.5"
@@ -111,22 +137,20 @@ const BlogDetailsWithSidebar = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="text-dark text-custom-sm">
-                        {blog.author.name}
-                      </h4>
-                      <p className="text-custom-xs">{blog.author.role}</p>
+                      <h4 className="text-dark text-base font-semibold">{blog.author.name}</h4>
+                      <p className="text-sm text-gray-600">{blog.author.role}</p>
                     </div>
                   </a>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-10 mt-10">
                   <div className="flex flex-wrap items-center gap-5">
-                    <p>Popular Tags :</p>
+                    <p className="font-medium text-gray-700">Popular Tags:</p>
                     <ul className="flex flex-wrap items-center gap-3.5">
                       {blog.tags.map((tag) => (
                         <li key={tag}>
                           <a
-                            className="inline-flex hover:text-white border border-gray-3 bg-white py-2 px-4 rounded-md ease-out duration-200 hover:bg-blue hover:border-blue"
+                            className="inline-flex text-gray-700 border border-gray-3 bg-white py-2 px-4 rounded-md transition-all duration-200 hover:bg-blue hover:text-white hover:border-blue"
                             href="#"
                           >
                             {tag}
@@ -140,7 +164,7 @@ const BlogDetailsWithSidebar = () => {
                   <div className="flex items-center gap-3">
                     <a
                       href="#"
-                      className="flex items-center justify-center w-[35px] h-[35px] rounded-full bg-[#BD081C] ease-in duration-200 hover:bg-opacity-95"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-[#BD081C] transition-all duration-200 hover:bg-opacity-80 hover:scale-105"
                     >
                       <svg
                         width="17"
@@ -162,7 +186,7 @@ const BlogDetailsWithSidebar = () => {
                         </defs>
                       </svg>
                     </a>
-                    {/* Add other social links if needed */}
+                    {/* Add more social links as needed */}
                   </div>
                 </div>
               </div>
@@ -173,7 +197,6 @@ const BlogDetailsWithSidebar = () => {
               <SearchForm />
               <LatestPosts blogs={blogData} />
               <LatestProducts products={shopData} />
-              
 
               <div className="shadow-1 bg-white rounded-xl mt-7.5">
                 <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">
@@ -187,7 +210,7 @@ const BlogDetailsWithSidebar = () => {
                       .map((tag) => (
                         <a
                           key={tag}
-                          className="inline-flex hover:text-white border border-gray-3 py-2 px-4 rounded-md ease-out duration-200 hover:bg-blue hover:border-blue"
+                          className="inline-flex text-gray-700 border border-gray-3 py-2 px-4 rounded-md transition-all duration-200 hover:bg-blue hover:text-white hover:border-blue"
                           href="#"
                         >
                           {tag}

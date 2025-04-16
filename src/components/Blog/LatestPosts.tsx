@@ -3,6 +3,19 @@ import React from "react";
 import Image from "next/image";
 
 const LatestPosts = ({ blogs }) => {
+  // Function to shuffle array randomly
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
+
+  // Shuffle blogs array and take first 3 items
+  const shuffledBlogs = shuffleArray(blogs).slice(0, 3);
+
   return (
     <div className="shadow-1 bg-white rounded-xl mt-7.5">
       <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">
@@ -11,9 +24,7 @@ const LatestPosts = ({ blogs }) => {
 
       <div className="p-4 sm:p-6">
         <div className="flex flex-col gap-6">
-          {/* <!-- post item --> */}
-
-          {blogs.slice(0, 3).map((blog, key) => (
+          {shuffledBlogs.map((blog, key) => (
             <div className="flex items-center gap-4" key={key}>
               <Link
                 href="/blogs/blog-details-with-sidebar"
@@ -41,7 +52,6 @@ const LatestPosts = ({ blogs }) => {
                     {blog.date}
                   </a>
 
-                  {/* <!-- divider --> */}
                   <span className="block w-px h-4 bg-gray-4"></span>
 
                   <a

@@ -31,7 +31,7 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <section className="py-10 md:py-20 bg-gray-2">
+        <section className="py-10 md:py-20 bg-[#FFFAF5]">
           <div className="container mx-auto px-4 sm:px-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-5 mb-7.5">
               <h2 className="font-medium text-dark text-xl sm:text-2xl">Your Cart</h2>

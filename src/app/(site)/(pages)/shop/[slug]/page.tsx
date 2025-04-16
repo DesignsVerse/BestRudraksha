@@ -8,7 +8,7 @@ import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Newsletter from "@/components/Common/Newsletter";
-import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
+import RecentlyViewdItems from "@/components/Shop/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";

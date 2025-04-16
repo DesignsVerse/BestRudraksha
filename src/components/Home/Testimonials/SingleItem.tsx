@@ -46,7 +46,7 @@ const SingleItem = ({ testimonial }: { testimonial: Testimonial }) => {
 
       {/* Review text - Improved readability */}
       <p className="text-dark-2 mb-4 text-center px-2 text-base leading-relaxed">
-        "{testimonial.review}"
+        &ldquo;{testimonial.review}&rdquo;
       </p>
 
       {/* Author role - Cleaner styling */}

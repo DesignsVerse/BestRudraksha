@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import Mukhi from "@/components/product-filter/mukhi";
+import Mukhi from "@/components/Shop-Filter/mukhi";
 
 export const metadata: Metadata = {
   title: "All Mukhi Rudraksha | BestRudraksha.com - Asli Rudraksha India",

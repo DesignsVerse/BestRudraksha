@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Image from "next/image";
+import Link from "next/link";
 import { decreaseQuantity, increaseQuantity, removeItemFromCart } from "@/redux/features/cart-slice";
 
 const SingleItem = ({ item, removeItemFromCart }) => {
@@ -37,11 +38,11 @@ const SingleItem = ({ item, removeItemFromCart }) => {
         </div>
 
         <div className="min-w-0">
-          <h3 className="font-medium text-gray-900 truncate mb-1 hover:text-blue-600 transition-colors">
-            <a href="#" className="focus:outline-none"> 
-              {item.title} ({item.selectedSize})
-            </a>
-          </h3>
+        <h3 className="font-medium text-gray-900 truncate mb-1 hover:text-blue-600 transition-colors">
+  <Link href={`/shop/${item.slug}`} className="focus:outline-none">
+    {item.title} 
+  </Link>
+</h3>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-[#800000]">
               ₹{item.price.toLocaleString("en-IN")}

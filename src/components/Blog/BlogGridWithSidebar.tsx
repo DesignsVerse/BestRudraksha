@@ -1,13 +1,13 @@
 import React from "react";
 import Breadcrumb from "../Common/Breadcrumb";
-import BlogItem from "../Blog/BlogItem";
+import BlogItem from "./BlogItem";
 import blogData from "../../data/blogData.json"; // Import JSON file
-import SearchForm from "../Blog/SearchForm";
-import LatestPosts from "../Blog/LatestPosts";
-import LatestProducts from "../Blog/LatestProducts";
+import SearchForm from "./SearchForm";
+import LatestPosts from "./LatestPosts";
+import LatestProducts from "./LatestProducts";
 import shopData from "@/components/Shop/shopData";
 
-const BlogGridWithSidebar = () => {
+const BlogGridWithSidebar: React.FC = () => {
   const categories = [
     { name: "Desktop", products: 10 },
     { name: "Laptop", products: 12 },
@@ -26,7 +26,7 @@ const BlogGridWithSidebar = () => {
           <div className="flex flex-col lg:flex-row gap-7.5">
             {/* Blog Grid */}
             <div className="lg:max-w-[770px] w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-7.5">
+              <div className="grid grid-cols-2 gap-y-10 gap-x-7.5">
                 {blogData.map((blog) => (
                   <BlogItem blog={blog} key={blog.id} />
                 ))}
