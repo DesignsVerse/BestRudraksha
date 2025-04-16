@@ -9,7 +9,6 @@ import Breadcrumb from "../Common/Breadcrumb";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
-// Define CartItem type for clarity (same as SingleItem.tsx)
 type CartItem = {
   id: number;
   title: string;
@@ -24,9 +23,6 @@ const Cart = () => {
   const dispatch = useDispatch<AppDispatch>();
   const cartItems = useAppSelector((state) => state.cartReducer.items) as CartItem[];
 
-  // Handle clear cart
-  
-
   return (
     <>
       {/* Breadcrumb Section */}
@@ -35,56 +31,54 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <section className="overflow-hidden py-20 bg-gray-2">
-          <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-            <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
-              <h2 className="font-medium text-dark text-2xl">Your Cart</h2>
-              
+        <section className="py-10 md:py-20 bg-[#FFFAF5]">
+          <div className="container mx-auto px-4 sm:px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-5 mb-7.5">
+              <h2 className="font-medium text-dark text-xl sm:text-2xl">Your Cart</h2>
             </div>
 
             <div className="bg-white rounded-[10px] shadow-1">
-              <div className="w-full overflow-x-auto">
-                <div className="min-w-[1170px]">
-                  {/* Table header */}
-                  <div className="flex items-center py-5.5 px-7.5">
-                    <div className="min-w-[400px]">
-                      <p className="text-dark">Product</p>
-                    </div>
-                    <div className="min-w-[180px]">
-                      <p className="text-dark">Price</p>
-                    </div>
-                    <div className="min-w-[275px]">
-                      <p className="text-dark">Quantity</p>
-                    </div>
-                    <div className="min-w-[200px]">
-                      <p className="text-dark">Subtotal</p>
-                    </div>
-                    <div className="min-w-[50px]">
-                      <p className="text-dark text-right">Action</p>
-                    </div>
+              {/* Mobile-friendly table */}
+              <div className="block md:table w-full">
+                {/* Table header - hidden on mobile */}
+                <div className="hidden md:flex items-center py-5.5 px-4 sm:px-7.5 bg-gray-100">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-dark font-medium">Product</p>
                   </div>
-
-                  {/* Cart items */}
-                  {cartItems.map((item) => (
-                    <SingleItem item={item} key={item.id} />
-                  ))}
+                  <div className="w-24 sm:w-32 text-center">
+                    <p className="text-dark font-medium">Price</p>
+                  </div>
+                  <div className="w-32 sm:w-40 text-center">
+                    <p className="text-dark font-medium">Quantity</p>
+                  </div>
+                  <div className="w-24 sm:w-32 text-center">
+                    <p className="text-dark font-medium">Subtotal</p>
+                  </div>
+                  <div className="w-16 text-right">
+                    <p className="text-dark font-medium">Action</p>
+                  </div>
                 </div>
+
+                {/* Cart items */}
+                {cartItems.map((item) => (
+                  <SingleItem item={item} key={item.id} />
+                ))}
               </div>
             </div>
 
             <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-11 mt-9">
-              <Discount />
+              <Discount /> {/* Uncommented as per request */}
               <OrderSummary />
             </div>
           </div>
         </section>
       ) : (
-        <section className="py-20 text-center">
+        <section className="py-10 md:py-20 text-center">
           <div className="mx-auto pb-7.5">
             <svg
               className="mx-auto"
-              width="100"
-              height="100"
+              width="80"
+              height="80"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -112,11 +106,11 @@ const Cart = () => {
             </svg>
           </div>
 
-          <p className="pb-6 text-dark-2 text-lg">Your cart is empty!</p>
+          <p className="pb-6 text-dark-2 text-base sm:text-lg">Your cart is empty!</p>
 
           <Link
             href="/shop"
-            className="w-96 mx-auto flex justify-center font-medium text-white bg-dark py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
+            className="inline-flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-md ease-out duration-200 hover:bg-opacity-95 w-full sm:w-96"
           >
             Continue Shopping
           </Link>

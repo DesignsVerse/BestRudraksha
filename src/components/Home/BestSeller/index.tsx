@@ -6,7 +6,7 @@ import shopData from "@/components/Shop/shopData";
 
 const BestSeller = () => {
   return (
-    <section className="bg-[#FFF7F0] py-12">
+    <section className="bg-[#FFFAF5] py-12">
       <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="mb-8 flex flex-col sm:flex-row items-center justify-between">

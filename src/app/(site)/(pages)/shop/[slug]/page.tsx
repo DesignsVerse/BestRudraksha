@@ -8,13 +8,14 @@ import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Newsletter from "@/components/Common/Newsletter";
-import RecentlyViewdItems from "@/components/ShopDetails/RecentlyViewd";
+import RecentlyViewdItems from "@/components/Shop/RecentlyViewd";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import RudrakshaComponent from "@/components/Shop/wearingguidline";
 
 interface PageProps {
   params: Promise<{
@@ -263,7 +264,7 @@ const ShopDetails = ({ params }: PageProps) => {
             {/* Image Gallery */}
             <div className="lg:max-w-[550px] w-full">
               <div className="lg:min-h-[250px] bg-[#D8CFC2] rounded-xl shadow-lg bg-gray-100 relative flex items-center justify-center overflow-hidden">
-                <button
+                {/* <button
                   onClick={handlePreviewSlider}
                   aria-label="Zoom image"
                   className="w-11 h-11 rounded-full bg-white shadow-md flex items-center justify-center text-gray-900 hover:text-indigo-600 transition-all duration-200 absolute top-6 right-6 z-50"
@@ -277,7 +278,7 @@ const ShopDetails = ({ params }: PageProps) => {
                   >
                     <path d="M15 0H7v2h8v8h2V2c0-1.1-.9-2-2-2zM2 7H0v8c0 1.1.9 2 2 2h8v-2H2V7zm13 8h2v-2h-2v2zm-8-8H5v2h2V7z" />
                   </svg>
-                </button>
+                </button> */}
                 {product.imgs?.previews && (
                   <Image
                     src={product.imgs.previews[previewImg]}
@@ -320,7 +321,11 @@ const ShopDetails = ({ params }: PageProps) => {
           </div>
         </div>
       </section>
+      <div className="bg-[#FFFAF5]">
+      < RudrakshaComponent/>
+      </div>
       <RecentlyViewdItems />
+      
       <Newsletter />
     </>
   );

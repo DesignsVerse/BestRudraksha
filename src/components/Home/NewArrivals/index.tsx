@@ -6,7 +6,7 @@ import shopData from "@/components/Shop/shopData";
 
 const NewArrival = () => {
   return (
-    <section className="overflow-hidden py-12 bg-[#FFF7F0]">
+    <section className="overflow-hidden py-12 bg-[#FFFAF5]">
       <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title - Centered with Rudraksha Theme */}
         <div className="mb-10 flex flex-col items-center justify-center text-center">
@@ -48,7 +48,7 @@ const NewArrival = () => {
         <div className="mt-10 text-center">
           <Link
             href="/shop-with-sidebar"
-            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-amber-600 rounded-full shadow-md hover:bg-amber-700 transition-all duration-300"
+            className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[#800000] rounded-full shadow-md hover:bg-amber-700 transition-all duration-300"
           >
             View All
           </Link>

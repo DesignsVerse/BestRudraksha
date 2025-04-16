@@ -15,13 +15,11 @@ type WishListItem = {
   quantity: number;
   status: string;
   imgs: { thumbnails: string[]; previews: string[] };
-  sizes?: { name: string; price: number; discountedPrice?: number }[]; // Optional for compatibility
+  sizes?: { name: string; price: number; discountedPrice?: number }[];
 };
 
 const SingleItem = ({ item }: { item: WishListItem }) => {
   const dispatch = useDispatch<AppDispatch>();
-
-  // Use the first size (Regular) for pricing, or fallback to item.price
   const regularSize = item.sizes?.[0] || {
     price: item.price,
     discountedPrice: item.discountedPrice,
@@ -46,8 +44,8 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
   };
 
   return (
-    <div className="flex items-center border-t border-gray-3 py-5 px-10">
-      <div className="min-w-[83px]">
+    <div className="flex items-center border-t border-gray-3 py-5 px-6 md:px-10">
+      <div className="min-w-[83px] hidden md:block">
         <button
           onClick={handleRemoveFromWishlist}
           aria-label="Remove from wishlist"
@@ -68,7 +66,7 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
             <path
               fillRule="evenodd"
               clipRule="evenodd"
-              d="M11.0007 1.14587C5.55835 1.14587 1.14648 5.55773 1.14648 11C1.14648 16.4423 5.55835 20.8542 11.0007 20.8542C16.443 20.8542 20.8548 16.4423 20.8548 11C20.8548 5.55773 16.443 1.14587 11.0007 1.14587ZM2.52148 11C2.52148 6.31713 6.31774 2.52087 11.0007 2.52087C15.6836 2.52087 19.4798 6.31713 19.4798 11C19.4798 15.683 15.6836 19.4792 11.0007 19.4792C6.31774 19.4792 2.52148 15.683 2.52148 11Z"
+              d="M1.04102 10C1.04102 5.05247 5.0518 1.04169 9.99935 1.04169C14.9469 1.04169 18.9577 5.05247 18.9577 10C18.9577 14.9476 14.9469 18.9584 9.99935 18.9584C5.0518 18.9584 1.04102 14.9476 1.04102 10ZM9.99935 2.29169C5.74215 2.29169 2.29102 5.74283 2.29102 10C2.29102 14.2572 5.74215 17.7084 9.99935 17.7084C14.2565 17.7084 17.7077 14.2572 17.7077 10C17.7077 5.74283 14.2565 2.29169 9.99935 2.29169Z"
               fill=""
             />
           </svg>
@@ -77,19 +75,19 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
 
       <div className="min-w-[387px]">
         <div className="flex items-center justify-between gap-5">
-          <div className="w-full flex items-center gap-5.5">
-            <div className="flex items-center justify-center rounded-[5px] bg-gray-2 max-w-[80px] w-full h-17.5">
+          <div className="w-full flex items-center gap-3 md:gap-5.5">
+            <div className="flex items-center justify-center rounded-[5px] bg-gray-2 max-w-[60px] md:max-w-[80px] w-full h-[60px] md:h-17.5">
               <Image
                 src={item.imgs?.thumbnails?.[0] || "/images/placeholder.png"}
                 alt={item.title}
                 width={80}
                 height={80}
-                style={{ objectFit: "contain" }}
+                className="object-contain"
               />
             </div>
 
             <div>
-              <h3 className="text-dark ease-out duration-200 hover:text-blue">
+              <h3 className="text-sm md:text-base text-dark ease-out duration-200 hover:text-blue">
                 <a href={`/shop/${item.slug}`}>{item.title}</a>
               </h3>
             </div>
@@ -97,7 +95,7 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
         </div>
       </div>
 
-      <div className="min-w-[205px]">
+      <div className="min-w-[205px] hidden md:block">
         <p className="text-dark">
           ₹{regularSize.price.toLocaleString("en-IN")}
           {regularSize.discountedPrice &&
@@ -109,7 +107,7 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
         </p>
       </div>
 
-      <div className="min-w-[265px]">
+      <div className="min-w-[265px] hidden md:block">
         <div className="flex items-center gap-1.5">
           {item.status === "available" ? (
             <>
@@ -165,7 +163,7 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
         <button
           onClick={handleAddToCart}
           disabled={item.status !== "available"}
-          className="inline-flex text-dark hover:text-white bg-gray-1 border border-gray-3 py-2.5 px-6 rounded-md ease-out duration-200 hover:bg-blue hover:border-gray-3 disabled:bg-gray-4 disabled:text-dark-4 disabled:cursor-not-allowed"
+          className="inline-flex text-sm md:text-base text-dark hover:text-white bg-gray-1 border border-gray-3 py-2 md:py-2.5 px-4 md:px-6 rounded-md ease-out duration-200 hover:bg-blue hover:border-gray-3 disabled:bg-gray-4 disabled:text-dark-4 disabled:cursor-not-allowed"
           aria-label="Add to cart"
         >
           Add to Cart
