@@ -37,7 +37,7 @@ const ShopWithoutSidebar: React.FC = () => {
         title={"Explore All Products"}
         pages={["shop", "/", "shop without sidebar"]}
       />
-      <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28 bg-[#FFF7F0]">
+      <section className="overflow-hidden relative pb-20 bg-[#FFF7F0]">
         <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-6">
             <div className="w-full">

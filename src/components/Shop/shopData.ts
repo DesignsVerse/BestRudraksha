@@ -16,6 +16,7 @@ const shopData: Product[] = [
       { name: "Regular", price: 2100, discountedPrice: 1800 },
       { name: "Premium", price: 2500, discountedPrice: 2000 }
     ]
+    
   },
   {
     id: 2,

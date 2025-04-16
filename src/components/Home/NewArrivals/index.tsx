@@ -47,7 +47,7 @@ const NewArrival = () => {
         {/* View All Button - Centered */}
         <div className="mt-10 text-center">
           <Link
-            href="/shop-with-sidebar"
+            href="/shop"
             className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[#800000] rounded-full shadow-md hover:bg-amber-700 transition-all duration-300"
           >
             View All

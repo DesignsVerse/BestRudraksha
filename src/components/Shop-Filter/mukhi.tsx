@@ -18,10 +18,10 @@ const Mukhi = () => {
   return (
     <>
       <Breadcrumb
-        title={"Explore All Products"}
-        pages={["shop", "/", "shop without sidebar"]}
+        title={"1 - 21 Mukhi Rudraksha"}
+        pages={["1 - 21 Mukhi Rudraksha"]}
       />
-      <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28 bg-[#FFFAF5]">
+      <section className="overflow-hidden relative pb-20  bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-7.5">
             <div className="w-full">
@@ -72,22 +72,22 @@ const Mukhi = () => {
               
               {/* Modified Products Display */}
               <div
-                className={`${
-                  productStyle === "grid"
-                    ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7.5 gap-y-9"
-                    : "flex flex-col gap-7.5"
-                }`}
-              >
-                {shopData
-                  .slice(0, itemsToShow) // Show only first 'itemsToShow' items
-                  .map((item, key) =>
-                    productStyle === "grid" ? (
-                      <SingleGridItem item={item} key={key} />
-                    ) : (
-                      <SingleListItem item={item} key={key} />
-                    )
-                  )}
-              </div>
+  className={`${
+    productStyle === "grid"
+      ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6 sm:gap-x-7.5 sm:gap-y-9"
+      : "flex flex-col gap-7.5"
+  }`}
+>
+  {shopData
+    .slice(0, itemsToShow)
+    .map((item, key) =>
+      productStyle === "grid" ? (
+        <SingleGridItem item={item} key={key} />
+      ) : (
+        <SingleListItem item={item} key={key} />
+      )
+    )}
+</div>
 
               {/* Removed pagination since we're showing limited items */}
             </div>

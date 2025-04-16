@@ -3,7 +3,6 @@ import React from "react";
 import shopData from "@/components/Shop/shopData";
 import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
-import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef, useEffect, useState } from "react";
@@ -14,7 +13,6 @@ const RecentlyViewdItems = () => {
   const sliderRef = useRef(null);
   const [randomProducts, setRandomProducts] = useState([]);
 
-  // Function to shuffle array randomly
   const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -24,7 +22,6 @@ const RecentlyViewdItems = () => {
     return newArray;
   };
 
-  // Shuffle products when component mounts
   useEffect(() => {
     setRandomProducts(shuffleArray(shopData));
   }, []);
@@ -43,7 +40,6 @@ const RecentlyViewdItems = () => {
     <section className="overflow-hidden pt-17.5">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 pb-15 border-b border-gray-3">
         <div className="swiper categories-carousel common-carousel">
-          {/* <!-- section title --> */}
           <div className="mb-10 flex items-center justify-between">
             <div>
               <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
@@ -101,13 +97,23 @@ const RecentlyViewdItems = () => {
 
           <Swiper
             ref={sliderRef}
-            slidesPerView={4}
-            spaceBetween={20}
+            slidesPerView={2}
+            slidesPerGroup={2}
+            spaceBetween={15}
+            breakpoints={{
+              768: {
+                slidesPerView: 4,
+                slidesPerGroup: 4,
+                spaceBetween: 20
+              }
+            }}
             className="justify-between"
           >
             {randomProducts.map((item, key) => (
               <SwiperSlide key={key}>
-                <ProductItem item={item} />
+                <div className="px-1.5">
+                  <ProductItem item={item} />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
