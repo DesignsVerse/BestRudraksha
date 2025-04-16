@@ -123,7 +123,7 @@ const BlogDetailsWithSidebar = () => {
                 {blog.content.map((paragraph, index) => renderContent(paragraph, index))}
 
                 <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-10 shadow-sm">
-                  <p className="italic text-dark text-center text-lg">"{blog.quote}"</p>
+                <p className="italic text-dark text-center text-lg">&quot;{blog.quote}&quot;</p>
                   <a
                     href="#"
                     className="flex items-center justify-center gap-3 mt-5.5"

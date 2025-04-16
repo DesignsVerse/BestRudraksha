@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   FaLeaf,
   FaWater,
@@ -81,11 +82,14 @@ const RudrakshaComponent = () => {
           className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300 h-80"
         >
           <div className="relative w-full h-full">
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+          <Image
+            src={item.img}
+            alt={item.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            width={500}  // Add appropriate width
+            height={300} // Add appropriate height
+            priority={false} // Set to true if this image should be preloaded
+          />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
@@ -153,7 +157,7 @@ const RudrakshaComponent = () => {
                     </h3>
                     <p className="text-gray-600 mt-1">
                       Soak in Ganga jal or raw cow milk for 30 minutes while
-                      chanting "Om Namah Shivaya" 108 times to cleanse
+                      chanting {`"Om Namah Shivaya"`} 108 times to cleanse
                       impurities. Add tulsi leaves for enhanced purification.
                     </p>
                   </div>
@@ -234,9 +238,9 @@ const RudrakshaComponent = () => {
                   <div>
                     <h3 className="font-semibold text-gray-800">Storage</h3>
                     <p className="text-gray-600 mt-1">
-                      When not wearing, store in a red silk pouch in your puja
-                      room's northeast corner. Place near Shiva lingam or Sri
-                      Yantra for daily energy recharge.
+                      {`When not wearing, store in a red silk pouch in your puja 
+                      room's northeast corner. Place near Shiva lingam or Sri 
+                      Yantra for daily energy recharge.`}
                     </p>
                   </div>
                 </div>
@@ -493,7 +497,7 @@ const RudrakshaComponent = () => {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
+              <p className="text-gray-600 italic mb-4">&quot;{testimonial.quote}&quot;</p>
               <p className="text-[#800000] font-medium">{testimonial.author}</p>
             </div>
           ))}
@@ -546,13 +550,16 @@ const RudrakshaComponent = () => {
               </svg>
             </button>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="h-64 md:h-80 rounded-lg overflow-hidden">
-                <img
-                  src={selectedMukhi.image}
-                  alt={selectedMukhi.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                        <div className="h-64 md:h-80 rounded-lg overflow-hidden">
+              <Image
+                src={selectedMukhi.image}
+                alt={selectedMukhi.name}
+                className="w-full h-full object-cover"
+                width={800}  // Set appropriate width
+                height={800} // Set appropriate height
+                priority={false} // Set to true if this is above the fold
+              />
+            </div>
               <div>
                 <h3 className="text-2xl font-bold text-[#800000] mb-2">
                   {selectedMukhi.name} Rudraksha
