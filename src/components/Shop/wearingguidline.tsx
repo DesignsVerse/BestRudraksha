@@ -29,9 +29,7 @@ const RudrakshaComponent = () => {
   };
 
   // Auto-scroll to top when tab changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [activeTab]);
+ 
 
   // Toggle wishlist item
   const toggleWishlist = (id) => {
@@ -59,22 +57,22 @@ const RudrakshaComponent = () => {
         {
           title: "Ek Mukhi Rudraksha",
           description: "Represents Lord Shiva, brings enlightenment and spiritual growth",
-          img: "/images/hero/hero-1.webp"
+          img: "/images/shop-detail/4.png"
         },
         {
           title: "Dwi Mukhi Rudraksha",
           description: "Symbolizes unity, enhances relationships and harmony",
-          img: "/images/hero/hero-1.webp"
+          img: "/images/shop-detail/2.png"
         },
         {
           title: "Tri Mukhi Rudraksha",
           description: "Represents Agni, removes sins and negative energies",
-          img: "/images/hero/hero-1.webp"
+          img: "/images/shop-detail/3.png"
         },
         {
           title: "Chatur Mukhi Rudraksha",
           description: "Represents Brahma, enhances creativity and knowledge",
-          img: "/images/hero/hero-1.webp"
+          img: "/images/shop-detail/1.png"
         }
       ].map((item, index) => (
         <div 
@@ -91,14 +89,6 @@ const RudrakshaComponent = () => {
             priority={false} // Set to true if this image should be preloaded
           />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-            <h3 className="text-xl font-bold mb-2 group-hover:text-amber-100 transition-colors">
-              {item.title}
-            </h3>
-            <p className="text-gray-200 text-sm group-hover:text-gray-100 transition-colors">
-              {item.description}
-            </p>
           </div>
         </div>
       ))}
