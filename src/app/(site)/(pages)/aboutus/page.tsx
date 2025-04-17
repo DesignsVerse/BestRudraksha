@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link'; // Added import for Link
 import Breadcrumb from '@/components/Common/Breadcrumb';
 
 const AboutUs: React.FC = () => {
@@ -12,7 +13,7 @@ const AboutUs: React.FC = () => {
         <meta name="description" content="Discover our journey at BestRudraksha - purveyors of authentic, high-quality Rudraksha beads and spiritual products since 2010." />
       </Head>
       
-      <Breadcrumb title={"About Us"} pages={["About Us"]} />
+      <Breadcrumb title="About Us" pages={["About Us"]} />
       <div className="min-h-screen bg-[#FFFAF5] py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -96,7 +97,7 @@ const AboutUs: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Customer Enlightenment</h3>
                 <p className="text-gray-600">
-                  We're committed to educating our customers about proper Rudraksha selection, care, and spiritual practices.
+                  We\'re committed to educating our customers about proper Rudraksha selection, care, and spiritual practices.
                 </p>
               </div>
             </div>
@@ -104,117 +105,93 @@ const AboutUs: React.FC = () => {
 
           {/* Our Process */}
           <div className="mb-20 px-4 sm:px-6 lg:px-8">
-  <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-12">
-    Our Rigorous Process
-  </h2>
-  
-  <div className="relative max-w-7xl mx-auto">
-    {/* Timeline line */}
-    <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-[#800000] transform -translate-x-1/2"></div>
-
-    {/* Timeline items container */}
-    <div className="space-y-16 md:space-y-8">
-      {/* Item 1 - Text left, image right */}
-      <div className="relative flex flex-col md:flex-row items-center">
-        {/* Text content */}
-        <div className="w-full md:w-1/2 md:pr-8 mb-6 md:mb-0 text-center md:text-right">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Sacred Sourcing</h3>
-            <p className="text-gray-600">
-              We personally visit Rudraksha farms in Nepal, Indonesia, and India to select the finest beads from trusted growers.
-            </p>
-          </div>
-        </div>
-
-        {/* Timeline dot */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
-        </div>
-
-        {/* Image */}
-        <div className="w-full md:w-1/2 md:pl-8">
-          <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
-            <div className="relative h-64 w-full">
-              <Image 
-                src="/images/blog/blog-1.webp" 
-                alt="Rudraksha sourcing process" 
-                fill
-                className="rounded-md object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-12">
+              Our Rigorous Process
+            </h2>
+            <div className="relative max-w-7xl mx-auto">
+              <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-[#800000] transform -translate-x-1/2"></div>
+              <div className="space-y-16 md:space-y-8">
+                <div className="relative flex flex-col md:flex-row items-center">
+                  <div className="w-full md:w-1/2 md:pr-8 mb-6 md:mb-0 text-center md:text-right">
+                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Sacred Sourcing</h3>
+                      <p className="text-gray-600">
+                        We personally visit Rudraksha farms in Nepal, Indonesia, and India to select the finest beads from trusted growers.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+                    <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pl-8">
+                    <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
+                      <div className="relative h-64 w-full">
+                        <Image 
+                          src="/images/blog/blog-1.webp" 
+                          alt="Rudraksha sourcing process" 
+                          fill
+                          className="rounded-md object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative flex flex-col md:flex-row items-center">
+                  <div className="w-full md:w-1/2 md:pr-8 order-1 md:order-none mb-6 md:mb-0">
+                    <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
+                      <div className="relative h-64 w-full">
+                        <Image 
+                          src="/images/blog/blog-1.webp" 
+                          alt="Rudraksha authentication process" 
+                          fill
+                          className="rounded-md object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+                    <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
+                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Authentication</h3>
+                      <p className="text-gray-600">
+                        Each bead is examined by our team of experts for mukhi count, natural markings, and spiritual energy before being certified.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative flex flex-col md:flex-row items-center">
+                  <div className="w-full md:w-1/2 md:pr-8 mb-6 md:mb-0 text-center md:text-right">
+                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Spiritual Consecration</h3>
+                      <p className="text-gray-600">
+                        Selected beads undergo traditional purification rituals and blessings by learned priests to enhance their spiritual potency.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+                    <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
+                  </div>
+                  <div className="w-full md:w-1/2 md:pl-8">
+                    <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
+                      <div className="relative h-64 w-full">
+                        <Image 
+                          src="/images/blog/blog-1.webp" 
+                          alt="Rudraksha consecration ceremony" 
+                          fill
+                          className="rounded-md object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Item 2 - Image left, text right */}
-      <div className="relative flex flex-col md:flex-row items-center">
-        {/* Image */}
-        <div className="w-full md:w-1/2 md:pr-8 order-1 md:order-none mb-6 md:mb-0">
-          <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
-            <div className="relative h-64 w-full">
-              <Image 
-                src="/images/blog/blog-1.webp" 
-                alt="Rudraksha authentication process" 
-                fill
-                className="rounded-md object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Timeline dot */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
-        </div>
-
-        {/* Text content */}
-        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Authentication</h3>
-            <p className="text-gray-600">
-              Each bead is examined by our team of experts for mukhi count, natural markings, and spiritual energy before being certified.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Item 3 - Text left, image right */}
-      <div className="relative flex flex-col md:flex-row items-center">
-        {/* Text content */}
-        <div className="w-full md:w-1/2 md:pr-8 mb-6 md:mb-0 text-center md:text-right">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Spiritual Consecration</h3>
-            <p className="text-gray-600">
-              Selected beads undergo traditional purification rituals and blessings by learned priests to enhance their spiritual potency.
-            </p>
-          </div>
-        </div>
-
-        {/* Timeline dot */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
-          <div className="h-5 w-5 rounded-full bg-[#800000] border-4 border-white"></div>
-        </div>
-
-        {/* Image */}
-        <div className="w-full md:w-1/2 md:pl-8">
-          <div className="bg-white p-1 rounded-lg shadow-md overflow-hidden">
-            <div className="relative h-64 w-full">
-              <Image 
-                src="/images/blog/blog-1.webp" 
-                alt="Rudraksha consecration ceremony" 
-                fill
-                className="rounded-md object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
           {/* Team Section */}
           <div className="mb-20">
@@ -254,7 +231,7 @@ const AboutUs: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Priya Patel</h3>
                   <p className="text-[#800000] font-medium mb-3">Lead Authenticator</p>
                   <p className="text-gray-600">
-                    Priya's keen eye and deep knowledge help identify genuine Rudraksha beads from imitations.
+                    Priya\'s keen eye and deep knowledge help identify genuine Rudraksha beads from imitations.
                   </p>
                 </div>
               </div>
@@ -287,12 +264,12 @@ const AboutUs: React.FC = () => {
             <p className="text-[#FFFAF5] mb-6 max-w-2xl mx-auto">
               Discover the perfect Rudraksha bead for your spiritual needs, backed by our authenticity guarantee and expert guidance.
             </p>
-            <a 
+            <Link 
               href="/shop" 
               className="inline-block bg-[#FFFAF5] text-[#800000] font-bold py-3 px-8 rounded-lg hover:bg-white transition duration-200"
             >
               Explore Our Collection
-            </a>
+            </Link>
           </div>
         </div>
       </div>
