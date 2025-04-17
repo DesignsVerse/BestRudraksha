@@ -88,7 +88,7 @@ export const selectCartItems = (state: RootState) => state.cartReducer.items;
 
 export const selectTotalPrice = createSelector([selectCartItems], (items) => {
   return items.reduce((total, item) => {
-    return total + item.price * item.quantity;
+    return total + item.discountedPrice * item.quantity;
   }, 0);
 });
 

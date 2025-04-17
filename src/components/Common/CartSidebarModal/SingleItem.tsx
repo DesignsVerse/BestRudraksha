@@ -45,11 +45,13 @@ const SingleItem = ({ item, removeItemFromCart }) => {
 </h3>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-[#800000]">
-              ₹{item.price.toLocaleString("en-IN")}
+            ₹{item.discountedPrice.toLocaleString("en-IN")}
+
             </span>
             {item.discountedPrice && item.discountedPrice !== item.price && (
               <span className="text-sm text-gray-500 line-through">
-                ₹{item.discountedPrice.toLocaleString("en-IN")}
+                ₹{item.price.toLocaleString("en-IN")}
+
               </span>
             )}
           </div>
@@ -85,7 +87,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
 
       <div className="flex flex-col items-end">
         <p className="text-lg font-medium mb-2 text-[#800000]">
-          ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+          ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
         </p>
         
         <button

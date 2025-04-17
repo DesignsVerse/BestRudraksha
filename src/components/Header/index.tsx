@@ -311,14 +311,13 @@ const Header: React.FC = () => {
               <ul className="flex flex-col gap-4">
                 {menuData.map((menuItem: Menu) =>
                   menuItem.submenu ? (
-                    <li key={menuItem.id}>
-                      <Dropdown
-                        menuItem={menuItem}
-                        stickyMenu={stickyMenu}
-                        mobile={true}
-                        onItemClick={handleMenuItemClick}
-                      />
-                    </li>
+                    <Dropdown
+                      key={menuItem.id}
+                      menuItem={menuItem}
+                      stickyMenu={stickyMenu}
+                      mobile={true}
+                      onItemClick={handleMenuItemClick}
+                    />
                   ) : (
                     <li key={menuItem.id}>
                       <Link

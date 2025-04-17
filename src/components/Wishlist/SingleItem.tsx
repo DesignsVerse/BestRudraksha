@@ -97,13 +97,15 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
 
       <div className="min-w-[205px] hidden md:block">
         <p className="text-dark">
-          ₹{regularSize.price.toLocaleString("en-IN")}
-          {regularSize.discountedPrice &&
+        {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
-              <span className="text-dark-4 line-through ml-2">
+              <span className="">
                 ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
               </span>
             )}
+            <span className="line-through text-dark-4  ml-2">
+          ₹{regularSize.price.toLocaleString("en-IN")}
+          </span>
         </p>
       </div>
 

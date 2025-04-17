@@ -196,15 +196,16 @@ const ProductItem = ({ item }: { item: Product }) => {
 
         {/* Price */}
         <div className="flex items-center gap-3 mt-2">
-          <span className="text-lg font-bold text-[#800000]">
-            ₹{regularSize.price.toLocaleString("en-IN")}
-          </span>
+         
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
-              <span className="text-sm text-gray-500 line-through">
+              <span className="text-lg font-bold text-[#800000]">
                 ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
               </span>
             )}
+             <span className="   text-sm text-gray-500 line-through">
+            ₹{regularSize.price.toLocaleString("en-IN")}
+          </span>
         </div>
       </div>
 

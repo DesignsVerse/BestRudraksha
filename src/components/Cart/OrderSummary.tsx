@@ -37,13 +37,14 @@ const OrderSummary = () => {
                       <p className="text-dark">{item.title}</p>
                     </div>
                     <div className="flex items-center gap-4">
-                      <p className="text-dark text-right">
-                      ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+                      <p className="text-[#800000] text-right">
+                      ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
 
                       </p>
                       {item.discountedPrice !== item.price && (
                         <p className="text-dark-4 text-right line-through">
-                        ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
+                                                ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+
                         </p>
                       )}
                     </div>

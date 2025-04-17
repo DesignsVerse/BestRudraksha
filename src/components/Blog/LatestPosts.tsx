@@ -23,49 +23,49 @@ const LatestPosts = ({ blogs }) => {
       </div>
 
       <div className="p-4 sm:p-6">
-        <div className="flex flex-col gap-6">
-          {shuffledBlogs.map((blog, key) => (
-            <div className="flex items-center gap-4" key={key}>
-              <Link
-                href="/blogs/blog-details-with-sidebar"
-                className="max-w-[110px] w-full rounded-[10px] overflow-hidden"
-              >
-                <Image
-                  src={blog.img}
-                  alt="blog"
-                  className="rounded-[10px] w-full"
-                  width={110}
-                  height={80}
-                />
-              </Link>
+  <div className="flex flex-col gap-6">
+    {shuffledBlogs.map((blog, key) => (
+      <div className="flex items-center gap-4" key={key}>
+        <Link
+          href={`/blog/${blog.slug}`} // Dynamic URL using blog.slug
+          className="max-w-[110px] w-full rounded-[10px] overflow-hidden"
+        >
+          <Image
+            src={blog.img}
+            alt={blog.title} // Use blog.title for better accessibility
+            className="rounded-[10px] w-full"
+            width={110}
+            height={80}
+          />
+        </Link>
 
-              <div>
-                <h3 className="text-dark leading-[22px] ease-out duration-200 mb-1.5 hover:text-blue">
-                  <Link href="/blogs/blog-details-with-sidebar">{blog.title}</Link>
-                </h3>
+        <div>
+          <h3 className="text-dark leading-[22px] ease-out duration-200 mb-1.5 hover:text-blue">
+            <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
+          </h3>
 
-                <span className="flex items-center gap-3">
-                  <a
-                    href="#"
-                    className="text-custom-xs ease-out duration-200 hover:text-blue"
-                  >
-                    {blog.date}
-                  </a>
+          <span className="flex items-center gap-3">
+            <a
+              href="#" // Consider linking to a date archive or removing href if not needed
+              className="text-custom-xs ease-out duration-200 hover:text-blue"
+            >
+              {blog.date}
+            </a>
 
-                  <span className="block w-px h-4 bg-gray-4"></span>
+            <span className="block w-px h-4 bg-gray-4"></span>
 
-                  <a
-                    href="#"
-                    className="text-custom-xs ease-out duration-200 hover:text-blue"
-                  >
-                    {blog.views}k Views
-                  </a>
-                </span>
-              </div>
-            </div>
-          ))}
+            <a
+              href="#" // Consider linking to a views-related page or removing href
+              className="text-custom-xs ease-out duration-200 hover:text-blue"
+            >
+              {blog.views}k Views
+            </a>
+          </span>
         </div>
       </div>
+    ))}
+  </div>
+</div>
     </div>
   );
 };

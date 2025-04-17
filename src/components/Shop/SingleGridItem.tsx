@@ -17,9 +17,9 @@ const SingleGridItem = ({ item }: { item: Product }) => {
 
   const regularSize = item.sizes?.[0] || { name: "Regular", price: 0 };
   const discountPercentage =
-    regularSize.discountedPrice && regularSize.discountedPrice !== regularSize.price
+    regularSize.discountedPrice && regularSize.price !== regularSize.discountedPrice
       ? Math.round(
-          ((regularSize.discountedPrice - regularSize.price) / regularSize.discountedPrice) * 100
+          ((regularSize.price - regularSize.discountedPrice) / regularSize.price) * 100
         )
       : 0;
 
@@ -178,12 +178,14 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         </h3>
         <div className="flex items-center gap-3 mt-2">
           <span className="text-lg font-bold text-[#800000]">
-            ₹{regularSize.price.toLocaleString("en-IN")}
+          ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+
           </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
               <span className="text-sm text-gray-500 line-through">
-                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+                            ₹{regularSize.price.toLocaleString("en-IN")}
+
               </span>
             )}
         </div>
