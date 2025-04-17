@@ -51,11 +51,15 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   };
 
   const handleToggleWishlist = () => {
-    dispatch(addItemToWishlist({ ...product, status: "available", quantity: 1 }));
+    dispatch(
+      addItemToWishlist({ ...product, status: "available", quantity: 1 })
+    );
     setIsWishlisted(!isWishlisted);
     onToggleWishlist(product, !isWishlisted);
     toast.info(
-      isWishlisted ? "Removed from wishlist" : `${product.title} added to wishlist!`,
+      isWishlisted
+        ? "Removed from wishlist"
+        : `${product.title} added to wishlist!`,
       { position: "top-right", autoClose: 2000 }
     );
   };
@@ -104,15 +108,17 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       <div className="mb-6">
         <div className="flex items-center gap-3">
           <h3 className="text-2xl font-semibold text-[#800000]">
-            ₹{selectedSize.price.toLocaleString("en-IN")}
-            {selectedSize.name !== "Regular" && (
-              <span className="text-sm text-gray-500 ml-2">({selectedSize.name})</span>
-            )}
+            ₹{selectedSize.discountedPrice.toLocaleString("en-IN")}
           </h3>
           {selectedSize.discountedPrice &&
             selectedSize.discountedPrice !== selectedSize.price && (
               <span className="text-gray-500 line-through">
-                ₹{selectedSize.discountedPrice.toLocaleString("en-IN")}
+                ₹{selectedSize.price.toLocaleString("en-IN")}
+            {selectedSize.name !== "Regular" && (
+              <span className="text-sm text-gray-500 ml-2">
+                ({selectedSize.name})
+              </span>
+            )}
               </span>
             )}
         </div>
@@ -121,7 +127,9 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       <div style={{ marginBottom: "1rem", color: "#374151" }}>
         <span style={{ fontWeight: "bold", color: "#000000" }}>Origin:</span>{" "}
         <span style={{ color: "#000000" }}>Nepali</span> <br />
-        <span style={{ fontWeight: "bold", color: "#000000" }}>Description:</span>{" "}
+        <span style={{ fontWeight: "bold", color: "#000000" }}>
+          Description:
+        </span>{" "}
         <span style={{ color: "#000000" }}>{product.description}</span>
       </div>
 
@@ -227,13 +235,13 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       </form>
 
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
-      <Link
-        href={product.paymentLink || '/fallback'} // Fallback URL if paymentLink is missing
-        className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
-      >
-        BUY NOW
-      </Link>
-    </div>
+        <Link
+          href={product.paymentLink || "/fallback"} // Fallback URL if paymentLink is missing
+          className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
+        >
+          BUY NOW
+        </Link>
+      </div>
 
       {/* Integrated Custom Review Images and Toggleable Description */}
       <div className="flex ml- mt-4 space-x-4">
@@ -265,34 +273,64 @@ const ProductCard = ({ product, onToggleWishlist }) => {
           />
         </div>
       </div>
-      <div className="mt-4 ">
-      <button
-    onClick={toggleDescription}
-    className="bg-gray-200 py-2 text-dark rounded flex items-center"
-  >
-    Description
-    <svg
-      className="ml-2 w-4 h-4"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M19 9l-7 7-7-7"
-      ></path>
-    </svg>
-  </button>
-        {isDescriptionVisible && (
-        <div className="mt-2">
-          <p>
-            {product.detail || "No description available. Click the toggle button to show/hide."}
+      <div className="mt-4">
+        <button
+          onClick={toggleDescription}
+          className="bg-gray-200 py-2 text-dark rounded flex items-center"
+        >
+          Description
+          <svg
+            className="ml-2 w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          className={`mt-2 transition-all duration-300 ease-in-out ${
+            isDescriptionVisible
+              ? "max-h-[1000px] opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <p className="mb-4">
+            {product.detail || "No description available."}
           </p>
+
+          {product.beejMantra && (
+            <p className="font-bold mb-4">
+              Beej Mantra: <span className="text-lg">{product.beejMantra}</span>
+            </p>
+          )}
+
+          <h3 className="font-bold text-lg mb-2">Key Features</h3>
+          <ul className="list-disc pl-5 mb-4">
+            {product.keyFeatures?.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            )) || <li>No key features available</li>}
+          </ul>
+
+          <h3 className="font-bold text-lg mb-2">Benefits</h3>
+          <p>
+            Rudraksha beads are known to naturally calm the mind, reduce stress,
+            and promote emotional balance, while enhancing focus, positivity,
+            and spiritual growth.
+          </p>
+          <ul className="list-disc pl-5">
+            {product.benefits?.map((benefit, index) => (
+              <li key={index}>{benefit}</li>
+            )) || <li>No benefits information available</li>}
+          </ul>
         </div>
-      )}
       </div>
     </div>
   );
@@ -375,7 +413,10 @@ const ShopDetails = ({ params }: PageProps) => {
             </div>
 
             {/* Product Details */}
-            <ProductCard product={product} onToggleWishlist={handleToggleWishlist} />
+            <ProductCard
+              product={product}
+              onToggleWishlist={handleToggleWishlist}
+            />
           </div>
         </div>
       </section>

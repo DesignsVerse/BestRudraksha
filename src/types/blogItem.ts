@@ -4,8 +4,9 @@ export type BlogItem = {
   date: string;
   views: number;
   title: string;
+  productId:string;
   img: string;
-  content: string[]; // Array of paragraphs for the details page
+  sections: { heading: string; content: string }[]; // Updated to sections array
   tags: string[];
   author: {
     name: string;

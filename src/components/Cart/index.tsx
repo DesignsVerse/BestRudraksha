@@ -41,23 +41,23 @@ const Cart = () => {
               {/* Mobile-friendly table */}
               <div className="block md:table w-full">
                 {/* Table header - hidden on mobile */}
-                <div className="hidden md:flex items-center py-5.5 px-4 sm:px-7.5 bg-gray-100">
-                  <div className="flex-1 min-w-0">
-                    <p className="text-dark font-medium">Product</p>
-                  </div>
-                  <div className="w-24 sm:w-32 text-center">
-                    <p className="text-dark font-medium">Price</p>
-                  </div>
-                  <div className="w-32 sm:w-40 text-center">
-                    <p className="text-dark font-medium">Quantity</p>
-                  </div>
-                  <div className="w-24 sm:w-32 text-center">
-                    <p className="text-dark font-medium">Subtotal</p>
-                  </div>
-                  <div className="w-16 text-right">
-                    <p className="text-dark font-medium">Action</p>
-                  </div>
-                </div>
+               <div className="hidden md:flex items-center py-4 px-4 sm:px-15 bg-gray-100">
+  <div className="min-w-[400px]">
+    <p className="text-dark font-medium">Product</p>
+  </div>
+  <div className="min-w-[180px] text-center">
+    <p className="text-dark font-medium">Price</p>
+  </div>
+  <div className="min-w-[275px] text-center">
+    <p className="text-dark font-medium">Quantity</p>
+  </div>
+  <div className="min-w-[200px] text-center">
+    <p className="text-dark font-medium">Subtotal</p>
+  </div>
+  <div className="min-w-[50px] text-right">
+    <p className="text-dark font-medium">Action</p>
+  </div>
+</div>
 
                 {/* Cart items */}
                 {cartItems.map((item) => (

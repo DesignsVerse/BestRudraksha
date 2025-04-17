@@ -13,19 +13,19 @@ const data: Category[] = [
     title: "Gemstones",
     id: 2,
     img: "/images/categories/gemstone.jpg",
-    link: "/shop/Gemstones",
+    link: "/shop-filter/gemstones",
   },
   {
     title: "Special Rudraksha",
     id: 3,
     img: "/images/categories/special-rudraksha.jpg",
-    link: "/shop/Special Rudraksha",
+    link: "/shop-filter/special-rudraksha",
   },
   {
     title: "Rudraksha Mala",
     id: 4,
     img: "/images/categories/rudraksha-mala.jpg",
-    link: "/shop/Rudraksha Mala",
+    link: "/shop-filter/1-14-mukhi-rudraksha",
   },
 ];
 
