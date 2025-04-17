@@ -40,14 +40,15 @@ export default function RootLayout({
                   <QuickViewModal />
                   <CartSidebarModal />
                   <PreviewSliderModal />
-                  <NavigationBar/>
+                  
                 </PreviewSliderProvider>
               </ModalProvider>
             </CartModalProvider>
           </ReduxProvider>
           <ScrollToTop />
-          <Footer />
+          <NavigationBar/>
 
+          <Footer />
         </div>
       </body>
     </html>
