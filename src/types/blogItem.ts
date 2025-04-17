@@ -4,7 +4,7 @@ export type BlogItem = {
   date: string;
   views: number;
   title: string;
-  productId:string;
+  productId:number;
   img: string;
   sections: { heading: string; content: string }[]; // Updated to sections array
   tags: string[];
