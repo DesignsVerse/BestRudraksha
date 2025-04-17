@@ -55,8 +55,7 @@ const AboutUs: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-70"></div>
                 <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <p className="text-sm italic">"Each bead carries the blessings of the Himalayas"</p>
-                </div>
+                <p className="text-sm italic">{"Each bead carries the blessings of the Himalayas"}</p>                </div>
               </div>
             </div>
           </div>
@@ -97,8 +96,8 @@ const AboutUs: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Customer Enlightenment</h3>
                 <p className="text-gray-600">
-                  We\'re committed to educating our customers about proper Rudraksha selection, care, and spiritual practices.
-                </p>
+  We&apos;re committed to educating our customers about proper Rudraksha selection, care, and spiritual practices.
+</p>
               </div>
             </div>
           </div>
@@ -231,8 +230,8 @@ const AboutUs: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Priya Patel</h3>
                   <p className="text-[#800000] font-medium mb-3">Lead Authenticator</p>
                   <p className="text-gray-600">
-                    Priya\'s keen eye and deep knowledge help identify genuine Rudraksha beads from imitations.
-                  </p>
+  Priya&apos;s keen eye and deep knowledge help identify genuine Rudraksha beads from imitations.
+</p>
                 </div>
               </div>
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
