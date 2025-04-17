@@ -3,10 +3,12 @@ import { Product } from "@/types/product";
 const shopData: Product[] = [
   {
     id: 1,
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     title: "1 Mukhi Rudraksha",
     slug: "1-mukhi-rudraksha",
     reviews: 15,
     description: "Single-faced Rudraksha representing Lord Shiva",
+    
     images: ["/images/products/1-14-mukhi/1.png"],
     imgs: {
       thumbnails: ["/images/products/1-14-mukhi/1.png"],
@@ -21,6 +23,7 @@ const shopData: Product[] = [
   {
     id: 2,
     title: "2 Mukhi Rudraksha",
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     slug: "2-mukhi-rudraksha",
     reviews: 5,
     description: "Two-faced Rudraksha symbolizing unity",
@@ -38,7 +41,7 @@ const shopData: Product[] = [
     id: 3,
     title: "3 Mukhi Rudraksha",
     slug: "3-mukhi-rudraksha",
-    
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Three-faced Rudraksha for fire energy",
     images: ["/images/products/1-14-mukhi/3.png"],
@@ -55,7 +58,7 @@ const shopData: Product[] = [
     id: 4,
     title: "4 Mukhi Rudraksha",
     slug: "4-mukhi-rudraksha",
-   
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Four-faced Rudraksha for knowledge",
     images: ["/images/products/1-14-mukhi/4.png"],
@@ -72,7 +75,7 @@ const shopData: Product[] = [
     id: 5,
     title: "5 Mukhi Rudraksha",
     slug: "5-mukhi-rudraksha",
-  
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Five-faced Rudraksha for health",
     images: ["/images/products/1-14-mukhi/5.png"],
@@ -89,7 +92,7 @@ const shopData: Product[] = [
     id: 6,
     title: "6 Mukhi Rudraksha",
     slug: "6-mukhi-rudraksha",
-  
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Six-faced Rudraksha for success",
     images: ["/images/products/1-14-mukhi/6.png"],
@@ -106,7 +109,7 @@ const shopData: Product[] = [
     id: 7,
     title: "7 Mukhi Rudraksha",
     slug: "7-mukhi-rudraksha",
-   
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Seven-faced Rudraksha for wealth",
     images: ["/images/products/1-14-mukhi/7.png"],
@@ -123,7 +126,7 @@ const shopData: Product[] = [
     id: 8,
     title: "8 Mukhi Rudraksha",
     slug: "8-mukhi-rudraksha",
-
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Eight-faced Rudraksha for victory",
     images: ["/images/products/1-14-mukhi/8.png"],
@@ -140,7 +143,7 @@ const shopData: Product[] = [
     id: 9,
     title: "9 Mukhi Rudraksha",
     slug: "9-mukhi-rudraksha",
- 
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Nine-faced Rudraksha for power",
     images: ["/images/products/1-14-mukhi/9.png"],
@@ -157,7 +160,7 @@ const shopData: Product[] = [
     id: 10,
     title: "10 Mukhi Rudraksha",
     slug: "10-mukhi-rudraksha",
-
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Ten-faced Rudraksha for protection",
     images: ["/images/products/1-14-mukhi/10.png"],
@@ -174,7 +177,7 @@ const shopData: Product[] = [
     id: 11,
     title: "11 Mukhi Rudraksha",
     slug: "11-mukhi-rudraksha",
-
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Eleven-faced Rudraksha for wisdom",
     images: ["/images/products/1-14-mukhi/11.png"],
@@ -191,7 +194,7 @@ const shopData: Product[] = [
     id: 12,
     title: "12 Mukhi Rudraksha",
     slug: "12-mukhi-rudraksa",
-
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Twelve-faced Rudraksha for cosmic energy",
     images: ["/images/products/1-14-mukhi/12.png"],
@@ -208,7 +211,7 @@ const shopData: Product[] = [
     id: 13,
     title: "13 Mukhi Rudraksha",
     slug: "13-mukhi-rudraksha",
- 
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Thirteen-faced Rudraksha for fulfillment",
     images: ["/images/products/1-14-mukhi/13.png"],
@@ -225,7 +228,7 @@ const shopData: Product[] = [
     id: 14,
     title: "14 Mukhi Rudraksha",
     slug: "14-mukhi-rudraksha",
-   
+    paymentLink:"https://payments.cashfree.com/forms/1-mukhi",
     reviews: 5,
     description: "Fourteen-faced Rudraksha for divine blessings",
     images: ["/images/products/1-14-mukhi/14.png"],
