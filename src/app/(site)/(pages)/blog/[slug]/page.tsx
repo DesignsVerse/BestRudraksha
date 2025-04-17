@@ -191,7 +191,7 @@ const BlogDetailsWithSidebar = () => {
                     {blog.sections.map((section, index) => renderContent(section, index))}
 
                     <div className="rounded-xl bg-white pt-7.5 pb-6 px-4 sm:px-7.5 my-10 shadow-sm">
-                      <p className="italic text-dark text-center text-lg">"{blog.quote}"</p>
+                      <p className="italic text-dark text-center text-lg">&quot;{blog.quote}&quot;</p>
                       <a href="#" className="flex items-center justify-center gap-3 mt-5.5">
                         <div className="flex w-12 h-12 rounded-full overflow-hidden">
                           <Image src={blog.author.avatar} alt="user" width={48} height={48} />
