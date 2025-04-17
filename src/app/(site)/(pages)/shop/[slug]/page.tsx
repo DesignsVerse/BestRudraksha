@@ -227,14 +227,13 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       </form>
 
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
-        <button
-          type="button"
-          onClick={handleAddToCartLocal}
-          className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-        >
-          BUY NOW
-        </button>
-      </div>
+      <Link
+        href={product.paymentLink || '/fallback'} // Fallback URL if paymentLink is missing
+        className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
+      >
+        BUY NOW
+      </Link>
+    </div>
 
       {/* Integrated Custom Review Images and Toggleable Description */}
       <div className="flex ml- mt-4 space-x-4">

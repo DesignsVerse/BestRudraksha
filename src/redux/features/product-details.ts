@@ -11,7 +11,7 @@ const initialState = {
     reviews: 0,
     slug:"",
     description:"",
-    
+    paymentLink:"",
     images: [],
     id: 0,
     imgs: { thumbnails: [], previews: [] },
