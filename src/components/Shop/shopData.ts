@@ -486,10 +486,10 @@ const shopData: Product[] = [
       "Supports physical and mental strength",
       "Protects against negative energies"
     ],
-    images: ["/images/products/gems/ruby.png"],
+    images: ["/images/products/stone/1.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/ruby.png"],
-      previews: ["/images/products/gems/ruby.png"]
+      thumbnails: ["/images/products/stone/1(2).png"],
+      previews: ["/images/products/stone/1.png",]
     },
     sizes: [
       { name: "Regular", price: 6000, discountedPrice: 5000 },
@@ -519,10 +519,10 @@ const shopData: Product[] = [
       "Boosts mental clarity and calmness",
       "Protects against emotional stress"
     ],
-    images: ["/images/products/gems/pearl.png"],
+    images: ["/images/products/stone/2.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/pearl.png"],
-      previews: ["/images/products/gems/pearl.png"]
+      thumbnails: ["/images/products/stone/2.png"],
+      previews: ["/images/products/stone/2.png"]
     },
     sizes: [
       { name: "Regular", price: 5000, discountedPrice: 4000 },
@@ -552,10 +552,10 @@ const shopData: Product[] = [
       "Supports overcoming challenges",
       "Protects against negative energies"
     ],
-    images: ["/images/products/gems/coral.png"],
+    images: ["/images/products/stone/3.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/coral.png"],
-      previews: ["/images/products/gems/coral.png"]
+      thumbnails: ["/images/products/stone/3.png"],
+      previews: ["/images/products/stone/3.png"]
     },
     sizes: [
       { name: "Regular", price: 4000, discountedPrice: 3500 },
@@ -783,10 +783,10 @@ const shopData: Product[] = [
       "Enhances emotional stability for couples",
       "Shields against negative energies"
     ],
-    images: ["/images/product/store/special-problem/1.webp"],
+    images: ["/images/products/special/2.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/1.webp"],
-      previews: ["/images/product/store/special-problem/1.webp"]
+      thumbnails: ["/images/products/special/2.png"],
+      previews: ["/images/products/special/2.png"]
     },
     sizes: [
       { name: "Regular", price: 4000, discountedPrice: 3500 }
@@ -815,10 +815,10 @@ const shopData: Product[] = [
       "Enhances confidence and focus",
       "Protects against negative energies"
     ],
-    images: ["/images/product/store/special-problem/2.webp"],
+    images: ["/images/products/special/1.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/2.webp"],
-      previews: ["/images/product/store/special-problem/2.webp"]
+      thumbnails: ["/images/products/special/1.png"],
+      previews: ["/images/products/special/1.png"]
     },
     sizes: [
       { name: "Regular", price: 1800, discountedPrice: 1500 }
@@ -847,10 +847,10 @@ const shopData: Product[] = [
       "Promotes emotional and financial security",
       "Protects against misfortune"
     ],
-    images: ["/images/product/store/special-problem/3.webp"],
+    images: ["/images/products/special/3.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/3.webp"],
-      previews: ["/images/product/store/special-problem/3.webp"]
+      thumbnails: ["/images/products/special/3.png"],
+      previews: ["/images/products/special/3.png"]
     },
     sizes: [
       { name: "Regular", price: 2500, discountedPrice: 2000 }
