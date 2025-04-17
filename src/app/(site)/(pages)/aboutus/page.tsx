@@ -1,8 +1,8 @@
-// components/AboutUs.tsx
+// src/app/(site)/(pages)/aboutus/page.tsx
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link'; // Added import for Link
+import Link from 'next/link';
 import Breadcrumb from '@/components/Common/Breadcrumb';
 
 const AboutUs: React.FC = () => {
