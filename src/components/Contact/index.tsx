@@ -25,8 +25,8 @@ const Contact = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-orange-800 mb-4">Get in Touch with Rudrak</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions or need spiritual guidance? Reach out to us and we'll respond as soon as possible.
-            </p>
+  Have questions or need spiritual guidance? Reach out to us and we&apos;ll respond as soon as possible.
+</p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8">
