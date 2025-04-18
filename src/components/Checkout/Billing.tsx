@@ -1,24 +1,85 @@
-import React from "react";
+'use client';
 
-const Billing = () => {
+import React, { useState, useEffect } from 'react';
+
+const Billing = ({ onSubmit }) => {
+  // Initialize form state with default values
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    companyName: '',
+    country: 'Australia',
+    address: '',
+    addressTwo: '',
+    town: '',
+    state: '',
+    phone: '',
+    email: '',
+    createAccount: false,
+  });
+
+  // Load form data from local storage on mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('billingData');
+    if (savedData) {
+      setFormData(JSON.parse(savedData));
+    }
+  }, []);
+
+  // Handle input changes and save to local storage
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => {
+      const updatedData = {
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value,
+      };
+      // Save to local storage immediately
+      localStorage.setItem('billingData', JSON.stringify(updatedData));
+      return updatedData;
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate required fields
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.country ||
+      !formData.address ||
+      !formData.town ||
+      !formData.state ||
+      !formData.phone ||
+      !formData.email
+    ) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    // Pass form data to parent
+    onSubmit(formData);
+  };
+
   return (
     <div className="mt-9">
       <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
-        Billing details
+        Billing Details
       </h2>
 
-      <div className="bg-white shadow-1 rounded-[10px] p-4 sm:p-8.5">
+      <form onSubmit={handleSubmit} className="bg-white shadow-1 rounded-[10px] p-4 sm:p-8.5">
         <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
           <div className="w-full">
             <label htmlFor="firstName" className="block mb-2.5">
               First Name <span className="text-red">*</span>
             </label>
-
             <input
               type="text"
               name="firstName"
               id="firstName"
               placeholder="Jhon"
+              value={formData.firstName}
+              onChange={handleChange}
               className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
             />
           </div>
@@ -27,12 +88,13 @@ const Billing = () => {
             <label htmlFor="lastName" className="block mb-2.5">
               Last Name <span className="text-red">*</span>
             </label>
-
             <input
               type="text"
               name="lastName"
               id="lastName"
               placeholder="Deo"
+              value={formData.lastName}
+              onChange={handleChange}
               className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
             />
           </div>
@@ -42,28 +104,31 @@ const Billing = () => {
           <label htmlFor="companyName" className="block mb-2.5">
             Company Name
           </label>
-
           <input
             type="text"
             name="companyName"
             id="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="countryName" className="block mb-2.5">
-            Country/ Region
-            <span className="text-red">*</span>
+          <label htmlFor="country" className="block mb-2.5">
+            Country/Region <span className="text-red">*</span>
           </label>
-
           <div className="relative">
-            <select className="w-full bg-gray-1 rounded-md border border-gray-3 text-dark-4 py-3 pl-5 pr-9 duration-200 appearance-none outline-none focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20">
-              <option value="0">Australia</option>
-              <option value="1">America</option>
-              <option value="2">England</option>
+            <select
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              className="w-full bg-gray-1 rounded-md border border-gray-3 text-dark-4 py-3 pl-5 pr-9 duration-200 appearance-none outline-none focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+            >
+              <option value="Australia">Australia</option>
+              <option value="America">America</option>
+              <option value="England">England</option>
             </select>
-
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-4">
               <svg
                 className="fill-current"
@@ -77,7 +142,7 @@ const Billing = () => {
                   d="M2.41469 5.03569L2.41467 5.03571L2.41749 5.03846L7.76749 10.2635L8.0015 10.492L8.23442 10.2623L13.5844 4.98735L13.5844 4.98735L13.5861 4.98569C13.6809 4.89086 13.8199 4.89087 13.9147 4.98569C14.0092 5.08024 14.0095 5.21864 13.9155 5.31345C13.9152 5.31373 13.915 5.31401 13.9147 5.31429L8.16676 10.9622L8.16676 10.9622L8.16469 10.9643C8.06838 11.0606 8.02352 11.0667 8.00039 11.0667C7.94147 11.0667 7.89042 11.0522 7.82064 10.9991L2.08526 5.36345C1.99127 5.26865 1.99154 5.13024 2.08609 5.03569C2.18092 4.94086 2.31986 4.94086 2.41469 5.03569Z"
                   fill=""
                   stroke=""
-                  stroke-width="0.666667"
+                  strokeWidth="0.666667"
                 />
               </svg>
             </span>
@@ -86,24 +151,25 @@ const Billing = () => {
 
         <div className="mb-5">
           <label htmlFor="address" className="block mb-2.5">
-            Street Address
-            <span className="text-red">*</span>
+            Street Address <span className="text-red">*</span>
           </label>
-
           <input
             type="text"
             name="address"
             id="address"
             placeholder="House number and street name"
+            value={formData.address}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-
           <div className="mt-5">
             <input
               type="text"
-              name="address"
+              name="addressTwo"
               id="addressTwo"
               placeholder="Apartment, suite, unit, etc. (optional)"
+              value={formData.addressTwo}
+              onChange={handleChange}
               className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
             />
           </div>
@@ -111,26 +177,28 @@ const Billing = () => {
 
         <div className="mb-5">
           <label htmlFor="town" className="block mb-2.5">
-            Town/ City <span className="text-red">*</span>
+            Town/City <span className="text-red">*</span>
           </label>
-
           <input
             type="text"
             name="town"
             id="town"
+            value={formData.town}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="country" className="block mb-2.5">
-            Country
+          <label htmlFor="state" className="block mb-2.5">
+            State <span className="text-red">*</span>
           </label>
-
           <input
             type="text"
-            name="country"
-            id="country"
+            name="state"
+            id="state"
+            value={formData.state}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
@@ -139,11 +207,12 @@ const Billing = () => {
           <label htmlFor="phone" className="block mb-2.5">
             Phone <span className="text-red">*</span>
           </label>
-
           <input
             type="text"
             name="phone"
             id="phone"
+            value={formData.phone}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
@@ -152,28 +221,32 @@ const Billing = () => {
           <label htmlFor="email" className="block mb-2.5">
             Email Address <span className="text-red">*</span>
           </label>
-
           <input
             type="email"
             name="email"
             id="email"
+            value={formData.email}
+            onChange={handleChange}
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
         </div>
 
-        <div>
+        <div className="mb-5">
           <label
-            htmlFor="checkboxLabelTwo"
+            htmlFor="createAccount"
             className="text-dark flex cursor-pointer select-none items-center"
           >
             <div className="relative">
               <input
                 type="checkbox"
-                id="checkboxLabelTwo"
+                name="createAccount"
+                id="createAccount"
+                checked={formData.createAccount}
+                onChange={handleChange}
                 className="sr-only"
               />
               <div className="mr-2 flex h-4 w-4 items-center justify-center rounded border border-gray-4">
-                <span className="opacity-0">
+                {formData.createAccount && (
                   <svg
                     width="24"
                     height="24"
@@ -196,13 +269,20 @@ const Billing = () => {
                       fill="white"
                     />
                   </svg>
-                </span>
+                )}
               </div>
             </div>
             Create an Account
           </label>
         </div>
-      </div>
+
+        <button
+          type="submit"
+          className="w-full py-2.5 px-5 bg-blue-600 text-white rounded-md hover:bg-blue-700 duration-200"
+        >
+          Submit Billing Details
+        </button>
+      </form>
     </div>
   );
 };

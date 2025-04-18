@@ -1,19 +1,33 @@
 "use client";
 import React, { useEffect } from "react";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
-import { removeItemFromCart, selectTotalPrice } from "@/redux/features/cart-slice";
+import { removeItemFromCart, selectTotalPrice,addItemToCart } from "@/redux/features/cart-slice";
 import { useAppSelector } from "@/redux/store";
 import { useSelector } from "react-redux";
 import SingleItem from "./SingleItem";
 import Link from "next/link";
 import EmptyCart from "./EmptyCart";
 import { FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    if (savedCart) {
+      const items = JSON.parse(savedCart);
+      items.forEach((item) => {
+        if (!cartItems.find((i) => i.id === item.id)) {
+          dispatch(addItemToCart(item));
+        }
+      });
+    }
+  }, []);
+  
   useEffect(() => {
     function handleClickOutside(event) {
       if (!event.target.closest(".modal-content")) {
