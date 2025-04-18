@@ -21,8 +21,8 @@ const Checkout = () => {
                 {/* <!-- login box --> */}
                 <Login />
 
-                {/* <!-- billing details --> */}
-                <Billing />
+                {/* <!-- billing details (need to add) --> */}
+                <Billing onSubmit={''} /> 
 
                 {/* <!-- address box two --> */}
                 <Shipping />

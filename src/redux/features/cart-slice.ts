@@ -1,14 +1,10 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-type InitialState = {
-  items: CartItem[];
-};
-
 type CartItem = {
   id: number;
   title: string;
-  slug: string; // Added slug
+  slug: string;
   price: number;
   discountedPrice: number;
   quantity: number;
@@ -18,8 +14,26 @@ type CartItem = {
   };
 };
 
+type InitialState = {
+  items: CartItem[];
+};
+
+const getInitialCart = (): CartItem[] => {
+  if (typeof window !== "undefined") {
+    const storedCart = localStorage.getItem("cartItems");
+    return storedCart ? JSON.parse(storedCart) : [];
+  }
+  return [];
+};
+
 const initialState: InitialState = {
-  items: [],
+  items: getInitialCart(),
+};
+
+const persistCart = (items: CartItem[]) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  }
 };
 
 export const cart = createSlice({
@@ -27,7 +41,7 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'> & { quantity?: number }>) => {
-      const { id, title, slug, price, quantity = 1, discountedPrice, imgs} = action.payload;
+      const { id, title, slug, price, quantity = 1, discountedPrice, imgs } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
@@ -35,7 +49,6 @@ export const cart = createSlice({
       } else {
         state.items.push({
           id,
-          
           title,
           slug,
           price,
@@ -44,41 +57,41 @@ export const cart = createSlice({
           imgs,
         });
       }
+      persistCart(state.items);
     },
     removeItemFromCart: (state, action: PayloadAction<number>) => {
-      const itemId = action.payload;
-      state.items = state.items.filter((item) => item.id !== itemId);
+      state.items = state.items.filter((item) => item.id !== action.payload);
+      persistCart(state.items);
     },
     increaseQuantity: (state, action: PayloadAction<number>) => {
-      const itemId = action.payload;
-      const existingItem = state.items.find((item) => item.id === itemId);
+      const existingItem = state.items.find((item) => item.id === action.payload);
       if (existingItem) {
         existingItem.quantity += 1;
+        persistCart(state.items);
       }
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
-      const itemId = action.payload;
-      const existingItem = state.items.find((item) => item.id === itemId);
+      const existingItem = state.items.find((item) => item.id === action.payload);
       if (existingItem) {
         if (existingItem.quantity > 1) {
           existingItem.quantity -= 1;
         } else {
-          state.items = state.items.filter((item) => item.id !== itemId);
+          state.items = state.items.filter((item) => item.id !== action.payload);
         }
+        persistCart(state.items);
       }
     },
-    updateCartItemQuantity: (
-      state,
-      action: PayloadAction<{ id: number; quantity: number }>
-    ) => {
+    updateCartItemQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
       const { id, quantity } = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       if (existingItem) {
         existingItem.quantity = quantity;
+        persistCart(state.items);
       }
     },
     removeAllItemsFromCart: (state) => {
       state.items = [];
+      persistCart([]);
     },
   },
 });
@@ -86,17 +99,13 @@ export const cart = createSlice({
 // Selectors
 export const selectCartItems = (state: RootState) => state.cartReducer.items;
 
-export const selectTotalPrice = createSelector([selectCartItems], (items) => {
-  return items.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
-});
+export const selectTotalPrice = createSelector([selectCartItems], (items) =>
+  items.reduce((total, item) => total + item.price * item.quantity, 0)
+);
 
-export const selectTotalItems = createSelector([selectCartItems], (items) => {
-  return items.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
-});
+export const selectTotalItems = createSelector([selectCartItems], (items) =>
+  items.reduce((total, item) => total + item.quantity, 0)
+);
 
 export const {
   addItemToCart,
