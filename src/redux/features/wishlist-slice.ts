@@ -1,65 +1,83 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type InitialState = {
-  items: WishListItem[];
+// Types
+type WishlistImageSet = {
+  thumbnails: string[];
+  previews: string[];
 };
 
 type WishListItem = {
   id: number;
   title: string;
+  slug: string;
   price: number;
-  slug:string; // Add slug
   discountedPrice: number;
   quantity: number;
   status?: string;
-  imgs?: {
-    thumbnails: string[];
-    previews: string[];
-  };
+  imgs?: WishlistImageSet;
+  description?: string;
+  category?: string;
 };
 
-const initialState: InitialState = {
-  items: [],
+type WishlistState = {
+  items: WishListItem[];
 };
 
-export const wishlist = createSlice({
+// Load from localStorage (helper)
+const loadFromLocalStorage = (): WishlistState => {
+  try {
+    const data = localStorage.getItem("wishlist");
+    if (data) {
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error("Failed to load wishlist from localStorage", error);
+  }
+  return { items: [] };
+};
+
+// Save to localStorage (helper)
+const saveToLocalStorage = (state: WishlistState) => {
+  try {
+    localStorage.setItem("wishlist", JSON.stringify(state));
+  } catch (error) {
+    console.error("Failed to save wishlist to localStorage", error);
+  }
+};
+
+// Initial state from localStorage
+const initialState: WishlistState = loadFromLocalStorage();
+
+// Create slice
+export const wishlistSlice = createSlice({
   name: "wishlist",
   initialState,
   reducers: {
     addItemToWishlist: (state, action: PayloadAction<WishListItem>) => {
-      const { id, title,slug, price, quantity, imgs, discountedPrice, status } =
-        action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
-
-      if (existingItem) {
-        existingItem.quantity += quantity;
-      } else {
-        state.items.push({
-          id,
-          title,
-          slug, // Add slug
-          price,
-          quantity,
-          imgs,
-          discountedPrice,
-          status,
-        });
+      const exists = state.items.some(item => item.id === action.payload.id);
+      if (!exists) {
+        state.items.push({ ...action.payload, quantity: 1 });
+        saveToLocalStorage(state);
       }
     },
+
     removeItemFromWishlist: (state, action: PayloadAction<number>) => {
-      const itemId = action.payload;
-      state.items = state.items.filter((item) => item.id !== itemId);
+      state.items = state.items.filter(item => item.id !== action.payload);
+      saveToLocalStorage(state);
     },
 
     removeAllItemsFromWishlist: (state) => {
       state.items = [];
+      saveToLocalStorage(state);
     },
   },
 });
 
+// Exports
 export const {
   addItemToWishlist,
   removeItemFromWishlist,
   removeAllItemsFromWishlist,
-} = wishlist.actions;
-export default wishlist.reducer;
+} = wishlistSlice.actions;
+
+export default wishlistSlice.reducer;
