@@ -114,9 +114,9 @@ const Gemstone: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t flex items-end p-8">
                 <div className="text-center w-full">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    Find Gemstone what's meant to be yours
-                  </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+  Find Gemstone what&apos;s meant to be yours
+</h2>
                 </div>
               </div>
             </div>
