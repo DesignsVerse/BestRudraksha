@@ -27,7 +27,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
   return (
     <div className="flex items-center justify-between gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
       <div className="flex items-center gap-4 flex-1 min-w-0">
-        <div className="flex-shrink-0 rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
+        <div className="flex-shrink-0  bg-white rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
           <Image 
             src={item.imgs?.thumbnails[0] || "/placeholder.jpg"} 
             alt={item.title} 

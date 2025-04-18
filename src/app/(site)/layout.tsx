@@ -13,6 +13,7 @@ import { PreviewSliderProvider } from "../context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 import NavigationBar from "@/components/Common/Mobileviewcategory";
+// import NavigationBar from "@/components/Common/Mobileviewcategory";
 
 
 export default function RootLayout({

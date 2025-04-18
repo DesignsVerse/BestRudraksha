@@ -3,11 +3,6 @@
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faHome, 
-  faCircle, 
-  faGem, 
-  faSeedling, 
-  faUser,
   faHouseChimney,
   faRing,
   faGem as faGemSolid,
@@ -35,9 +30,9 @@ const NavigationBar: FC = () => {
         <FontAwesomeIcon icon={faLeaf} className="text-xl" />
         <span className="text-xs mt-1 font-medium">Rudraksha</span>
       </Link>
-      <Link href="/cart" className="flex flex-col items-center text-gray-600 hover:text-[#800000] transition-colors duration-200">
+      <Link href="/account" className="flex flex-col items-center text-gray-600 hover:text-[#800000] transition-colors duration-200">
         <FontAwesomeIcon icon={faUserCircle} className="text-xl" />
-        <span className="text-xs mt-1 font-medium">Cart</span>
+        <span className="text-xs mt-1 font-medium">Account</span>
       </Link>
     </nav>
   );
