@@ -6,14 +6,14 @@ import SingleListItem from "../Shop/SingleListItem";
 import CustomSelect from "../Shop/CustomSelect";
 import shopData from "@/components/Shop/shopData";
 
-const Gemstones = () => {
+const SpecialRudraksha = () => {
   const [productStyle, setProductStyle] = useState("grid");
   
   // Filter shopData to show only products with IDs 15 to 20
-  const gemstoneProducts = shopData.filter(
-    (item) => item.id >= 15 && item.id <= 23
+  const SpecialRudraksha = shopData.filter(
+    (item) => item.id >= 24 && item.id <= 33
   );
-  const itemsToShow = gemstoneProducts.length; // Dynamically set based on filtered products
+  const itemsToShow = SpecialRudraksha.length; // Dynamically set based on filtered products
 
   const options = [
     { label: "Latest Products", value: "0" },
@@ -94,7 +94,7 @@ const Gemstones = () => {
                     : "flex flex-col gap-7.5"
                 }`}
               >
-                {gemstoneProducts.map((item, key) =>
+                {SpecialRudraksha.map((item, key) =>
                   productStyle === "grid" ? (
                     <SingleGridItem item={item} key={key} />
                   ) : (
@@ -110,4 +110,4 @@ const Gemstones = () => {
   );
 };
 
-export default Gemstones;
+export default SpecialRudraksha;

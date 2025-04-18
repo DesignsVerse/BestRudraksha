@@ -129,7 +129,7 @@ const QuickViewModal = () => {
                       onClick={() => setActivePreview(key)}
                       key={key}
                       className={`flex items-center justify-center w-20 h-20 overflow-hidden rounded-lg bg-gray-1 ease-out duration-200 hover:border-2 hover:border-blue ${
-                        activePreview === key && "border-2 border-blue"
+                        activePreview === key && "border-2 border-[#800000]"
                       }`}
                     >
                       <Image
@@ -310,7 +310,7 @@ const QuickViewModal = () => {
                 <button
                   disabled={quantity === 0}
                   onClick={handleAddToCart}
-                  className="inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark disabled:bg-gray-4"
+                  className="inline-flex font-medium text-white bg-[#800000] py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark disabled:bg-gray-4"
                 >
                   Add to Cart
                 </button>

@@ -15,7 +15,10 @@ const initialState = {
     images: [],
     id: 0,
     imgs: { thumbnails: [], previews: [] },
-  
+    beejMantra:"",
+    keyFeatures:[],
+    benefits:[],
+    detail:"",
 
   },
 } as InitialState;

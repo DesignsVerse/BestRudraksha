@@ -1,27 +1,34 @@
+
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
+import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
+import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import Image from "next/image";
 import Link from "next/link";
-import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import { toast } from "react-toastify";
 
 const SingleItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
+  const { openCartModal } = useCartModalContext();
   const dispatch = useDispatch<AppDispatch>();
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
-  // Use "Regular" size (index 0) as default for price display
-  const regularSize = item.sizes[0];
-  // Calculate discount percentage, default to 0 if no discountedPrice or prices are equal
-  const discountPercentage = regularSize.discountedPrice
-  ? Math.round(
-      ((regularSize.discountedPrice - regularSize.price) / regularSize.discountedPrice) * 100
-    )
-  : 5;
+  // Safely access regularSize with fallback
+  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 };
+  
+  // Correct discount percentage calculation
+  const discountPercentage =
+    regularSize.discountedPrice && regularSize.price !== regularSize.discountedPrice
+      ? Math.round(
+          ((regularSize.price - regularSize.discountedPrice) / regularSize.price) * 100
+        )
+      : 0;
 
   // Handlers
   const handleQuickViewUpdate = () => {
@@ -41,9 +48,15 @@ const SingleItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+    toast.success(`${item.title} added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+    });
+    openCartModal();
   };
 
   const handleItemToWishList = () => {
+    setIsWishlisted(!isWishlisted);
     dispatch(
       addItemToWishlist({
         id: item.id,
@@ -56,6 +69,13 @@ const SingleItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+    toast.info(
+      isWishlisted ? "Removed from wishlist" : `${item.title} added to wishlist!`,
+      {
+        position: "top-right",
+        autoClose: 2000,
+      }
+    );
   };
 
   return (
@@ -64,7 +84,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         {/* Product Image */}
         <Link href={`/shop/${item.slug}`}>
           <Image
-            src={item.imgs.previews[0]}
+            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
             alt={item.title}
             width={300}
             height={300}
@@ -74,11 +94,11 @@ const SingleItem = ({ item }: { item: Product }) => {
 
         {/* Discount Badge - Always shown */}
         <span className="absolute top-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
-  {discountPercentage}% OFF
-</span>
+          {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
+        </span>
 
         {/* Action Buttons */}
-        <div className="absolute right-3 top-3 flex flex-col gap-2 ">
+        <div className="absolute right-3 top-3 flex flex-col gap-2">
           <button
             onClick={handleQuickViewUpdate}
             aria-label="Quick View"
@@ -104,7 +124,7 @@ const SingleItem = ({ item }: { item: Product }) => {
           </button>
           <button
             onClick={handleAddToCart}
-            aria-label="Add to Cart"
+            aria-label={`Add ${item.title} to cart`}
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
@@ -132,8 +152,12 @@ const SingleItem = ({ item }: { item: Product }) => {
           </button>
           <button
             onClick={handleItemToWishList}
-            aria-label="Add to Wishlist"
-            className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
+            aria-label={`Add ${item.title} to wishlist`}
+            className={`p-2 rounded-full shadow-md transition-colors duration-200 ${
+              isWishlisted
+                ? "bg-red-500 text-white"
+                : "bg-white hover:bg-[#800000] hover:text-white"
+            }`}
           >
             <svg
               className="w-5 h-5"
@@ -178,18 +202,18 @@ const SingleItem = ({ item }: { item: Product }) => {
                 />
               ))}
           </div>
-          <span className="text-sm text-gray-500">({item.reviews})</span>
+          <span className="text-sm text-gray-500">({item.reviews || 0})</span>
         </div>
 
         {/* Pricing */}
         <div className="flex items-center gap-3 mt-2">
           <span className="text-lg font-bold text-[#800000]">
-            ₹{regularSize.price.toLocaleString("en-IN")}
+            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
           </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
               <span className="text-sm text-gray-500 line-through">
-                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+                ₹{regularSize.price.toLocaleString("en-IN")}
               </span>
             )}
         </div>
