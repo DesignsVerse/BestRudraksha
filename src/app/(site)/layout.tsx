@@ -38,6 +38,8 @@ export default function RootLayout({
                 <PreviewSliderProvider>
                   <Header />
                   {children}
+                  <NavigationBar/>
+
                   <QuickViewModal />
                   <CartSidebarModal />
                   <PreviewSliderModal />
@@ -47,7 +49,6 @@ export default function RootLayout({
             </CartModalProvider>
           </ReduxProvider>
           <ScrollToTop />
-          <NavigationBar/>
 
           <Footer />
         </div>
