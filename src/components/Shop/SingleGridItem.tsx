@@ -1,7 +1,9 @@
+
 "use client";
 import React, { useState } from "react";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
+import { useCartModalContext } from "@/app/context/CartSidebarModalContext"; // Import cart modal context
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
@@ -9,13 +11,15 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-toastify"; // Import toast for notifications
 
 const SingleGridItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
+  const { openCartModal } = useCartModalContext(); // Access openCartModal
   const dispatch = useDispatch<AppDispatch>();
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0 };
+  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 };
   const discountPercentage =
     regularSize.discountedPrice && regularSize.price !== regularSize.discountedPrice
       ? Math.round(
@@ -40,6 +44,11 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+    toast.success(`${item.title} added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+    });
+    openCartModal(); // Open the cart modal
   };
 
   const handleItemToWishList = () => {
@@ -56,6 +65,13 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         quantity: 1,
       })
     );
+    toast.info(
+      isWishlisted ? "Removed from wishlist" : `${item.title} added to wishlist!`,
+      {
+        position: "top-right",
+        autoClose: 2000,
+      }
+    );
   };
 
   return (
@@ -63,7 +79,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       <div className="relative overflow-hidden rounded-t-xl">
         <Link href={`/shop/${item.slug}`}>
           <Image
-            src={item.imgs.previews[0]}
+            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
             alt={item.title}
             width={300}
             height={300}
@@ -178,14 +194,12 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         </h3>
         <div className="flex items-center gap-3 mt-2">
           <span className="text-lg font-bold text-[#800000]">
-          ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
-
+            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
           </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
               <span className="text-sm text-gray-500 line-through">
-                            ₹{regularSize.price.toLocaleString("en-IN")}
-
+                ₹{regularSize.price.toLocaleString("en-IN")}
               </span>
             )}
         </div>

@@ -585,10 +585,10 @@ const shopData: Product[] = [
       "Supports mental clarity and creativity",
       "Protects against intellectual obstacles"
     ],
-    images: ["/images/products/gems/emerald.png"],
+    images: ["/images/products/stone/4.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/emerald.png"],
-      previews: ["/images/products/gems/emerald.png"]
+      thumbnails: ["/images/products/stone/4.png"],
+      previews: ["/images/products/stone/4.png"]
     },
     sizes: [
       { name: "Regular", price: 8000, discountedPrice: 7000 },
@@ -618,10 +618,10 @@ const shopData: Product[] = [
       "Supports financial stability and abundance",
       "Protects against negative energies"
     ],
-    images: ["/images/products/gems/yellow-sapphire.png"],
+    images: ["/images/products/stone/5.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/yellow-sapphire.png"],
-      previews: ["/images/products/gems/yellow-sapphire.png"]
+      thumbnails: ["/images/products/stone/5.png"],
+      previews: ["/images/products/stone/5.png"]
     },
     sizes: [
       { name: "Regular", price: 10000, discountedPrice: 9000 },
@@ -651,10 +651,10 @@ const shopData: Product[] = [
       "Supports success in creative fields",
       "Protects against emotional stress"
     ],
-    images: ["/images/products/gems/diamond.png"],
+    images: ["/images/products/stone/6.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/diamond.png"],
-      previews: ["/images/products/gems/diamond.png"]
+      thumbnails: ["/images/products/stone/6.png"],
+      previews: ["/images/products/stone/6.png"]
     },
     sizes: [
       { name: "Regular", price: 16000, discountedPrice: 15000 },
@@ -684,10 +684,10 @@ const shopData: Product[] = [
       "Boosts mental clarity and strength",
       "Protects against negative energies"
     ],
-    images: ["/images/products/gems/blue-sapphire.png"],
+    images: ["/images/products/stone/7.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/blue-sapphire.png"],
-      previews: ["/images/products/gems/blue-sapphire.png"]
+      thumbnails: ["/images/products/stone/7.png"],
+      previews: ["/images/products/stone/7.png"]
     },
     sizes: [
       { name: "Regular", price: 12000, discountedPrice: 11000 },
@@ -717,10 +717,10 @@ const shopData: Product[] = [
       "Boosts focus and protection",
       "Shields against negative influences"
     ],
-    images: ["/images/products/gems/hessonite.png"],
+    images: ["/images/products/stone/8.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/hessonite.png"],
-      previews: ["/images/products/gems/hessonite.png"]
+      thumbnails: ["/images/products/stone/8.png"],
+      previews: ["/images/products/stone/8.png"]
     },
     sizes: [
       { name: "Regular", price: 7000, discountedPrice: 6000 },
@@ -750,10 +750,10 @@ const shopData: Product[] = [
       "Supports spiritual growth and awakening",
       "Shields against unforeseen challenges"
     ],
-    images: ["/images/products/gems/cats-eye.png"],
+    images: ["/images/products/stone/9.png"],
     imgs: {
-      thumbnails: ["/images/products/gems/cats-eye.png"],
-      previews: ["/images/products/gems/cats-eye.png"]
+      thumbnails: ["/images/products/stone/9.png"],
+      previews: ["/images/products/stone/9.png"]
     },
     sizes: [
       { name: "Regular", price: 6000, discountedPrice: 5000 },
