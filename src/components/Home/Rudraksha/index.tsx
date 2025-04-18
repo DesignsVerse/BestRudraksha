@@ -57,7 +57,7 @@ export default function Rudraksha() {
               />
               <div className="p-4">
                 <h2 className="text-lg font-semibold">Gemstone</h2>
-                <a href="/shop-filter/gemstone" className="text-red-600">
+                <a href="/shop-filter/gemstones" className="text-red-600">
                   Explore More 
                 </a>
               </div>

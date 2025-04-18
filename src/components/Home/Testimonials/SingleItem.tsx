@@ -4,7 +4,10 @@ import Image from "next/image";
 
 const SingleItem = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
-    <div className="shadow-testimonial bg-white rounded-[10px] p-6 w-full">
+    <div
+      className="shadow-testimonial bg-white rounded-[10px] p-6 w-full h-[360px] flex flex-col justify-between"
+      style={{ minHeight: "360px" }} // Enforce consistent height
+    >
       {/* Author image - Standardized size and responsive */}
       <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-[#800000]">
         <Image
@@ -44,9 +47,9 @@ const SingleItem = ({ testimonial }: { testimonial: Testimonial }) => {
         />
       </div>
 
-      {/* Review text - Improved readability */}
-      <p className="text-dark-2 mb-4 text-center px-2 text-base leading-relaxed">
-        &ldquo;{testimonial.review}&rdquo;
+      {/* Review text - Improved readability with truncation */}
+      <p className="text-dark-2 mb-4 text-center px-2 text-base leading-relaxed line-clamp-4">
+        “{testimonial.review}”
       </p>
 
       {/* Author role - Cleaner styling */}
