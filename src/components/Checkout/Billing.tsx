@@ -60,9 +60,8 @@ const Billing = ({ onSubmit }) => {
     // Pass form data to parent
     onSubmit(formData);
   };
-
   return (
-    <div className="mt-9">
+    <div className="">
       <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
         Billing Details
       </h2>
@@ -275,7 +274,8 @@ const Billing = ({ onSubmit }) => {
             Create an Account
           </label>
         </div>
-
+        
+                
         <button
           type="submit"
           className="w-full py-2.5 px-5 bg-blue-600 text-white rounded-md hover:bg-blue-700 duration-200"
