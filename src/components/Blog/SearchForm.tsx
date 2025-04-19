@@ -4,12 +4,27 @@ import React, { useState } from "react";
 import blogData from "@/data/blogData.json"; // Import blog data
 import Link from "next/link";
 
+// Define Blog interface for type safety
+interface Blog {
+  id: number;
+  slug: string;
+  date: string;
+  views: number;
+  title: string;
+  img: string;
+  productId: number;
+  sections: { heading: string; content: string }[];
+  tags: string[];
+  author: { name: string; role: string; avatar: string };
+  quote: string;
+}
+
 const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
-  const [searchResults, setSearchResults] = useState([]); // State for filtered results
+  const [searchResults, setSearchResults] = useState<Blog[]>([]); // State for filtered results
 
   // Handle search input change
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
@@ -18,11 +33,11 @@ const SearchForm = () => {
       return;
     }
 
-    // Filter blogs based on title, content, and tags
-    const filteredBlogs = blogData.filter((blog) => {
+    // Filter blogs based on title, content (in sections), and tags
+    const filteredBlogs = blogData.filter((blog: Blog) => {
       const titleMatch = blog.title.toLowerCase().includes(query);
-      const contentMatch = blog.content.some((paragraph) =>
-        paragraph.toLowerCase().includes(query)
+      const contentMatch = blog.sections.some((section) =>
+        section.content.toLowerCase().includes(query)
       );
       const tagsMatch = blog.tags.some((tag) =>
         tag.toLowerCase().includes(query)
@@ -95,7 +110,7 @@ const SearchForm = () => {
                 >
                   <h3 className="text-sm font-medium">{blog.title}</h3>
                   <p className="text-xs text-gray-500 truncate">
-                    {blog.content[0].substring(0, 50)}...
+                    {blog.sections[0]?.content.substring(0, 50) || "No content available"}...
                   </p>
                 </Link>
               ))}

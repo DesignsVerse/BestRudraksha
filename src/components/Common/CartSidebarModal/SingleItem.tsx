@@ -27,7 +27,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
   return (
     <div className="flex items-center justify-between gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
       <div className="flex items-center gap-4 flex-1 min-w-0">
-        <div className="flex-shrink-0 rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
+        <div className="flex-shrink-0  bg-white rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
           <Image 
             src={item.imgs?.thumbnails[0] || "/placeholder.jpg"} 
             alt={item.title} 
@@ -45,11 +45,13 @@ const SingleItem = ({ item, removeItemFromCart }) => {
 </h3>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-[#800000]">
-              ₹{item.price.toLocaleString("en-IN")}
+            ₹{item.discountedPrice.toLocaleString("en-IN")}
+
             </span>
             {item.discountedPrice && item.discountedPrice !== item.price && (
               <span className="text-sm text-gray-500 line-through">
-                ₹{item.discountedPrice.toLocaleString("en-IN")}
+                ₹{item.price.toLocaleString("en-IN")}
+
               </span>
             )}
           </div>
@@ -85,7 +87,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
 
       <div className="flex flex-col items-end">
         <p className="text-lg font-medium mb-2 text-[#800000]">
-          ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+          ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
         </p>
         
         <button

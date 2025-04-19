@@ -8,6 +8,10 @@ export type Product = {
   images: string[];
   sizes: { name: string; price: number; discountedPrice?: number }[];
   imgs: { thumbnails: string[]; previews: string[] };
+  beejMantra:string;
+  keyFeatures:string[];
+  benefits:string[];
+  detail:string;
 };
 
 

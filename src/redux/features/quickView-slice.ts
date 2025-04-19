@@ -21,7 +21,12 @@ const initialState: InitialState = {
     sizes: [
       { name: "Regular", price: 0, discountedPrice: 0 }, // Default size
       { name: "Premium", price: 0, discountedPrice: 0 }  // Default size
-    ]
+    ],
+    beejMantra:"",
+    keyFeatures:[],
+    benefits:[],
+    detail:"",
+
   },
 };
 

@@ -40,7 +40,7 @@ export default function Rudraksha() {
               />
               <div className="p-4">
                 <h2 className="text-lg font-semibold">1-14 MUKHI RUDRAKSHA MALA</h2>
-                <a href="#" className="text-red-600">
+                <a href="/shop-filter/1-14-mukhi-rudraksha" className="text-red-600">
                   Explore More 
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function Rudraksha() {
               />
               <div className="p-4">
                 <h2 className="text-lg font-semibold">Gemstone</h2>
-                <a href="#" className="text-red-600">
+                <a href="/shop-filter/gemstones" className="text-red-600">
                   Explore More 
                 </a>
               </div>
@@ -74,7 +74,7 @@ export default function Rudraksha() {
               />
               <div className="p-4">
                 <h2 className="text-lg font-semibold">RUDRAKSHA MALA</h2>
-                <a href="#" className="text-red-600">
+                <a href="/shop-filter/1-14-mukhi-rudraksha" className="text-red-600">
                   Explore More 
                 </a>
               </div>

@@ -16,6 +16,7 @@ import { AppDispatch } from "@/redux/store";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import RudrakshaComponent from "@/components/Shop/wearingguidline";
+import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 
 interface PageProps {
   params: Promise<{
@@ -25,10 +26,23 @@ interface PageProps {
 
 const ProductCard = ({ product, onToggleWishlist }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const { openCartModal } = useCartModalContext();
   const [quantity, setQuantity] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]); // Default to first size
-  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false); // State for toggle
+  // Safely set default size or fallback
+  const [selectedSize, setSelectedSize] = useState(
+    product?.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 }
+  );
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
+
+  // If product or sizes is missing, render a fallback UI
+  if (!product || !product.title) {
+    return (
+      <div className="max-w-[539px] w-full font-sans">
+        <p className="text-lg font-medium text-gray-900">Product not available</p>
+      </div>
+    );
+  }
 
   const handleAddToCartLocal = () => {
     dispatch(
@@ -44,6 +58,28 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       position: "top-right",
       autoClose: 3000,
     });
+    openCartModal();
+  };
+
+  const handleBuyNow = () => {
+    dispatch(
+      addItemToCart({
+        ...product,
+        quantity,
+        selectedSize: selectedSize.name,
+        price: selectedSize.price,
+        discountedPrice: selectedSize.discountedPrice,
+      })
+    );
+    toast.success(`${product.title} (${selectedSize.name}) added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+    });
+    openCartModal();
+    // Optional: Navigate to checkout
+    // setTimeout(() => {
+    //   window.location.href = "/checkout";
+    // }, 500);
   };
 
   const handleSizeChange = (size) => {
@@ -51,11 +87,15 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   };
 
   const handleToggleWishlist = () => {
-    dispatch(addItemToWishlist({ ...product, status: "available", quantity: 1 }));
+    dispatch(
+      addItemToWishlist({ ...product, status: "available", quantity: 1 })
+    );
     setIsWishlisted(!isWishlisted);
     onToggleWishlist(product, !isWishlisted);
     toast.info(
-      isWishlisted ? "Removed from wishlist" : `${product.title} added to wishlist!`,
+      isWishlisted
+        ? "Removed from wishlist"
+        : `${product.title} added to wishlist!`,
       { position: "top-right", autoClose: 2000 }
     );
   };
@@ -100,19 +140,20 @@ const ProductCard = ({ product, onToggleWishlist }) => {
         </div>
       </div>
 
-      {/* Fixed Price Display */}
       <div className="mb-6">
         <div className="flex items-center gap-3">
           <h3 className="text-2xl font-semibold text-[#800000]">
-            ₹{selectedSize.price.toLocaleString("en-IN")}
-            {selectedSize.name !== "Regular" && (
-              <span className="text-sm text-gray-500 ml-2">({selectedSize.name})</span>
-            )}
+            ₹{(selectedSize.discountedPrice || selectedSize.price).toLocaleString("en-IN")}
           </h3>
           {selectedSize.discountedPrice &&
             selectedSize.discountedPrice !== selectedSize.price && (
               <span className="text-gray-500 line-through">
-                ₹{selectedSize.discountedPrice.toLocaleString("en-IN")}
+                ₹{selectedSize.price.toLocaleString("en-IN")}
+                {selectedSize.name !== "Regular" && (
+                  <span className="text-sm text-gray-500 ml-2">
+                    ({selectedSize.name})
+                  </span>
+                )}
               </span>
             )}
         </div>
@@ -121,39 +162,42 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       <div style={{ marginBottom: "1rem", color: "#374151" }}>
         <span style={{ fontWeight: "bold", color: "#000000" }}>Origin:</span>{" "}
         <span style={{ color: "#000000" }}>Nepali</span> <br />
-        <span style={{ fontWeight: "bold", color: "#000000" }}>Description:</span>{" "}
+        <span style={{ fontWeight: "bold", color: "#000000" }}>
+          Description:
+        </span>{" "}
         <span style={{ color: "#000000" }}>{product.description}</span>
       </div>
 
-      {/* Size Selector */}
-      <div className="mb-6">
-        <div className="flex flex-col gap-4">
-          <div>
-            <h4
-              style={{ fontWeight: "bold", color: "#000000" }}
-              className="text-md font-medium text-gray-700"
-            >
-              Size
-            </h4>
-            <div className="flex gap-2 mt-2">
-              {product.sizes.map((size) => (
-                <button
-                  key={size.name}
-                  type="button"
-                  onClick={() => handleSizeChange(size)}
-                  className={`px-4 py-2 border rounded-lg ${
-                    selectedSize.name === size.name
-                      ? "bg-gray-200 border-gray-400"
-                      : "bg-white border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {size.name}
-                </button>
-              ))}
+      {product.sizes && product.sizes.length > 0 && (
+        <div className="mb-6">
+          <div className="flex flex-col gap-4">
+            <div>
+              <h4
+                style={{ fontWeight: "bold", color: "#000000" }}
+                className="text-md font-medium text-gray-700"
+              >
+                Size
+              </h4>
+              <div className="flex gap-2 mt-2">
+                {product.sizes.map((size) => (
+                  <button
+                    key={size.name}
+                    type="button"
+                    onClick={() => handleSizeChange(size)}
+                    className={`px-4 py-2 border rounded-lg ${
+                      selectedSize.name === size.name
+                        ? "bg-gray-200 border-gray-400"
+                        : "bg-white border-gray-300 hover:bg-gray-100"
+                    }`}
+                  >
+                    {size.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
         <div className="flex flex-wrap items-center gap-4">
@@ -227,19 +271,18 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       </form>
 
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
-      <Link
-        href={product.paymentLink || '/fallback'} // Fallback URL if paymentLink is missing
-        className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
-      >
-        BUY NOW
-      </Link>
-    </div>
+        <button
+          onClick={handleBuyNow}
+          className="w-full sm:w-auto bg-[#800000] text-white font-semibold py-3 px-40 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
+        >
+          BUY NOW
+        </button>
+      </div>
 
-      {/* Integrated Custom Review Images and Toggleable Description */}
       <div className="flex ml- mt-4 space-x-4">
         <div className="text-center">
           <Image
-            src="/images/shop-detail/trustpilot.png" // Replace with actual custom image path
+            src="/images/shop-detail/trustpilot.png"
             alt="Custom Review 1"
             width={100}
             height={100}
@@ -248,7 +291,7 @@ const ProductCard = ({ product, onToggleWishlist }) => {
         </div>
         <div className="text-center">
           <Image
-            src="/images/shop-detail/trustpilot.png" // Replace with actual custom image path
+            src="/images/shop-detail/trustpilot.png"
             alt="Custom Review 2"
             width={100}
             height={100}
@@ -257,7 +300,7 @@ const ProductCard = ({ product, onToggleWishlist }) => {
         </div>
         <div className="text-center">
           <Image
-            src="/images/shop-detail/trustpilot.png" // Replace with actual custom image path
+            src="/images/shop-detail/trustpilot.png"
             alt="Custom Review 3"
             width={100}
             height={100}
@@ -265,34 +308,64 @@ const ProductCard = ({ product, onToggleWishlist }) => {
           />
         </div>
       </div>
-      <div className="mt-4 ">
-      <button
-    onClick={toggleDescription}
-    className="bg-gray-200 py-2 text-dark rounded flex items-center"
-  >
-    Description
-    <svg
-      className="ml-2 w-4 h-4"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M19 9l-7 7-7-7"
-      ></path>
-    </svg>
-  </button>
-        {isDescriptionVisible && (
-        <div className="mt-2">
-          <p>
-            {product.detail || "No description available. Click the toggle button to show/hide."}
+      <div className="mt-4">
+        <button
+          onClick={toggleDescription}
+          className="bg-gray-200 py-2 text-dark rounded flex items-center"
+        >
+          Description
+          <svg
+            className="ml-2 w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          className={`mt-2 transition-all duration-300 ease-in-out ${
+            isDescriptionVisible
+              ? "max-h-[1000px] opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <p className="mb-4">
+            {product.detail || "No description available."}
           </p>
+
+          {product.beejMantra && (
+            <p className="font-bold mb-4">
+              Beej Mantra: <span className="text-lg">{product.beejMantra}</span>
+            </p>
+          )}
+
+          <h3 className="font-bold text-lg mb-2">Key Features</h3>
+          <ul className="list-disc pl-5 mb-4">
+            {product.keyFeatures?.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            )) || <li>No key features available</li>}
+          </ul>
+
+          <h3 className="font-bold text-lg mb-2">Benefits</h3>
+          <p>
+            Rudraksha beads are known to naturally calm the mind, reduce stress,
+            and promote emotional balance, while enhancing focus, positivity,
+            and spiritual growth.
+          </p>
+          <ul className="list-disc pl-5">
+            {product.benefits?.map((benefit, index) => (
+              <li key={index}>{benefit}</li>
+            )) || <li>No benefits information available</li>}
+          </ul>
         </div>
-      )}
       </div>
     </div>
   );
@@ -375,7 +448,10 @@ const ShopDetails = ({ params }: PageProps) => {
             </div>
 
             {/* Product Details */}
-            <ProductCard product={product} onToggleWishlist={handleToggleWishlist} />
+            <ProductCard
+              product={product}
+              onToggleWishlist={handleToggleWishlist}
+            />
           </div>
         </div>
       </section>

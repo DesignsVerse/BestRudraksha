@@ -9,6 +9,7 @@ import Testimonials from "./Testimonials";
 import Newsletter from "../Common/Newsletter";
 import Rudraksha from "./Rudraksha";
 import Blog from "./Blog";
+import Gemstone from "./Gemstone";
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
       <Hero />
       <Categories />
       <NewArrival />
-      <PromoBanner />
+      <Gemstone/>
+      {/* <PromoBanner /> */}
       <BestSeller />
       <Rudraksha/>
       <Testimonials />
