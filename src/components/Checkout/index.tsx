@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Billing from "./Billing";
 import Shipping from "./Shipping";
@@ -12,6 +12,14 @@ const CheckoutContent = () => {
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useAppSelector(selectTotalPrice);
   const shippingFee = 15;
+
+  const [billingData, setBillingData] = useState({
+    id: "",       // Optional customer ID (can use email or phone if needed)
+    email: "",
+    phone: "",
+    name: "",     // If needed
+  });
+
   const generateOrderId = () => {
     const now = new Date();
     const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
@@ -20,10 +28,18 @@ const CheckoutContent = () => {
   };
 
   const order_id = generateOrderId(); 
+
   const handleBillingSubmit = (data) => {
     console.log("Billing data submitted:", data);
-    // Handle the billing data submission
+    // Update the state to use in Cashfree
+    setBillingData({
+      id: data.email,        // Or generate a unique id
+      email: data.email,
+      phone: data.phone,
+      name: data.name,       // Optional
+    });
   };
+
 
   return (
     <>
@@ -115,14 +131,15 @@ const CheckoutContent = () => {
                   </div>
                 </div>
                 <CashfreePopup
-                orderId={order_id}
-                amount={100}
-                customer={{
-                  id: 'cust_001',
-                  email: 'john@example.com',
-                  phone: '9413466075',
-                }}
-              />
+                  orderId={order_id}
+                  amount={totalPrice + shippingFee}
+                  customer={{
+                    id: '1',
+                    email: billingData.email,
+                    phone: '9413466075',
+                    name: billingData.name,
+                  }}
+                />
               </div>
             </div>
           </form>
