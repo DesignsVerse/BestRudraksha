@@ -4,6 +4,7 @@ import Breadcrumb from "../Common/Breadcrumb";
 import Billing from "./Billing";
 import Shipping from "./Shipping";
 import { useAppSelector } from "@/redux/store";
+import CashfreePopup from "@/cashfree-popup/components/CashfreePopup"
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import Image from "next/image";
 
@@ -11,7 +12,14 @@ const CheckoutContent = () => {
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useAppSelector(selectTotalPrice);
   const shippingFee = 15;
+  const generateOrderId = () => {
+    const now = new Date();
+    const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
+    const timeStr = now.getTime();
+    return `ORD-${dateStr}-${timeStr}`;
+  };
 
+  const order_id = generateOrderId(); 
   const handleBillingSubmit = (data) => {
     console.log("Billing data submitted:", data);
     // Handle the billing data submission
@@ -106,12 +114,15 @@ const CheckoutContent = () => {
                     </div>
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
-                >
-                  Process to Checkout
-                </button>
+                <CashfreePopup
+                orderId={order_id}
+                amount={100}
+                customer={{
+                  id: 'cust_001',
+                  email: 'john@example.com',
+                  phone: '9413466075',
+                }}
+              />
               </div>
             </div>
           </form>
