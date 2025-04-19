@@ -60,6 +60,7 @@ const Billing = ({ onSubmit }) => {
     // Pass form data to parent
     onSubmit(formData);
   };
+console.log('11111111111',formData.firstName)
   return (
     <div className="">
       <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
