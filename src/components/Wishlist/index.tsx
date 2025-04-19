@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { removeItemFromWishlist } from "@/redux/features/wishlist-slice";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type WishListItem = {
   id: number;
@@ -22,6 +23,7 @@ type WishListItem = {
 };
 
 export const Wishlist = () => {
+  
   const dispatch = useDispatch<AppDispatch>();
   const wishlistItems = useAppSelector((state) => state.wishlistReducer.items) as WishListItem[];
 
