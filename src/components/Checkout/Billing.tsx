@@ -17,52 +17,77 @@ const Billing = ({ onSubmit }) => {
     email: '',
     createAccount: false,
   });
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasChanges, setHasChanges] = useState(false);
+    // Load form data from local storage on mount
+  useEffect(() => {
+      const savedData = localStorage.getItem('billingData');
+      if (savedData) {
+        setFormData(JSON.parse(savedData));
+      }
+    }, []);
+  
+    // Handle input changes and save to local storage
+  const handleChange = (e) => {
+      const { name, value, type, checked } = e.target;
+      setFormData((prev) => {
+        const updatedData = {
+          ...prev,
+          [name]: type === 'checkbox' ? checked : value,
+        };
+        // Save to local storage immediately
+        localStorage.setItem('billingData', JSON.stringify(updatedData));
+        return updatedData;
+      });
+    };
+  
   // Load data from URL params and localStorage
   useEffect(() => {
-    // Get URL parameters
-    const urlParams = {
-      firstName: searchParams?.get('firstName') || '',
-      lastName: searchParams?.get('lastName') || '',
-      companyName: searchParams?.get('companyName') || '',
-      country: searchParams?.get('country') || 'Australia',
-      address: searchParams?.get('address') || '',
-      addressTwo: searchParams?.get('addressTwo') || '',
-      town: searchParams?.get('town') || '',
-      state: searchParams?.get('state') || '',
-      phone: searchParams?.get('phone') || '',
-      email: searchParams?.get('email') || '',
+    const loadData = () => {
+      try {
+        // Get URL parameters
+        const urlParams = {
+          firstName: searchParams?.get('firstName') || '',
+          lastName: searchParams?.get('lastName') || '',
+          companyName: searchParams?.get('companyName') || '',
+          country: searchParams?.get('country') || 'Australia',
+          address: searchParams?.get('address') || '',
+          addressTwo: searchParams?.get('addressTwo') || '',
+          town: searchParams?.get('town') || '',
+          state: searchParams?.get('state') || '',
+          phone: searchParams?.get('phone') || '',
+          email: searchParams?.get('email') || '',
+        };
+
+        // Merge data sources (URL params override localStorage)
+        return {
+          ...urlParams
+        };
+      } catch (error) {
+        console.error('Error loading form data:', error);
+        localStorage.removeItem('billingData');
+        return {
+          firstName: '',
+          lastName: '',
+          companyName: '',
+          country: 'Australia',
+          address: '',
+          addressTwo: '',
+          town: '',
+          state: '',
+          phone: '',
+          email: '',
+          createAccount: false,
+        };
+      }
     };
 
-    // Get saved data from localStorage
-    const savedData = localStorage.getItem('billingData');
-    const parsedSavedData = savedData ? JSON.parse(savedData) : {};
-
-    // Merge data sources (URL params override localStorage)
-    setFormData(prev => ({
-      ...prev,
-      ...parsedSavedData,
-      ...urlParams
-    }));
-
-    console.log('Initialized form data:', {
-      urlParams,
-      localStorage: parsedSavedData
-    });
+    const initialData = loadData();
+    setIsLoading(false);
   }, [searchParams]);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => {
-      const updatedData = {
-        ...prev,
-        [name]: type === 'checkbox' ? checked : value,
-      };
-      localStorage.setItem('billingData', JSON.stringify(updatedData));
-      return updatedData;
-    });
-  };
-
+  // Auto-save to localStorage when formData changes
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -80,8 +105,8 @@ const Billing = ({ onSubmit }) => {
     }
     
     // Validate phone format
-    if (!/^\d+$/.test(formData.phone)) {
-      alert('Please enter a valid phone number (digits only)');
+    if (!/^[\d\s\-()+]+$/.test(formData.phone)) {
+      alert('Please enter a valid phone number');
       return;
     }
     
@@ -94,11 +119,44 @@ const Billing = ({ onSubmit }) => {
     onSubmit(formData);
   };
 
+  const resetForm = () => {
+    if (confirm('Are you sure you want to reset all fields?')) {
+      setFormData({
+        firstName: '',
+        lastName: '',
+        companyName: '',
+        country: 'Australia',
+        address: '',
+        addressTwo: '',
+        town: '',
+        state: '',
+        phone: '',
+        email: '',
+        createAccount: false,
+      });
+      localStorage.removeItem('billingData');
+      setHasChanges(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#800000]"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="">
-      <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
-        Billing Details
-      </h2>
+      <div className="flex justify-between items-center mb-5.5">
+        <h2 className="font-medium text-dark text-xl sm:text-2xl">
+          Billing Details
+        </h2>
+        {hasChanges && (
+          <span className="text-sm text-gray-500">Unsaved changes</span>
+        )}
+      </div>
 
       <form onSubmit={handleSubmit} className="bg-white shadow-1 rounded-[10px] p-4 sm:p-8.5">
         {/* First Name */}
@@ -306,6 +364,23 @@ const Billing = ({ onSubmit }) => {
         >
           Submit Billing Details
         </button>
+
+        <div className="flex justify-between mt-6">
+          <button
+            type="button"
+            onClick={resetForm}
+            className="py-2 px-4 text-gray-600 hover:text-gray-800 transition-colors"
+          >
+            Reset Form
+          </button>
+          <button
+            type="submit"
+            className="py-2.5 px-5 bg-[#800000] text-white rounded-md hover:bg-[#600000] duration-200 disabled:opacity-50"
+            disabled={!hasChanges}
+          >
+            {hasChanges ? 'Save & Continue' : 'Continue'}
+          </button>
+        </div>
       </form>
     </div>
   );
