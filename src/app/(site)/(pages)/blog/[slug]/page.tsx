@@ -1,15 +1,13 @@
 import BlogDetailslug from '@/components/Blog/slug';
 import React from 'react';
-import { Metadata } from 'next';
-import blogData from '@/data/blogData.json'; // Import blog data
+import { Metadata, ResolvingMetadata } from 'next';
+import blogData from '@/data/blogData.json';
 import { notFound } from 'next/navigation';
 
-// Function to generate dynamic metadata
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const slug = params?.slug;
   const blog = blogData.find((b) => b.slug === slug);
 
-  // If blog not found, return fallback metadata
   if (!blog) {
     return {
       title: 'Blog Not Found | BestRudraksha.com',
@@ -39,7 +37,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  // Dynamic metadata based on blog data
   const blogTitle = blog.title;
   const blogDescription = blog.sections[0]?.content.slice(0, 160) || 'Discover the spiritual and healing benefits of Rudraksha and gemstones at BestRudraksha.com.';
   const blogImage = blog.img || 'https://bestrudraksha.com/images/blog-og-image.jpg';
@@ -173,44 +170,47 @@ const BlogDetailsWithSidebar = async ({ params }: { params: { slug: string } }) 
   const slug = params?.slug;
   const blog = blogData.find((b) => b.slug === slug);
 
-  // If blog not found, trigger Next.js 404 page
   if (!blog) {
     notFound();
   }
 
+  // Structured Data
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: blog.title,
+    description: blog.sections[0]?.content.slice(0, 160) || 'Discover the spiritual and healing benefits of Rudraksha and gemstones at BestRudraksha.com.',
+    image: blog.img || 'https://bestrudraksha.com/images/blog-og-image.jpg',
+    url: `https://bestrudraksha.com/blog/${blog.slug}`,
+    author: {
+      '@type': 'Organization',
+      name: 'BestRudraksha.com',
+      url: 'https://bestrudraksha.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'BestRudraksha.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://bestrudraksha.com/logo.png',
+      },
+    },
+    datePublished: blog.date || new Date().toISOString(),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://bestrudraksha.com/blog/${blog.slug}`,
+    },
+  };
+
   return (
     <div>
-      <BlogDetailslug />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <BlogDetailslug blog={blog} />
     </div>
   );
 };
-
-// Structured Data for Blog Post (to be included in BlogDetailslug or via <Head>)
-export const structuredData = (blog: any) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: blog.title,
-  description: blog.sections[0]?.content.slice(0, 160) || 'Discover the spiritual and healing benefits of Rudraksha and gemstones at BestRudraksha.com.',
-  image: blog.img || 'https://bestrudraksha.com/images/blog-og-image.jpg',
-  url: `https://bestrudraksha.com/blog/${blog.slug}`,
-  author: {
-    '@type': 'Organization',
-    name: 'BestRudraksha.com',
-    url: 'https://bestrudraksha.com',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'BestRudraksha.com',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://bestrudraksha.com/logo.png', // Replace with actual logo URL
-    },
-  },
-  datePublished: blog.date || new Date().toISOString(),
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://bestrudraksha.com/blog/${blog.slug}`,
-  },
-});
 
 export default BlogDetailsWithSidebar;
