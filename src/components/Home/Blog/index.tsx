@@ -28,7 +28,7 @@ const Blog = () => {
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 relative">
         {/* Section Title - Centered */}
         <div className="mb-8 text-center">
-          <span className="flex items-center justify-center gap-2.5 font-medium text-amber-700 mb-3">
+          <span className="flex items-center justify-center gap-2.5 font-medium text-[#800000] mb-3">
             <Image
               src="/images/icons/icon-08.svg"
               alt="icon"
@@ -37,7 +37,7 @@ const Blog = () => {
             />
             Latest Insights
           </span>
-          <h2 className="font-semibold text-2xl sm:text-3xl xl:text-4xl text-gray-800 tracking-wide">
+          <h2 className="font-semibold text-2xl sm:text-3xl xl:text-4xl text-[#000000] tracking-wide">
             Rudraksha Wisdom
           </h2>
         </div>

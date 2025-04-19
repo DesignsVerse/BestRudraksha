@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import { toast } from "react-toastify"; // Added for toast notifications
+import { useCartModalContext } from "@/app/context/CartSidebarModalContext"; // Added for cart sidebar
 
 // Custom Arrow Components for Slider
 const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
@@ -34,41 +36,63 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
 
 const Gemstone: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { openCartModal } = useCartModalContext(); // Added for cart sidebar
   // Filter gemstone products
   const gemstoneProducts: Product[] = shopData.slice(14, 19);
 
   // Handle Add to Cart
-  const handleAddToCart = useCallback((product: Product) => {
-    const regularSize = product.sizes?.[0] || { price: 0, discountedPrice: 0 };
-    dispatch(
-      addItemToCart({
-        id: product.id,
-        imgs: product.imgs,
-        title: product.title,
-        slug: product.slug,
-        price: regularSize.price,
-        discountedPrice: regularSize.discountedPrice,
-        quantity: 1,
-      })
-    );
-  }, [dispatch]);
+  const handleAddToCart = useCallback(
+    (product: Product) => {
+      const regularSize = product.sizes?.[0] || { price: 0, discountedPrice: 0 };
+      dispatch(
+        addItemToCart({
+          id: product.id, // Convert string to number
+          imgs: {
+            previews: product.imgs.previews || [],
+            thumbnails: product.imgs.previews || [], // Fallback to previews
+          },
+          title: product.title,
+          slug: product.slug,
+          price: regularSize.price,
+          discountedPrice: regularSize.discountedPrice,
+          quantity: 1,
+        })
+      );
+      toast.success(`${product.title} added to cart!`, {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      openCartModal();
+    },
+    [dispatch, openCartModal]
+  );
 
   // Handle Add to Wishlist
-  const handleAddToWishlist = useCallback((product: Product) => {
-    const regularSize = product.sizes?.[0] || { price: 0, discountedPrice: 0 };
-    dispatch(
-      addItemToWishlist({
-        id: product.id,
-        title: product.title,
-        imgs: product.imgs,
-        slug: product.slug,
-        price: regularSize.price,
-        discountedPrice: regularSize.discountedPrice,
-        status: "available",
-        quantity: 1,
-      })
-    );
-  }, [dispatch]);
+  const handleAddToWishlist = useCallback(
+    (product: Product) => {
+      const regularSize = product.sizes?.[0] || { price: 0, discountedPrice: 0 };
+      dispatch(
+        addItemToWishlist({
+          id:product.id, // Convert string to number
+          title: product.title,
+          imgs: {
+            previews: product.imgs.previews || [],
+            thumbnails: product.imgs.previews || [], // Fallback to previews
+          },
+          slug: product.slug,
+          price: regularSize.price,
+          discountedPrice: regularSize.discountedPrice,
+          status: "available",
+          quantity: 1,
+        })
+      );
+      toast.info(`${product.title} added to wishlist!`, {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    },
+    [dispatch]
+  );
 
   // Slider settings
   const sliderSettings = {
@@ -114,9 +138,9 @@ const Gemstone: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t flex items-end p-8">
                 <div className="text-center w-full">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-  Find Gemstone what&apos;s meant to be yours
-</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Find Gemstone what&apos;s meant to be yours
+                  </h2>
                 </div>
               </div>
             </div>
@@ -163,7 +187,7 @@ const Gemstone: React.FC = () => {
                         <div className="absolute left-3 top-3 flex flex-col gap-2">
                           <button
                             onClick={() => handleAddToWishlist(product)}
-                            className="p-2 bg-white rounded-full shadow-md "
+                            className="p-2 bg-white rounded-full shadow-md"
                           >
                             <svg
                               className="w-5 h-5"
@@ -204,11 +228,14 @@ const Gemstone: React.FC = () => {
                                   />
                                 ))}
                             </div>
-                            <span className="text-sm text-gray-500">({product.reviews || 0})</span>
+                            <span className="text-sm text-gray-500">
+                              ({product.reviews || 0})
+                            </span>
                           </div>
 
                           <div className="flex items-center gap-3">
-                            {regularSize.discountedPrice && regularSize.discountedPrice !== regularSize.price ? (
+                            {regularSize.discountedPrice &&
+                            regularSize.discountedPrice !== regularSize.price ? (
                               <>
                                 <p className="text-lg font-bold text-[#800000]">
                                   ₹{regularSize.discountedPrice.toLocaleString("en-IN")}

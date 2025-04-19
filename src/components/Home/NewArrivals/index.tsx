@@ -10,7 +10,7 @@ const NewArrival = () => {
       <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title - Centered with Rudraksha Theme */}
         <div className="mb-10 flex flex-col items-center justify-center text-center">
-          <span className="flex items-center gap-2.5 font-semibold text-amber-700 mb-4">
+          <span className="flex items-center gap-2.5 font-semibold text-amber-700 mb-4 text-[#800000]" >
             <svg
               width="24"
               height="24"
@@ -32,7 +32,7 @@ const NewArrival = () => {
             </svg>
             This Week’s
           </span>
-          <h2 className="font-bold text-2xl md:text-3xl xl:text-4xl text-gray-900 tracking-tight">
+          <h2 className="font-bold text-2xl md:text-3xl xl:text-4xl text-[#000000] tracking-tight">
             New Arrivals
           </h2>
         </div>

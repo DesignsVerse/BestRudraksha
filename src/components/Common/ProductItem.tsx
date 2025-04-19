@@ -1,23 +1,27 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Product } from "@/types/product";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
+import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import { updateproductDetails } from "@/redux/features/product-details";
-import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import Link from "next/link";
+import { Product } from "@/types/product";
 
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
+  const { openCartModal } = useCartModalContext();
   const dispatch = useDispatch<AppDispatch>();
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isWishlisted, setIsWishlisted] = useState<boolean>(false);
 
   // Use "Regular" size (index 0) as default for price display
-  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0 };
+  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 };
+
   // Calculate discount percentage, default to 0 if no discountedPrice or prices are equal
   const discountPercentage =
     regularSize.discountedPrice && regularSize.discountedPrice !== regularSize.price
@@ -35,24 +39,35 @@ const ProductItem = ({ item }: { item: Product }) => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        id: item.id,
+        id:item.id, // Convert string to number
         title: item.title,
         slug: item.slug,
-        imgs: item.imgs,
+        imgs: {
+          previews: item.imgs.previews || [],
+          thumbnails: item.imgs.previews || [], // Use previews as fallback for thumbnails
+        },
         price: regularSize.price,
         discountedPrice: regularSize.discountedPrice,
         quantity: 1,
       })
     );
+    toast.success(`${item.title} added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+    });
+    openCartModal();
   };
 
   const handleItemToWishList = () => {
     dispatch(
       addItemToWishlist({
-        id: item.id,
+        id:item.id, // Convert string to number
         title: item.title,
         slug: item.slug,
-        imgs: item.imgs,
+        imgs: {
+          previews: item.imgs.previews || [],
+          thumbnails: item.imgs.previews || [], // Use previews as fallback for thumbnails
+        },
         price: regularSize.price,
         discountedPrice: regularSize.discountedPrice,
         status: "available",
@@ -60,6 +75,10 @@ const ProductItem = ({ item }: { item: Product }) => {
       })
     );
     setIsWishlisted((prev) => !prev);
+    toast.info(isWishlisted ? "Removed from wishlist" : `${item.title} added to wishlist!`, {
+      position: "top-right",
+      autoClose: 2000,
+    });
   };
 
   const handleProductDetails = () => {
@@ -72,7 +91,7 @@ const ProductItem = ({ item }: { item: Product }) => {
         {/* Product Image */}
         <Link href={`/shop/${item.slug}`}>
           <Image
-            src={item.imgs.previews[0]}
+            src={item.imgs.previews?.[0] || "/images/placeholder.png"}
             alt={item.title}
             width={300}
             height={300}
@@ -181,7 +200,7 @@ const ProductItem = ({ item }: { item: Product }) => {
                 />
               ))}
           </div>
-          <span className="text-sm text-gray-500">({item.reviews})</span>
+          <span className="text-sm text-gray-500">({item.reviews ?? 0})</span>
         </div>
 
         {/* Title */}
@@ -196,16 +215,15 @@ const ProductItem = ({ item }: { item: Product }) => {
 
         {/* Price */}
         <div className="flex items-center gap-3 mt-2">
-         
+          <span className="text-lg font-bold text-[#800000]">
+            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
+          </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
-              <span className="text-lg font-bold text-[#800000]">
-                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+              <span className="text-sm text-gray-500 line-through">
+                ₹{regularSize.price.toLocaleString("en-IN")}
               </span>
             )}
-             <span className="   text-sm text-gray-500 line-through">
-            ₹{regularSize.price.toLocaleString("en-IN")}
-          </span>
         </div>
       </div>
 
@@ -237,18 +255,18 @@ const ProductItem = ({ item }: { item: Product }) => {
                 />
               ))}
           </div>
-          <span className="text-xs text-gray-500">({item.reviews})</span>
+          <span className="text-xs text-gray-500">({item.reviews ?? 0})</span>
         </div>
 
         {/* Price */}
         <div className="flex items-center justify-center gap-2 mb-3">
           <span className="text-base font-bold text-[#800000]">
-            ₹{regularSize.price.toLocaleString("en-IN")}
+            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
           </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
               <span className="text-xs text-gray-500 line-through">
-                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+                ₹{regularSize.price.toLocaleString("en-IN")}
               </span>
             )}
         </div>

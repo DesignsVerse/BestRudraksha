@@ -51,10 +51,10 @@ const BestSeller = () => {
               className="w-5 h-5"
             />
             <div>
-              <span className="text-lg font-semibold text-gray-800">
+              <span className="text-lg font-semibold text-[#800000]">
                 This Month
               </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
                 Best Sellers
               </h2>
             </div>
@@ -70,7 +70,7 @@ const BestSeller = () => {
         {/* Slider Container */}
         <div className="relative">
           <Slider {...sliderSettings} className="best-seller-slider">
-            {shopData.slice(11,19).map((item, key) => (
+            {shopData.slice(6,13).map((item, key) => (
               <div key={key} className="px-2 focus:outline-none">
                 <div className="transition-transform duration-300 hover:scale-[1.02]">
                   <SingleItem item={item} />
