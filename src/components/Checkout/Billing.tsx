@@ -118,7 +118,25 @@ const Billing = ({ onSubmit }) => {
     
     onSubmit(formData);
   };
-
+  useEffect(() => {
+    const savedBillingData = localStorage.getItem("billingData");
+    console.log(savedBillingData)
+    if (savedBillingData) {
+      try {
+        const parsedData = JSON.parse(savedBillingData);
+        const { firstName, email, phone } = parsedData;
+  
+        console.log("firstName:", firstName);
+        console.log("Email:", email);
+        console.log("Phone:", phone);
+      } catch (error) {
+        console.error("Failed to parse billingData from localStorage:", error);
+      }
+    } else {
+      console.warn("No billingData found in localStorage");
+    }
+  }, []);
+  
   const resetForm = () => {
     if (confirm('Are you sure you want to reset all fields?')) {
       setFormData({

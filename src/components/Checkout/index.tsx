@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Billing from "./Billing";
 import Shipping from "./Shipping";
@@ -8,17 +8,23 @@ import CashfreePopup from "@/cashfree-popup/components/CashfreePopup"
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import Image from "next/image";
 
+type BillingData = {
+  name: string;
+  email: string;
+  phone: string;
+};
+
 const CheckoutContent = () => {
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useAppSelector(selectTotalPrice);
   const shippingFee = 15;
 
-  const [billingData, setBillingData] = useState({
-    id: "",       // Optional customer ID (can use email or phone if needed)
-    email: "",
-    phone: "",
-    name: "",     // If needed
-  });
+  // const [billingData, setBillingData] = useState({
+  //   id: "",       // Optional customer ID (can use email or phone if needed)
+  //   email: "",
+  //   phone: "",
+  //   name: "",     // If needed
+  // });
 
   const generateOrderId = () => {
     const now = new Date();
@@ -33,13 +39,29 @@ const CheckoutContent = () => {
     console.log("Billing data submitted:", data);
     // Update the state to use in Cashfree
     setBillingData({
-      id: data.email,        // Or generate a unique id
       email: data.email,
       phone: data.phone,
       name: data.name,       // Optional
     });
   };
+  const [billingData, setBillingData] = useState<BillingData | null>(null);
 
+  useEffect(() => {
+    const savedBillingData = localStorage.getItem("billingData");
+    if (savedBillingData) {
+      try {
+        const parsedData = JSON.parse(savedBillingData);
+        setBillingData({
+          name: parsedData.name || "",
+          email: parsedData.email || "",
+          phone: parsedData.phone || "",
+        });
+      } catch (err) {
+        console.error("Error parsing billing data:", err);
+      }
+    }
+  }, []);
+  
 
   return (
     <>
@@ -130,16 +152,19 @@ const CheckoutContent = () => {
                     </div>
                   </div>
                 </div>
-                <CashfreePopup
-                  orderId={order_id}
-                  amount={totalPrice + shippingFee}
-                  customer={{
-                    id: '1',
-                    email: billingData.email,
-                    phone: '9413466075',
-                    name: billingData.name,
-                  }}
-                />
+                {billingData && (
+  <CashfreePopup
+    orderId={order_id}
+    amount={totalPrice + shippingFee}
+    customer={{
+      id: 'guest',
+      email: billingData.email,
+      phone: billingData.phone,
+      name: billingData.name,
+    }}
+  />
+)}
+
               </div>
             </div>
           </form>
