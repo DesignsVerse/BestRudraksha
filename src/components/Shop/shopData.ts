@@ -30,8 +30,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/1.png"]
     },
     sizes: [
-      { name: "Regular", price: 2500, discountedPrice: 1 },
-      { name: "Premium", price: 3000, discountedPrice: 2499 }
+      { name: "Regular", price: 1800, discountedPrice: 1500 },
+      // { name: "Premium", price: 3000, discountedPrice: 2499 }
     ]
   },
   {
@@ -63,8 +63,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/2.png"]
     },
     sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 },
-      { name: "Premium", price: 2000, discountedPrice: 1600 }
+      { name: "Regular", price: 2100, discountedPrice: 1800 },
+      // { name: "Premium", price: 2000, discountedPrice: 1600 }
     ]
   },
   {
@@ -96,8 +96,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/3.png"]
     },
     sizes: [
-      { name: "Regular", price: 1000, discountedPrice: 800 },
-      { name: "Premium", price: 1200, discountedPrice: 950 }
+      { name: "Regular", price: 1200, discountedPrice: 900 },
+      // { name: "Premium", price: 1200, discountedPrice: 950 }
     ]
   },
   {
@@ -129,8 +129,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/4.png"]
     },
     sizes: [
-      { name: "Regular", price: 800, discountedPrice: 650 },
-      { name: "Premium", price: 1000, discountedPrice: 800 }
+      { name: "Regular", price: 1100, discountedPrice: 700 },
+      // { name: "Premium", price: 1000, discountedPrice: 800 }
     ]
   },
   {
@@ -162,8 +162,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/5.png"]
     },
     sizes: [
-      { name: "Regular", price: 400, discountedPrice: 300 },
-      { name: "Premium", price: 600, discountedPrice: 450 }
+      { name: "Regular", price: 900, discountedPrice: 660 },
+      // { name: "Premium", price: 600, discountedPrice: 450 }
     ]
   },
   {
@@ -195,8 +195,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/6.png"]
     },
     sizes: [
-      { name: "Regular", price: 900, discountedPrice: 700 },
-      { name: "Premium", price: 1200, discountedPrice: 950 }
+      { name: "Regular", price: 1200, discountedPrice: 850 },
+      // { name: "Premium", price: 1200, discountedPrice: 950 }
     ]
   },
   {
@@ -228,8 +228,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/7.png"]
     },
     sizes: [
-      { name: "Regular", price: 1400, discountedPrice: 1100 },
-      { name: "Premium", price: 1800, discountedPrice: 1400 }
+      { name: "Regular", price: 1500, discountedPrice: 1200 },
+      // { name: "Premium", price: 1800, discountedPrice: 1400 }
     ]
   },
   {
@@ -261,8 +261,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/8.png"]
     },
     sizes: [
-      { name: "Regular", price: 3000, discountedPrice: 2500 },
-      { name: "Premium", price: 3500, discountedPrice: 3000 }
+      { name: "Regular", price: 2200, discountedPrice: 1800 },
+      // { name: "Premium", price: 3500, discountedPrice: 3000 }
     ]
   },
   {
@@ -294,8 +294,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/9.png"]
     },
     sizes: [
-      { name: "Regular", price: 4000, discountedPrice: 3500 },
-      { name: "Premium", price: 4500, discountedPrice: 4000 }
+      { name: "Regular", price: 3000, discountedPrice: 2500 },
+      // { name: "Premium", price: 4500, discountedPrice: 4000 }
     ]
   },
   {
@@ -327,8 +327,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/10.png"]
     },
     sizes: [
-      { name: "Regular", price: 5000, discountedPrice: 4500 },
-      { name: "Premium", price: 5500, discountedPrice: 5000 }
+      { name: "Regular", price: 3800, discountedPrice: 3000 },
+      // { name: "Premium", price: 5500, discountedPrice: 5000 }
     ]
   },
   {
@@ -360,8 +360,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/11.png"]
     },
     sizes: [
-      { name: "Regular", price: 6000, discountedPrice: 5500 },
-      { name: "Premium", price: 6500, discountedPrice: 6000 }
+      { name: "Regular", price: 4500, discountedPrice: 3500 },
+      // { name: "Premium", price: 6500, discountedPrice: 6000 }
     ]
   },
   {
@@ -393,8 +393,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/12.png"]
     },
     sizes: [
-      { name: "Regular", price: 7500, discountedPrice: 7000 },
-      { name: "Premium", price: 8000, discountedPrice: 7500 }
+      { name: "Regular", price: 5000, discountedPrice: 4000 },
+      // { name: "Premium", price: 8000, discountedPrice: 7500 }
     ]
   },
   {
@@ -426,8 +426,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/13.png"]
     },
     sizes: [
-      { name: "Regular", price: 9500, discountedPrice: 9000 },
-      { name: "Premium", price: 10000, discountedPrice: 9500 }
+      { name: "Regular", price: 6200, discountedPrice: 5000 },
+      // { name: "Premium", price: 10000, discountedPrice: 9500 }
     ]
   },
   {
@@ -459,8 +459,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/14.png"]
     },
     sizes: [
-      { name: "Regular", price: 16000, discountedPrice: 15000 },
-      { name: "Premium", price: 17000, discountedPrice: 16000 }
+      { name: "Regular", price: 7500, discountedPrice: 6000 },
+      // { name: "Premium", price: 17000, discountedPrice: 16000 }
     ]
   },
   {
@@ -1526,7 +1526,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/1.png"],
         previews: ["/images/products/mala/1.png"],
       },
-      sizes: [{ name: "Standard", price: 2500, discountedPrice: 2000 }],
+      sizes: [{ name: "Standard", price: 500, discountedPrice: 250 }],
     },
     {
       id: 47,
@@ -1558,7 +1558,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/2.png"],
         previews: ["/images/products/mala/2.png"],
       },
-      sizes: [{ name: "Standard", price: 2200, discountedPrice: 1800 }],
+      sizes: [{ name: "Standard", price: 350, discountedPrice: 250 }],
     },
     {
       id: 48,
@@ -1590,7 +1590,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/3.png"],
         previews: ["/images/products/mala/3.png"],
       },
-      sizes: [{ name: "Standard", price: 3000, discountedPrice: 2500 }],
+      sizes: [{ name: "Standard", price: 720, discountedPrice: 260 }],
     },
     {
       id: 49,
@@ -1622,7 +1622,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/4.png"],
         previews: ["/images/products/mala/4.png"],
       },
-      sizes: [{ name: "Standard", price: 4500, discountedPrice: 4000 }],
+      sizes: [{ name: "Standard", price: 800, discountedPrice: 500 }],
     },
   
 ];
