@@ -31,7 +31,7 @@ export default function CashfreePopup({ orderId, amount, customer }) {
   return (
     <button
       onClick={initiatePayment}
-      className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800"
+      className="px-6 py-2 mt-4 bg-[#800000] text-white rounded hover:bg-gray-800"
       disabled={loading}
     >
       {loading ? 'Processing...' : 'Pay with Cashfree'}
