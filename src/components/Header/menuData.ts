@@ -31,6 +31,12 @@ export const menuData: Menu[] = [
         newTab: false,
         path: "/shop-filter/special-rudraksha",
       },
+       {
+        id: 52,
+        title: "Rashi Rudraksha",
+        newTab: false,
+        path: "/shop-filter/rashi-rudraksha",
+      }
     ]
   },
   {
