@@ -23,7 +23,7 @@ const RashiRudraksha = () => {
 
   return (
     <>
-      <Breadcrumb title={"Explore All Gemstones"} pages={["Gemstones"]} />
+      <Breadcrumb title={"Explore All Rashi Rudraksha"} pages={["Rashi Rudraksha"]} />
       <section className="overflow-hidden relative pb-20 bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-7.5">
