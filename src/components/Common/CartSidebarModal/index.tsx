@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
   const cartItems = useAppSelector((state) => state.cartReducer.items);
-  const totalPrice = useSelector(selectTotalPrice);
+  const discountedPrice = useSelector(selectTotalPrice);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -101,7 +101,7 @@ const CartSidebarModal = () => {
             <div className="sticky bottom-0 bg-[#FFFAF5] border-t border-gray-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <p className="text-lg font-medium text-gray-900">Subtotal:</p>
-                <p className="text-xl font-bold text-[#800000]">₹{totalPrice.toLocaleString()}</p>              </div>
+                <p className="text-xl font-bold text-[#800000]">₹{discountedPrice.toLocaleString()}</p>              </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <Link
