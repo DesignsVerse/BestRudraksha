@@ -36,7 +36,7 @@ export default function CashfreePopup({ orderId, amount, customer }) {
 
       disabled={loading}
     >
-      {loading ? 'Processing...' : 'Pay with Cashfree'}
+      {loading ? 'Processing...' : 'Proceed to Payment'}
     </button>
   );
 }
