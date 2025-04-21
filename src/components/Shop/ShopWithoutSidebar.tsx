@@ -14,7 +14,7 @@ const Gemstones: React.FC = () => {
   const itemsPerPage = 12;
 
   // Filter shopData to show only products with IDs 15 to 23
-  const gemstoneProductsBase = shopData.filter((item) => item.id >= 15 && item.id <= 23);
+  const gemstoneProductsBase = shopData.filter((item) => item.id >= 1 && item.id <= 50);
 
   // Sort data based on sizes[0]?.price
   const sortedGemstoneProducts = [...gemstoneProductsBase].sort((a: Product, b: Product) => {
@@ -43,7 +43,7 @@ const Gemstones: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb title={"Explore All Gemstones"} pages={["Gemstones"]} />
+      <Breadcrumb title={"Explore All Product"} pages={["Product"]} />
       <section className="overflow-hidden relative pb-20 bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-7.5">
@@ -139,8 +139,8 @@ const Gemstones: React.FC = () => {
                       disabled={currentPage === 1}
                       className={`px-3 py-1 rounded-md ${
                         currentPage === 1
-                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                           ? "bg-[#800000] text-white cursor-not-allowed"
+                          : "bg-[#800000] text-white hover:bg-blue-200"
                       }`}
                     >
                       Previous
@@ -151,7 +151,7 @@ const Gemstones: React.FC = () => {
                         onClick={() => handlePageChange(page)}
                         className={`px-3 py-1 rounded-md ${
                           currentPage === page
-                            ? "bg-blue-600 text-white"
+                            ? "bg-[#800000] text-white"
                             : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                         }`}
                       >
@@ -163,8 +163,8 @@ const Gemstones: React.FC = () => {
                       disabled={currentPage === totalPages}
                       className={`px-3 py-1 rounded-md ${
                         currentPage === totalPages
-                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                          ? "bg-[#800000] text-white cursor-not-allowed"
+                          : "bg-[#800000] text-white hover:bg-blue-200"
                       }`}
                     >
                       Next
