@@ -7,6 +7,7 @@ export const loadCashfreeSDK = () => {
       script.onload = () => resolve(window.Cashfree);
       script.onerror = reject;
       document.body.appendChild(script);
+      
     });
   };
   
