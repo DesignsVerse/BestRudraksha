@@ -9,6 +9,7 @@ const EditOrder = ({ order, toggleModal }: any) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    
 
     if (!currentStatus) {
       toast.error("Please select a status");
