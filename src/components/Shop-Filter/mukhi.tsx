@@ -18,8 +18,8 @@ const Mukhi = () => {
   return (
     <>
       <Breadcrumb
-        title={"1 - 21 Mukhi Rudraksha"}
-        pages={["1 - 21 Mukhi Rudraksha"]}
+        title={"1 - 14 Mukhi Rudraksha"}
+        pages={["1 - 14 Mukhi Rudraksha"]}
       />
       <section className="overflow-hidden relative pb-20  bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">

@@ -30,8 +30,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/1.png"]
     },
     sizes: [
-      { name: "Regular", price: 2500, discountedPrice: 1 },
-      { name: "Premium", price: 3000, discountedPrice: 2499 }
+      { name: "Regular", price: 1800, discountedPrice: 1500 },
+      // { name: "Premium", price: 3000, discountedPrice: 2499 }
     ]
   },
   {
@@ -63,8 +63,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/2.png"]
     },
     sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 },
-      { name: "Premium", price: 2000, discountedPrice: 1600 }
+      { name: "Regular", price: 2100, discountedPrice: 1800 },
+      // { name: "Premium", price: 2000, discountedPrice: 1600 }
     ]
   },
   {
@@ -96,8 +96,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/3.png"]
     },
     sizes: [
-      { name: "Regular", price: 1000, discountedPrice: 800 },
-      { name: "Premium", price: 1200, discountedPrice: 950 }
+      { name: "Regular", price: 1200, discountedPrice: 900 },
+      // { name: "Premium", price: 1200, discountedPrice: 950 }
     ]
   },
   {
@@ -129,8 +129,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/4.png"]
     },
     sizes: [
-      { name: "Regular", price: 800, discountedPrice: 650 },
-      { name: "Premium", price: 1000, discountedPrice: 800 }
+      { name: "Regular", price: 1100, discountedPrice: 700 },
+      // { name: "Premium", price: 1000, discountedPrice: 800 }
     ]
   },
   {
@@ -162,8 +162,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/5.png"]
     },
     sizes: [
-      { name: "Regular", price: 400, discountedPrice: 300 },
-      { name: "Premium", price: 600, discountedPrice: 450 }
+      { name: "Regular", price: 900, discountedPrice: 660 },
+      // { name: "Premium", price: 600, discountedPrice: 450 }
     ]
   },
   {
@@ -195,8 +195,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/6.png"]
     },
     sizes: [
-      { name: "Regular", price: 900, discountedPrice: 700 },
-      { name: "Premium", price: 1200, discountedPrice: 950 }
+      { name: "Regular", price: 1200, discountedPrice: 850 },
+      // { name: "Premium", price: 1200, discountedPrice: 950 }
     ]
   },
   {
@@ -228,8 +228,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/7.png"]
     },
     sizes: [
-      { name: "Regular", price: 1400, discountedPrice: 1100 },
-      { name: "Premium", price: 1800, discountedPrice: 1400 }
+      { name: "Regular", price: 1500, discountedPrice: 1200 },
+      // { name: "Premium", price: 1800, discountedPrice: 1400 }
     ]
   },
   {
@@ -261,8 +261,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/8.png"]
     },
     sizes: [
-      { name: "Regular", price: 3000, discountedPrice: 2500 },
-      { name: "Premium", price: 3500, discountedPrice: 3000 }
+      { name: "Regular", price: 2200, discountedPrice: 1800 },
+      // { name: "Premium", price: 3500, discountedPrice: 3000 }
     ]
   },
   {
@@ -294,8 +294,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/9.png"]
     },
     sizes: [
-      { name: "Regular", price: 4000, discountedPrice: 3500 },
-      { name: "Premium", price: 4500, discountedPrice: 4000 }
+      { name: "Regular", price: 3000, discountedPrice: 2500 },
+      // { name: "Premium", price: 4500, discountedPrice: 4000 }
     ]
   },
   {
@@ -327,8 +327,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/10.png"]
     },
     sizes: [
-      { name: "Regular", price: 5000, discountedPrice: 4500 },
-      { name: "Premium", price: 5500, discountedPrice: 5000 }
+      { name: "Regular", price: 3800, discountedPrice: 3000 },
+      // { name: "Premium", price: 5500, discountedPrice: 5000 }
     ]
   },
   {
@@ -360,8 +360,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/11.png"]
     },
     sizes: [
-      { name: "Regular", price: 6000, discountedPrice: 5500 },
-      { name: "Premium", price: 6500, discountedPrice: 6000 }
+      { name: "Regular", price: 4500, discountedPrice: 3500 },
+      // { name: "Premium", price: 6500, discountedPrice: 6000 }
     ]
   },
   {
@@ -393,8 +393,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/12.png"]
     },
     sizes: [
-      { name: "Regular", price: 7500, discountedPrice: 7000 },
-      { name: "Premium", price: 8000, discountedPrice: 7500 }
+      { name: "Regular", price: 5000, discountedPrice: 4000 },
+      // { name: "Premium", price: 8000, discountedPrice: 7500 }
     ]
   },
   {
@@ -426,8 +426,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/13.png"]
     },
     sizes: [
-      { name: "Regular", price: 9500, discountedPrice: 9000 },
-      { name: "Premium", price: 10000, discountedPrice: 9500 }
+      { name: "Regular", price: 6200, discountedPrice: 5000 },
+      // { name: "Premium", price: 10000, discountedPrice: 9500 }
     ]
   },
   {
@@ -459,8 +459,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/14.png"]
     },
     sizes: [
-      { name: "Regular", price: 16000, discountedPrice: 15000 },
-      { name: "Premium", price: 17000, discountedPrice: 16000 }
+      { name: "Regular", price: 7500, discountedPrice: 6000 },
+      // { name: "Premium", price: 17000, discountedPrice: 16000 }
     ]
   },
   {
@@ -1495,7 +1495,136 @@ const shopData: Product[] = [
       previews: ["/images/products/rashi/12.png"],
     },
     sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
-  }
+  },
+    {
+      id: 46,
+      paymentLink: "https://payments.cashfree.com/forms/kamalgatta-mala",
+      title: "Kamalgatta Mala - Best Rudraksha for Spiritual Clarity",
+      slug: "kamalgatta-mala",
+      reviews: 0,
+      description:
+        "Elevate your spiritual journey with the Kamalgatta Mala from Best Rudraksha. Sourced from sacred lotus seeds, this certified mala promotes clarity and divine connection. Buy original Kamalgatta Mala online for meditation and peace.",
+      beejMantra: "Om Namah Shivaya",
+      detail:
+        "The Kamalgatta Mala, made from lotus seeds, is revered for its ability to enhance spiritual clarity and meditation. Ideal for devotees seeking purity and divine blessings, this mala from Best Rudraksha fosters inner peace.",
+      keyFeatures: [
+        "Certified Kamalgatta Mala from sacred lotus seeds",
+        "Handcrafted to preserve spiritual potency",
+        "Pre-energized for immediate spiritual benefits",
+        "Perfect for meditation and divine connection",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Enhances spiritual clarity and focus",
+        "Promotes inner peace and meditation",
+        "Aligns with divine energy",
+        "Supports purity of thought",
+        "Protects against negative energies",
+      ],
+      images: ["/images/products/mala/1.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/1.png"],
+        previews: ["/images/products/mala/1.png"],
+      },
+      sizes: [{ name: "Standard", price: 500, discountedPrice: 250 }],
+    },
+    {
+      id: 47,
+      paymentLink: "https://payments.cashfree.com/forms/vaijanti-mala",
+      title: "Vaijanti Mala - Best Rudraksha for Prosperity and Harmony",
+      slug: "vaijanti-mala",
+      reviews: 0,
+      description:
+        "Attract prosperity with the Vaijanti Mala from Best Rudraksha. Crafted from sacred Vaijanti seeds, this certified mala enhances harmony and spiritual growth. Buy original Vaijanti Mala online for divine blessings.",
+      beejMantra: "Om Shreem Namah",
+      detail:
+        "The Vaijanti Mala, made from Vaijanti seeds, is associated with Lord Vishnu and Goddess Lakshmi. It promotes prosperity, harmony, and spiritual upliftment, making it a perfect choice for devotees seeking abundance.",
+      keyFeatures: [
+        "Certified Vaijanti Mala from sacred seeds",
+        "Handcrafted to retain divine essence",
+        "Pre-energized for immediate benefits",
+        "Ideal for prosperity and harmony",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Attracts prosperity and abundance",
+        "Promotes harmony and peace",
+        "Enhances spiritual growth",
+        "Aligns with divine blessings",
+        "Protects against financial instability",
+      ],
+      images: ["/images/products/mala/2.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/2.png"],
+        previews: ["/images/products/mala/2.png"],
+      },
+      sizes: [{ name: "Standard", price: 350, discountedPrice: 250 }],
+    },
+    {
+      id: 48,
+      paymentLink: "https://payments.cashfree.com/forms/sphatika-mala",
+      title: "Sphatika Mala - Best Rudraksha for Purity and Healing",
+      slug: "sphatika-mala",
+      reviews: 0,
+      description:
+        "Purify your aura with the Sphatika Mala from Best Rudraksha. Made from natural crystal beads, this certified mala promotes healing and spiritual balance. Buy original Sphatika Mala online for serenity and clarity.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "The Sphatika Mala, crafted from clear quartz crystals, is known for its cooling and purifying properties. Associated with divine energy, it supports healing, mental clarity, and spiritual balance for devotees.",
+      keyFeatures: [
+        "Certified Sphatika Mala from natural quartz crystals",
+        "Handcrafted to enhance spiritual energy",
+        "Pre-energized for immediate benefits",
+        "Ideal for healing and mental clarity",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes purity and spiritual balance",
+        "Enhances mental clarity and focus",
+        "Supports physical and emotional healing",
+        "Aligns with divine vibrations",
+        "Protects against negative energies",
+      ],
+      images: ["/images/products/mala/3.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/3.png"],
+        previews: ["/images/products/mala/3.png"],
+      },
+      sizes: [{ name: "Standard", price: 720, discountedPrice: 260 }],
+    },
+    {
+      id: 49,
+      paymentLink: "https://payments.cashfree.com/forms/laxmi-maha-meru-shree-yantra",
+      title: "Home Genie Goddess Laxmi Maha Meru Shree Yantra - Best Rudraksha for Wealth",
+      slug: "laxmi-maha-meru-shree-yantra",
+      reviews: 0,
+      description:
+        "Invite wealth and prosperity with the Home Genie Goddess Laxmi Maha Meru Shree Yantra from Best Rudraksha. This certified 3D yantra enhances financial success and divine blessings. Buy original Shree Yantra online for abundance.",
+      beejMantra: "Om Shreem Hreem Shreem Kamale Kamalalaye Praseed Praseed",
+      detail:
+        "The Maha Meru Shree Yantra, dedicated to Goddess Lakshmi, is a powerful 3D geometric tool for attracting wealth and prosperity. This sacred yantra from Best Rudraksha fosters financial stability and spiritual harmony.",
+      keyFeatures: [
+        "Certified Maha Meru Shree Yantra for Goddess Lakshmi",
+        "Crafted with precision for maximum spiritual impact",
+        "Pre-energized for immediate prosperity benefits",
+        "Ideal for home and office wealth attraction",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Attracts wealth and financial success",
+        "Promotes spiritual harmony and peace",
+        "Enhances divine blessings of Goddess Lakshmi",
+        "Supports financial stability",
+        "Protects against financial losses",
+      ],
+      images: ["/images/products/mala/1.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/4.png"],
+        previews: ["/images/products/mala/4.png"],
+      },
+      sizes: [{ name: "Standard", price: 800, discountedPrice: 500 }],
+    },
+  
 ];
 
 export default shopData;

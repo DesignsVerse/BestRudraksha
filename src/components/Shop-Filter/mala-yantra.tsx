@@ -6,12 +6,12 @@ import SingleListItem from "../Shop/SingleListItem";
 import CustomSelect from "../Shop/CustomSelect";
 import shopData from "@/components/Shop/shopData";
 
-const SpecialRudraksha = () => {
+const Mala = () => {
   const [productStyle, setProductStyle] = useState("grid");
   
   // Filter shopData to show only products with IDs 15 to 20
   const SpecialRudraksha = shopData.filter(
-    (item) => item.id >= 24 && item.id <= 33
+    (item) => item.id >= 46 && item.id <= 49
   );
   const itemsToShow = SpecialRudraksha.length; // Dynamically set based on filtered products
 
@@ -23,9 +23,7 @@ const SpecialRudraksha = () => {
 
   return (
     <>
-
-      <Breadcrumb title={"Explore All Special Rudraksha"} pages={["Special Rudraksha"]} />
-
+      <Breadcrumb title={"Explore All Mala and Yantra"} pages={["Mala and Yantra"]} />
       <section className="overflow-hidden relative pb-20 bg-[#FFFAF5]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-7.5">
@@ -112,4 +110,4 @@ const SpecialRudraksha = () => {
   );
 };
 
-export default SpecialRudraksha;
+export default Mala;
