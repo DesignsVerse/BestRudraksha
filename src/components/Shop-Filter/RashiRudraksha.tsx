@@ -3,23 +3,42 @@ import React, { useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
-import CustomSelect from "../Shop/CustomSelect";
+import FilterSortSelects from "../Shop/FilterSortSelects"; // Your FilterSortSelects
 import shopData from "@/components/Shop/shopData";
 
-const RashiRudraksha = () => {
-  const [productStyle, setProductStyle] = useState("grid");
-  
-  // Filter shopData to show only products with IDs 15 to 20
-  const SpecialRudraksha = shopData.filter(
-    (item) => item.id >= 34 && item.id <= 45
-  );
-  const itemsToShow = SpecialRudraksha.length; // Dynamically set based on filtered products
+const RashiRudraksha: React.FC = () => {
+  const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
+  const itemsPerPage = 12;
 
-  const options = [
-    { label: "Latest Products", value: "0" },
-    { label: "Best Selling", value: "1" },
-    { label: "Old Products", value: "2" },
-  ];
+  // Filter shopData to show only products with IDs 34 to 45
+  const rashiRudrakshaBase = shopData.filter((item) => item.id >= 34 && item.id <= 45);
+
+  // Sort data based on sizes[0]?.price
+  const sortedRashiRudraksha = [...rashiRudrakshaBase].sort((a: any, b: any) => {
+    if (sortOption === "normal") return 0;
+    const priceA = a.sizes[0]?.price || 0;
+    const priceB = b.sizes[0]?.price || 0;
+    return sortOption === "low-to-high" ? priceA - priceB : priceB - priceA;
+  });
+
+  // Pagination logic
+  const totalItems = sortedRashiRudraksha.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedProducts = sortedRashiRudraksha.slice(startIndex, startIndex + itemsPerPage);
+
+  // Handle sort change
+  const handleSortChange = (value: "normal" | "low-to-high" | "high-to-low") => {
+    setSortOption(value);
+    setCurrentPage(1); // Reset to first page on sort change
+  };
+
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
@@ -32,12 +51,19 @@ const RashiRudraksha = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="relative">
-                      <CustomSelect />
+                      <FilterSortSelects onSortChange={handleSortChange} />
                     </div>
                     <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
-                      <span>{itemsToShow} Products</span>
+                      <span>{totalItems} Products</span>
                       <span className="mx-1">•</span>
-                      <span>Sorted by: Newest</span>
+                      <span>
+                        Sorted by:{" "}
+                        {sortOption === "normal"
+                          ? "Default"
+                          : sortOption === "low-to-high"
+                          ? "Price: Low to High"
+                          : "Price: High to Low"}
+                      </span>
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -86,7 +112,7 @@ const RashiRudraksha = () => {
                 </div>
               </div>
 
-              {/* Modified Products Display */}
+              {/* Products Display */}
               <div
                 className={`${
                   productStyle === "grid"
@@ -94,7 +120,7 @@ const RashiRudraksha = () => {
                     : "flex flex-col gap-7.5"
                 }`}
               >
-                {SpecialRudraksha.map((item, key) =>
+                {paginatedProducts.map((item, key) =>
                   productStyle === "grid" ? (
                     <SingleGridItem item={item} key={key} />
                   ) : (
@@ -102,6 +128,49 @@ const RashiRudraksha = () => {
                   )
                 )}
               </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-8">
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className={`px-3 py-1 rounded-md ${
+                        currentPage === 1
+                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                      }`}
+                    >
+                      Previous
+                    </button>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        className={`px-3 py-1 rounded-md ${
+                          currentPage === page
+                            ? "bg-blue-600 text-white"
+                            : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    ))}
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className={`px-3 py-1 rounded-md ${
+                        currentPage === totalPages
+                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                      }`}
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
