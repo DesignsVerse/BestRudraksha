@@ -412,7 +412,7 @@ const ShopDetails = ({ params }: PageProps) => {
           <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-17.5">
             {/* Image Gallery */}
             <div className="lg:max-w-[550px] w-full">
-              <div className="lg:min-h-[250px] bg-[#D8CFC2] rounded-xl shadow-lg bg-gray-100 relative flex items-center justify-center overflow-hidden">
+              <div className="lg:min-h-[250px] bg-white rounded-xl shadow-lg bg-gray-100 relative flex items-center justify-center overflow-hidden">
                 {product.imgs?.previews && (
                   <Image
                     src={product.imgs.previews[previewImg]}

@@ -1081,423 +1081,390 @@ const shopData: Product[] = [
       { name: "Regular", price: 1500, discountedPrice: 1200 }
     ]
   },
-  {
-    id: 33,
-    paymentLink: "https://payments.cashfree.com/forms/happy-married-life-2-mukhi",
-    title: "2 Mukhi Rudraksha - Rudraksha for Happy Married Life",
-    slug: "happy-married-life-2-mukhi-rudraksha",
-    reviews: 0,
-    description: "Ensure a happy married life with the 2 Mukhi Rudraksha from Best Rudraksha, a two-faced bead for harmony. Sourced from Nepal, this certified Rudraksha from Best Rudraksha promotes unity and love. Buy original Rudraksha online for relationship bliss.",
-    beejMantra: "Om Namah",
-    detail: "The 2 Mukhi Rudraksha, associated with Lord Ardhanarishwara, is revered for promoting harmony and emotional balance in relationships. It fosters unity, reduces conflicts, and is ideal for couples seeking a happy and balanced married life.",
-    keyFeatures: [
-      "Certified original 2 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve its divine energy",
-      "Pre-energized for immediate benefits",
-      "Ideal for happy married life and harmony",
-      "Includes a certificate of authenticity from Best Rudraksha"
-    ],
-    benefits: [
-      "Promotes harmony in married life",
-      "Enhances emotional balance and love",
-      "Reduces conflicts in relationships",
-      "Supports unity and mutual understanding",
-      "Protects against negative emotional energies"
-    ],
-    images: ["/images/product/store/special-problem/10.webp"],
-    imgs: {
-      thumbnails: ["/images/product/store/special-problem/10.webp"],
-      previews: ["/images/product/store/special-problem/10.webp"]
+    {
+      id: 34,
+      paymentLink: "https://payments.cashfree.com/forms/aries-3-mukhi-rudraksha",
+      title: "3 Mukhi Rudraksha for Mesh (Aries) - Best Rudraksha for Courage",
+      slug: "aries-3-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Ignite your inner fire with the 3 Mukhi Rudraksha from Best Rudraksha, perfect for Mesh (Aries). Sourced from Nepal, this certified Rudraksha enhances courage, leadership, and vitality. Buy original Rudraksha online for zodiac-aligned success.",
+      beejMantra: "Om Kleem Namah",
+      detail:
+        "The 3 Mukhi Rudraksha, linked to Lord Agni, is ideal for Aries, boosting confidence, energy, and leadership qualities. It helps overcome obstacles and aligns with the dynamic nature of Mesh for personal growth.",
+      keyFeatures: [
+        "Certified original 3 Mukhi Rudraksha from Nepal",
+        "Handcrafted to retain its spiritual essence",
+        "Pre-energized for immediate benefits",
+        "Perfect for Aries zodiac energy",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Enhances courage and leadership",
+        "Boosts vitality and energy",
+        "Removes obstacles for success",
+        "Aligns with Aries' bold nature",
+        "Protects against negative energies",
+      ],
+      images: ["/images/products/rashi/1.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/1.png"],
+        previews: ["/images/products/rashi/1.png"],
+      },
+      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
     },
-    sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 }
-    ]
-  },
-  {
-    id: 34,
-    paymentLink: "https://payments.cashfree.com/forms/aries-3-mukhi-rudraksha",
-    title: "3 Mukhi Rudraksha for Mesh (Aries) - Best Rudraksha for Courage",
-    slug: "aries-3-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Ignite your inner fire with the 3 Mukhi Rudraksha from Best Rudraksha, perfect for Mesh (Aries). Sourced from Nepal, this certified Rudraksha enhances courage, leadership, and vitality. Buy original Rudraksha online for zodiac-aligned success.",
-    beejMantra: "Om Kleem Namah",
-    detail:
-      "The 3 Mukhi Rudraksha, linked to Lord Agni, is ideal for Aries, boosting confidence, energy, and leadership qualities. It helps overcome obstacles and aligns with the dynamic nature of Mesh for personal growth.",
-    keyFeatures: [
-      "Certified original 3 Mukhi Rudraksha from Nepal",
-      "Handcrafted to retain its spiritual essence",
-      "Pre-energized for immediate benefits",
-      "Perfect for Aries zodiac energy",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Enhances courage and leadership",
-      "Boosts vitality and energy",
-      "Removes obstacles for success",
-      "Aligns with Aries' bold nature",
-      "Protects against negative energies",
-    ],
-    images: ["/images/products/rashi/1.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/1.png"],
-      previews: ["/images/products/rashi/1.png"],
+    {
+      id: 35,
+      paymentLink: "https://payments.cashfree.com/forms/taurus-6-mukhi-rudraksha",
+      title: "6 Mukhi Rudraksha for Vrishabha (Taurus) - Best Rudraksha for Stability",
+      slug: "taurus-6-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Ground your energies with the 6 Mukhi Rudraksha from Best Rudraksha, ideal for Vrishabha (Taurus). Sourced from Nepal, this certified Rudraksha promotes stability, patience, and prosperity. Buy original Rudraksha online for zodiac harmony.",
+      beejMantra: "Om Hreem Hum Namah",
+      detail:
+        "The 6 Mukhi Rudraksha, associated with Lord Kartikeya, aligns with Taurus' need for stability and material comfort. It fosters patience, emotional balance, and financial growth for a grounded life.",
+      keyFeatures: [
+        "Certified original 6 Mukhi Rudraksha from Nepal",
+        "Handcrafted to preserve divine energy",
+        "Pre-energized for immediate benefits",
+        "Ideal for Taurus zodiac stability",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes emotional and financial stability",
+        "Enhances patience and perseverance",
+        "Attracts prosperity and comfort",
+        "Aligns with Taurus' earthy nature",
+        "Shields from stress and negativity",
+      ],
+      images: ["/images/products/rashi/2.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/2.png"],
+        previews: ["/images/products/rashi/2.png"],
+      },
+      sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
     },
-    sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
-  },
-  {
-    id: 35,
-    paymentLink: "https://payments.cashfree.com/forms/taurus-6-mukhi-rudraksha",
-    title: "6 Mukhi Rudraksha for Vrishabha (Taurus) - Best Rudraksha for Stability",
-    slug: "taurus-6-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Ground your energies with the 6 Mukhi Rudraksha from Best Rudraksha, ideal for Vrishabha (Taurus). Sourced from Nepal, this certified Rudraksha promotes stability, patience, and prosperity. Buy original Rudraksha online for zodiac harmony.",
-    beejMantra: "Om Hreem Hum Namah",
-    detail:
-      "The 6 Mukhi Rudraksha, associated with Lord Kartikeya, aligns with Taurus' need for stability and material comfort. It fosters patience, emotional balance, and financial growth for a grounded life.",
-    keyFeatures: [
-      "Certified original 6 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve divine energy",
-      "Pre-energized for immediate benefits",
-      "Ideal for Taurus zodiac stability",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Promotes emotional and financial stability",
-      "Enhances patience and perseverance",
-      "Attracts prosperity and comfort",
-      "Aligns with Taurus' earthy nature",
-      "Shields from stress and negativity",
-    ],
-    images: ["/images/products/rashi/2.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/2.png"],
-      previews: ["/images/products/rashi/2.png"],
+    {
+      id: 36,
+      paymentLink: "https://payments.cashfree.com/forms/gemini-4-mukhi-rudraksha",
+      title: "4 Mukhi Rudraksha for Mithun (Gemini) - Best Rudraksha for Communication",
+      slug: "gemini-4-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Boost your intellect with the 4 Mukhi Rudraksha from Best Rudraksha, crafted for Mithun (Gemini). Sourced from Nepal, this certified Rudraksha enhances communication and creativity. Buy original Rudraksha online for zodiac success.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "The 4 Mukhi Rudraksha, governed by Lord Brahma, is perfect for Gemini, sharpening intellect, communication, and adaptability. It supports creative expression and mental clarity for versatile individuals.",
+      keyFeatures: [
+        "Certified original 4 Mukhi Rudraksha from Nepal",
+        "Handcrafted to maintain spiritual potency",
+        "Pre-energized for immediate benefits",
+        "Ideal for Gemini zodiac creativity",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Enhances communication and intellect",
+        "Boosts creativity and adaptability",
+        "Supports mental clarity and focus",
+        "Aligns with Gemini's versatile nature",
+        "Protects against mental stress",
+      ],
+      images: ["/images/products/rashi/3.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/3.png"],
+        previews: ["/images/products/rashi/3.png"],
+      },
+      sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
     },
-    sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
-  },
-  {
-    id: 36,
-    paymentLink: "https://payments.cashfree.com/forms/gemini-4-mukhi-rudraksha",
-    title: "4 Mukhi Rudraksha for Mithun (Gemini) - Best Rudraksha for Communication",
-    slug: "gemini-4-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Boost your intellect with the 4 Mukhi Rudraksha from Best Rudraksha, crafted for Mithun (Gemini). Sourced from Nepal, this certified Rudraksha enhances communication and creativity. Buy original Rudraksha online for zodiac success.",
-    beejMantra: "Om Hreem Namah",
-    detail:
-      "The 4 Mukhi Rudraksha, governed by Lord Brahma, is perfect for Gemini, sharpening intellect, communication, and adaptability. It supports creative expression and mental clarity for versatile individuals.",
-    keyFeatures: [
-      "Certified original 4 Mukhi Rudraksha from Nepal",
-      "Handcrafted to maintain spiritual potency",
-      "Pre-energized for immediate benefits",
-      "Ideal for Gemini zodiac creativity",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Enhances communication and intellect",
-      "Boosts creativity and adaptability",
-      "Supports mental clarity and focus",
-      "Aligns with Gemini's versatile nature",
-      "Protects against mental stress",
-    ],
-    images: ["/images/products/rashi/3.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/3.png"],
-      previews: ["/images/products/rashi/3.png"],
+    {
+      id: 37,
+      paymentLink: "https://payments.cashfree.com/forms/cancer-2-mukhi-rudraksha",
+      title: "2 Mukhi Rudraksha for Kark (Cancer) - Best Rudraksha for Emotional Balance",
+      slug: "cancer-2-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Nurture your emotions with the 2 Mukhi Rudraksha from Best Rudraksha, designed for Kark (Cancer). Sourced from Nepal, this certified Rudraksha fosters emotional balance and harmony. Buy original Rudraksha online for zodiac peace.",
+      beejMantra: "Om Namah",
+      detail:
+        "The 2 Mukhi Rudraksha, linked to Lord Ardhanarishwara, is ideal for Cancer, promoting emotional stability and harmony. It strengthens relationships and soothes the sensitive nature of Kark natives.",
+      keyFeatures: [
+        "Certified original 2 Mukhi Rudraksha from Nepal",
+        "Handcrafted to preserve its divine energy",
+        "Pre-energized for immediate benefits",
+        "Perfect for Cancer zodiac harmony",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes emotional balance and peace",
+        "Strengthens relationships and trust",
+        "Soothes Cancer's sensitive nature",
+        "Enhances inner harmony",
+        "Protects against emotional negativity",
+      ],
+      images: ["/images/products/rashi/4.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/4.png"],
+        previews: ["/images/products/rashi/4.png"],
+      },
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1200 }],
     },
-    sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
-  },
-  {
-    id: 37,
-    paymentLink: "https://payments.cashfree.com/forms/cancer-2-mukhi-rudraksha",
-    title: "2 Mukhi Rudraksha for Kark (Cancer) - Best Rudraksha for Emotional Balance",
-    slug: "cancer-2-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Nurture your emotions with the 2 Mukhi Rudraksha from Best Rudraksha, designed for Kark (Cancer). Sourced from Nepal, this certified Rudraksha fosters emotional balance and harmony. Buy original Rudraksha online for zodiac peace.",
-    beejMantra: "Om Namah",
-    detail:
-      "The 2 Mukhi Rudraksha, linked to Lord Ardhanarishwara, is ideal for Cancer, promoting emotional stability and harmony. It strengthens relationships and soothes the sensitive nature of Kark natives.",
-    keyFeatures: [
-      "Certified original 2 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve its divine energy",
-      "Pre-energized for immediate benefits",
-      "Perfect for Cancer zodiac harmony",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Promotes emotional balance and peace",
-      "Strengthens relationships and trust",
-      "Soothes Cancer's sensitive nature",
-      "Enhances inner harmony",
-      "Protects against emotional negativity",
-    ],
-    images: ["/images/products/rashi/4.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/4.png"],
-      previews: ["/images/products/rashi/4.png"],
+    {
+      id: 38,
+      paymentLink: "https://payments.cashfree.com/forms/leo-3-mukhi-rudraksha",
+      title: "3 Mukhi Rudraksha for Singh (Leo) - Best Rudraksha for Leadership",
+      slug: "leo-3-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Unleash your inner strength with the 3 Mukhi Rudraksha from Best Rudraksha, crafted for Singh (Leo). Sourced from Nepal, this certified Rudraksha boosts leadership and confidence. Buy original Rudraksha online for zodiac power.",
+      beejMantra: "Om Kleem Namah",
+      detail:
+        "The 3 Mukhi Rudraksha, associated with Lord Agni, aligns with Leo's fiery nature, enhancing leadership, confidence, and charisma. It empowers Singh natives to shine in all endeavors.",
+      keyFeatures: [
+        "Certified original 3 Mukhi Rudraksha from Nepal",
+        "Handcrafted to retain divine energy",
+        "Pre-energized for immediate benefits",
+        "Ideal for Leo zodiac leadership",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Boosts leadership and charisma",
+        "Enhances confidence and vitality",
+        "Aligns with Leo's fiery energy",
+        "Supports success in endeavors",
+        "Protects against negative forces",
+      ],
+      images: ["/images/products/rashi/5.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/5.png"],
+        previews: ["/images/products/rashi/5.png"],
+      },
+      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
     },
-    sizes: [{ name: "Regular", price: 1500, discountedPrice: 1200 }],
-  },
-  {
-    id: 38,
-    paymentLink: "https://payments.cashfree.com/forms/aquarius-7-mukhi-rudraksha",
-    title: "7 Mukhi Rudraksha for Kumbh (Aquarius) - Best Rudraksha for Innovation",
-    slug: "aquarius-7-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Spark your creativity with the 7 Mukhi Rudraksha from Best Rudraksha, designed for Kumbh (Aquarius). Sourced from Nepal, this certified Rudraksha fosters innovation and wisdom. Buy original Rudraksha online for zodiac brilliance.",
-    beejMantra: "Om Hum Namah",
-    detail:
-      "The 7 Mukhi Rudraksha, linked to Goddess Lakshmi, aligns with Aquarius' innovative and humanitarian nature, promoting wisdom, creativity, and prosperity. It supports Kumbh natives in visionary pursuits.",
-    keyFeatures: [
-      "Certified original 7 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve divine energy",
-      "Pre-energized for immediate benefits",
-      "Perfect for Aquarius zodiac innovation",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Fosters creativity and innovation",
-      "Enhances wisdom and intuition",
-      "Supports humanitarian goals",
-      "Aligns with Aquarius' visionary nature",
-      "Protects against mental blocks",
-    ],
-    images: ["/images/products/rashi/11.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/11.png"],
-      previews: ["/images/products/rashi/11.png"],
+    {
+      id: 39,
+      paymentLink: "https://payments.cashfree.com/forms/virgo-4-mukhi-rudraksha",
+      title: "4 Mukhi Rudraksha for Kanya (Virgo) - Best Rudraksha for Intellect",
+      slug: "virgo-4-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Sharpen your mind with the 4 Mukhi Rudraksha from Best Rudraksha, perfect for Kanya (Virgo). Sourced from Nepal, this certified Rudraksha enhances intellect and focus. Buy original Rudraksha online for zodiac clarity.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "The 4 Mukhi Rudraksha, governed by Lord Brahma, is ideal for Virgo, boosting analytical skills, focus, and intellectual clarity. It supports Kanya natives in achieving precision and success.",
+      keyFeatures: [
+        "Certified original 4 Mukhi Rudraksha from Nepal",
+        "Handcrafted to maintain spiritual potency",
+        "Pre-energized for immediate benefits",
+        "Perfect for Virgo zodiac intellect",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Enhances intellect and focus",
+        "Supports analytical and critical thinking",
+        "Promotes clarity in decision-making",
+        "Aligns with Virgo's meticulous nature",
+        "Protects against mental fatigue",
+      ],
+      images: ["/images/products/rashi/6.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/6.png"],
+        previews: ["/images/products/rashi/6.png"],
+      },
+      sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
     },
-    sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
-  },
-  {
-    id: 39,
-    paymentLink: "https://payments.cashfree.com/forms/pisces-5-mukhi-rudraksha",
-    title: "5 Mukhi Rudraksha for Meen (Pisces) - Best Rudraksha for Intuition",
-    slug: "pisces-5-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Deepen your intuition with the 5 Mukhi Rudraksha from Best Rudraksha, crafted for Meen (Pisces). Sourced from Nepal, this certified Rudraksha enhances spiritual peace. Buy original Rudraksha online for zodiac serenity.",
-    beejMantra: "Om Hreem Namah",
-    detail:
-      "The 5 Mukhi Rudraksha, associated with Lord Shiva, is perfect for Pisces, fostering intuition, spiritual growth, and emotional peace. It supports Meen natives in connecting with their inner self.",
-    keyFeatures: [
-      "Certified original 5 Mukhi Rudraksha from Nepal",
-      "Handcrafted to retain spiritual essence",
-      "Pre-energized for immediate benefits",
-      "Ideal for Pisces zodiac intuition",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Enhances intuition and spiritual growth",
-      "Promotes emotional peace and serenity",
-      "Supports compassionate nature",
-      "Aligns with Pisces' dreamy energy",
-      "Protects against emotional turmoil",
-    ],
-    images: ["/images/products/rashi/12.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/12.png"],
-      previews: ["/images/products/rashi/12.png"],
+    {
+      id: 40,
+      paymentLink: "https://payments.cashfree.com/forms/libra-6-mukhi-rudraksha",
+      title: "6 Mukhi Rudraksha for Tula (Libra) - Best Rudraksha for Balance",
+      slug: "libra-6-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Find harmony with the 6 Mukhi Rudraksha from Best Rudraksha, designed for Tula (Libra). Sourced from Nepal, this certified Rudraksha promotes balance and peace. Buy original Rudraksha online for zodiac harmony.",
+      beejMantra: "Om Hreem Hum Namah",
+      detail:
+        "The 6 Mukhi Rudraksha, linked to Lord Kartikeya, aligns with Libra's quest for balance and fairness. It fosters emotional stability, diplomacy, and harmony in relationships.",
+      keyFeatures: [
+        "Certified original 6 Mukhi Rudraksha from Nepal",
+        "Handcrafted to preserve divine energy",
+        "Pre-energized for immediate benefits",
+        "Ideal for Libra zodiac balance",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes balance and harmony",
+        "Enhances diplomacy and fairness",
+        "Supports emotional stability",
+        "Aligns with Libra's peaceful nature",
+        "Protects against relationship conflicts",
+      ],
+      images: ["/images/products/rashi/7.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/7.png"],
+        previews: ["/images/products/rashi/7.png"],
+      },
+      sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
     },
-    sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
-  },
-  {
-    id: 40,
-    paymentLink: "https://payments.cashfree.com/forms/leo-3-mukhi-rudraksha",
-    title: "3 Mukhi Rudraksha for Singh (Leo) - Best Rudraksha for Leadership",
-    slug: "leo-3-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Unleash your inner strength with the 3 Mukhi Rudraksha from Best Rudraksha, crafted for Singh (Leo). Sourced from Nepal, this certified Rudraksha boosts leadership and confidence. Buy original Rudraksha online for zodiac power.",
-    beejMantra: "Om Kleem Namah",
-    detail:
-      "The 3 Mukhi Rudraksha, associated with Lord Agni, aligns with Leo's fiery nature, enhancing leadership, confidence, and charisma. It empowers Singh natives to shine in all endeavors.",
-    keyFeatures: [
-      "Certified original 3 Mukhi Rudraksha from Nepal",
-      "Handcrafted to retain divine energy",
-      "Pre-energized for immediate benefits",
-      "Ideal for Leo zodiac leadership",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Boosts leadership and charisma",
-      "Enhances confidence and vitality",
-      "Aligns with Leo's fiery energy",
-      "Supports success in endeavors",
-      "Protects against negative forces",
-    ],
-    images: ["/images/products/rashi/5.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/5.png"],
-      previews: ["/images/products/rashi/5.png"],
+    {
+      id: 41,
+      paymentLink: "https://payments.cashfree.com/forms/scorpio-5-mukhi-rudraksha",
+      title: "5 Mukhi Rudraksha for Vrishchik (Scorpio) - Best Rudraksha for Transformation",
+      slug: "scorpio-5-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Embrace transformation with the 5 Mukhi Rudraksha from Best Rudraksha, crafted for Vrishchik (Scorpio). Sourced from Nepal, this certified Rudraksha enhances inner strength and peace. Buy original Rudraksha online for zodiac power.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "The 5 Mukhi Rudraksha, associated with Lord Shiva, is perfect for Scorpio, promoting inner strength, transformation, and emotional resilience. It supports Vrishchik natives in navigating intense energies.",
+      keyFeatures: [
+        "Certified original 5 Mukhi Rudraksha from Nepal",
+        "Handcrafted to retain spiritual essence",
+        "Pre-energized for immediate benefits",
+        "Ideal for Scorpio zodiac transformation",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes inner strength and transformation",
+        "Enhances emotional resilience",
+        "Supports spiritual growth",
+        "Aligns with Scorpio's intense nature",
+        "Protects against negative energies",
+      ],
+      images: ["/images/products/rashi/8.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/8.png"],
+        previews: ["/images/products/rashi/8.png"],
+      },
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
     },
-    sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
-  },
-  {
-    id: 41,
-    paymentLink: "https://payments.cashfree.com/forms/virgo-4-mukhi-rudrak **Design and Build**: The Pixel 9 Pro is praised for its design, with some users finding it more ergonomic than the Pixel 9 Pro XL. However, the glossy glass back of the Pixel 9 has been noted as a fingerprint magnet, which might be less of an issue with the matte finish on the Pixel 8 Pro.",
-    title: "4 Mukhi Rudraksha for Kanya (Virgo) - Best Rudraksha for Intellect",
-    slug: "virgo-4-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Sharpen your mind with the 4 Mukhi Rudraksha from Best Rudraksha, perfect for Kanya (Virgo). Sourced from Nepal, this certified Rudraksha enhances intellect and focus. Buy original Rudraksha online for zodiac clarity.",
-    beejMantra: "Om Hreem Namah",
-    detail:
-      "The 4 Mukhi Rudraksha, governed by Lord Brahma, is ideal for Virgo, boosting analytical skills, focus, and intellectual clarity. It supports Kanya natives in achieving precision and success.",
-    keyFeatures: [
-      "Certified original 4 Mukhi Rudraksha from Nepal",
-      "Handcrafted to maintain spiritual potency",
-      "Pre-energized for immediate benefits",
-      "Perfect for Virgo zodiac intellect",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Enhances intellect and focus",
-      "Supports analytical and critical thinking",
-      "Promotes clarity in decision-making",
-      "Aligns with Virgo's meticulous nature",
-      "Protects against mental fatigue",
-    ],
-    images: ["/ ThousandEyes enables organizations to visualize, optimize, and protect their digital experiences with unparalleled insight into the performance of applications and networks that their businesses depend on. ThousandEyes combines active monitoring, real-time network path analytics, and automated session testing to deliver end-to-end visibility across every network with no blind spots. With ThousandEyes, businesses can proactively identify and resolve issues, optimize application performance, and ensure digital experiences exceed customer and employee expectations. Learn more about our solutions for Network Intelligence, Internet Intelligence, Endpoint Experience, and Application Outages. ThousandEyes is part of Cisco. Learn more about Cisco at http://www.cisco.com. ThousandEyes is proud to be an equal opportunity and affirmative action employer, and we are committed to fostering an inclusive environment where everyone feels valued and respected. Learn about our culture, open roles, and more at http://www.thousandeyes.com/careers. /images/products/rashi/6.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/6.png"],
-      previews: ["/images/products/rashi/6.png"],
+    {
+      id: 42,
+      paymentLink: "https://payments.cashfree.com/forms/sagittarius-3-mukhi-rudraksha",
+      title: "3 Mukhi Rudraksha for Dhanu (Sagittarius) - Best Rudraksha for Adventure",
+      slug: "sagittarius-3-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Fuel your wanderlust with the 3 Mukhi Rudraksha from Best Rudraksha, ideal for Dhanu (Sagittarius). Sourced from Nepal, this certified Rudraksha boosts energy and optimism. Buy original Rudraksha online for zodiac vitality.",
+      beejMantra: "Om Kleem Namah",
+      detail:
+        "The 3 Mukhi Rudraksha, linked to Lord Agni, aligns with Sagittarius' adventurous spirit, enhancing energy, optimism, and courage. It supports Dhanu natives in exploring new horizons.",
+      keyFeatures: [
+        "Certified original 3 Mukhi Rudraksha from Nepal",
+        "Handcrafted to preserve divine energy",
+        "Pre-energized for immediate benefits",
+        "Perfect for Sagittarius zodiac vitality",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Boosts energy and optimism",
+        "Enhances courage for exploration",
+        "Supports adventurous pursuits",
+        "Aligns with Sagittarius' free spirit",
+        "Protects against negative influences",
+      ],
+      images: ["/images/products/rashi/9.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/9.png"],
+        previews: ["/images/products/rashi/9.png"],
+      },
+      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
     },
-    sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
-  },
-  
-  {
-    id: 42,
-    paymentLink: "https://payments.cashfree.com/forms/libra-6-mukhi-rudraksha",
-    title: "6 Mukhi Rudraksha for Tula (Libra) - Best Rudraksha for Balance",
-    slug: "libra-6-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Find harmony with the 6 Mukhi Rudraksha from Best Rudraksha, designed for Tula (Libra). Sourced from Nepal, this certified Rudraksha promotes balance and peace. Buy original Rudraksha online for zodiac harmony.",
-    beejMantra: "Om Hreem Hum Namah",
-    detail:
-      "The 6 Mukhi Rudraksha, linked to Lord Kartikeya, aligns with Libra's quest for balance and fairness. It fosters emotional stability, diplomacy, and harmony in relationships.",
-    keyFeatures: [
-      "Certified original 6 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve divine energy",
-      "Pre-energized for immediate benefits",
-      "Ideal for Libra zodiac balance",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Promotes balance and harmony",
-      "Enhances diplomacy and fairness",
-      "Supports emotional stability",
-      "Aligns with Libra's peaceful nature",
-      "Protects against relationship conflicts",
-    ],
-    images: ["/images/products/rashi/7.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/7.png"],
-      previews: ["/images/products/rashi/7.png"],
+    {
+      id: 43,
+      paymentLink: "https://payments.cashfree.com/forms/capricorn-7-mukhi-rudraksha",
+      title: "7 Mukhi Rudraksha for Makar (Capricorn) - Best Rudraksha for Success",
+      slug: "capricorn-7-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Achieve your ambitions with the 7 Mukhi Rudraksha from Best Rudraksha, crafted for Makar (Capricorn). Sourced from Nepal, this certified Rudraksha promotes success and discipline. Buy original Rudraksha online for zodiac achievement.",
+      beejMantra: "Om Hum Namah",
+      detail:
+        "The 7 Mukhi Rudraksha, associated with Goddess Lakshmi, is ideal for Capricorn, fostering discipline, prosperity, and career success. It supports Makar natives in achieving their goals.",
+      keyFeatures: [
+        "Certified original 7 Mukhi Rudraksha from Nepal",
+        "Handcrafted to retain spiritual potency",
+        "Pre-energized for immediate benefits",
+        "Ideal for Capricorn zodiac success",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Promotes career success and prosperity",
+        "Enhances discipline and focus",
+        "Supports goal achievement",
+        "Aligns with Capricorn's ambitious nature",
+        "Protects against financial obstacles",
+      ],
+      images: ["/images/products/rashi/10.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/10.png"],
+        previews: ["/images/products/rashi/10.png"],
+      },
+      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
     },
-    sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
-  },
-  {
-    id: 43,
-    paymentLink: "https://payments.cashfree.com/forms/scorpio-5-mukhi-rudraksha",
-    title: "5 Mukhi Rudraksha for Vrishchik (Scorpio) - Best Rudraksha for Transformation",
-    slug: "scorpio-5-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Embrace transformation with the 5 Mukhi Rudraksha from Best Rudraksha, crafted for Vrishchik (Scorpio). Sourced from Nepal, this certified Rudraksha enhances inner strength and peace. Buy original Rudraksha online for zodiac power.",
-    beejMantra: "Om Hreem Namah",
-    detail:
-      "The 5 Mukhi Rudraksha, associated with Lord Shiva, is perfect for Scorpio, promoting inner strength, transformation, and emotional resilience. It supports Vrishchik natives in navigating intense energies.",
-    keyFeatures: [
-      "Certified original 5 Mukhi Rudraksha from Nepal",
-      "Handcrafted to retain spiritual essence",
-      "Pre-energized for immediate benefits",
-      "Ideal for Scorpio zodiac transformation",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Promotes inner strength and transformation",
-      "Enhances emotional resilience",
-      "Supports spiritual growth",
-      "Aligns with Scorpio's intense nature",
-      "Protects against negative energies",
-    ],
-    images: ["/images/products/rashi/8.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/8.png"],
-      previews: ["/images/products/rashi/8.png"],
+    {
+      id: 44,
+      paymentLink: "https://payments.cashfree.com/forms/aquarius-7-mukhi-rudraksha",
+      title: "7 Mukhi Rudraksha for Kumbh (Aquarius) - Best Rudraksha for Innovation",
+      slug: "aquarius-7-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Spark your creativity with the 7 Mukhi Rudraksha from Best Rudraksha, designed for Kumbh (Aquarius). Sourced from Nepal, this certified Rudraksha fosters innovation and wisdom. Buy original Rudraksha online for zodiac brilliance.",
+      beejMantra: "Om Hum Namah",
+      detail:
+        "The 7 Mukhi Rudraksha, linked to Goddess Lakshmi, aligns with Aquarius' innovative and humanitarian nature, promoting wisdom, creativity, and prosperity. It supports Kumbh natives in visionary pursuits.",
+      keyFeatures: [
+        "Certified original 7 Mukhi Rudraksha from Nepal",
+        "Handcrafted to preserve divine energy",
+        "Pre-energized for immediate benefits",
+        "Perfect for Aquarius zodiac innovation",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Fosters creativity and innovation",
+        "Enhances wisdom and intuition",
+        "Supports humanitarian goals",
+        "Aligns with Aquarius' visionary nature",
+        "Protects against mental blocks",
+      ],
+      images: ["/images/products/rashi/11.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/11.png"],
+        previews: ["/images/products/rashi/11.png"],
+      },
+      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
     },
-    sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
-  },
-  {
-    id: 44,
-    paymentLink: "https://payments.cashfree.com/forms/sagittarius-3-mukhi-rudraksha",
-    title: "3 Mukhi Rudraksha for Dhanu (Sagittarius) - Best Rudraksha for Adventure",
-    slug: "sagittarius-3-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Fuel your wanderlust with the 3 Mukhi Rudraksha from Best Rudraksha, ideal for Dhanu (Sagittarius). Sourced from Nepal, this certified Rudraksha boosts energy and optimism. Buy original Rudraksha online for zodiac vitality.",
-    beejMantra: "Om Kleem Namah",
-    detail:
-      "The 3 Mukhi Rudraksha, linked to Lord Agni, aligns with Sagittarius' adventurous spirit, enhancing energy, optimism, and courage. It supports Dhanu natives in exploring new horizons.",
-    keyFeatures: [
-      "Certified original 3 Mukhi Rudraksha from Nepal",
-      "Handcrafted to preserve divine energy",
-      "Pre-energized for immediate benefits",
-      "Perfect for Sagittarius zodiac vitality",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Boosts energy and optimism",
-      "Enhances courage for exploration",
-      "Supports adventurous pursuits",
-      "Aligns with Sagittarius' free spirit",
-      "Protects against negative influences",
-    ],
-    images: ["/images/products/rashi/9.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/9.png"],
-      previews: ["/images/products/rashi/9.png"],
+    {
+      id: 45,
+      paymentLink: "https://payments.cashfree.com/forms/pisces-5-mukhi-rudraksha",
+      title: "5 Mukhi Rudraksha for Meen (Pisces) - Best Rudraksha for Intuition",
+      slug: "pisces-5-mukhi-rudraksha",
+      reviews: 0,
+      description:
+        "Deepen your intuition with the 5 Mukhi Rudraksha from Best Rudraksha, crafted for Meen (Pisces). Sourced from Nepal, this certified Rudraksha enhances spiritual peace. Buy original Rudraksha online for zodiac serenity.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "The 5 Mukhi Rudraksha, associated with Lord Shiva, is perfect for Pisces, fostering intuition, spiritual growth, and emotional peace. It supports Meen natives in connecting with their inner self.",
+      keyFeatures: [
+        "Certified original 5 Mukhi Rudraksha from Nepal",
+        "Handcrafted to retain spiritual essence",
+        "Pre-energized for immediate benefits",
+        "Ideal for Pisces zodiac intuition",
+        "Includes a certificate of authenticity from Best Rudraksha",
+      ],
+      benefits: [
+        "Enhances intuition and spiritual growth",
+        "Promotes emotional peace and serenity",
+        "Supports compassionate nature",
+        "Aligns with Pisces' dreamy energy",
+        "Protects against emotional turmoil",
+      ],
+      images: ["/images/products/rashi/12.png"],
+      imgs: {
+        thumbnails: ["/images/products/rashi/12.png"],
+        previews: ["/images/products/rashi/12.png"],
+      },
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
     },
-    sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
-  },
-  {
-    id: 45,
-    paymentLink: "https://payments.cashfree.com/forms/capricorn-7-mukhi-rudraksha",
-    title: "7 Mukhi Rudraksha for Makar (Capricorn) - Best Rudraksha for Success",
-    slug: "capricorn-7-mukhi-rudraksha",
-    reviews: 0,
-    description:
-      "Achieve your ambitions with the 7 Mukhi Rudraksha from Best Rudraksha, crafted for Makar (Capricorn). Sourced from Nepal, this certified Rudraksha promotes success and discipline. Buy original Rudraksha online for zodiac achievement.",
-    beejMantra: "Om Hum Namah",
-    detail:
-      "The 7 Mukhi Rudraksha, associated with Goddess Lakshmi, is ideal for Capricorn, fostering discipline, prosperity, and career success. It supports Makar natives in achieving their goals.",
-    keyFeatures: [
-      "Certified original 7 Mukhi Rudraksha from Nepal",
-      "Handcrafted to retain spiritual potency",
-      "Pre-energized for immediate benefits",
-      "Ideal for Capricorn zodiac success",
-      "Includes a certificate of authenticity from Best Rudraksha",
-    ],
-    benefits: [
-      "Promotes career success and prosperity",
-      "Enhances discipline and focus",
-      "Supports goal achievement",
-      "Aligns with Capricorn's ambitious nature",
-      "Protects against financial obstacles",
-    ],
-    images: ["/images/products/rashi/10.png"],
-    imgs: {
-      thumbnails: ["/images/products/rashi/10.png"],
-      previews: ["/images/products/rashi/10.png"],
-    },
-    sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
-  },
   
     {
       id: 46,
@@ -1561,7 +1528,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/2.png"],
         previews: ["/images/products/mala/2.png"],
       },
-      sizes: [{ name: "Standard", price: 350, discountedPrice: 250 }],
+      sizes: [{ name: "Standard", price: 700, discountedPrice: 550 }],
     },
     {
       id: 48,
@@ -1593,7 +1560,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/3.png"],
         previews: ["/images/products/mala/3.png"],
       },
-      sizes: [{ name: "Standard", price: 720, discountedPrice: 260 }],
+      sizes: [{ name: "Standard", price: 4200, discountedPrice: 3500 }],
     },
     {
       id: 49,
@@ -1625,7 +1592,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/4.png"],
         previews: ["/images/products/mala/4.png"],
       },
-      sizes: [{ name: "Standard", price: 800, discountedPrice: 500 }],
+      sizes: [{ name: "Standard", price: 3000, discountedPrice: 2500 }],
     },
   
 ];
