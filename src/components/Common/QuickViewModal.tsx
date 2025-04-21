@@ -235,15 +235,16 @@ const QuickViewModal = () => {
                 <div>
                   <h4 className="font-semibold text-lg text-dark mb-3.5">Price</h4>
                   <span className="flex items-center gap-2">
-                    <span className="font-semibold text-dark text-xl xl:text-heading-4">
-                      ₹{regularSize.price.toLocaleString("en-IN")}
-                    </span>
+                    
                     {regularSize.discountedPrice &&
                       regularSize.discountedPrice !== regularSize.price && (
-                        <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">
+                        <span className="font-semibold text-dark text-xl xl:text-heading-4">
                           ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
                         </span>
                       )}
+                    <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through  ">
+                      ₹{regularSize.price.toLocaleString("en-IN")}
+                    </span>
                   </span>
                 </div>
 
