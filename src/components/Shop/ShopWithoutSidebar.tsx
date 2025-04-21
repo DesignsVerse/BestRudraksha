@@ -3,62 +3,77 @@ import React, { useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
-import FilterSortSelects from "./CustomSelect";
+import FilterSortSelects from "../Shop/FilterSortSelects"; // Your FilterSortSelects
 import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
 
-const ShopWithoutSidebar: React.FC = () => {
+const Gemstones: React.FC = () => {
   const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
   const itemsPerPage = 12;
-  const totalItems = shopData.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  // Sorting logic
-  const sortedData = [...shopData].sort((a: Product, b: Product) => {
-    if (sortOption === "normal") {
-      return 0; // Maintain original order
-    }
+  // Filter shopData to show only products with IDs 15 to 23
+  const gemstoneProductsBase = shopData.filter((item) => item.id >= 15 && item.id <= 23);
+
+  // Sort data based on sizes[0]?.price
+  const sortedGemstoneProducts = [...gemstoneProductsBase].sort((a: Product, b: Product) => {
+    if (sortOption === "normal") return 0;
     const priceA = a.sizes[0]?.price || 0;
     const priceB = b.sizes[0]?.price || 0;
     return sortOption === "low-to-high" ? priceA - priceB : priceB - priceA;
   });
 
+  // Pagination logic
+  const totalItems = sortedGemstoneProducts.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedProducts = sortedGemstoneProducts.slice(startIndex, startIndex + itemsPerPage);
+
   // Handle sort change
   const handleSortChange = (value: "normal" | "low-to-high" | "high-to-low") => {
     setSortOption(value);
-    setCurrentPage(1); // Reset to first page when sorting changes
+    setCurrentPage(1); // Reset to first page on sort change
+  };
+
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   return (
     <>
-      <Breadcrumb
-        title={"Explore All Products"}
-        pages={["shop", "/", "shop without sidebar"]}
-      />
-      <section className="overflow-hidden relative pb-20 bg-[#FFF7F0]">
-        <div className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-6">
+      <Breadcrumb title={"Explore All Gemstones"} pages={["Gemstones"]} />
+      <section className="overflow-hidden relative pb-20 bg-[#FFFAF5]">
+        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="flex gap-7.5">
             <div className="w-full">
               <div className="rounded-lg bg-white shadow-md px-4 py-3 mb-6 border border-gray-100">
                 <div className="flex items-center justify-between">
-                  {/* Left side - Sort */}
                   <div className="flex items-center space-x-4">
-                    <FilterSortSelects />
+                    <div className="relative">
+                      <FilterSortSelects onSortChange={handleSortChange} />
+                    </div>
                     <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
                       <span>{totalItems} Products</span>
+                      <span className="mx-1">•</span>
+                      <span>
+                        Sorted by:{" "}
+                        {sortOption === "normal"
+                          ? "Default"
+                          : sortOption === "low-to-high"
+                          ? "Price: Low to High"
+                          : "Price: High to Low"}
+                      </span>
                     </div>
                   </div>
-
-                  {/* Right side - View Toggles */}
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => setProductStyle("grid")}
                       aria-label="Grid view"
                       className={`p-2 rounded-md transition-colors duration-200 ${
                         productStyle === "grid"
-                          ? "bg-[#800000] text-white"
+                          ? "bg-blue-100 text-blue-600"
                           : "text-gray-500 hover:bg-gray-100"
                       }`}
                     >
@@ -68,26 +83,10 @@ const ShopWithoutSidebar: React.FC = () => {
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.836 1.3125C4.16215 1.31248 3.60022 1.31246 3.15414 1.37244C2.6833 1.43574 2.2582 1.57499 1.91659 1.91659C1.57499 2.2582 1.43574 2.6833 1.37244 3.15414C1.31246 3.60022 1.31248 4.16213 1.3125 4.83598V4.914C1.31248 5.58785 1.31246 6.14978 1.37244 6.59586C1.43574 7.06671 1.57499 7.49181 1.91659 7.83341C2.2582 8.17501 2.6833 8.31427 3.15414 8.37757C3.60022 8.43754 4.16213 8.43752 4.83598 8.4375H4.914C5.58785 8.43752 6.14978 8.43754 6.59586 8.37757C7.06671 8.31427 7.49181 8.17501 7.83341 7.83341C8.17501 7.49181 8.31427 7.06671 8.37757 6.59586C8.43754 6.14978 8.43752 5.58787 8.4375 4.91402V4.83601C8.43752 4.16216 8.43754 3.60022 8.37757 3.15414C8.31427 2.6833 8.17501 2.2582 7.83341 1.91659C7.49181 1.57499 7.06671 1.43574 6.59586 1.37244C6.14978 1.31246 5.58787 1.31248 4.91402 1.3125H4.836ZM2.71209 2.71209C2.80983 2.61435 2.95795 2.53394 3.30405 2.4874C3.66632 2.4387 4.15199 2.4375 4.875 2.4375C5.59801 2.4375 6.08368 2.4387 6.44596 2.4874C6.79205 2.53394 6.94018 2.61435 7.03791 2.71209C7.13565 2.80983 7.21607 2.95795 7.2626 3.30405C7.31131 3.66632 7.3125 4.15199 7.3125 4.875C7.3125 5.59801 7.31131 6.08368 7.2626 6.44596C7.21607 6.79205 7.13565 6.94018 7.03791 7.03791C6.94018 7.13565 6.79205 7.21607 6.44596 7.2626C6.08368 7.31131 5.59801 7.3125 4.875 7.3125C4.15199 7.3125 3.66632 7.31131 3.30405 7.2626C2.95795 7.21607 2.80983 7.13565 2.71209 7.03791C2.61435 6.94018 2.53394 6.79205 2.4874 6.44596C2.4387 6.08368 2.4375 5.59801 2.4375 4.875C2.4375 4.15199 2.4387 3.66632 2.4874 3.30405C2.53394 2.95795 2.61435 2.80983 2.71209 2.71209Z"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.836 9.5625C4.16215 9.56248 3.60022 9.56246 3.15414 9.62244C2.6833 9.68574 2.2582 9.82499 1.91659 10.1666C1.57499 10.5082 1.43574 10.9333 1.37244 11.4041C1.31246 11.8502 1.31248 12.4121 1.3125 13.086V13.164C1.31248 13.8378 1.31246 14.3998 1.37244 14.8459C1.43574 15.3167 1.57499 15.7418 1.91659 16.0834C2.2582 16.425 2.6833 16.5643 3.15414 16.6276C3.60022 16.6875 4.16213 16.6875 4.83598 16.6875H4.914C5.58785 16.6875 6.14978 16.6875 6.59586 16.6276C7.06671 16.5643 7.49181 16.425 7.83341 16.0834C8.17501 15.7418 8.31427 15.3167 8.37757 14.8459C8.43754 14.3998 8.43752 13.8379 8.4375 13.164V13.086C8.43752 12.4122 8.43754 11.8502 8.37757 11.4041C8.31427 10.9333 8.17501 10.5082 7.83341 10.1666C7.49181 9.82499 7.06671 9.68574 6.59586 9.62244C6.14978 9.56246 5.58787 9.56248 4.91402 9.5625H4.836ZM2.71209 10.9621C2.80983 10.8643 2.95795 10.7839 3.30405 10.7374C3.66632 10.6887 4.15199 10.6875 4.875 10.6875C5.59801 10.6875 6.08368 10.6887 6.44596 10.7374C6.79205 10.7839 6.94018 10.8643 7.03791 10.9621C7.13565 11.0598 7.21607 11.208 7.2626 11.5541C7.31131 11.9163 7.3125 12.402 7.3125 13.125C7.3125 13.848 7.31131 14.3337 7.2626 14.696C7.21607 15.0421 7.13565 15.1902 7.03791 15.2879C6.94018 15.3857 6.79205 15.4661 6.44596 15.5126C6.08368 15.5613 5.59801 15.5625 4.875 15.5625C4.15199 15.5625 3.66632 15.5613 3.30405 15.5126C2.95795 15.4661 2.80983 15.3857 2.71209 15.2879C2.61435 15.1902 2.53394 15.0421 2.4874 14.696C2.4387 14.3337 2.4375 13.848 2.4375 13.125C2.4375 12.402 2.4387 11.9163 2.4874 11.5541C2.53394 11.208 2.61435 11.0598 2.71209 10.9621Z"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13.086 1.3125C12.4122 1.31248 11.8502 1.31246 11.4041 1.37244C10.9333 1.43574 10.5082 1.57499 10.1666 1.91659C9.82499 2.2582 9.68574 2.6833 9.62244 3.15414C9.56246 3.60022 9.56248 4.16213 9.5625 4.83598V4.914C9.56248 5.58785 9.56246 6.14978 9.62244 6.59586C9.68574 7.06671 9.82499 7.49181 10.1666 7.83341C10.5082 8.17501 10.9333 8.31427 11.4041 8.37757C11.8502 8.43754 12.4121 8.43752 13.086 8.4375H13.164C13.8379 8.43752 14.3998 8.43754 14.8459 8.37757C15.3167 8.31427 15.7418 8.17501 16.0834 7.83341C16.425 7.49181 16.5643 7.06671 16.6276 6.59586C16.6875 6.14978 16.6875 5.58787 16.6875 4.91402V4.83601C16.6875 4.16216 16.6875 3.60022 16.6276 3.15414C16.5643 2.6833 16.425 2.2582 16.0834 1.91659C15.7418 1.57499 15.3167 1.43574 14.8459 1.37244C14.3998 1.31246 13.8379 1.31248 13.164 1.3125H13.086ZM10.9621 2.71209C11.0598 2.61435 11.208 2.53394 11.5541 2.4874C11.9163 2.4387 12.402 2.4375 13.125 2.4375C13.848 2.4375 14.3337 2.4387 14.696 2.4874C15.0421 2.53394 15.1902 2.61435 15.2879 2.71209C15.3857 2.80983 15.4661 2.95795 15.5126 3.30405C15.5613 3.66632 15.5625 4.15199 15.5625 4.875C15.5625 5.59801 15.5613 6.08368 15.5126 6.44596C15.4661 6.79205 15.3857 6.94018 15.2879 7.03791C15.1902 7.13565 15.0421 7.21607 14.696 7.2626C14.3337 7.31131 13.848 7.3125 13.125 7.3125C12.402 7.3125 11.9163 7.31131 11.5541 7.2626C11.208 7.21607 11.0598 7.13565 10.9621 7.03791C10.8643 6.94018 10.7839 6.79205 10.7374 6.44596C10.6887 6.08368 10.6875 5.59801 10.6875 4.875C10.6875 4.15199 10.6887 3.66632 10.7374 3.30405C10.7839 2.95795 10.8643 2.80983 10.9621 2.71209Z"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13.086 9.5625C12.4122 9.56248 11.8502 9.56246 11.4041 9.62244C10.9333 9.68574 10.5082 9.82499 10.1666 10.1666C9.82499 10.5082 9.68574 10.9333 9.62244 11.4041C9.56246 11.8502 9.56248 12.4121 9.5625 13.086V13.164C9.56248 13.8378 9.56246 14.3998 9.62244 14.8459C9.68574 15.3167 9.82499 15.7418 10.1666 16.0834C10.5082 16.425 10.9333 16.5643 11.4041 16.6276C11.8502 16.6875 12.4121 16.6875 13.086 16.6875H13.164C13.8379 16.6875 14.3998 16.6875 14.8459 16.6276C15.3167 16.5643 15.7418 16.425 16.0834 16.0834C16.425 15.7418 16.5643 15.3167 16.6276 14.8459C16.6875 14.3998 16.6875 13.8379 16.6875 13.164V13.086C16.6875 12.4122 16.6875 11.8502 16.6276 11.4041C16.5643 10.9333 16.425 10.5082 16.0834 10.1666C15.7418 9.82499 15.3167 9.68574 14.8459 9.62244C14.3998 9.56246 13.8379 9.56248 13.164 9.5625H13.086ZM10.9621 10.9621C11.0598 10.8643 11.208 10.7839 11.5541 10.7374C11.9163 10.6887 12.402 10.6875 13.125 10.6875C13.848 10.6875 14.3337 10.6887 14.696 10.7374C15.0421 10.7839 15.1902 10.8643 15.2879 10.9621C15.3857 11.0598 15.4661 11.208 15.5126 11.5541C15.5613 11.9163 15.5625 12.402 15.5625 13.125C15.5625 13.848 15.5613 14.3337 15.5126 14.696C15.4661 15.0421 15.3857 15.1902 15.2879 15.2879C15.1902 15.3857 15.0421 15.4661 14.696 15.5126C14.3337 15.5613 13.848 15.5625 13.125 15.5625C12.402 15.5625 11.9163 15.5613 11.5541 15.5126C11.208 15.4661 11.0598 15.3857 10.9621 15.2879C10.8643 15.1902 10.7839 15.0421 10.7374 14.696C10.6887 14.3337 10.6875 13.848 10.6875 13.125C10.6875 12.402 10.6887 11.9163 10.7374 11.5541C10.7839 11.208 10.8643 11.0598 10.9621 10.9621Z"
-                        />
+                        <path d="M2.25 6.75C2.25 5.09315 3.59315 3.75 5.25 3.75H6.75C8.40685 3.75 9.75 5.09315 9.75 6.75V9.75C9.75 11.4069 8.40685 12.75 6.75 12.75H5.25C3.59315 12.75 2.25 11.4069 2.25 9.75V6.75Z" />
+                        <path d="M2.25 6.75C2.25 5.09315 3.59315 3.75 5.25 3.75H6.75C8.40685 3.75 9.75 5.09315 9.75 6.75V9.75C9.75 11.4069 8.40685 12.75 6.75 12.75H5.25C3.59315 12.75 2.25 11.4069 2.25 9.75V6.75Z" />
+                        <path d="M11.25 6.75C11.25 5.09315 12.5931 3.75 14.25 3.75H15.75C17.4069 3.75 18.75 5.09315 18.75 6.75V9.75C18.75 11.4069 17.4069 12.75 15.75 12.75H14.25C12.5931 12.75 11.25 11.4069 11.25 9.75V6.75Z" />
+                        <path d="M11.25 6.75C11.25 5.09315 12.5931 3.75 14.25 3.75H15.75C17.4069 3.75 18.75 5.09315 18.75 6.75V9.75C18.75 11.4069 17.4069 12.75 15.75 12.75H14.25C12.5931 12.75 11.25 11.4069 11.25 9.75V6.75Z" />
                       </svg>
                     </button>
                     <button
@@ -95,7 +94,7 @@ const ShopWithoutSidebar: React.FC = () => {
                       aria-label="List view"
                       className={`p-2 rounded-md transition-colors duration-200 ${
                         productStyle === "list"
-                          ? "bg-[#800000] text-white"
+                          ? "bg-blue-100 text-blue-600"
                           : "text-gray-500 hover:bg-gray-100"
                       }`}
                     >
@@ -105,89 +104,74 @@ const ShopWithoutSidebar: React.FC = () => {
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.4234 0.899903C3.74955 0.899882 3.18763 0.899864 2.74155 0.959838C2.2707 1.02314 1.8456 1.16239 1.504 1.504C1.16239 1.8456 1.02314 2.2707 0.959838 2.74155C0.899864 3.18763 0.899882 3.74953 0.899903 4.42338V4.5014C0.899882 5.17525 0.899864 5.73718 0.959838 6.18326C1.02314 6.65411 1.16239 7.07921 1.504 7.42081C1.8456 7.76241 2.2707 7.90167 2.74155 7.96497C3.18763 8.02495 3.74953 8.02493 4.42339 8.02491H13.5014C14.1753 8.02493 14.7372 8.02495 15.1833 7.96497C15.6541 7.90167 16.0792 7.76241 16.4208 7.42081C16.7624 7.07921 16.9017 6.65411 16.965 6.18326C17.0249 5.73718 17.0249 5.17527 17.0249 4.50142V4.42341C17.0249 3.74956 17.0249 3.18763 16.965 2.74155C16.9017 2.2707 16.7624 1.8456 16.4208 1.504C16.0792 1.16239 15.6541 1.02314 15.1833 0.959838C14.7372 0.899864 14.1753 0.899882 13.5014 0.899903H4.4234ZM2.29949 2.29949C2.39723 2.20175 2.54535 2.12134 2.89145 2.07481C3.25373 2.0261 3.7394 2.0249 4.4624 2.0249C5.18541 2.0249 5.67108 2.0261 6.03336 2.07481C6.37946 2.12134 6.52758 2.20175 6.62532 2.29949C6.72305 2.39723 6.80347 2.54535 6.85 2.89145C6.89871 3.25373 6.8999 3.7394 6.8999 4.4624C6.8999 5.18541 6.89871 5.67108 6.85 6.03336C6.80347 6.37946 6.72305 6.52758 6.62532 6.62532C6.52758 6.72305 6.37946 6.80347 6.03336 6.85C5.67108 6.89871 5.18541 6.8999 4.4624 6.8999C3.7394 6.8999 3.25373 6.89871 2.89145 6.85C2.54535 6.80347 2.39723 6.72305 2.29949 6.62532C2.20175 6.52758 2.12134 6.37946 2.07481 6.03336C2.0261 5.67108 2.0249 5.18541 2.0249 4.4624C2.0249 3.7394 2.0261 3.25373 2.07481 2.89145C2.12134 2.54535 2.20175 2.39723 2.29949 2.29949Z"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.4234 9.8999C3.74955 9.89988 3.18763 9.89986 2.74155 9.95984C2.2707 10.0231 1.8456 10.1624 1.504 10.504C1.16239 10.8456 1.02314 11.2707 0.959838 11.7415C0.899864 12.1876 0.899882 12.7495 0.899903 13.4234V13.5014C0.899882 14.1753 0.899864 14.7372 0.959838 15.1833C1.02314 15.6541 1.16239 16.0792 1.504 16.4208C1.8456 16.7624 2.2707 16.9017 2.74155 16.965C3.18763 17.0249 3.74953 17.0249 4.42339 17.0249H13.5014C14.1753 17.0249 14.7372 17.0249 15.1833 16.965C15.6541 16.9017 16.0792 16.7624 16.4208 16.4208C16.7624 16.0792 16.9017 15.6541 16.965 15.1833C17.0249 14.7372 17.0249 14.1753 17.0249 13.5014V13.4234C17.0249 12.7496 17.0249 12.1876 16.965 11.7415C16.9017 11.cho2707 16.7624 10.8456 16.4208 10.504C16.0792 10.1624 15.6541 10.0231 15.1833 9.95984C14.7372 9.89986 14.1753 9.89988 13.5014 9.8999H4.4234ZM2.29949 11.2995C2.39723 11.2018 2.54535 11.1213 2.89145 11.0748C3.25373 11.0261 3.7394 11.0249 4.4624 11.0249C5.18541 11.0249 5.67108 11.0261 6.03336 11.0748C6.37946 11.1213 6.52758 11.2018 6.62532 11.2995C6.72305 11.3972 6.80347 11.5454 6.85 11.8915C6.89871 12.2537 6.8999 12.7394 6.8999 13.4624C6.8999 14.1854 6.89871 14.6711 6.85 15.0334C6.80347 15.3795 6.72305 15.5276 6.62532 15.6253C6.52758 15.7231 6.37946 15.8035 6.03336 15.85C5.67108 15.8987 5.18541 15.8999 4.4624 15.8999C3.7394 15.8999 3.25373 15.8987 2.89145 15.85C2.54535 15.8035 2.39723 15.7231 2.29949 15.6253C2.20175 15.5276 2.12134 15.3795 2.07481 15.0334C2.0261 14.6711 2.0249 14.1854 2.0249 13.4624C2.0249 12.7394 2.0261 12.2537 2.07481 11.8915C2.12134 11.5454 2.20175 11.3972 2.29949 11.2995Z"
-                        />
+                        <path d="M2.25 4.5C2.25 3.25736 3.25736 2.25 4.5 2.25H13.5C14.7426 2.25 15.75 3.25736 15.75 4.5C15.75 5.74264 14.7426 6.75 13.5 6.75H4.5C3.25736 6.75 2.25 5.74264 2.25 4.5Z" />
+                        <path d="M2.25 9C2.25 7.75736 3.25736 6.75 4.5 6.75H13.5C14.7426 6.75 15.75 7.75736 15.75 9C15.75 10.2426 14.7426 11.25 13.5 11.25H4.5C3.25736 11.25 2.25 10.2426 2.25 9Z" />
+                        <path d="M2.25 13.5C2.25 12.2574 3.25736 11.25 4.5 11.25H13.5C14.7426 11.25 15.75 12.2574 15.75 13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5Z" />
                       </svg>
                     </button>
                   </div>
                 </div>
               </div>
-              {/* Products Grid/List Tab Content */}
+
+              {/* Products Display */}
               <div
                 className={`${
                   productStyle === "grid"
-                    ? "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8"
-                    : "flex flex-col gap-6"
+                    ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6 sm:gap-x-7.5 sm:gap-y-9"
+                    : "flex flex-col gap-7.5"
                 }`}
               >
-                {sortedData
-                  .slice(
-                    (currentPage - 1) * itemsPerPage,
-                    currentPage * itemsPerPage
+                {paginatedProducts.map((item, key) =>
+                  productStyle === "grid" ? (
+                    <SingleGridItem item={item} key={key} />
+                  ) : (
+                    <SingleListItem item={item} key={key} />
                   )
-                  .map((item: Product, key: number) =>
-                    productStyle === "grid" ? (
-                      <SingleGridItem item={item} key={key} />
-                    ) : (
-                      <SingleListItem item={item} key={key} />
-                    )
-                  )}
+                )}
               </div>
 
-              {/* Pagination */}
-              <div className="flex justify-center mt-12">
-                <div className="bg-white shadow-md rounded-md p-2">
-                  <div className="flex items-center gap-2">
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-8">
+                  <div className="flex items-center space-x-2">
                     <button
-                      onClick={() =>
-                        setCurrentPage((prev) => Math.max(prev - 1, 1))
-                      }
+                      onClick={() => handlePageChange(currentPage - 1)}
                       disabled={currentPage === 1}
-                      className={`px-3 py-1 rounded-md text-sm font-medium ${
+                      className={`px-3 py-1 rounded-md ${
                         currentPage === 1
                           ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-[#800000] text-white hover:bg-[#600000]"
+                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                       }`}
                     >
                       Previous
                     </button>
-                    {Array.from({ length: totalPages }, (_, index) => (
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                       <button
-                        key={index + 1}
-                        onClick={() => setCurrentPage(index + 1)}
-                        className={`px-3 py-1 rounded-md text-sm font-medium ${
-                          currentPage === index + 1
-                            ? "bg-[#800000] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-[#800000] hover:text-white"
+                        key={page}
+                        onClick={() => handlePageChange(page)}
+                        className={`px-3 py-1 rounded-md ${
+                          currentPage === page
+                            ? "bg-blue-600 text-white"
+                            : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                         }`}
                       >
-                        {index + 1}
+                        {page}
                       </button>
                     ))}
                     <button
-                      onClick={() =>
-                        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                      }
+                      onClick={() => handlePageChange(currentPage + 1)}
                       disabled={currentPage === totalPages}
-                      className={`px-3 py-1 rounded-md text-sm font-medium ${
+                      className={`px-3 py-1 rounded-md ${
                         currentPage === totalPages
                           ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-[#800000] text-white hover:bg-[#600000]"
+                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                       }`}
                     >
                       Next
                     </button>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -196,4 +180,4 @@ const ShopWithoutSidebar: React.FC = () => {
   );
 };
 
-export default ShopWithoutSidebar;
+export default Gemstones;
