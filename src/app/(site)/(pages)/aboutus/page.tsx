@@ -263,7 +263,7 @@ const AboutUs: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-1">Prakhar Sharma</h3>
                   <p className="text-[#800000] font-medium mb-3">Astrologer & Advisor</p>
                   <p className="text-gray-600">
-                    Prakhar's deep knowledge of Vedic astrology ensures personalized recommendations for every customer.
+                    Prakhar&apos;s deep knowledge of Vedic astrology ensures personalized recommendations for every customer.
                   </p>
                 </div>
               </div>
@@ -294,7 +294,7 @@ const AboutUs: React.FC = () => {
               Discover Authentic Spiritual Products
             </h2>
             <p className="text-[#FFFAF5] mb-6 max-w-2xl mx-auto">
-              Explore our curated collection of Rudraksha, gemstones, malas, and yantras, backed by our trusted astrologers' guidance.
+              Explore our curated collection of Rudraksha, gemstones, malas, and yantras, backed by our trusted astrologers guidance.
             </p>
             <Link
               href="/shop"
