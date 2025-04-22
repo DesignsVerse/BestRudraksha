@@ -267,19 +267,19 @@ const Footer = () => {
   </h2>
   <ul className="flex flex-col gap-3 lg:items-">
     <li>
-      <a className="ease-out duration-200 hover:text-[#800000]" href="/blog/rudraksha-kya-hota-hai-usk-asliyat-aur-itihas">
+      <Link className="ease-out duration-200 hover:text-[#800000]" href="/blog/rudraksha-kya-hota-hai-usk-asliyat-aur-itihas">
         About Rudraksha
-      </a>
+      </Link>
     </li>
     <li>
-      <a className="ease-out duration-200 hover:text-[#800000]" href="/blog/1-se-21-mukhi-rudraksha-ke-types-aur-unke-benefits">
+      <Link className="ease-out duration-200 hover:text-[#800000]" href="/blog/1-se-21-mukhi-rudraksha-ke-types-aur-unke-benefits">
         Types of Rudraksha
-      </a>
+      </Link>
     </li>
     <li>
-      <a className="ease-out duration-200 hover:text-[#800000]" href="/blog/original-aur-nakli-rudraksha-kaise-pehchaanein">
+      <Link className="ease-out duration-200 hover:text-[#800000]" href="/blog/original-aur-nakli-rudraksha-kaise-pehchaanein">
         Purity & Identification
-      </a>
+      </Link>
     </li>
     {/* <li>
       <a className="ease-out duration-200 hover:text-[#800000]" href="/planetary-powers">
