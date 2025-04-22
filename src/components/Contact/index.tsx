@@ -48,7 +48,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gray-800">Email</h4>
                       <a href="mailto:harshmalviya343@gmail.com" className="text-gray-600 hover:text-orange-600 transition-colors">
-                        harshmalviya343@gmail.com
+                      astrodeepakgoutam@gmail.com
                       </a>
                     </div>
                   </div>
@@ -60,8 +60,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gray-800">Phone</h4>
                       <a href="tel:+919876543210" className="text-gray-600 hover:text-orange-600 transition-colors">
-                        +91 98765 43210
-                      </a>
+                      +91-9153164444                      </a>
                     </div>
                   </div>
 
@@ -72,9 +71,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gray-800">Address</h4>
                       <p className="text-gray-600">
-                        Rudrak Temple Complex,<br />
-                        123 Spiritual Lane,<br />
-                        Varanasi, UP 221001, India
+                      69/1, Near Harsiddhi Mandir, Yogipura, Jaisinghpura, Ujjain, Madhya Pradesh 456006
                       </p>
                     </div>
                   </div>
@@ -193,7 +190,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#420505] text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <IoIosSend className="text-xl" />
                   Send Message to Rudrak
@@ -209,14 +206,14 @@ const Contact = () => {
             <div className="p-6">
               <h3 className="text-2xl font-bold text-orange-800 mb-4">Our Location</h3>
               <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115376.5840898302!2d82.92109395!3d25.3207623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db76febcf4d%3A0x68131710853ff0b5!2sVaranasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  title="Rudrak Temple Location"
-                ></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.503012763121!2d75.77824477534298!3d23.449516900155464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39637453a64ff1a3%3A0x9710639f179cfa30!2s69%2F1%2C%20Near%20Harsiddhi%20Mandir%2C%20Yogipura%2C%20Jaisinghpura%2C%20Ujjain%2C%20Madhya%20Pradesh%20456006!5e0!3m2!1sen!2sin!4v1713781530000!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                loading="lazy"
+                title="Rudrak Temple Location"
+              ></iframe>
               </div>
             </div>
           </div>

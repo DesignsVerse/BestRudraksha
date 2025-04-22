@@ -40,4 +40,3 @@ export default function CashfreePopup({ orderId, amount, customer }) {
     </button>
   );
 }
- 

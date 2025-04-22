@@ -21,28 +21,30 @@ const HeroCarousel = () => {
       className="hero-carousel w-full h-full " // Added h-full for full height
     >
       <SwiperSlide>
-        <div className="relative w-full h-full min-h-[450px]"> {/* Adjust min-height as needed */}
+  <div className="relative w-full h-[500px] min-h-[500px]">
+    <Image
+      src="/images/hero/new.png"
+      alt="headphone"
+      fill
+      className="object-cover"
+      priority
+      sizes="100vw" // Helps with responsive image loading
+      onError={() => console.error("Failed to load image")} // Debug image loading issues
+    />
+  </div>
+</SwiperSlide>
+      {/* <SwiperSlide>
+        <div className="relative w-full h-full min-h-[450px]"> 
           <Image
             src="/images/hero/new.png"
             alt="headphone"
             fill
             className="object-cover"
-            priority
           />
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="relative w-full h-full min-h-[450px]"> {/* Adjust min-height as needed */}
-          <Image
-            src="/images/hero/new.png"
-            alt="headphone"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="relative w-full h-full min-h-[450px]"> {/* Adjust min-height as needed */}
+        <div className="relative w-full h-full min-h-[450px]"> 
           <Image
             src="/images/hero/hero-2.webp"
             alt="headphone"
@@ -50,7 +52,7 @@ const HeroCarousel = () => {
             className="object-cover"
           />
         </div>
-      </SwiperSlide>
+      </SwiperSlide> */}
     </Swiper>
   );
 };
