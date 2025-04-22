@@ -1,7 +1,6 @@
-"use client";
-import { useEffect } from "react";
 import "../css/euclid-circular-a-font.css";
 import "../css/style.css";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { ModalProvider } from "../context/QuickViewModalContext";
@@ -13,45 +12,38 @@ import { PreviewSliderProvider } from "../context/PreviewSliderContext";
 import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 import NavigationBar from "@/components/Common/NavigationBar";
-// import NavigationBar from "@/components/Common/Mobileviewcategory";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Demo E-Commerce",
+  description: "Buy your favorite products online",
+};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    setTimeout(() => {
-      document.body.classList.add("loaded");
-    }, 1000);
-  }, []);
-
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" suppressHydrationWarning>
       <body>
-        {/* <PreLoader /> */}
-        <div >
-          <ReduxProvider>
-            <CartModalProvider>
-              <ModalProvider>
-                <PreviewSliderProvider>
-                  <Header />
-                  {children}
-                  <NavigationBar/>
+        <ReduxProvider>
+          <CartModalProvider>
+            <ModalProvider>
+              <PreviewSliderProvider>
+                <Header />
+                {children}
+                <NavigationBar />
+                <QuickViewModal />
+                <CartSidebarModal />
+                <PreviewSliderModal />
+              </PreviewSliderProvider>
+            </ModalProvider>
+          </CartModalProvider>
+        </ReduxProvider>
 
-                  <QuickViewModal />
-                  <CartSidebarModal />
-                  <PreviewSliderModal />
-                  
-                </PreviewSliderProvider>
-              </ModalProvider>
-            </CartModalProvider>
-          </ReduxProvider>
-          <ScrollToTop />
-
-          <Footer />
-        </div>
+        <ScrollToTop />
+        <Footer />
       </body>
     </html>
   );
