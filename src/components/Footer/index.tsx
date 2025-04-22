@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -200,29 +200,29 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3.5">
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="/cart">
+                <Link className="ease-out duration-200 hover:text-[#800000]" href="/cart">
                   Cart
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="/wishlist">
+                <Link className="ease-out duration-200 hover:text-[#800000]" href="/wishlist">
                   Wishlist
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/1-14-mukhi-rudraksha">
+                <Link className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/1-14-mukhi-rudraksha">
                   Rudraksha
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/gemstones">
+                <Link className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/gemstones">
                   Gemstone
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/mala-and-yantra">
+                <Link className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/mala-and-yantra">
                   Mala and Yantra
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
