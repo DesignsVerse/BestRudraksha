@@ -24,57 +24,57 @@ export default function Rudraksha() {
       </Head>
 
       <main className="pt-20 pb-20">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-black">
+        <h1 className="text-3xl md:text-4xl  mb-8 text-[#000000]">
           Every bead, an ancient blessing
         </h1>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {/* First small box - visible in both mobile and desktop */}
-            <div className="bg-white shadow-lg col-span-1">
+            <div className="bg-[#fdf2f2] shadow-lg col-span-1">
               <Image
-                src="/images/products/a.png"
+                src="/images/home/1.png"
                 alt="1-14 Mukhi Rudraksha Mala"
                 width={400}
                 height={300}
                 className="w-full"
               />
               <div className="p-4">
-                <h2 className="text-lg font-semibold">1-14 MUKHI RUDRAKSHA MALA</h2>
-                <a href="/shop-filter/1-14-mukhi-rudraksha" className="text-red-600">
+                <h2 className="text-lg text-[#000000]">1-14 MUKHI RUDRAKSHA</h2>
+                <a href="/shop-filter/1-14-mukhi-rudraksha" className="text-[#800000]">
                   Explore More 
                 </a>
               </div>
             </div>
 
             {/* Second small box - visible in both mobile and desktop */}
-            <div className="bg-white shadow-lg col-span-1">
+            <div className="bg-[#fdf2f2] shadow-lg col-span-1">
               <Image
-                src="/images/home/ruby.png"
+                src="/images/home/3.png"
                 alt="Special Rudraksha"
                 width={400}
                 height={300}
                 className="w-full"
               />
               <div className="p-4">
-                <h2 className="text-lg font-semibold">Gemstone</h2>
-                <a href="/shop-filter/gemstones" className="text-red-600">
+                <h2 className="text-lg text-[#000000]">Gemstone</h2>
+                <a href="/shop-filter/gemstones" className="text-[#800000]">
                   Explore More 
                 </a>
               </div>
             </div>
 
             {/* Larger box - takes full width in mobile, third column in desktop */}
-            <div className="bg-white shadow-lg col-span-2 md:col-span-1">
+            <div className="bg-[#fdf2f2] shadow-lg col-span-2 md:col-span-1">
               <Image
-                src="/images/home/mala.png"
+                src="/images/home/2.png"
                 alt="Rudraksha Mala"
                 width={400}
                 height={300}
                 className="w-full"
               />
               <div className="p-4">
-                <h2 className="text-lg font-semibold">RUDRAKSHA MALA</h2>
-                <a href="/shop-filter/mala-and-yantra" className="text-red-600">
+                <h2 className="text-lg text-[#000000] ">RUDRAKSHA MALA</h2>
+                <a href="/shop-filter/mala-and-yantra" className="text-[#800000]">
                   Explore More 
                 </a>
               </div>
