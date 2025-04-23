@@ -19,7 +19,7 @@ const EmptyCart = () => {
       
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs">
         <Link
-          href="/shop-with-sidebar"
+          href="/shop"
           onClick={closeCartModal}
           className="flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#600000] text-white py-3 px-6 rounded-md transition-colors duration-200 font-medium"
         >
@@ -36,7 +36,7 @@ const EmptyCart = () => {
       </div>
       
       <div className="mt-8 pt-6 border-t border-gray-200 w-full max-w-xs">
-        <p className="text-sm text-gray-500 mb-2">Need guidance choosing?</p>
+        <p className="text-sm text-gray-500 mb-2">Need guidance choosing? Call us for free</p>
         <Link 
           href="/contact" 
           onClick={closeCartModal}
