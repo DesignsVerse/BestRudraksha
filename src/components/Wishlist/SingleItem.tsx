@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
@@ -97,15 +96,15 @@ const SingleItem = ({ item }: { item: WishListItem }) => {
 
       <div className="min-w-[205px] hidden md:block">
         <p className="text-dark">
-        {regularSize.discountedPrice &&
+          <span className="font-medium">
+            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
+          </span>
+          {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
-              <span className="">
-                ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
+              <span className="line-through text-dark-4 ml-2">
+                ₹{regularSize.price.toLocaleString("en-IN")}
               </span>
             )}
-            <span className="line-through text-dark-4  ml-2">
-          ₹{regularSize.price.toLocaleString("en-IN")}
-          </span>
         </p>
       </div>
 

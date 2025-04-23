@@ -51,28 +51,28 @@ export const Wishlist = () => {
               <div className="w-full">
                 {/* Desktop Table View */}
                 <div className="hidden md:block overflow-x-auto">
-                  <div className="min-w-[1170px]">
-                    <div className="flex items-center py-5.5 px-6 md:px-10">
-                      <div className="min-w-[83px]"></div>
-                      <div className="min-w-[387px]">
-                        <p className="text-dark">Product</p>
-                      </div>
-                      <div className="min-w-[205px]">
-                        <p className="text-dark">Unit Price</p>
-                      </div>
-                      <div className="min-w-[265px]">
-                        <p className="text-dark">Stock Status</p>
-                      </div>
-                      <div className="min-w-[150px]">
-                        <p className="text-dark text-right">Action</p>
-                      </div>
-                    </div>
+  <div className="min-w-[1170px]">
+    <div className="flex items-center py-5.5 px-6 md:px-10">
+      <div className="min-w-[83px]"></div>
+      <div className="min-w-[440px]">
+        <p className="text-dark">Product</p>
+      </div>
+      <div className="min-w-[205px]">
+        <p className="text-dark">Unit Price</p>
+      </div>
+      <div className="min-w-[265px]">
+        <p className="text-dark">Stock Status</p>
+      </div>
+      <div className="min-w-[90px]">
+        <p className="text-dark text-right">Action</p>
+      </div>
+    </div>
 
-                    {wishlistItems.map((item) => (
-                      <SingleItem item={item} key={item.id} />
-                    ))}
-                  </div>
-                </div>
+    {wishlistItems.map((item) => (
+      <SingleItem item={item} key={item.id} />
+    ))}
+  </div>
+</div>
 
                 {/* Mobile List View */}
                 <div className="md:hidden">

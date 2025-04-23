@@ -13,15 +13,19 @@ const Mukhi: React.FC = () => {
   const itemsPerPage = 12;
 
   // No ID filter, use all shopData
-  const mukhiProductsBase = shopData;
+  const specialRudrakshaBase = shopData.filter((item) => item.id >= 1 && item.id <= 14);
 
   // Sort data based on sizes[0]?.price
-  const sortedMukhiProducts = [...mukhiProductsBase].sort((a: any, b: any) => {
+  const sortedMukhiProducts = [...specialRudrakshaBase].sort((a: any, b: any) => {
     if (sortOption === "normal") return 0;
-    const priceA = a.sizes[0]?.price || 0;
-    const priceB = b.sizes[0]?.price || 0;
+  
+    // Use discountedPrice if available, otherwise use price
+    const priceA = a.sizes[0]?.discountedPrice !== undefined ? a.sizes[0].discountedPrice : a.sizes[0]?.price ?? 0;
+    const priceB = b.sizes[0]?.discountedPrice !== undefined ? b.sizes[0].discountedPrice : b.sizes[0]?.price ?? 0;
+  
     return sortOption === "low-to-high" ? priceA - priceB : priceB - priceA;
   });
+
 
   // Pagination logic
   const totalItems = sortedMukhiProducts.length;
@@ -138,8 +142,8 @@ const Mukhi: React.FC = () => {
                       disabled={currentPage === 1}
                       className={`px-3 py-1 rounded-md ${
                         currentPage === 1
-                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                          ? "bg-[#800000] text-white  cursor-not-allowed"
+                          : "bg-[#800000] text-white  hover:bg-blue-200"
                       }`}
                     >
                       Previous
@@ -150,7 +154,7 @@ const Mukhi: React.FC = () => {
                         onClick={() => handlePageChange(page)}
                         className={`px-3 py-1 rounded-md ${
                           currentPage === page
-                            ? "bg-blue-600 text-white"
+                            ? "bg-[#800000] text-white"
                             : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                         }`}
                       >
@@ -162,8 +166,8 @@ const Mukhi: React.FC = () => {
                       disabled={currentPage === totalPages}
                       className={`px-3 py-1 rounded-md ${
                         currentPage === totalPages
-                          ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                          : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                          ? "bg-[#800000] text-white cursor-not-allowed"
+                          : "bg-[#800000] text-white hover:bg-blue-200"
                       }`}
                     >
                       Next
