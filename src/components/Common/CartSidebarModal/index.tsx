@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
-import { removeItemFromCart, selectTotalPrice,addItemToCart } from "@/redux/features/cart-slice";
+import { removeItemFromCart, selectTotalPrice, addItemToCart } from "@/redux/features/cart-slice";
 import { useAppSelector } from "@/redux/store";
 import { useSelector } from "react-redux";
 import SingleItem from "./SingleItem";
@@ -14,8 +14,8 @@ const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext();
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const discountedPrice = useSelector(selectTotalPrice);
-
   const dispatch = useDispatch();
+
   useEffect(() => {
     const savedCart = localStorage.getItem("cartItems");
     if (savedCart) {
@@ -26,8 +26,8 @@ const CartSidebarModal = () => {
         }
       });
     }
-  }, []);
-  
+  }, [cartItems, dispatch]);
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (!event.target.closest(".modal-content")) {
@@ -37,39 +37,37 @@ const CartSidebarModal = () => {
 
     if (isCartModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isCartModalOpen, closeCartModal]);
-
-
 
   return (
     <>
       {/* Overlay */}
-      <div 
-        className={`fixed inset-0 bg-black/50 transition-opacity z-[998] ${
+      <div
+        className={`fixed inset-0 bg-black/50 transition-opacity z-[10000] ${
           isCartModalOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={closeCartModal}
       />
-      
+
       {/* Modal */}
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-md z-[999] transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-full max-w-md z-[10001] transition-transform duration-300 ${
           isCartModalOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full mt-20 bg-[#FFFAF5] shadow-xl modal-content">
+        <div className="flex flex-col h-full bg-[#FFFAF5] shadow-xl modal-content">
           {/* Header */}
           <div className="sticky top-0 bg-[#FFFAF5] z-10 flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-semibold mt-2 text-gray-900">Your Sacred Cart</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Your Sacred Cart</h2>
             <button
               onClick={closeCartModal}
               aria-label="Close cart"
@@ -98,10 +96,13 @@ const CartSidebarModal = () => {
 
           {/* Footer */}
           {cartItems.length > 0 && (
-            <div className="sticky bottom-0 bg-[#FFFAF5] border-t border-gray-200 p-6">
+            <div className="bg-[#FFFAF5] border-t border-gray-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <p className="text-lg font-medium text-gray-900">Subtotal:</p>
-                <p className="text-xl font-bold text-[#800000]">₹{discountedPrice.toLocaleString()}</p>              </div>
+                <p className="text-xl font-bold text-[#800000]">
+                  ₹{discountedPrice.toLocaleString()}
+                </p>
+              </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <Link

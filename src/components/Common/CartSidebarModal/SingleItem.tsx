@@ -27,31 +27,29 @@ const SingleItem = ({ item, removeItemFromCart }) => {
   return (
     <div className="flex items-center justify-between gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
       <div className="flex items-center gap-4 flex-1 min-w-0">
-        <div className="flex-shrink-0  bg-white rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
-          <Image 
-            src={item.imgs?.thumbnails[0] || "/placeholder.jpg"} 
-            alt={item.title} 
-            width={80} 
+        <div className="flex-shrink-0 bg-white rounded-lg bg-gray-100 w-20 h-20 flex items-center justify-center overflow-hidden">
+          <Image
+            src={item.imgs?.thumbnails[0] || "/placeholder.jpg"}
+            alt={item.title}
+            width={80}
             height={80}
             className="object-contain w-full h-full"
           />
         </div>
 
         <div className="min-w-0">
-        <h3 className="font-medium text-gray-900 truncate mb-1 hover:text-blue-600 transition-colors">
-  <Link href={`/shop/${item.slug}`} className="focus:outline-none">
-    {item.title} 
-  </Link>
-</h3>
+          <h3 className="font-medium text-gray-900 truncate mb-1 hover:text-blue-600 transition-colors">
+            <Link href={`/shop/${item.slug}`} className="focus:outline-none">
+              {item.title}
+            </Link>
+          </h3>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium text-[#800000]">
-            ₹{item.discountedPrice.toLocaleString("en-IN")}
-
+              ₹{item.discountedPrice.toLocaleString("en-IN")}
             </span>
             {item.discountedPrice && item.discountedPrice !== item.price && (
               <span className="text-sm text-gray-500 line-through">
                 ₹{item.price.toLocaleString("en-IN")}
-
               </span>
             )}
           </div>
@@ -67,11 +65,11 @@ const SingleItem = ({ item, removeItemFromCart }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
               </svg>
             </button>
-            
+
             <span className="w-10 h-8 flex items-center justify-center border-t border-b border-gray-300 bg-white text-sm font-medium">
               {item.quantity}
             </span>
-            
+
             <button
               onClick={handleIncreaseQuantity}
               aria-label="Increase quantity"
@@ -89,7 +87,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
         <p className="text-lg font-medium mb-2 text-[#800000]">
           ₹{(item.discountedPrice * item.quantity).toLocaleString("en-IN")}
         </p>
-        
+
         <button
           onClick={handleRemoveFromCart}
           aria-label="Remove product from cart"
