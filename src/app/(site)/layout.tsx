@@ -13,6 +13,8 @@ import PreviewSliderModal from "@/components/Common/PreviewSlider";
 import ScrollToTop from "@/components/Common/ScrollToTop";
 import NavigationBar from "@/components/Common/NavigationBar";
 import type { Metadata } from "next";
+import WhatsAppButton from "@/components/Common/WhatsAppButton";
+import CallButton from "@/components/Common/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Demo E-Commerce",
@@ -33,7 +35,6 @@ export default function RootLayout({
               <PreviewSliderProvider>
                 <Header />
                 {children}
-                <NavigationBar />
                 <QuickViewModal />
                 <CartSidebarModal />
                 <PreviewSliderModal />
@@ -44,6 +45,9 @@ export default function RootLayout({
 
         <ScrollToTop />
         <Footer />
+        <NavigationBar />
+        <CallButton phoneNumber="+919153164444" label="Contact Us"/>
+
       </body>
     </html>
   );

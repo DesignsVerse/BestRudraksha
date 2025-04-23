@@ -28,7 +28,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "BestRudraksha ka Rudraksha for wealth ne meri financial stability badha di. Certified Rudraksha online aur unka identification guide bahut helpful hai!",
     authorName: "Sneha Patel",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "Business Owner"
   },
   {
@@ -58,7 +58,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "Mujhe shuru mein doubt tha, par BestRudraksha ke real Rudraksha identification tips ne trust banaya. Rudraksha for success ne business mein game change kiya!",
     authorName: "Suresh Kumar",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "Marketing Professional"
   },
   {
@@ -88,7 +88,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "BestRudraksha se Rudraksha for peace of mind liya, aur yeh dil ko sukoon deta hai. Rudraksha mala original aur beautifully crafted hai!",
     authorName: "Meena Iyer",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "Ayurvedic Practitioner"
   },
   {
@@ -118,7 +118,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "The Rudraksha for students from BestRudraksha helped me concentrate better. Their Nepali Rudraksha and mala are of superior quality!",
     authorName: "Aditya Roy",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "College Student"
   },
   {
@@ -148,7 +148,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "The Rudraksha for health from BestRudraksha is fantastic. Their 5 Mukhi Rudraksha and mala are perfect, and the side effects guide is informative.",
     authorName: "Vivek Nair",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "Mindfulness Trainer"
   },
   {
@@ -178,7 +178,7 @@ const testimonialsData: Testimonial[] = [
   {
     review: "BestRudraksha ka Rudraksha for wealth ne meri financial life ko better kiya. Original Rudraksha aur identification guide make them the best!",
     authorName: "Kavita Rao",
-    authorImg: "/images/users/user-05.jpg",
+    authorImg: "/images/users/user-01.jpg",
     authorRole: "Homemaker"
   }
 ];

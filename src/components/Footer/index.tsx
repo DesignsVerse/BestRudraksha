@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="  overflow-hidden bg-[#800000] bg-opacity-10">
+    <footer className=" mb-18 md:mb-0 overflow-hidden bg-[#800000] bg-opacity-10">
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         {/* <!-- footer menu start --> */}
         <div className="flex  flex-wrap xl:flex-nowrap gap-10 xl:gap-19 xl:justify-between pt-17.5 xl:pt-22.5 pb-10 xl:pb-15">
@@ -316,7 +316,7 @@ const Footer = () => {
               <div className="flex flex-wrap items-center gap-6">
                 <a href="#" aria-label="payment system with visa card" className="hover:text-[#800000] ease-out duration-200">
                   <Image
-                    src="/images/payment/payment-01.svg"
+                    src="/images/footer/payment-01.svg"
                     alt="visa card"
                     width={66}
                     height={22}
@@ -324,7 +324,7 @@ const Footer = () => {
                 </a>
                 <a href="#" aria-label="payment system with paypal" className="hover:text-[#800000] ease-out duration-200">
                   <Image
-                    src="/images/payment/payment-02.svg"
+                    src="/images/footer/payment-02.svg"
                     alt="paypal"
                     width={18}
                     height={21}
@@ -332,7 +332,7 @@ const Footer = () => {
                 </a>
                 <a href="#" aria-label="payment system with master card" className="hover:text-[#800000] ease-out duration-200">
                   <Image
-                    src="/images/payment/payment-03.svg"
+                    src="/images/footer/payment-03.svg"
                     alt="master card"
                     width={33}
                     height={24}
@@ -340,7 +340,7 @@ const Footer = () => {
                 </a>
                 <a href="#" aria-label="payment system with apple pay" className="hover:text-[#800000] ease-out duration-200">
                   <Image
-                    src="/images/payment/payment-04.svg"
+                    src="/images/footer/payment-04.svg"
                     alt="apple pay"
                     width={52.94}
                     height={22}
@@ -348,7 +348,7 @@ const Footer = () => {
                 </a>
                 <a href="#" aria-label="payment system with google pay" className="hover:text-[#800000] ease-out duration-200">
                   <Image
-                    src="/images/payment/payment-05.svg"
+                    src="/images/footer/payment-05.svg"
                     alt="google pay"
                     width={56}
                     height={22}

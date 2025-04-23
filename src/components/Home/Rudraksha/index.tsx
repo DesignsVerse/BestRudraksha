@@ -49,7 +49,7 @@ export default function Rudraksha() {
             {/* Second small box - visible in both mobile and desktop */}
             <div className="bg-white shadow-lg col-span-1">
               <Image
-                src="/images/ruby.png"
+                src="/images/home/ruby.png"
                 alt="Special Rudraksha"
                 width={400}
                 height={300}
@@ -66,7 +66,7 @@ export default function Rudraksha() {
             {/* Larger box - takes full width in mobile, third column in desktop */}
             <div className="bg-white shadow-lg col-span-2 md:col-span-1">
               <Image
-                src="/images/mala.png"
+                src="/images/home/mala.png"
                 alt="Rudraksha Mala"
                 width={400}
                 height={300}
