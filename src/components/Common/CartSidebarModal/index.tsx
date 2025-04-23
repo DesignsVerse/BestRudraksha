@@ -69,7 +69,7 @@ const CartSidebarModal = () => {
         <div className="flex flex-col h-full mt-20 bg-[#FFFAF5] shadow-xl modal-content">
           {/* Header */}
           <div className="sticky top-0 bg-[#FFFAF5] z-10 flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-semibold text-gray-900">Your Sacred Cart</h2>
+            <h2 className="text-2xl font-semibold mt-2 text-gray-900">Your Sacred Cart</h2>
             <button
               onClick={closeCartModal}
               aria-label="Close cart"
