@@ -16,7 +16,7 @@ const Categories = () => {
   </svg>
   Categories
 </span>
-            <h2 className="font-semibold text-xl xl:text-[32px] text-[#000000]">
+            <h2 className="font-bold text-xl xl:text-[32px] text-[#000000]">
               Browse by Category
             </h2>
           </div>
