@@ -13,13 +13,16 @@ const SpecialRudraksha: React.FC = () => {
   const itemsPerPage = 12;
 
   // Filter shopData to show only products with IDs 24 to 33
-  const specialRudrakshaBase = shopData.filter((item) => item.id >= 24 && item.id <= 33);
+  const rashiRudrakshaBase = shopData.filter((item) => item.id >= 24 && item.id <= 33);
 
   // Sort data based on sizes[0]?.price
-  const sortedSpecialRudraksha = [...specialRudrakshaBase].sort((a: any, b: any) => {
+  const sortedSpecialRudraksha = [...rashiRudrakshaBase].sort((a: any, b: any) => {
     if (sortOption === "normal") return 0;
-    const priceA = a.sizes[0]?.price || 0;
-    const priceB = b.sizes[0]?.price || 0;
+  
+    // Use discountedPrice if available, otherwise use price
+    const priceA = a.sizes[0]?.discountedPrice !== undefined ? a.sizes[0].discountedPrice : a.sizes[0]?.price ?? 0;
+    const priceB = b.sizes[0]?.discountedPrice !== undefined ? b.sizes[0].discountedPrice : b.sizes[0]?.price ?? 0;
+  
     return sortOption === "low-to-high" ? priceA - priceB : priceB - priceA;
   });
 

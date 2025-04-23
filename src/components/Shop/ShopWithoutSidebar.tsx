@@ -7,7 +7,7 @@ import FilterSortSelects from "../Shop/FilterSortSelects"; // Your FilterSortSel
 import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
 
-const Gemstones: React.FC = () => {
+const Shop: React.FC = () => {
   const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
@@ -19,8 +19,11 @@ const Gemstones: React.FC = () => {
   // Sort data based on sizes[0]?.price
   const sortedGemstoneProducts = [...gemstoneProductsBase].sort((a: Product, b: Product) => {
     if (sortOption === "normal") return 0;
-    const priceA = a.sizes[0]?.price || 0;
-    const priceB = b.sizes[0]?.price || 0;
+  
+    // Use discountedPrice if available, otherwise use price
+    const priceA = a.sizes[0]?.discountedPrice !== undefined ? a.sizes[0].discountedPrice : a.sizes[0]?.price ?? 0;
+    const priceB = b.sizes[0]?.discountedPrice !== undefined ? b.sizes[0].discountedPrice : b.sizes[0]?.price ?? 0;
+  
     return sortOption === "low-to-high" ? priceA - priceB : priceB - priceA;
   });
 
@@ -180,4 +183,4 @@ const Gemstones: React.FC = () => {
   );
 };
 
-export default Gemstones;
+export default Shop;
