@@ -86,7 +86,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
-          <span className="absolute top-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
+          <span className="absolute top-3 right-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
             {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
           </span>
           <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
