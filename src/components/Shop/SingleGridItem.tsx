@@ -83,10 +83,10 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             alt={item.title}
             width={300}
             height={300}
-            className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-56  sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
-        <span className="absolute top-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
+        <span className="absolute top-2 right-2  bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
           {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
         </span>
         {/* Action Buttons - Always Visible */}

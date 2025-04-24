@@ -93,7 +93,7 @@ const SingleItem = ({ item }: { item: Product }) => {
         </Link>
 
         {/* Discount Badge - Always shown */}
-        <span className="absolute top-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
+        <span className="absolute bottom-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
           {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
         </span>
 
