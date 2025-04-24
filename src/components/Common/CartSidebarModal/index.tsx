@@ -126,6 +126,7 @@ const CartSidebarModal = () => {
                   onClick={closeCartModal}
                   className="text-sm font-medium text-[#800000] hover:underline transition-colors"
                 >
+                  
                   Continue Shopping
                 </button>
               </div>
