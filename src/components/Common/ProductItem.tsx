@@ -110,19 +110,19 @@ const ProductItem = ({ item }: { item: Product }) => {
 </Link>
 
         {/* Discount Badge - Always shown */}
-        <span className="absolute top-3 right-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
-          {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
-        </span>
+        <span className="absolute top-1 right-1 bg-[#800000] text-white text-[9px] md:text-xs font-semibold px-2 py-[4px] md:px-2 md:py-1 rounded leading-tight">
+  {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
+</span>
 
         {/* Action Buttons - Always Visible for Desktop and Mobile */}
-        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+        <div className="absolute bottom-1 left-0 right-0 flex items-center justify-center gap-2">
           <button
             onClick={handleQuickViewUpdate}
             aria-label="Quick View"
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const ProductItem = ({ item }: { item: Product }) => {
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +177,7 @@ const ProductItem = ({ item }: { item: Product }) => {
             }`}
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"

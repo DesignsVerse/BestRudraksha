@@ -88,24 +88,24 @@ const SingleItem = ({ item }: { item: Product }) => {
             alt={item.title}
             width={300}
             height={300}
-            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-64 p-5 md:p-8  object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
         {/* Discount Badge - Always shown */}
-        <span className="absolute bottom-3 left-3 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
+        <span className="absolute top-2 right-1 bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
           {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
         </span>
 
         {/* Action Buttons */}
-        <div className="absolute right-3 top-3 flex flex-col gap-2">
+        <div className=" mb-1  flex justify-center gap-2">
           <button
             onClick={handleQuickViewUpdate}
             aria-label="Quick View"
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"  
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +160,7 @@ const SingleItem = ({ item }: { item: Product }) => {
             }`}
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"

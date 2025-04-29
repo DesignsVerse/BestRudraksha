@@ -124,7 +124,7 @@ const Gemstone: React.FC = () => {
 
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 bg-[#FFFAF5]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left side - Featured image (hidden on mobile) */}
           <div className="hidden lg:block lg:w-2/5 relative rounded-lg overflow-hidden shadow-lg">
@@ -170,16 +170,16 @@ const Gemstone: React.FC = () => {
                 return (
                   <div key={product.id} className="px-2">
                     <div className="border border-gray-200 rounded-lg bg-white overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col group">
-                      <div className="relative aspect-square flex items-center justify-center bg-gray-100">
+                      <div className="relative flex items-center justify-center bg-gray-100">
                         <Image
                           src={product.imgs?.previews?.[0] || "/images/placeholder.png"}
                           alt={product.title}
                           width={300}
                           height={300}
-                          className="object-contain max-h-[80%] max-w-[80%]"
+                          className="object-contain max-h-[60%] max-w-[70%]"
                         />
                         {discountPercentage > 0 && (
-                          <div className="absolute top-3 right-3 bg-[#800000] text-white text-xs font-bold px-2 py-1 rounded">
+                          <div className="absolute  top-1 right-1  bg-[#800000] text-white md:text-xs text-[10px] font-semibold  px-1 py-0 rounded">
                             {discountPercentage}% OFF
                           </div>
                         )}
@@ -190,7 +190,7 @@ const Gemstone: React.FC = () => {
                             className="p-2 bg-white rounded-full shadow-md"
                           >
                             <svg
-                              className="w-5 h-5"
+                              className="w-4 h-4 md:w-5 md:h-5"
                               fill="currentColor"
                               viewBox="0 0 16 16"
                               xmlns="http://www.w3.org/2000/svg"

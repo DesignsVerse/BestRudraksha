@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 import { Product } from "@/types/product";
@@ -19,11 +18,18 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   const dispatch = useDispatch<AppDispatch>();
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  const regularSize = item.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 };
+  const regularSize = item.sizes?.[0] || {
+    name: "Regular",
+    price: 0,
+    discountedPrice: 0,
+  };
   const discountPercentage =
-    regularSize.discountedPrice && regularSize.price !== regularSize.discountedPrice
+    regularSize.discountedPrice &&
+    regularSize.price !== regularSize.discountedPrice
       ? Math.round(
-          ((regularSize.price - regularSize.discountedPrice) / regularSize.price) * 100
+          ((regularSize.price - regularSize.discountedPrice) /
+            regularSize.price) *
+            100
         )
       : 0;
 
@@ -66,7 +72,9 @@ const SingleGridItem = ({ item }: { item: Product }) => {
       })
     );
     toast.info(
-      isWishlisted ? "Removed from wishlist" : `${item.title} added to wishlist!`,
+      isWishlisted
+        ? "Removed from wishlist"
+        : `${item.title} added to wishlist!`,
       {
         position: "top-right",
         autoClose: 2000,
@@ -77,37 +85,37 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   return (
     <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
-      <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
-  <Image
-    src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
-    alt={item.title}
-    width={300}
-    height={300}
-    className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-    style={{
-      // Disables mobile viewport scaling
-      transform: 'scale(1)',
-      // Ensures proper display on mobile
-      maxWidth: '100%',
-      height: 'auto'
-    }}
-    // Mobile-specific attributes
-    sizes="100vw"
-    quality={75}
-  />
-</Link>
-        <span className="absolute top-2 right-2  bg-[#800000] text-white text-xs font-semibold px-2 py-1 rounded">
+        <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
+          <Image
+            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
+            alt={item.title}
+            width={300}
+            height={300}
+            className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            style={{
+              // Disables mobile viewport scaling
+              transform: "scale(1)",
+              // Ensures proper display on mobile
+              maxWidth: "100%",
+              height: "auto",
+            }}
+            // Mobile-specific attributes
+            sizes="100vw"
+            quality={75}
+          />
+        </Link>
+        <span className="absolute md:top-2 md:right-2 top-0 right-2  bg-[#800000] text-white md:text-xs text-[8px] font-semibold  px-1 py-0 rounded">
           {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
         </span>
         {/* Action Buttons - Always Visible */}
-        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+        <div className="absolute bottom-1 left-0 right-0 flex items-center justify-center gap-2">
           <button
             onClick={handleQuickViewUpdate}
             aria-label="Quick View"
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +138,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +170,7 @@ const SingleGridItem = ({ item }: { item: Product }) => {
             }`}
           >
             <svg
-              className="w-5 h-5"
+              className=" h-4 w-4 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
@@ -204,7 +212,10 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         </h3>
         <div className="flex items-center gap-3 mt-2">
           <span className="text-lg font-bold text-[#800000]">
-            ₹{(regularSize.discountedPrice || regularSize.price).toLocaleString("en-IN")}
+            ₹
+            {(regularSize.discountedPrice || regularSize.price).toLocaleString(
+              "en-IN"
+            )}
           </span>
           {regularSize.discountedPrice &&
             regularSize.discountedPrice !== regularSize.price && (
