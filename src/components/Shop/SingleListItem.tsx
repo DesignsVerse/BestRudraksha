@@ -96,7 +96,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
             >
               <svg
-                className="w-5 h-5"
+                className=" h-4 w-4 md:w-5 md:h-5"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               className="p-2 bg-white rounded-full shadow-md hover:bg-[#800000] hover:text-white transition-colors duration-200"
             >
               <svg
-                className="w-5 h-5"
+                className=" h-4 w-4 md:w-5 md:h-5"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
               }`}
             >
               <svg
-                className="w-5 h-5"
+                className=" h-4 w-4 md:w-5 md:h-5"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
