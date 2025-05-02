@@ -4,16 +4,95 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Common/Breadcrumb';
 
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | BestRudraksha.com - Authentic Rudraksha & Spiritual Products",
+  description:
+    "Learn about BestRudraksha.com, India’s trusted source for authentic Rudraksha, gemstones, malas, and yantras. Discover our mission to provide spiritual guidance and quality products!",
+  keywords: [
+    "about BestRudraksha",
+    "BestRudraksha mission",
+    "BestRudraksha India",
+    "authentic Rudraksha",
+    "spiritual products India",
+    "Rudraksha shop about",
+    "gemstones shop about",
+    "mala shop about",
+    "yantra shop about",
+    "BestRudraksha story",
+    "Rudraksha authenticity",
+    "BestRudraksha team",
+    "spiritual guidance India",
+    "Rudraksha experts",
+    "BestRudraksha values",
+    "Rudraksha for spirituality",
+    "gemstones for astrology",
+    "mala for meditation",
+    "yantra for prosperity",
+    "BestRudraksha quality",
+    "Rudraksha benefits about",
+    "BestRudraksha history",
+    "trusted Rudraksha store",
+    "BestRudraksha spiritual products",
+    "Rudraksha shop India",
+    "BestRudraksha customer trust",
+    "about Rudraksha authenticity",
+    "BestRudraksha brand",
+    "spiritual products mission",
+    "Rudraksha for zodiac signs about",
+    "BestRudraksha expertise",
+    "Rudraksha wearing rules about",
+    "Rudraksha cleaning method about",
+    "real vs fake Rudraksha about",
+    "BestRudraksha spiritual guidance",
+    "BestRudraksha store India",
+  ],
+  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
+  openGraph: {
+    title: "About BestRudraksha.com | Spiritual Excellence",
+    description:
+      "Discover BestRudraksha.com’s mission to deliver authentic Rudraksha, gemstones, malas, and yantras. Trusted spiritual guidance from India!",
+    url: "https://bestrudraksha.com/aboutus",
+    siteName: "BestRudraksha.com",
+    images: [
+      {
+        url: "https://bestrudraksha.com/images/about-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BestRudraksha About Us",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About BestRudraksha.com | Spiritual Excellence",
+    description:
+      "Learn about BestRudraksha.com, your trusted source for Rudraksha and spiritual products in India!",
+    images: ["https://bestrudraksha.com/images/about-twitter-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://bestrudraksha.com/aboutus",
+  },
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "India",
+    "geo.position": "20.5937;78.9629",
+    "ICBM": "20.5937, 78.9629",
+  },
+};
+
+
+
 const AboutUs: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>About Best Rudraksha - Authentic Spiritual Products</title>
-        <meta
-          name="description"
-          content="Learn about Best Rudraksha, your trusted source for authentic Rudraksha, gemstones, malas, and yantras since 2024."
-        />
-      </Head>
+      
 
       <Breadcrumb title="About Us" pages={["About Us"]} />
       <div className="min-h-screen bg-[#FFFAF5] py-12 px-4 sm:px-6 lg:px-8">

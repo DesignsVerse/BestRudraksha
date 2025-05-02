@@ -13,7 +13,10 @@ import SingleGridItem from "@/components/Shop/SingleGridItem"; // Import SingleG
 import { Provider } from "react-redux";
 import {store} from "@/redux/store";
 
+
 const BlogDetailsWithSidebar = () => {
+
+  
   const params = useParams();
   const slug = params?.slug as string;
   const [activeSection, setActiveSection] = useState<string>("");
@@ -49,8 +52,10 @@ const BlogDetailsWithSidebar = () => {
             ((regularSize.discountedPrice - regularSize.price) / regularSize.discountedPrice) * 100
           )
         : 0;
+        
   
     return (
+      
       <div className="my-4 p-4 bg-gradient-to-r from-gray-50 to-[#FFF8F5] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex items-center justify-between max-w-3xl mx-auto">
         {/* Product Image */}
         <div className="relative w-24 h-24 flex-shrink-0">

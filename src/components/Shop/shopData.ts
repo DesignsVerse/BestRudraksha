@@ -3,9 +3,7 @@ import { Product } from "@/types/product";
 const shopData: Product[] = [
   {
     id: 1,
-    
-    paymentLink: "https://payments.cashfree.com/forms/1-mukhi",
-    title: "1 Mukhi Rudraksha - Original Nepali Ek Mukhi Rudraksha",
+        title: "1 Mukhi Rudraksha - Original Nepali Ek Mukhi Rudraksha",
     slug: "1-mukhi-rudraksha",
     reviews: 15,
     description: "Experience the divine energy of the 1 Mukhi Rudraksha, a sacred one-faced bead symbolizing Lord Shiva, offered by Best Rudraksha. Sourced from Nepal, this certified Ek Mukhi Rudraksha from Best Rudraksha is perfect for meditation, spiritual growth, and energy healing. Buy original Rudraksha online to boost focus, reduce stress, and find inner peace.",
@@ -37,8 +35,7 @@ const shopData: Product[] = [
   },
   {
     id: 2,
-    paymentLink: "https://payments.cashfree.com/forms/2-mukhi",
-    title: "2 Mukhi Rudraksha - Original Nepali Do Mukhi Rudraksha",
+        title: "2 Mukhi Rudraksha - Original Nepali Do Mukhi Rudraksha",
     slug: "2-mukhi-rudraksha",
     reviews: 6,
     description: "Discover the harmonizing power of the 2 Mukhi Rudraksha, a two-faced bead symbolizing unity, from Best Rudraksha. Sourced from Nepal, this certified Do Mukhi Rudraksha from Best Rudraksha promotes emotional balance and relationship harmony. Buy original Rudraksha online for a peaceful and balanced life.",
@@ -70,8 +67,7 @@ const shopData: Product[] = [
   },
   {
     id: 3,
-    paymentLink: "https://payments.cashfree.com/forms/3-mukhi",
-    title: "3 Mukhi Rudraksha - Original Nepali Teen Mukhi Rudraksha",
+        title: "3 Mukhi Rudraksha - Original Nepali Teen Mukhi Rudraksha",
     slug: "3-mukhi-rudraksha",
     reviews: 5,
     description: "Unleash the fiery energy of the 3 Mukhi Rudraksha, a three-faced bead from Best Rudraksha, symbolizing Lord Agni. Sourced from Nepal, this certified Teen Mukhi Rudraksha from Best Rudraksha boosts confidence and clears past karma. Buy original Rudraksha online to ignite your inner strength.",
@@ -103,8 +99,7 @@ const shopData: Product[] = [
   },
   {
     id: 4,
-    paymentLink: "https://payments.cashfree.com/forms/4-mukhi",
-    title: "4 Mukhi Rudraksha - Original Nepali Char Mukhi Rudraksha",
+        title: "4 Mukhi Rudraksha - Original Nepali Char Mukhi Rudraksha",
     slug: "4-mukhi-rudraksha",
     reviews: 5,
     description: "Enhance your intellect with the 4 Mukhi Rudraksha, a four-faced bead from Best Rudraksha, symbolizing Lord Brahma. Sourced from Nepal, this certified Char Mukhi Rudraksha from Best Rudraksha boosts creativity and knowledge. Buy original Rudraksha online for academic and professional success.",
@@ -136,8 +131,7 @@ const shopData: Product[] = [
   },
   {
     id: 5,
-    paymentLink: "https://payments.cashfree.com/forms/5-mukhi",
-    title: "5 Mukhi Rudraksha - Original Nepali Panch Mukhi Rudraksha",
+        title: "5 Mukhi Rudraksha - Original Nepali Panch Mukhi Rudraksha",
     slug: "5-mukhi-rudraksha",
     reviews: 5,
     description: "Promote health and peace with the 5 Mukhi Rudraksha, a five-faced bead from Best Rudraksha, symbolizing Lord Shiva. Sourced from Nepal, this certified Panch Mukhi Rudraksha from Best Rudraksha enhances well-being and calmness. Buy original Rudraksha online for a balanced life.",
@@ -169,8 +163,7 @@ const shopData: Product[] = [
   },
   {
     id: 6,
-    paymentLink: "https://payments.cashfree.com/forms/6-mukhi",
-    title: "6 Mukhi Rudraksha - Original Nepali Che Mukhi Rudraksha",
+        title: "6 Mukhi Rudraksha - Original Nepali Che Mukhi Rudraksha",
     slug: "6-mukhi-rudraksha",
     reviews: 5,
     description: "Achieve success with the 6 Mukhi Rudraksha, a six-faced bead from Best Rudraksha, symbolizing Lord Kartikeya. Sourced from Nepal, this certified Che Mukhi Rudraksha from Best Rudraksha enhances willpower and focus. Buy original Rudraksha online for career and personal growth.",
@@ -202,8 +195,7 @@ const shopData: Product[] = [
   },
   {
     id: 7,
-    paymentLink: "https://payments.cashfree.com/forms/7-mukhi",
-    title: "7 Mukhi Rudraksha - Original Nepali Saat Mukhi Rudraksha",
+        title: "7 Mukhi Rudraksha - Original Nepali Saat Mukhi Rudraksha",
     slug: "7-mukhi-rudraksha",
     reviews: 5,
     description: "Attract wealth with the 7 Mukhi Rudraksha, a seven-faced bead from Best Rudraksha, symbolizing Goddess Lakshmi. Sourced from Nepal, this certified Saat Mukhi Rudraksha from Best Rudraksha promotes prosperity and stability. Buy original Rudraksha online for financial success.",
@@ -235,8 +227,7 @@ const shopData: Product[] = [
   },
   {
     id: 8,
-    paymentLink: "https://payments.cashfree.com/forms/8-mukhi",
-    title: "8 Mukhi Rudraksha - Original Nepali Aath Mukhi Rudraksha",
+        title: "8 Mukhi Rudraksha - Original Nepali Aath Mukhi Rudraksha",
     slug: "8-mukhi-rudraksha",
     reviews: 5,
     description: "Achieve victory with the 8 Mukhi Rudraksha, an eight-faced bead from Best Rudraksha, symbolizing Lord Ganesha. Sourced from Nepal, this certified Aath Mukhi Rudraksha from Best Rudraksha removes obstacles and ensures success. Buy original Rudraksha online for triumph in life.",
@@ -268,8 +259,7 @@ const shopData: Product[] = [
   },
   {
     id: 9,
-    paymentLink: "https://payments.cashfree.com/forms/9-mukhi",
-    title: "9 Mukhi Rudraksha - Original Nepali Nau Mukhi Rudraksha",
+        title: "9 Mukhi Rudraksha - Original Nepali Nau Mukhi Rudraksha",
     slug: "9-mukhi-rudraksha",
     reviews: 5,
     description: "Empower your life with the 9 Mukhi Rudraksha, a nine-faced bead from Best Rudraksha, symbolizing Goddess Durga. Sourced from Nepal, this certified Nau Mukhi Rudraksha from Best Rudraksha boosts energy and courage. Buy original Rudraksha online for strength and protection.",
@@ -301,8 +291,7 @@ const shopData: Product[] = [
   },
   {
     id: 10,
-    paymentLink: "https://payments.cashfree.com/forms/10-mukhi",
-    title: "10 Mukhi Rudraksha - Original Nepali Das Mukhi Rudraksha",
+        title: "10 Mukhi Rudraksha - Original Nepali Das Mukhi Rudraksha",
     slug: "10-mukhi-rudraksha",
     reviews: 5,
     description: "Secure protection with the 10 Mukhi Rudraksha, a ten-faced bead from Best Rudraksha, symbolizing Lord Vishnu. Sourced from Nepal, this certified Das Mukhi Rudraksha from Best Rudraksha shields against negativity. Buy original Rudraksha online for all-round protection.",
@@ -334,8 +323,7 @@ const shopData: Product[] = [
   },
   {
     id: 11,
-    paymentLink: "https://payments.cashfree.com/forms/11-mukhi",
-    title: "11 Mukhi Rudraksha - Original Nepali Gyarah Mukhi Rudraksha",
+        title: "11 Mukhi Rudraksha - Original Nepali Gyarah Mukhi Rudraksha",
     slug: "11-mukhi-rudraksha",
     reviews: 5,
     description: "Gain wisdom with the 11 Mukhi Rudraksha, an eleven-faced bead from Best Rudraksha, symbolizing Lord Hanuman. Sourced from Nepal, this certified Gyarah Mukhi Rudraksha from Best Rudraksha enhances decision-making. Buy original Rudraksha online for clarity and strength.",
@@ -367,8 +355,7 @@ const shopData: Product[] = [
   },
   {
     id: 12,
-    paymentLink: "https://payments.cashfree.com/forms/12-mukhi",
-    title: "12 Mukhi Rudraksha - Original Nepali Barah Mukhi Rudraksha",
+        title: "12 Mukhi Rudraksha - Original Nepali Barah Mukhi Rudraksha",
     slug: "12-mukhi-rudraksha",
     reviews: 5,
     description: "Harness cosmic energy with the 12 Mukhi Rudraksha, a twelve-faced bead from Best Rudraksha, symbolizing Lord Surya. Sourced from Nepal, this certified Barah Mukhi Rudraksha from Best Rudraksha boosts vitality and leadership. Buy original Rudraksha online for radiant energy.",
@@ -400,8 +387,7 @@ const shopData: Product[] = [
   },
   {
     id: 13,
-    paymentLink: "https://payments.cashfree.com/forms/13-mukhi",
-    title: "13 Mukhi Rudraksha - Original Nepali Terah Mukhi Rudraksha",
+        title: "13 Mukhi Rudraksha - Original Nepali Terah Mukhi Rudraksha",
     slug: "13-mukhi-rudraksha",
     reviews: 5,
     description: "Fulfill desires with the 13 Mukhi Rudraksha, a thirteen-faced bead from Best Rudraksha, symbolizing Lord Kamadeva. Sourced from Nepal, this certified Terah Mukhi Rudraksha from Best Rudraksha enhances charm and success. Buy original Rudraksha online for prosperity.",
@@ -433,8 +419,7 @@ const shopData: Product[] = [
   },
   {
     id: 14,
-    paymentLink: "https://payments.cashfree.com/forms/14-mukhi",
-    title: "14 Mukhi Rudraksha - Original Nepali Chaudah Mukhi Rudraksha",
+        title: "14 Mukhi Rudraksha - Original Nepali Chaudah Mukhi Rudraksha",
     slug: "14-mukhi-rudraksha",
     reviews: 5,
     description: "Receive divine blessings with the 14 Mukhi Rudraksha, a fourteen-faced bead from Best Rudraksha, symbolizing Lord Hanuman. Sourced from Nepal, this certified Chaudah Mukhi Rudraksha from Best Rudraksha enhances intuition and protection. Buy original Rudraksha online for spiritual elevation.",
@@ -466,8 +451,7 @@ const shopData: Product[] = [
   },
   {
     id: 15,
-    paymentLink: "https://payments.cashfree.com/forms/sun-ruby",
-    title: "Sun's Ruby (Surya ka Manikya) - Original Ruby Gemstone",
+        title: "Sun's Ruby (Surya ka Manikya) - Original Ruby Gemstone",
     slug: "sun-ruby",
     reviews: 0,
     description: "Harness the power of the Sun with the Ruby gemstone from Best Rudraksha, also known as Manikya. Sourced from premium mines, this certified Ruby from Best Rudraksha enhances vitality and leadership. Buy original Ruby gemstone online for confidence and success.",
@@ -499,8 +483,7 @@ const shopData: Product[] = [
   },
   {
     id: 16,
-    paymentLink: "https://payments.cashfree.com/forms/moon-pearl",
-    title: "Moon's Pearl (Chandrama ka Moti) - Original Pearl Gemstone",
+        title: "Moon's Pearl (Chandrama ka Moti) - Original Pearl Gemstone",
     slug: "moon-pearl",
     reviews: 0,
     description: "Embrace emotional balance with the Pearl gemstone from Best Rudraksha, also known as Moti. Sourced from pristine waters, this certified Pearl from Best Rudraksha enhances calmness and intuition. Buy original Pearl gemstone online for peace and harmony.",
@@ -532,8 +515,7 @@ const shopData: Product[] = [
   },
   {
     id: 17,
-    paymentLink: "https://payments.cashfree.com/forms/mars-coral",
-    title: "Mars' Coral (Mangal ka Moonga) - Original Coral Gemstone",
+        title: "Mars' Coral (Mangal ka Moonga) - Original Coral Gemstone",
     slug: "mars-coral",
     reviews: 0,
     description: "Ignite courage with the Coral gemstone from Best Rudraksha, also known as Moonga. Sourced from premium reefs, this certified Coral from Best Rudraksha boosts energy and determination. Buy original Coral gemstone online for strength and success.",
@@ -565,8 +547,7 @@ const shopData: Product[] = [
   },
   {
     id: 18,
-    paymentLink: "https://payments.cashfree.com/forms/mercury-emerald",
-    title: "Mercury's Emerald (Budh ka Panna) - Original Emerald Gemstone",
+        title: "Mercury's Emerald (Budh ka Panna) - Original Emerald Gemstone",
     slug: "mercury-emerald",
     reviews: 0,
     description: "Boost intellect with the Emerald gemstone from Best Rudraksha, also known as Panna. Sourced from premium mines, this certified Emerald from Best Rudraksha enhances communication and wisdom. Buy original Emerald gemstone online for clarity and success.",
@@ -598,8 +579,7 @@ const shopData: Product[] = [
   },
   {
     id: 19,
-    paymentLink: "https://payments.cashfree.com/forms/jupiter-yellow-sapphire",
-    title: "Jupiter's Yellow Sapphire (Guru ka Pukhraj) - Original Yellow Sapphire Gemstone",
+        title: "Jupiter's Yellow Sapphire (Guru ka Pukhraj) - Original Yellow Sapphire Gemstone",
     slug: "jupiter-yellow-sapphire",
     reviews: 0,
     description: "Attract prosperity with the Yellow Sapphire gemstone from Best Rudraksha, also known as Pukhraj. Sourced from premium mines, this certified Yellow Sapphire from Best Rudraksha enhances wisdom and wealth. Buy original Yellow Sapphire gemstone online for success.",
@@ -631,8 +611,7 @@ const shopData: Product[] = [
   },
   {
     id: 20,
-    paymentLink: "https://payments.cashfree.com/forms/venus-diamond",
-    title: "Venus' Diamond (Shukra ka Heera) - Original Diamond Gemstone",
+        title: "Venus' Diamond (Shukra ka Heera) - Original Diamond Gemstone",
     slug: "venus-diamond",
     reviews: 0,
     description: "Radiate luxury with the Diamond gemstone from Best Rudraksha, also known as Heera. Sourced from premium mines, this certified Diamond from Best Rudraksha enhances love and charm. Buy original Diamond gemstone online for elegance and harmony.",
@@ -664,8 +643,7 @@ const shopData: Product[] = [
   },
   {
     id: 21,
-    paymentLink: "https://payments.cashfree.com/forms/saturn-blue-sapphire",
-    title: "Saturn's Blue Sapphire (Shani ka Neelam) - Original Blue Sapphire Gemstone",
+        title: "Saturn's Blue Sapphire (Shani ka Neelam) - Original Blue Sapphire Gemstone",
     slug: "saturn-blue-sapphire",
     reviews: 0,
     description: "Gain discipline with the Blue Sapphire gemstone from Best Rudraksha, also known as Neelam. Sourced from premium mines, this certified Blue Sapphire from Best Rudraksha enhances focus and stability. Buy original Blue Sapphire gemstone online for success.",
@@ -697,8 +675,7 @@ const shopData: Product[] = [
   },
   {
     id: 22,
-    paymentLink: "https://payments.cashfree.com/forms/rahu-hessonite",
-    title: "Rahu's Hessonite (Rahu ka Gomed) - Original Hessonite Gemstone",
+        title: "Rahu's Hessonite (Rahu ka Gomed) - Original Hessonite Gemstone",
     slug: "rahu-hessonite",
     reviews: 0,
     description: "Overcome obstacles with the Hessonite gemstone from Best Rudraksha, also known as Gomed. Sourced from premium mines, this certified Hessonite from Best Rudraksha enhances clarity and protection. Buy original Hessonite gemstone online for success.",
@@ -730,8 +707,7 @@ const shopData: Product[] = [
   },
   {
     id: 23,
-    paymentLink: "https://payments.cashfree.com/forms/ketu-cats-eye",
-    title: "Ketu's Cat's Eye (Ketu ka Lahsuniya) - Original Cat's Eye Gemstone",
+        title: "Ketu's Cat's Eye (Ketu ka Lahsuniya) - Original Cat's Eye Gemstone",
     slug: "ketu-cats-eye",
     reviews: 0,
     description: "Enhance intuition with the Cat's Eye gemstone from Best Rudraksha, also known as Lahsuniya. Sourced from premium mines, this certified Cat's Eye from Best Rudraksha promotes spiritual growth. Buy original Cat's Eye gemstone online for protection.",
@@ -763,8 +739,7 @@ const shopData: Product[] = [
   },
   {
     id: 24,
-    paymentLink: "https://payments.cashfree.com/forms/garbh-gauri-rudraksha",
-    title: "Garbh Gauri Rudraksha - Rudraksha for Child-Related Problems",
+        title: "Garbh Gauri Rudraksha - Rudraksha for Child-Related Problems",
     slug: "child-related-problems-garbh-gauri-rudraksha",
     reviews: 0,
     description: "Bless your family with the Garbh Gauri Rudraksha from Best Rudraksha, ideal for child-related problems and miscarriage issues. Sourced from Nepal, this certified Rudraksha from Best Rudraksha promotes fertility and protection. Buy original Rudraksha online for family harmony.",
@@ -795,8 +770,7 @@ const shopData: Product[] = [
   },
   {
     id: 25,
-    paymentLink: "https://payments.cashfree.com/forms/mangal-dosha-3-mukhi",
-    title: "Rudraksha for Mangal Dosha and Property - 3 Mukhi Rudraksha -",
+        title: "Rudraksha for Mangal Dosha and Property - 3 Mukhi Rudraksha -",
     slug: "mangal-dosha-3-mukhi-rudraksha",
     reviews: 0,
     description: "Overcome Mangal Dosha with the 3 Mukhi Rudraksha from Best Rudraksha, a three-faced bead ideal for property-related work. Sourced from Nepal, this certified Rudraksha from Best Rudraksha reduces anger and enhances stability. Buy original Rudraksha online for balance.",
@@ -827,8 +801,7 @@ const shopData: Product[] = [
   },
   {
     id: 26,
-    paymentLink: "https://payments.cashfree.com/forms/shani-sade-sati-7-mukhi",
-    title: "Rudraksha for Shani Sade Sati and Dhaiya - 7 Mukhi Rudraksha",
+        title: "Rudraksha for Shani Sade Sati and Dhaiya - 7 Mukhi Rudraksha",
     slug: "shani-sade-sati-7-mukhi-rudraksha",
     reviews: 0,
     description: "Ease Shani Sade Sati with the 7 Mukhi Rudraksha from Best Rudνακsha, a seven-faced bead for prosperity. Sourced from Nepal, this certified Rudraksha from Best Rudraksha reduces Saturn’s malefic effects. Buy original Rudraksha online for financial stability.",
@@ -859,8 +832,7 @@ const shopData: Product[] = [
   },
   {
     id: 27,
-    paymentLink: "https://payments.cashfree.com/forms/kaal-sarp-dosha-8-mukhi",
-    title: "Rudraksha for Kaal Sarp Dosha and Rahu - 8 Mukhi Rudraksha",
+        title: "Rudraksha for Kaal Sarp Dosha and Rahu - 8 Mukhi Rudraksha",
     slug: "kaal-sarp-dosha-8-mukhi-rudraksha",
     reviews: 0,
     description: "Pacify Kaal Sarp Dosha with the 8 Mukhi Rudraksha from Best Rudraksha, an eight-faced bead for wisdom. Sourced from Nepal, this certified Rudraksha from Best Rudraksha removes obstacles and calms Rahu. Buy original Rudraksha online for success.",
@@ -891,8 +863,7 @@ const shopData: Product[] = [
   },
   {
     id: 28,
-    paymentLink: "https://payments.cashfree.com/forms/ketu-pacification-9-mukhi",
-    title: "Rudraksha for Ketu Pacification - 9 Mukhi Rudraksha",
+        title: "Rudraksha for Ketu Pacification - 9 Mukhi Rudraksha",
     slug: "ketu-pacification-9-mukhi-rudraksha",
     reviews: 0,
     description: "Pacify Ketu with the 9 Mukhi Rudraksha from Best Rudraksha, a nine-faced bead for energy and protection. Sourced from Nepal, this certified Rudraksha from Best Rudraksha boosts courage and spiritual growth. Buy original Rudraksha online for strength.",
@@ -923,8 +894,7 @@ const shopData: Product[] = [
   },
   {
     id: 29,
-    paymentLink: "https://payments.cashfree.com/forms/obstacles-education-6-mukhi",
-    title: "Rudraksha for Education Obstacles - 6 Mukhi Rudraksha",
+        title: "Rudraksha for Education Obstacles - 6 Mukhi Rudraksha",
     slug: "obstacles-education-6-mukhi-rudraksha",
     reviews: 0,
     description: "Overcome education obstacles with the 6 Mukhi Rudraksha from Best Rudraksha, a six-faced bead for focus. Sourced from Nepal, this certified Rudraksha from Best Rudraksha enhances willpower and clarity. Buy original Rudraksha online for academic success.",
@@ -955,8 +925,7 @@ const shopData: Product[] = [
   },
   {
     id: 30,
-    paymentLink: "https://payments.cashfree.com/forms/health-related-problems-5-mukhi",
-    title: "Rudraksha for Health Problems - 5 Mukhi Rudraksha",
+        title: "Rudraksha for Health Problems - 5 Mukhi Rudraksha",
     slug: "health-related-problems-5-mukhi-rudraksha",
     reviews: 0,
     description: "Improve health with the 5 Mukhi Rudraksha from Best Rudraksha, a five-faced bead for well-being. Sourced from Nepal, this certified Rudraksha from Best Rudraksha promotes physical and mental balance. Buy original Rudraksha online for a healthy life.",
@@ -987,8 +956,7 @@ const shopData: Product[] = [
   },
   {
     id: 31,
-    paymentLink: "https://payments.cashfree.com/forms/ganesh-rudraksha",
-    title: "Ganesh Rudraksha - Rudraksha for Career Growth",
+        title: "Ganesh Rudraksha - Rudraksha for Career Growth",
     slug: "career-growth-obstacle-removal-ganesh-rudraksha",
     reviews: 0,
     description: "Boost career growth with the Ganesh Rudraksha from Best Rudraksha, a sacred bead for obstacle removal. Sourced from Nepal, this certified Rudraksha from Best Rudraksha invokes Lord Ganesha’s blessings. Buy original Rudraksha online for professional success.",
@@ -1019,8 +987,7 @@ const shopData: Product[] = [
   },
   {
     id: 32,
-    paymentLink: "https://payments.cashfree.com/forms/gauri-shankar-rudraksha",
-    title: "Gauri Shankar Rudraksha - Rudraksha for Marriage Harmony",
+        title: "Gauri Shankar Rudraksha - Rudraksha for Marriage Harmony",
     slug: "husband-wife-disputes-marriage-issues-gauri-shankar-rudraksha",
     reviews: 0,
     description: "Resolve marriage issues with the Gauri Shankar Rudraksha from Best Rudraksha, a sacred bead for unity. Sourced from Nepal, this certified Rudraksha from Best Rudraksha fosters love and harmony. Buy original Rudraksha online for a blissful married life.",
@@ -1051,8 +1018,7 @@ const shopData: Product[] = [
   },
   {
     id: 33,
-    paymentLink: "https://payments.cashfree.com/forms/happy-married-life-2-mukhi",
-    title: "Rudraksha for Happy Married Life - 2 Mukhi Rudraksha",
+        title: "Rudraksha for Happy Married Life - 2 Mukhi Rudraksha",
     slug: "happy-married-life-2-mukhi-rudraksha",
     reviews: 0,
     description: "Ensure a happy married life with the 2 Mukhi Rudraksha from Best Rudraksha, a two-faced bead for harmony. Sourced from Nepal, this certified Rudraksha from Best Rudraksha promotes unity and love. Buy original Rudraksha online for relationship bliss.",
@@ -1083,8 +1049,7 @@ const shopData: Product[] = [
   },
     {
       id: 34,
-      paymentLink: "https://payments.cashfree.com/forms/aries-3-mukhi-rudraksha",
-      title: "Mesh (Aries)",
+            title: "Mesh (Aries)",
       slug: "aries-3-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1115,8 +1080,7 @@ const shopData: Product[] = [
     },
     {
       id: 35,
-      paymentLink: "https://payments.cashfree.com/forms/taurus-6-mukhi-rudraksha",
-      title: "Vrishabha (Taurus) ",
+            title: "Vrishabha (Taurus) ",
       slug: "taurus-6-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1147,8 +1111,7 @@ const shopData: Product[] = [
     },
     {
       id: 36,
-      paymentLink: "https://payments.cashfree.com/forms/gemini-4-mukhi-rudraksha",
-      title: "Mithun (Gemini)",
+            title: "Mithun (Gemini)",
       slug: "gemini-4-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1179,8 +1142,7 @@ const shopData: Product[] = [
     },
     {
       id: 37,
-      paymentLink: "https://payments.cashfree.com/forms/cancer-2-mukhi-rudraksha",
-      title: "Kark (Cancer)",
+            title: "Kark (Cancer)",
       slug: "cancer-2-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1211,8 +1173,7 @@ const shopData: Product[] = [
     },
     {
       id: 38,
-      paymentLink: "https://payments.cashfree.com/forms/leo-3-mukhi-rudraksha",
-      title: "Singh (Leo)",
+            title: "Singh (Leo)",
       slug: "leo-3-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1243,8 +1204,7 @@ const shopData: Product[] = [
     },
     {
       id: 39,
-      paymentLink: "https://payments.cashfree.com/forms/virgo-4-mukhi-rudraksha",
-      title: "Kanyza (Virgo)",
+            title: "Kanyza (Virgo)",
       slug: "virgo-4-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1275,8 +1235,7 @@ const shopData: Product[] = [
     },
     {
       id: 40,
-      paymentLink: "https://payments.cashfree.com/forms/libra-6-mukhi-rudraksha",
-      title: "Tula (Libra)",
+            title: "Tula (Libra)",
       slug: "libra-6-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1307,8 +1266,7 @@ const shopData: Product[] = [
     },
     {
       id: 41,
-      paymentLink: "https://payments.cashfree.com/forms/scorpio-5-mukhi-rudraksha",
-      title: "Vrishchik (Scorpio)",
+            title: "Vrishchik (Scorpio)",
       slug: "scorpio-5-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1339,8 +1297,7 @@ const shopData: Product[] = [
     },
     {
       id: 42,
-      paymentLink: "https://payments.cashfree.com/forms/sagittarius-3-mukhi-rudraksha",
-      title: "Dhanu (Sagittarius)",
+            title: "Dhanu (Sagittarius)",
       slug: "sagittarius-3-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1371,8 +1328,7 @@ const shopData: Product[] = [
     },
     {
       id: 43,
-      paymentLink: "https://payments.cashfree.com/forms/capricorn-7-mukhi-rudraksha",
-      title: "Makar (Capricorn)",
+            title: "Makar (Capricorn)",
       slug: "capricorn-7-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1403,8 +1359,7 @@ const shopData: Product[] = [
     },
     {
       id: 44,
-      paymentLink: "https://payments.cashfree.com/forms/aquarius-7-mukhi-rudraksha",
-      title: "Kumbh (Aquarius)",
+            title: "Kumbh (Aquarius)",
       slug: "aquarius-7-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1435,8 +1390,7 @@ const shopData: Product[] = [
     },
     {
       id: 45,
-      paymentLink: "https://payments.cashfree.com/forms/pisces-5-mukhi-rudraksha",
-      title: "Meen (Pisces)",
+            title: "Meen (Pisces)",
       slug: "pisces-5-mukhi-rudraksha",
       reviews: 0,
       description:
@@ -1468,8 +1422,7 @@ const shopData: Product[] = [
   
     {
       id: 46,
-      paymentLink: "https://payments.cashfree.com/forms/kamalgatta-mala",
-      title: "Kamalgatta Mala - Best Rudraksha for Spiritual Clarity",
+            title: "Kamalgatta Mala - Best Rudraksha for Spiritual Clarity",
       slug: "kamalgatta-mala",
       reviews: 0,
       description:
@@ -1500,8 +1453,7 @@ const shopData: Product[] = [
     },
     {
       id: 47,
-      paymentLink: "https://payments.cashfree.com/forms/vaijanti-mala",
-      title: "Vaijanti Mala - Best Rudraksha for Prosperity and Harmony",
+            title: "Vaijanti Mala - Best Rudraksha for Prosperity and Harmony",
       slug: "vaijanti-mala",
       reviews: 0,
       description:
@@ -1532,8 +1484,7 @@ const shopData: Product[] = [
     },
     {
       id: 48,
-      paymentLink: "https://payments.cashfree.com/forms/sphatika-mala",
-      title: "Sphatika Mala - Best Rudraksha for Purity and Healing",
+            title: "Sphatika Mala - Best Rudraksha for Purity and Healing",
       slug: "sphatika-mala",
       reviews: 0,
       description:
@@ -1564,8 +1515,7 @@ const shopData: Product[] = [
     },
     {
       id: 49,
-      paymentLink: "https://payments.cashfree.com/forms/laxmi-maha-meru-shree-yantra",
-      title: "Home Genie Goddess Laxmi Maha Meru Shree Yantra - Best Rudraksha for Wealth",
+            title: "Home Genie Goddess Laxmi Maha Meru Shree Yantra - Best Rudraksha for Wealth",
       slug: "laxmi-maha-meru-shree-yantra",
       reviews: 0,
       description:
@@ -1594,6 +1544,38 @@ const shopData: Product[] = [
       },
       sizes: [{ name: "Standard", price: 3000, discountedPrice: 2500 }],
     },
+    {
+      id: 50,
+      title: "5 Mukhi Rudraksha Bhuri Mala ",
+      slug: "5-mukhi-rudraksha-bhuri-mala",
+      reviews: 0,
+      description:
+        "Discover the power of the 5 Mukhi Rudraksha Bhuri Mala – an original spiritual rosary known for its protective and meditative properties. Ideal for daily use and spiritual practices, this mala enhances focus, peace, and energy alignment.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "This 5 Mukhi Rudraksha Bhuri Mala is made from authentic, high-quality Rudraksha beads, known for balancing the five elements and promoting mental clarity. Used by sages and spiritual seekers, it's ideal for meditation, yoga, and prayer rituals. A sacred accessory for wellness and protection.",
+      keyFeatures: [
+        "Original 5 Mukhi Rudraksha beads",
+        "Handcrafted Bhuri Mala with natural finish",
+        "Aids in spiritual growth and inner peace",
+        "Suitable for meditation and daily wear",
+        "Comes with authenticity certificate"
+      ],
+      benefits: [
+        "Improves concentration and focus",
+        "Balances body energies and calms the mind",
+        "Provides spiritual protection",
+        "Helps reduce stress and anxiety",
+        "Recommended for meditation and mantra chanting"
+      ],
+      images: ["/images/products/mala/5.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/5.png"],
+        previews: ["/images/products/mala/5.png"]
+      },
+      sizes: [{ name: "Standard", price: 700, discountedPrice: 500 }]
+    }
+    
   
 ];
 
