@@ -13,7 +13,7 @@ const Mala: React.FC = () => {
   const itemsPerPage = 12;
 
   // Filter shopData to show only products with IDs 46 to 49
-  const specialRudrakshaBase = shopData.filter((item) => item.id >= 46 && item.id <= 49);
+  const specialRudrakshaBase = shopData.filter((item) => item.id >= 46 && item.id <= 50);
 
   // Sort data based on sizes[0]?.price
   const sortedGemstoneProducts = [...specialRudrakshaBase].sort((a: any, b: any) => {

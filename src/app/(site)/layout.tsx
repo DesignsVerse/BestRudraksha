@@ -15,10 +15,78 @@ import NavigationBar from "@/components/Common/NavigationBar";
 import type { Metadata } from "next";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import CallButton from "@/components/Common/WhatsAppButton";
-
 export const metadata: Metadata = {
-  title: "Demo E-Commerce",
-  description: "Buy your favorite products online",
+  title: "BestRudraksha.com | Authentic Rudraksha, Gemstones, Malas & Yantras",
+  description:
+    "Shop authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual products for astrology, meditation, and wellness in India!",
+  keywords: [
+    "BestRudraksha",
+    "authentic Rudraksha",
+    "Rudraksha shop India",
+    "spiritual products",
+    "gemstones India",
+    "mala beads",
+    "yantra for spirituality",
+    "Rudraksha online",
+    "buy Rudraksha",
+    "authentic gemstones",
+    "spiritual guidance India",
+    "Rudraksha benefits",
+    "gemstones for astrology",
+    "mala for meditation",
+    "yantra for prosperity",
+    "Rudraksha for health",
+    "Rudraksha for wealth",
+    "spiritual products India",
+    "trusted Rudraksha store",
+    "Rudraksha authenticity",
+    "gemstones online",
+    "mala online",
+    "yantra online",
+    "Rudraksha for zodiac signs",
+    "spiritual wellness India",
+    "BestRudraksha store",
+    "Rudraksha for spirituality",
+    "gemstones for healing",
+    "mala for chanting",
+    "yantra for protection",
+  ],
+  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
+  openGraph: {
+    title: "BestRudraksha.com | Trusted Spiritual Products",
+    description:
+      "Explore authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. India’s trusted store for spiritual wellness!",
+    url: "https://bestrudraksha.com",
+    siteName: "BestRudraksha.com",
+    images: [
+      {
+        url: "https://bestrudraksha.com/images/home-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BestRudraksha Spiritual Products",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BestRudraksha.com | Trusted Spiritual Products",
+    description:
+      "Shop Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual store in India!",
+    images: ["https://bestrudraksha.com/images/home-twitter-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://bestrudraksha.com",
+  },
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "India",
+    "geo.position": "20.5937;78.9629",
+    "ICBM": "20.5937, 78.9629",
+  },
 };
 
 export default function RootLayout({
@@ -46,8 +114,8 @@ export default function RootLayout({
         <ScrollToTop />
         <Footer />
         <NavigationBar />
-        <CallButton phoneNumber="+919153164444" label="Contact Us"/>
-
+        <WhatsAppButton phoneNumber="+919153164444" label="Chat with Us" />
+        <CallButton phoneNumber="+919153164444" label="Contact Us" />
       </body>
     </html>
   );
