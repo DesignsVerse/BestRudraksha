@@ -1,4 +1,4 @@
-export type BlogItem = {
+export type Blog = {
   id: number;
   slug: string;
   date: string;

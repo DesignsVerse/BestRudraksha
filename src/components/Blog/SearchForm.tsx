@@ -3,21 +3,8 @@
 import React, { useState } from "react";
 import blogData from "@/data/blogData.json"; // Import blog data
 import Link from "next/link";
+import { Blog } from "@/types/blogItem";
 
-// Define Blog interface for type safety
-interface Blog {
-  id: number;
-  slug: string;
-  date: string;
-  views: number;
-  title: string;
-  img: string;
-  productId: number;
-  sections: { heading: string; content: string }[];
-  tags: string[];
-  author: { name: string; role: string; avatar: string };
-  quote: string;
-}
 
 const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
