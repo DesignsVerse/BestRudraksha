@@ -1,5 +1,6 @@
 import "../css/euclid-circular-a-font.css";
 import "../css/style.css";
+import { ClerkProvider } from '@clerk/nextjs';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -27,28 +28,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ReduxProvider>
-          <CartModalProvider>
-            <ModalProvider>
-              <PreviewSliderProvider>
-                <Header />
-                {children}
-                <QuickViewModal />
-                <CartSidebarModal />
-                <PreviewSliderModal />
-              </PreviewSliderProvider>
-            </ModalProvider>
-          </CartModalProvider>
-        </ReduxProvider>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <ReduxProvider>
+            <CartModalProvider>
+              <ModalProvider>
+                <PreviewSliderProvider>
+                  <Header />
+                  {children}
+                  <QuickViewModal />
+                  <CartSidebarModal />
+                  <PreviewSliderModal />
+                </PreviewSliderProvider>
+              </ModalProvider>
+            </CartModalProvider>
+          </ReduxProvider>
 
-        <ScrollToTop />
-        <Footer />
-        <NavigationBar />
-        <CallButton phoneNumber="+919153164444" label="Contact Us"/>
-
-      </body>
-    </html>
+          <ScrollToTop />
+          <Footer />
+          <NavigationBar />
+          <CallButton phoneNumber="+919153164444" label="Contact Us"/>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
