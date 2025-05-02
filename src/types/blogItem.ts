@@ -1,10 +1,10 @@
-export type BlogItem = {
+export type Blog = {
   id: number;
   slug: string;
   date: string;
   views: number;
   title: string;
-  productId:number;
+  productId: number | string; // ✅ Allow both types
   img: string;
   sections: { heading: string; content: string }[]; // Updated to sections array
   tags: string[];
