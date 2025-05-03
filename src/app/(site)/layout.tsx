@@ -15,6 +15,8 @@ import NavigationBar from "@/components/Common/NavigationBar";
 import type { Metadata } from "next";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import CallButton from "@/components/Common/WhatsAppButton";
+import { ClerkProvider } from '@clerk/nextjs';
+
 export const metadata: Metadata = {
   title: "BestRudraksha.com | Authentic Rudraksha, Gemstones, Malas & Yantras",
   description:
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
-      "Explore authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. India’s trusted store for spiritual wellness!",
+      "Explore authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. India's trusted store for spiritual wellness!",
     url: "https://bestrudraksha.com",
     siteName: "BestRudraksha.com",
     images: [
@@ -97,25 +99,26 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ReduxProvider>
-          <CartModalProvider>
-            <ModalProvider>
-              <PreviewSliderProvider>
-                <Header />
-                {children}
-                <QuickViewModal />
-                <CartSidebarModal />
-                <PreviewSliderModal />
-              </PreviewSliderProvider>
-            </ModalProvider>
-          </CartModalProvider>
-        </ReduxProvider>
-
-        <ScrollToTop />
-        <Footer />
-        <NavigationBar />
-        <WhatsAppButton phoneNumber="+919153164444" label="Chat with Us" />
-        <CallButton phoneNumber="+919153164444" label="Contact Us" />
+        <ClerkProvider>
+          <ReduxProvider>
+            <CartModalProvider>
+              <ModalProvider>
+                <PreviewSliderProvider>
+                  <Header />
+                  {children}
+                  <QuickViewModal />
+                  <CartSidebarModal />
+                  <PreviewSliderModal />
+                </PreviewSliderProvider>
+              </ModalProvider>
+            </CartModalProvider>
+          </ReduxProvider>
+          <ScrollToTop />
+          <Footer />
+          <NavigationBar />
+          <WhatsAppButton phoneNumber="+919153164444" label="Chat with Us" />
+          <CallButton phoneNumber="+919153164444" label="Contact Us" />
+        </ClerkProvider>
       </body>
     </html>
   );

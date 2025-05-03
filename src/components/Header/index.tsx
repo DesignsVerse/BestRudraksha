@@ -10,6 +10,7 @@ import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import Image from "next/image";
 import { Menu } from "@/types/Menu";
 import shopData from "@/components/Shop/shopData";
+import { UserButton, SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
 
 const Header: React.FC = () => {
   const [navigationOpen, setNavigationOpen] = useState<boolean>(false);
@@ -281,12 +282,19 @@ const Header: React.FC = () => {
               )}
             </Link>
 
-            <Link
-              href="/signin"
-              className="hidden md:flex items-center relative"
-            >
-              <UserIcon />
-            </Link>
+            <SignedIn>
+              <div className="hidden md:flex items-center relative">
+                <UserButton afterSignOutUrl="/" />
+              </div>
+            </SignedIn>
+            <SignedOut>
+              <Link
+                href="/signin"
+                className="hidden md:flex items-center relative"
+              >
+                <UserIcon />
+              </Link>
+            </SignedOut>
 
             <button
               onClick={handleOpenCartModal}

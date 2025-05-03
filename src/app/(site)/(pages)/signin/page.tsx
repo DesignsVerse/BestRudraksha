@@ -1,5 +1,4 @@
-import Signin from "@/components/Auth/Signin";
-import React from "react";
+import { SignIn } from '@clerk/nextjs';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -53,12 +52,23 @@ export const metadata: Metadata = {
   },
 };
 
-const SigninPage = () => {
+export default function SignInPage() {
   return (
-    <main>
-      <Signin />
-    </main>
+    <div className="min-h-[80vh] flex items-center justify-center bg-[#FFFAF5] py-12 mt-36">
+      <div className="w-full max-w-md bg-white rounded-xl p-6">
+        <SignIn appearance={{
+          elements: {
+            card: 'shadow-none',
+            formButtonPrimary: 'bg-[#800000] hover:bg-[#800000]/90',
+            headerTitle: 'text-[#800000] font-bold',
+            headerSubtitle: 'text-[#800000]/70',
+            socialButtonsBlockButton: 'bg-[#FFFAF5] text-[#800000] hover:bg-[#800000]/10',
+            dividerText: 'text-[#800000]/50',
+            footerActionText: 'text-[#800000]/70',
+            footerActionLink: 'text-[#800000] hover:underline',
+          },
+        }} />
+      </div>
+    </div>
   );
-};
-
-export default SigninPage;
+}
