@@ -88,20 +88,22 @@ const SingleGridItem = ({ item }: { item: Product }) => {
         <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
           <Image
             src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
-            alt={item.title}
+            alt={item.title || "Product Image"}
             width={300}
             height={300}
-            className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-56 sm:h-64 object-contain transition-transform duration-300 group-hover:scale-110"
             style={{
-              // Disables mobile viewport scaling
-              transform: "scale(1)",
-              // Ensures proper display on mobile
+              transform: "scale(0.7)",
               maxWidth: "100%",
               height: "auto",
+              objectPosition: "center",
             }}
-            // Mobile-specific attributes
-            sizes="100vw"
-            quality={75}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={85}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "/images/placeholder.png";
+            }}
           />
         </Link>
         <span className="absolute md:top-2 md:right-2 top-0 right-2  bg-[#800000] text-white md:text-xs text-[8px] font-semibold  px-1 py-0 rounded">

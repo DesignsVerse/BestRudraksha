@@ -61,7 +61,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/2.png"]
     },
     sizes: [
-      { name: "Regular", price: 2100, discountedPrice: 1800 },
+      { name: "Regular", price: 1500, discountedPrice: 800 },
       // { name: "Premium", price: 2000, discountedPrice: 1600 }
     ]
   },
@@ -253,7 +253,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/8.png"]
     },
     sizes: [
-      { name: "Regular", price: 2200, discountedPrice: 1800 },
+      { name: "Regular", price: 8000, discountedPrice: 6500 },
       // { name: "Premium", price: 3500, discountedPrice: 3000 }
     ]
   },
@@ -285,7 +285,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/9.png"]
     },
     sizes: [
-      { name: "Regular", price: 3000, discountedPrice: 2500 },
+      { name: "Regular", price: 8500, discountedPrice: 7000 },
       // { name: "Premium", price: 4500, discountedPrice: 4000 }
     ]
   },
@@ -317,7 +317,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/10.png"]
     },
     sizes: [
-      { name: "Regular", price: 3800, discountedPrice: 3000 },
+      { name: "Regular", price: 9000, discountedPrice: 7000 },
       // { name: "Premium", price: 5500, discountedPrice: 5000 }
     ]
   },
@@ -349,7 +349,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/11.png"]
     },
     sizes: [
-      { name: "Regular", price: 4500, discountedPrice: 3500 },
+      { name: "Regular", price: 9500, discountedPrice: 7500 },
       // { name: "Premium", price: 6500, discountedPrice: 6000 }
     ]
   },
@@ -381,7 +381,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/12.png"]
     },
     sizes: [
-      { name: "Regular", price: 5000, discountedPrice: 4000 },
+      { name: "Regular", price: 10200, discountedPrice: 8000 },
       // { name: "Premium", price: 8000, discountedPrice: 7500 }
     ]
   },
@@ -413,7 +413,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/13.png"]
     },
     sizes: [
-      { name: "Regular", price: 6200, discountedPrice: 5000 },
+      { name: "Regular", price: 19500, discountedPrice: 17000 },
       // { name: "Premium", price: 10000, discountedPrice: 9500 }
     ]
   },
@@ -445,7 +445,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/14.png"]
     },
     sizes: [
-      { name: "Regular", price: 7500, discountedPrice: 6000 },
+      { name: "Regular", price: 41000, discountedPrice: 32000 },
       // { name: "Premium", price: 17000, discountedPrice: 16000 }
     ]
   },
@@ -770,7 +770,7 @@ const shopData: Product[] = [
   },
   {
     id: 25,
-        title: "Rudraksha for Mangal Dosha and Property - 3 Mukhi Rudraksha -",
+        title: "Mangal Dosha and Property Rudraksha - 3 Mukhi Rudraksha -",
     slug: "mangal-dosha-3-mukhi-rudraksha",
     reviews: 0,
     description: "Overcome Mangal Dosha with the 3 Mukhi Rudraksha from Best Rudraksha, a three-faced bead ideal for property-related work. Sourced from Nepal, this certified Rudraksha from Best Rudraksha reduces anger and enhances stability. Buy original Rudraksha online for balance.",
@@ -796,12 +796,12 @@ const shopData: Product[] = [
       previews: ["/images/products/special/1.png"]
     },
     sizes: [
-      { name: "Regular", price: 1800, discountedPrice: 1500 }
+      { name: "Regular", price: 1300, discountedPrice: 900 }
     ]
   },
   {
     id: 26,
-        title: "Rudraksha for Shani Sade Sati and Dhaiya - 7 Mukhi Rudraksha",
+        title: "Shani Sade Sati and Dhaiya Rudraksha - 7 Mukhi Rudraksha",
     slug: "shani-sade-sati-7-mukhi-rudraksha",
     reviews: 0,
     description: "Ease Shani Sade Sati with the 7 Mukhi Rudraksha from Best Rudνακsha, a seven-faced bead for prosperity. Sourced from Nepal, this certified Rudraksha from Best Rudraksha reduces Saturn’s malefic effects. Buy original Rudraksha online for financial stability.",
@@ -827,7 +827,7 @@ const shopData: Product[] = [
       previews: ["/images/products/special/3.png"]
     },
     sizes: [
-      { name: "Regular", price: 2500, discountedPrice: 2000 }
+      { name: "Regular", price: 1500, discountedPrice: 1200 }
     ]
   },
   {
@@ -852,13 +852,13 @@ const shopData: Product[] = [
       "Promotes success and clarity",
       "Protects against negative influences"
     ],
-    images: ["/images/product/store/special-problem/4.webp"],
+    images: ["/images/products/special/4.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/4.webp"],
-      previews: ["/images/product/store/special-problem/4.webp"]
+      thumbnails: ["/images/products/special/4.png"],
+      previews: ["/images/products/special/4.png"]
     },
     sizes: [
-      { name: "Regular", price: 3500, discountedPrice: 3000 }
+      { name: "Regular", price: 8200, discountedPrice: 6500 }
     ]
   },
   {
@@ -883,13 +883,13 @@ const shopData: Product[] = [
       "Boosts confidence and clarity",
       "Supports personal empowerment"
     ],
-    images: ["/images/product/store/special-problem/5.webp"],
+    images: ["/images/products/special/5.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/5.webp"],
-      previews: ["/images/product/store/special-problem/5.webp"]
+      thumbnails: ["/images/products/special/5.png"],
+      previews: ["/images/products/special/5.png"]
     },
     sizes: [
-      { name: "Regular", price: 4500, discountedPrice: 4000 }
+      { name: "Regular", price: 9200, discountedPrice: 7000 }
     ]
   },
   {
@@ -914,13 +914,13 @@ const shopData: Product[] = [
       "Boosts mental clarity and confidence",
       "Protects against distractions"
     ],
-    images: ["/images/product/store/special-problem/6.webp"],
+    images: ["/images/products/special/6.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/6.webp"],
-      previews: ["/images/product/store/special-problem/6.webp"]
+      thumbnails: ["/images/products/special/6.png"],
+      previews: ["/images/products/special/6.png"]
     },
     sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 }
+      { name: "Regular", price: 1000, discountedPrice: 850 }
     ]
   },
   {
@@ -945,13 +945,13 @@ const shopData: Product[] = [
       "Supports spiritual growth and meditation",
       "Protects against negative energies"
     ],
-    images: ["/images/product/store/special-problem/7.webp"],
+    images: ["/images/products/special/7.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/7.webp"],
-      previews: ["/images/product/store/special-problem/7.webp"]
+      thumbnails: ["/images/products/special/7.png"],
+      previews: ["/images/products/special/7.png"]
     },
     sizes: [
-      { name: "Regular", price: 1200, discountedPrice: 900 }
+      { name: "Regular", price: 800, discountedPrice: 660 }
     ]
   },
   {
@@ -976,13 +976,13 @@ const shopData: Product[] = [
       "Boosts confidence and stability",
       "Invokes Lord Ganesha’s blessings"
     ],
-    images: ["/images/product/store/special-problem/8.webp"],
+    images: ["/images/products/special/8.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/8.webp"],
-      previews: ["/images/product/store/special-problem/8.webp"]
+      thumbnails: ["/images/products/special/8.png"],
+      previews: ["/images/products/special/8.png"]
     },
     sizes: [
-      { name: "Regular", price: 3000, discountedPrice: 2500 }
+      { name: "Regular", price: 1900, discountedPrice: 1500 }
     ]
   },
   {
@@ -1007,13 +1007,13 @@ const shopData: Product[] = [
       "Supports a blissful married life",
       "Protects against negative energies"
     ],
-    images: ["/ inseparable/product/store/special-problem/9.webp"],
+    images: ["/images/products/special/9.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/9.webp"],
-      previews: ["/images/product/store/special-problem/9.webp"]
+      thumbnails: ["/images/products/special/9.png"],
+      previews: ["/images/products/special/9.png"]
     },
     sizes: [
-      { name: "Regular", price: 5500, discountedPrice: 5000 }
+      { name: "Regular", price: 4200, discountedPrice: 3000 }
     ]
   },
   {
@@ -1038,13 +1038,13 @@ const shopData: Product[] = [
       "Supports unity and mutual understanding",
       "Protects against negative emotional energies"
     ],
-    images: ["/images/product/store/special-problem/10.webp"],
+    images: ["/images/products/special/10.png"],
     imgs: {
-      thumbnails: ["/images/product/store/special-problem/10.webp"],
-      previews: ["/images/product/store/special-problem/10.webp"]
+      thumbnails: ["/images/products/special/10.png"],
+      previews: ["/images/products/special/10.png"]
     },
     sizes: [
-      { name: "Regular", price: 1500, discountedPrice: 1200 }
+      { name: "Regular", price: 1200, discountedPrice: 800 }
     ]
   },
     {
@@ -1573,7 +1573,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/5.png"],
         previews: ["/images/products/mala/5.png"]
       },
-      sizes: [{ name: "Standard", price: 700, discountedPrice: 500 }]
+      sizes: [{ name: "Standard", price: 1200, discountedPrice: 900 }]
     }
     
   
