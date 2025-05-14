@@ -1076,7 +1076,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/1.png"],
         previews: ["/images/products/rashi/1.png"],
       },
-      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
+      sizes: [{ name: "Regular", price: 1400, discountedPrice: 900 }],
     },
     {
       id: 35,
@@ -1107,7 +1107,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/2.png"],
         previews: ["/images/products/rashi/2.png"],
       },
-      sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
+      sizes: [{ name: "Regular", price: 1700, discountedPrice: 850 }],
     },
     {
       id: 36,
@@ -1138,7 +1138,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/3.png"],
         previews: ["/images/products/rashi/3.png"],
       },
-      sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
+      sizes: [{ name: "Regular", price: 1600, discountedPrice: 700 }],
     },
     {
       id: 37,
@@ -1169,7 +1169,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/4.png"],
         previews: ["/images/products/rashi/4.png"],
       },
-      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1200 }],
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 800 }],
     },
     {
       id: 38,
@@ -1200,7 +1200,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/5.png"],
         previews: ["/images/products/rashi/5.png"],
       },
-      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
+      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1500 }],
     },
     {
       id: 39,
@@ -1231,7 +1231,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/6.png"],
         previews: ["/images/products/rashi/6.png"],
       },
-      sizes: [{ name: "Regular", price: 1600, discountedPrice: 1250 }],
+      sizes: [{ name: "Regular", price: 1600, discountedPrice: 700 }],
     },
     {
       id: 40,
@@ -1262,7 +1262,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/7.png"],
         previews: ["/images/products/rashi/7.png"],
       },
-      sizes: [{ name: "Regular", price: 1700, discountedPrice: 1300 }],
+      sizes: [{ name: "Regular", price: 1700, discountedPrice: 850 }],
     },
     {
       id: 41,
@@ -1293,7 +1293,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/8.png"],
         previews: ["/images/products/rashi/8.png"],
       },
-      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 900 }],
     },
     {
       id: 42,
@@ -1324,7 +1324,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/9.png"],
         previews: ["/images/products/rashi/9.png"],
       },
-      sizes: [{ name: "Regular", price: 1800, discountedPrice: 1400 }],
+      sizes: [{ name: "Regular", price: 1300, discountedPrice: 660 }],
     },
     {
       id: 43,
@@ -1355,7 +1355,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/10.png"],
         previews: ["/images/products/rashi/10.png"],
       },
-      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
+      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1200 }],
     },
     {
       id: 44,
@@ -1386,7 +1386,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/11.png"],
         previews: ["/images/products/rashi/11.png"],
       },
-      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1600 }],
+      sizes: [{ name: "Regular", price: 2000, discountedPrice: 1200 }],
     },
     {
       id: 45,
@@ -1417,7 +1417,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/rashi/12.png"],
         previews: ["/images/products/rashi/12.png"],
       },
-      sizes: [{ name: "Regular", price: 1500, discountedPrice: 1100 }],
+      sizes: [{ name: "Regular", price: 1500, discountedPrice: 660 }],
     },
   
     {
