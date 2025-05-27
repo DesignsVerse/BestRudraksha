@@ -183,7 +183,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-32 transition-all ease-in-out duration-300 ${
+      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-28 transition-all ease-in-out duration-300 ${
         stickyMenu && "shadow-lg border-b border-[#800000]/20"
       }`}
     >
