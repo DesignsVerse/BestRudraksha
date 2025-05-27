@@ -220,7 +220,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <div className="relative h-12 w-40">
+              <div className="relative h-[5vh] w-40">
                 <Image
                   src="/images/logo/rudraksha-logo-1.png"
                   alt="Best Rudraksha Logo"
