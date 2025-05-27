@@ -183,14 +183,14 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-28 transition-all ease-in-out duration-300 ${
-        stickyMenu && "shadow-lg border-b border-[#800000]/20"
+      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-20 transition-all ease-in-out duration-300 ${
+        stickyMenu ? "shadow-md border-b border-[#800000]/10 bg-white/95 backdrop-blur-sm" : ""
       }`}
     >
       <div className="max-w-[1160px] mx-auto px-4 sm:px-7.5 xl:px-0 relative">
         <div
           className={`flex items-center justify-between ease-out duration-200 ${
-            stickyMenu ? "py-4" : "py-6"
+            stickyMenu ? "py-2" : "py-3"
           }`}
         >
           {/* Mobile Menu Toggle */}
@@ -220,9 +220,9 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <div className="relative h-32 w-40">
+              <div className="relative h-25 w-40">
                 <Image
-                  src="/images/logo/rudraksha-logo-1.png"
+                  src="/images/logo/logo.png"
                   alt="Best Rudraksha Logo"
                   fill
                   style={{ objectFit: "contain" }}
@@ -246,12 +246,12 @@ const Header: React.FC = () => {
                   ) : (
                     <li
                       key={menuItem.id}
-                      className="group relative before:w-0 before:h-[3px] before:bg-[#800000] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
+                      className="group relative before:w-0 before:h-[2px] before:bg-[#800000] before:absolute before:left-0 before:bottom-0 before:rounded-b-[2px] before:ease-out before:duration-200 hover:before:w-full"
                     >
                       <Link
                         href={menuItem.path || "#"}
                         className={`text-[#800000] hover:text-[#800000]/80 text-custom-sm font-medium flex ${
-                          stickyMenu ? "xl:py-4" : "xl:py-6"
+                          stickyMenu ? "py-2" : "py-3"
                         }`}
                       >
                         {menuItem.title}
