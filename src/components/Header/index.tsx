@@ -183,7 +183,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] transition-all ease-in-out duration-300 ${
+      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-20 transition-all ease-in-out duration-300 ${
         stickyMenu && "shadow-lg border-b border-[#800000]/20"
       }`}
     >
@@ -220,7 +220,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <div className="relative h-[5vh] w-40">
+              <div className="relative h-32 w-40">
                 <Image
                   src="/images/logo/rudraksha-logo-1.png"
                   alt="Best Rudraksha Logo"
