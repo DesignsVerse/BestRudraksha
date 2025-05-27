@@ -183,14 +183,14 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-20 transition-all ease-in-out duration-300 ${
-        stickyMenu ? "shadow-md border-b border-[#800000]/10 bg-white/95 backdrop-blur-sm" : ""
+      className={`fixed left-0 top-0 w-full z-9999 bg-[#FFFAF5] h-20 md:h-22 transition-all ease-in-out duration-300 ${
+        stickyMenu && "shadow-lg border-b border-[#800000]/20"
       }`}
     >
       <div className="max-w-[1160px] mx-auto px-4 sm:px-7.5 xl:px-0 relative">
         <div
           className={`flex items-center justify-between ease-out duration-200 ${
-            stickyMenu ? "py-2" : "py-3"
+            stickyMenu ? "py-4" : "py-4"
           }`}
         >
           {/* Mobile Menu Toggle */}
@@ -220,7 +220,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <div className="relative h-25 w-40">
+              <div className="relative h-18 w-32 md:h-20 md:w-40">
                 <Image
                   src="/images/logo/logo.png"
                   alt="Best Rudraksha Logo"
@@ -246,12 +246,12 @@ const Header: React.FC = () => {
                   ) : (
                     <li
                       key={menuItem.id}
-                      className="group relative before:w-0 before:h-[2px] before:bg-[#800000] before:absolute before:left-0 before:bottom-0 before:rounded-b-[2px] before:ease-out before:duration-200 hover:before:w-full"
+                      className="group relative before:w-0 before:h-[3px] before:bg-[#800000] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
                     >
                       <Link
                         href={menuItem.path || "#"}
                         className={`text-[#800000] hover:text-[#800000]/80 text-custom-sm font-medium flex ${
-                          stickyMenu ? "py-2" : "py-3"
+                          stickyMenu ? "xl:py-4" : "xl:py-6"
                         }`}
                       >
                         {menuItem.title}
@@ -307,7 +307,7 @@ const Header: React.FC = () => {
               navigationOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <nav className="pt-20 px-5 h-full overflow-y-auto">
+            <nav className="pt-30 px-5 h-full overflow-y-auto">
               <ul className="flex flex-col gap-4">
                 {menuData.map((menuItem: Menu) =>
                   menuItem.submenu ? (
