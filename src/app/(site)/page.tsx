@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/home-og-image.jpg", // Rudraksha ki photo daal
+        url: "https://bestrudraksha.com/images/hero/home-gemstone.png",
         width: 1200,
         height: 630,
         alt: "Asli Rudraksha Beads aur Malas",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "BestRudraksha.com | Asli Rudraksha Online India",
     description:
       "Asli Rudraksha beads aur malas kharido BestRudraksha.com se. India ke spiritual shoppers ka favorite!",
-    images: ["https://bestrudraksha.com/images/home-twitter-image.jpg"], // Photo daal
+    images: ["https://bestrudraksha.com/images/hero/home-gemstone.png"],
     site: "@BestRudraksha", // Apna Twitter handle
   },
   alternates: {

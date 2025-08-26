@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/home-og-image.jpg",
+        url: "https://bestrudraksha.com/images/hero/home-gemstone.png",
         width: 1200,
         height: 630,
         alt: "BestRudraksha Spiritual Products",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
       "Shop Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual store in India!",
-    images: ["https://bestrudraksha.com/images/home-twitter-image.jpg"],
+    images: ["https://bestrudraksha.com/images/hero/home-gemstone.png"],
   },
   alternates: {
     canonical: "https://bestrudraksha.com",

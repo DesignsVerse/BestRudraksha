@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /private/  # Block private pages (optional)
-Disallow: /admin/    # Block admin panel (if exists)
-
-# Allow all other pages to be indexed
-Allow: /
-
-# Specify the sitemap location
-Sitemap: https://www.bestrudraksha.com/sitemap.xml
