@@ -51,18 +51,18 @@ export const metadata: Metadata = {
     "mala for chanting",
     "yantra for protection",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
       "Explore authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. India’s trusted store for spiritual wellness!",
-    url: "https://bestrudraksha.com",
+    url: "https://www.bestrudraksha.com",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/home-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/hero/home-gemstone.png",
         width: 1200,
         height: 630,
         alt: "BestRudraksha Spiritual Products",
@@ -76,10 +76,10 @@ export const metadata: Metadata = {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
       "Shop Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual store in India!",
-    images: ["https://bestrudraksha.com/images/home-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/hero/home-gemstone.png"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com",
+    canonical: "https://www.bestrudraksha.com",
   },
   other: {
     "geo.region": "IN",

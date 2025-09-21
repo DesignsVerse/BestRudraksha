@@ -40,18 +40,18 @@ export const metadata: Metadata = {
     "BestRudraksha contact number",
     "BestRudraksha support India",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Contact Us | BestRudraksha.com",
     description:
       "Reach out to BestRudraksha.com for support with Rudraksha, gemstones, malas, and yantras. Trusted spiritual guidance in India!",
-    url: "https://bestrudraksha.com/contact",
+    url: "https://www.bestrudraksha.com/contact",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/contact-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/contact-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "BestRudraksha Contact Support",
@@ -65,10 +65,10 @@ export const metadata: Metadata = {
     title: "Contact Us | BestRudraksha.com",
     description:
       "Contact BestRudraksha.com for inquiries about authentic Rudraksha and spiritual products. India’s trusted store!",
-    images: ["https://bestrudraksha.com/images/contact-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/contact-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/contact",
+    canonical: "https://www.bestrudraksha.com/contact",
   },
   other: {
     "geo.region": "IN",

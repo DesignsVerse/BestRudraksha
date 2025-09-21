@@ -60,18 +60,18 @@ export const metadata: Metadata = {
     "Rudraksha for planetary effects",
     "Rudraksha for horoscope",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Special Rudraksha | BestRudraksha.com",
     description:
       "Discover certified rare Rudraksha beads like Gauri Shankar and Trijuti at BestRudraksha.com. Trusted spiritual shopping in India!",
-    url: "https://bestrudraksha.com/shop-filter/special-rudraksha",
+    url: "https://www.bestrudraksha.com/shop-filter/special-rudraksha",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/special-rudraksha-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/special-rudraksha-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Rare Rudraksha Collection",
@@ -85,10 +85,10 @@ export const metadata: Metadata = {
     title: "Special Rudraksha | BestRudraksha.com",
     description:
       "Shop authentic rare Rudraksha beads at BestRudraksha.com. India’s trusted spiritual store!",
-    images: ["https://bestrudraksha.com/images/special-rudraksha-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/special-rudraksha-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/shop-filter/special-rudraksha",
+    canonical: "https://www.bestrudraksha.com/shop-filter/special-rudraksha",
   },
   other: {
     "geo.region": "IN",

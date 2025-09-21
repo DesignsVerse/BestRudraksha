@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+
+Allow: /
+
+Sitemap: https://www.bestrudraksha.com/sitemap.xml
+
