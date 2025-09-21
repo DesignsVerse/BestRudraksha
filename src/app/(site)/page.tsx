@@ -32,6 +32,7 @@ export const metadata: Metadata = {
       {
         url: "https://www.bestrudraksha.com/images/hero/home-gemstone.png",
         width: 1200,
+        
         height: 630,
         alt: "Asli Rudraksha Beads aur Malas",
       },
