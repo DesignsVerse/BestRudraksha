@@ -4,34 +4,34 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <!-- Served at https://bestrudraksha.com/sitemap.xml -->
+    <!-- Served at https://www.bestrudraksha.com/sitemap.xml -->
     <!-- Main Pages -->
     <url>
-        <loc>https://bestrudraksha.com/</loc>
+        <loc>https://www.bestrudraksha.com/</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/shop</loc>
+        <loc>https://www.bestrudraksha.com/shop</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/blog</loc>
+        <loc>https://www.bestrudraksha.com/blog</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/contact</loc>
+        <loc>https://www.bestrudraksha.com/contact</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/aboutus</loc>
+        <loc>https://www.bestrudraksha.com/aboutus</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
@@ -39,25 +39,25 @@
 
     <!-- Shop Categories -->
     <url>
-        <loc>https://bestrudraksha.com/shop-filter/1-14-mukhi-rudraksha</loc>
+        <loc>https://www.bestrudraksha.com/shop-filter/1-14-mukhi-rudraksha</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/shop-filter/gemstones</loc>
+        <loc>https://www.bestrudraksha.com/shop-filter/gemstones</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/shop-filter/special-rudraksha</loc>
+        <loc>https://www.bestrudraksha.com/shop-filter/special-rudraksha</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/shop-filter/mala-and-yantra</loc>
+        <loc>https://www.bestrudraksha.com/shop-filter/mala-and-yantra</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
@@ -66,25 +66,25 @@
     <!-- Product and Blog URLs omitted for brevity; keep list as needed -->
 
     <url>
-        <loc>https://bestrudraksha.com/privacy-policy</loc>
+        <loc>https://www.bestrudraksha.com/privacy-policy</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.60</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/refund-policy</loc>
+        <loc>https://www.bestrudraksha.com/refund-policy</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.60</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/terms-of-use</loc>
+        <loc>https://www.bestrudraksha.com/terms-of-use</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.60</priority>
     </url>
     <url>
-        <loc>https://bestrudraksha.com/faq</loc>
+        <loc>https://www.bestrudraksha.com/faq</loc>
         <lastmod>2025-05-02T10:11:55+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.65</priority>

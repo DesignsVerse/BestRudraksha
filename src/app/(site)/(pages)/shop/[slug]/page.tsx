@@ -21,11 +21,11 @@ export async function generateMetadata(
   const description = product?.shortDesc ||
     'Buy certified Rudraksha beads and malas at BestRudraksha.com. Trusted store in India.';
 
-  const canonical = `https://bestrudraksha.com/shop/${slug}`;
+  const canonical = `https://www.bestrudraksha.com/shop/${slug}`;
 
   const ogImage = product?.imgs?.previews?.[0]
-    ? `https://bestrudraksha.com${product.imgs.previews[0]}`
-    : 'https://bestrudraksha.com/images/shop-og-image.jpg';
+    ? `https://www.bestrudraksha.com${product.imgs.previews[0]}`
+    : 'https://www.bestrudraksha.com/images/shop-og-image.jpg';
 
   return {
     title,

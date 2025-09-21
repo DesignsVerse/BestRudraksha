@@ -4,5 +4,5 @@ Disallow: /admin/
 
 Allow: /
 
-Sitemap: https://bestrudraksha.com/sitemap.xml
+Sitemap: https://www.bestrudraksha.com/sitemap.xml
 

@@ -67,18 +67,18 @@ export const metadata: Metadata = {
     "Mala for negative energy",
     "Yantra for negative energy removal",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Mala and Yantra | BestRudraksha.com",
     description:
       "Discover authentic Rudraksha malas, gemstone malas, and powerful Yantras at BestRudraksha.com. Trusted spiritual shopping in India!",
-    url: "https://bestrudraksha.com/shop-filter/mala-yantra",
+    url: "https://www.bestrudraksha.com/shop-filter/mala-yantra",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/mala-yantra-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/mala-yantra-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Authentic Mala and Yantra Collection",
@@ -92,10 +92,10 @@ export const metadata: Metadata = {
     title: "Mala and Yantra | BestRudraksha.com",
     description:
       "Shop certified Mala and Yantra for meditation and spirituality at BestRudraksha.com. India’s trusted store!",
-    images: ["https://bestrudraksha.com/images/mala-yantra-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/mala-yantra-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/shop-filter/mala-yantra",
+    canonical: "https://www.bestrudraksha.com/shop-filter/mala-yantra",
   },
   other: {
     "geo.region": "IN",

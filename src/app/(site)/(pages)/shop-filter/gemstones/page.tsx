@@ -54,18 +54,18 @@ export const metadata: Metadata = {
     "gemstones for blood pressure control",
     "gemstones for stress free life",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "All Gemstones | BestRudraksha.com",
     description:
       "Discover certified gemstones like Ruby, Sapphire, and Emerald at BestRudraksha.com. Trusted spiritual shopping in India!",
-    url: "https://bestrudraksha.com/shop-filter/gemstones",
+    url: "https://www.bestrudraksha.com/shop-filter/gemstones",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/gemstones-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/gemstones-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Authentic Gemstones Collection",
@@ -79,10 +79,10 @@ export const metadata: Metadata = {
     title: "All Gemstones | BestRudraksha.com",
     description:
       "Shop authentic gemstones for astrology and spirituality at BestRudraksha.com. India’s trusted store!",
-    images: ["https://bestrudraksha.com/images/gemstones-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/gemstones-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/shop-filter/gemstones",
+    canonical: "https://www.bestrudraksha.com/shop-filter/gemstones",
   },
   other: {
     "geo.region": "IN",

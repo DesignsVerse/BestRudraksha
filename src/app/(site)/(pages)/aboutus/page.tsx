@@ -49,18 +49,18 @@ export const metadata: Metadata = {
     "BestRudraksha spiritual guidance",
     "BestRudraksha store India",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "About BestRudraksha.com | Spiritual Excellence",
     description:
       "Discover BestRudraksha.com’s mission to deliver authentic Rudraksha, gemstones, malas, and yantras. Trusted spiritual guidance from India!",
-    url: "https://bestrudraksha.com/aboutus",
+    url: "https://www.bestrudraksha.com/aboutus",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/about-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/about-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "BestRudraksha About Us",
@@ -74,10 +74,10 @@ export const metadata: Metadata = {
     title: "About BestRudraksha.com | Spiritual Excellence",
     description:
       "Learn about BestRudraksha.com, your trusted source for Rudraksha and spiritual products in India!",
-    images: ["https://bestrudraksha.com/images/about-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/about-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/aboutus",
+    canonical: "https://www.bestrudraksha.com/aboutus",
   },
   other: {
     "geo.region": "IN",

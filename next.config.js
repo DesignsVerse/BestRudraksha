@@ -10,7 +10,7 @@ const nextConfig = {
             value: 'www.bestrudraksha.com',
           },
         ],
-        destination: 'https://bestrudraksha.com/:path*',
+        destination: 'https://www.bestrudraksha.com/:path*',
         permanent: true,
       },
     ];

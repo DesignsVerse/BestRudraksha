@@ -84,18 +84,18 @@ export const metadata: Metadata = {
     "rudraksha for stress free life",
     "rudraksha for protection from negativity",
   ],
-  authors: [{ name: "BestRudraksha Team", url: "https://bestrudraksha.com" }],
+  authors: [{ name: "BestRudraksha Team", url: "https://www.bestrudraksha.com" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "noindex, nofollow",
   openGraph: {
     title: "Wishlist | BestRudraksha.com",
     description:
       "Apki pasand ke Rudraksha beads aur malas BestRudraksha.com ki wishlist mein. India ke liye easy shopping!",
-    url: "https://bestrudraksha.com/wishlist",
+    url: "https://www.bestrudraksha.com/wishlist",
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://bestrudraksha.com/images/wishlist-og-image.jpg",
+        url: "https://www.bestrudraksha.com/images/wishlist-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "BestRudraksha Wishlist",
@@ -109,10 +109,10 @@ export const metadata: Metadata = {
     title: "Wishlist | BestRudraksha.com",
     description:
       "BestRudraksha.com pe apni Rudraksha wishlist dekhein. India ke liye asli spiritual products!",
-    images: ["https://bestrudraksha.com/images/wishlist-twitter-image.jpg"],
+    images: ["https://www.bestrudraksha.com/images/wishlist-twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://bestrudraksha.com/wishlist",
+    canonical: "https://www.bestrudraksha.com/wishlist",
   },
   other: {
     "geo.region": "IN",
