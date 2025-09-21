@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import type { Metadata, ResolvingMetadata } from "next";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import SearchForm from "@/components/Blog/SearchForm";
 import LatestPosts from "@/components/Blog/LatestPosts";
@@ -14,36 +13,6 @@ import SingleGridItem from "@/components/Shop/SingleGridItem"; // Import SingleG
 import { Provider } from "react-redux";
 import {store} from "@/redux/store";
 
-export async function generateMetadata(
-  _: unknown,
-  __: ResolvingMetadata
-): Promise<Metadata> {
-  // Client component cannot access params; fallback generic blog metadata.
-  // For perfect SEO, convert this page to a server component and use params.
-  const title = "Blog | BestRudraksha";
-  const description = "Read trusted Rudraksha guides and spiritual articles at BestRudraksha.";
-  return {
-    title,
-    description,
-    robots: "index, follow",
-    openGraph: {
-      title,
-      description,
-      url: "https://www.bestrudraksha.com/blog",
-      images: [{ url: "https://www.bestrudraksha.com/images/blog-og-image.jpg", width: 1200, height: 630 }],
-      siteName: "BestRudraksha.com",
-      locale: "en_IN",
-      type: "article",
-    },
-    alternates: { canonical: "https://www.bestrudraksha.com/blog" },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["https://www.bestrudraksha.com/images/blog-twitter-image.jpg"],
-    },
-  };
-}
 
 
 const BlogDetailsWithSidebar = () => {
