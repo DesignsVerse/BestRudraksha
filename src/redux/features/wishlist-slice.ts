@@ -27,6 +27,9 @@ type WishlistState = {
 // Load from localStorage (helper)
 const loadFromLocalStorage = (): WishlistState => {
   try {
+    if (typeof window === "undefined") {
+      return { items: [] };
+    }
     const data = localStorage.getItem("wishlist");
     if (data) {
       return JSON.parse(data);
@@ -40,6 +43,7 @@ const loadFromLocalStorage = (): WishlistState => {
 // Save to localStorage (helper)
 const saveToLocalStorage = (state: WishlistState) => {
   try {
+    if (typeof window === "undefined") return;
     localStorage.setItem("wishlist", JSON.stringify(state));
   } catch (error) {
     console.error("Failed to save wishlist to localStorage", error);

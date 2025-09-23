@@ -11,8 +11,8 @@ const Categories = () => {
           <div className="mb-10 text-center">
           <span className="flex items-center justify-center gap-2.5 font-medium text-[#800000]">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <path d="M8 3V9M16 3V9M8 15V21M16 15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M8 3V9M16 3V9M8 15V21M16 15V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
   </svg>
   Categories
 </span>

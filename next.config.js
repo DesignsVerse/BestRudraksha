@@ -10,12 +10,16 @@ const nextConfig = {
             value: 'www.bestrudraksha.com',
           },
         ],
-        destination: 'https://www.bestrudraksha.com/:path*',
+        destination: 'https://bestrudraksha.com/:path*',
         permanent: true,
       },
     ];
   },
   async headers() {
+    const isProd = process.env.NODE_ENV === 'production';
+    if (!isProd) {
+      return [];
+    }
     return [
       {
         source: '/(.*)',
