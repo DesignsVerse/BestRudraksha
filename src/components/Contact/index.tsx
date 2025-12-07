@@ -5,15 +5,46 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser, FaPaperPlane } from 'react
 import { IoIosSend } from 'react-icons/io';
 
 const Contact = () => {
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to your email
-    console.log("Form data:", data);
-    alert("Your message has been sent to Rudrak. We'll contact you soon!");
-    e.target.reset();
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus({ type: 'success', message: result.message || 'Your enquiry has been sent successfully! We will get back to you soon.' });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitStatus({ type: 'error', message: result.error || 'Failed to send enquiry. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Enquiry submission error:', error);
+      setSubmitStatus({ type: 'error', message: 'An error occurred. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -103,34 +134,28 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="w-full lg:w-2/3 bg-white rounded-xl shadow-xl border-t-4 border-orange-600 transform hover:scale-[1.01] transition-all duration-300 p-6 sm:p-8 lg:p-10">
               <h3 className="text-2xl font-bold text-orange-800 mb-6">Send Us a Message</h3>
+              {submitStatus.type && (
+                <div className={`mb-6 p-4 rounded-lg ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-50 border border-green-200 text-green-800' 
+                    : 'bg-red-50 border border-red-200 text-red-800'
+                }`}>
+                  {submitStatus.message}
+                </div>
+              )}
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                      First Name <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      placeholder="Your first name"
-                      className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition duration-200 bg-orange-50"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Last Name <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      placeholder="Your last name"
-                      className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition duration-200 bg-orange-50"
-                    />
-                  </div>
+                <div className="mb-6">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition duration-200 bg-orange-50"
+                  />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -181,7 +206,7 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    // rows="5"
+                    rows={5}
                     required
                     placeholder="Share your thoughts with Rudrak..."
                     className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition duration-200 bg-orange-50"
@@ -190,10 +215,11 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#420505] text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#420505] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <IoIosSend className="text-xl" />
-                  Send Message to Rudrak
+                  {isSubmitting ? 'Sending...' : 'Send Message to Rudrak'}
                 </button>
               </form>
             </div>

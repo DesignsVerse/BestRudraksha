@@ -159,6 +159,7 @@ const CheckoutContent = () => {
       phone: billingData.phone,
       name: billingData.name,
     }}
+    cartItems={cartItems}
   />
 )}
 

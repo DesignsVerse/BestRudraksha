@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { loadCashfreeSDK } from '../utils/cashfreeClient';
 
-export default function CashfreePopup({ orderId, amount, customer }) {
+export default function CashfreePopup({ orderId, amount, customer, cartItems }) {
   const [loading, setLoading] = useState(false);
 
   const initiatePayment = async () => {
@@ -11,7 +11,7 @@ export default function CashfreePopup({ orderId, amount, customer }) {
       const res = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderId, amount, customer }),
+        body: JSON.stringify({ orderId, amount, customer, cartItems }),
       });
       const data = await res.json();
 
@@ -23,6 +23,7 @@ export default function CashfreePopup({ orderId, amount, customer }) {
       cashfree.redirect(); // launches popup
     } catch (err) {
       console.error('Payment error:', err);
+      alert('Payment initiation failed. Please try again.');
     } finally {
       setLoading(false);
     }
