@@ -13,7 +13,7 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
@@ -35,7 +35,7 @@ const Contact = () => {
 
       if (response.ok && result.success) {
         setSubmitStatus({ type: 'success', message: result.message || 'Your enquiry has been sent successfully! We will get back to you soon.' });
-        (e.target as HTMLFormElement).reset();
+        e.currentTarget.reset();
       } else {
         setSubmitStatus({ type: 'error', message: result.error || 'Failed to send enquiry. Please try again.' });
       }
