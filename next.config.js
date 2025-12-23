@@ -1,20 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.bestrudraksha.com',
-          },
-        ],
-        destination: 'https://bestrudraksha.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
+  // Temporarily disabled redirect to fix redirect loop
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/:path*',
+  //       has: [
+  //         {
+  //           type: 'host',
+  //           value: 'www.bestrudraksha.com',
+  //         },
+  //       ],
+  //       destination: 'https://bestrudraksha.com/:path*',
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   async headers() {
     const isProd = process.env.NODE_ENV === 'production';
     if (!isProd) {
