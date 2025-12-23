@@ -4,10 +4,34 @@ import {
   updateOrderStatus, 
   createPayment, 
   getPaymentByCashfreePaymentId,
-  updatePaymentStatus,
-  getOrderItemsByOrderId
+  updatePaymentStatus
 } from '@/lib/db/queries';
-import { sendPaymentNotification, sendOrderNotification } from '@/lib/telegram/bot';
+import { sendPaymentNotification } from '@/lib/telegram/bot';
+import crypto from 'crypto';
+
+// Verify Cashfree webhook signature
+function verifyWebhookSignature(payload: string, signature: string, secret: string): boolean {
+  if (!secret) {
+    console.warn('⚠️ CASHFREE_WEBHOOK_SECRET not set. Skipping signature verification.');
+    return true; // Allow in development
+  }
+  
+  try {
+    const expectedSignature = crypto
+      .createHmac('sha256', secret)
+      .update(payload)
+      .digest('hex');
+    
+    // Convert to Uint8Array for timingSafeEqual
+    const signatureBuffer = new Uint8Array(Buffer.from(signature, 'hex'));
+    const expectedBuffer = new Uint8Array(Buffer.from(expectedSignature, 'hex'));
+    
+    return crypto.timingSafeEqual(signatureBuffer, expectedBuffer);
+  } catch (error) {
+    console.error('Signature verification error:', error);
+    return false;
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,15 +43,35 @@ export async function POST(req: NextRequest) {
     }
 
     const signature = req.headers.get("x-cashfree-signature");
-    const body = await req.json();
+    const rawBody = await req.text();
+    
+    // Verify webhook signature in production
+    if (process.env.NODE_ENV === 'production' && signature) {
+      const webhookSecret = process.env.CASHFREE_WEBHOOK_SECRET;
+      if (!verifyWebhookSignature(rawBody, signature, webhookSecret || '')) {
+        console.error('❌ Invalid webhook signature');
+        return NextResponse.json(
+          { error: "Invalid signature" },
+          { status: 401 }
+        );
+      }
+    }
 
-    // ⚠️ TODO: Validate webhook signature (recommended)
-    // Use HMAC-SHA256 with your webhook secret
+    let body: any;
+    try {
+      body = JSON.parse(rawBody);
+    } catch (parseError) {
+      console.error('❌ Invalid JSON payload:', parseError);
+      return NextResponse.json(
+        { error: "Invalid JSON payload" },
+        { status: 400 }
+      );
+    }
 
     const event = body.event;
     const eventData = body.data;
 
-    console.log("Webhook received:", event, eventData);
+    console.log("📨 Webhook received:", event, eventData);
 
     if (event === "PAYMENT_SUCCESS") {
       const orderId = eventData.order?.order_id;
@@ -36,7 +80,7 @@ export async function POST(req: NextRequest) {
       const orderData = eventData.order;
 
       if (!orderId || !paymentId) {
-        console.error("Missing order_id or payment_id in webhook");
+        console.error("❌ Missing order_id or payment_id in webhook");
         return NextResponse.json(
           { error: "Missing required fields" },
           { status: 400 }
@@ -47,7 +91,7 @@ export async function POST(req: NextRequest) {
       const order = await getOrderByOrderId(orderId);
       
       if (!order) {
-        console.error(`Order not found: ${orderId}`);
+        console.error(`❌ Order not found: ${orderId}`);
         return NextResponse.json(
           { error: "Order not found" },
           { status: 404 }
@@ -70,6 +114,8 @@ export async function POST(req: NextRequest) {
           payment_status: 'success',
           transaction_id: paymentData?.cf_payment_id || paymentData?.payment_id || null,
           failure_reason: null,
+          refund_amount: 0,
+          refund_reason: null,
           payment_data: paymentData,
         });
       } else {
@@ -83,7 +129,7 @@ export async function POST(req: NextRequest) {
       }
 
       // Update order status
-      await updateOrderStatus(orderId, 'paid', 'paid');
+      await updateOrderStatus(orderId, 'confirmed', 'paid');
 
       // Send Telegram payment notification
       try {
@@ -95,10 +141,10 @@ export async function POST(req: NextRequest) {
           customerEmail: order.customer_email,
         });
       } catch (telegramError) {
-        console.error('Failed to send Telegram payment notification:', telegramError);
+        console.error('❌ Failed to send Telegram payment notification:', telegramError);
       }
 
-      console.log("Payment Success processed:", orderId, paymentId);
+      console.log("✅ Payment Success processed:", orderId, paymentId);
     } 
     else if (event === "PAYMENT_FAILED") {
       const orderId = eventData.order?.order_id;
@@ -125,6 +171,8 @@ export async function POST(req: NextRequest) {
               payment_status: 'failed',
               transaction_id: null,
               failure_reason: failureReason,
+              refund_amount: 0,
+              refund_reason: null,
               payment_data: paymentData,
             });
           } else {
@@ -145,10 +193,10 @@ export async function POST(req: NextRequest) {
               failureReason: failureReason,
             });
           } catch (telegramError) {
-            console.error('Failed to send Telegram payment failure notification:', telegramError);
+            console.error('❌ Failed to send Telegram payment failure notification:', telegramError);
           }
           
-          console.log("Payment Failed processed:", orderId, paymentId);
+          console.log("⚠️ Payment Failed processed:", orderId, paymentId);
         }
       }
     }
@@ -156,7 +204,7 @@ export async function POST(req: NextRequest) {
       // User closed payment window
       const orderId = eventData.order?.order_id;
       if (orderId) {
-        console.log("Payment dropped by user:", orderId);
+        console.log("👤 Payment dropped by user:", orderId);
         // Order remains in pending status
       }
     }
@@ -164,7 +212,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true }, { status: 200 });
 
   } catch (error) {
-    console.error("Webhook error:", error);
+    console.error("💥 Webhook error:", error);
     return NextResponse.json(
       { error: "Webhook processing failed", details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createOrder, createOrderItems, createUser, updateOrderCashfreeId, getOrderByOrderId } from '@/lib/db/queries';
 import { sendOrderNotification } from '@/lib/telegram/bot';
+import { validateCustomerData, validateOrderId, validateAmount, validateCartItem } from '@/lib/validation';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { orderId, amount, customer, cartItems } = body;
 
+    // Validate required fields
     if (!orderId || !amount || !customer || !cartItems) {
       return NextResponse.json(
         { error: 'Missing required fields: orderId, amount, customer, cartItems' },
@@ -14,10 +16,62 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const customerId = customer?.id;
-    const customerEmail = customer?.email;
-    const customerPhone = customer?.phone;
-    const customerName = customer?.name;
+    // Validate order ID
+    const orderIdValidation = validateOrderId(orderId);
+    if (!orderIdValidation.isValid) {
+      return NextResponse.json(
+        { error: 'Invalid order ID', details: orderIdValidation.errors },
+        { status: 400 }
+      );
+    }
+
+    // Validate amount
+    const amountValidation = validateAmount(amount);
+    if (!amountValidation.isValid) {
+      return NextResponse.json(
+        { error: 'Invalid amount', details: amountValidation.errors },
+        { status: 400 }
+      );
+    }
+
+    // Validate customer data
+    const customerValidation = validateCustomerData(customer);
+    if (!customerValidation.isValid) {
+      return NextResponse.json(
+        { error: 'Invalid customer data', details: customerValidation.errors },
+        { status: 400 }
+      );
+    }
+
+    // Validate cart items
+    if (!Array.isArray(cartItems) || cartItems.length === 0) {
+      return NextResponse.json(
+        { error: 'Cart items must be a non-empty array' },
+        { status: 400 }
+      );
+    }
+
+    const cartValidationErrors: string[] = [];
+    for (let i = 0; i < cartItems.length; i++) {
+      const itemValidation = validateCartItem(cartItems[i]);
+      if (!itemValidation.isValid) {
+        cartValidationErrors.push(`Item ${i + 1}: ${itemValidation.errors.join(', ')}`);
+      }
+    }
+
+    if (cartValidationErrors.length > 0) {
+      return NextResponse.json(
+        { error: 'Invalid cart items', details: cartValidationErrors },
+        { status: 400 }
+      );
+    }
+
+    // Use sanitized customer data
+    const sanitizedCustomer = customerValidation.sanitized;
+    const customerId = sanitizedCustomer?.id;
+    const customerEmail = sanitizedCustomer?.email;
+    const customerPhone = sanitizedCustomer?.phone;
+    const customerName = sanitizedCustomer?.name;
 
     // Calculate subtotal from cart items
     const subtotal = cartItems.reduce((sum: number, item: any) => {
@@ -26,11 +80,33 @@ export async function POST(req: NextRequest) {
     const shippingFee = 15; // Fixed shipping fee
     const totalAmount = subtotal + shippingFee;
 
+    // Verify calculated total matches provided amount
+    if (Math.abs(totalAmount - amount) > 0.01) {
+      return NextResponse.json(
+        { error: 'Amount mismatch', calculated: totalAmount, provided: amount },
+        { status: 400 }
+      );
+    }
+
+    // Check if order already exists
+    const existingOrder = await getOrderByOrderId(orderId);
+    if (existingOrder) {
+      return NextResponse.json(
+        { error: 'Order already exists', orderId },
+        { status: 409 }
+      );
+    }
+
     // Create or get user
     let userId: number | null = null;
     if (customerEmail) {
-      const user = await createUser(customerEmail, customerPhone, customerName);
-      userId = user.id;
+      try {
+        const user = await createUser(customerEmail, customerPhone, customerName);
+        userId = user.id;
+      } catch (userError) {
+        console.error('Failed to create/update user:', userError);
+        // Continue without user ID for guest checkout
+      }
     }
 
     // Create order in database
@@ -44,12 +120,16 @@ export async function POST(req: NextRequest) {
       billing_address: null,
       subtotal: subtotal,
       shipping_fee: shippingFee,
+      tax_amount: 0, // No tax for now
+      discount_amount: 0, // No discount for now
       total_amount: totalAmount,
       currency: 'INR',
       status: 'pending' as const,
       payment_status: 'pending' as const,
       cashfree_order_id: null,
+      tracking_number: null,
       notes: null,
+      admin_notes: null,
     };
 
     const order = await createOrder(orderData);
@@ -60,10 +140,23 @@ export async function POST(req: NextRequest) {
       product_id: item.id,
       product_title: item.title,
       product_slug: item.slug,
+      product_size: null, // No size variant for now
       price: item.price,
       discounted_price: item.discountedPrice,
       quantity: item.quantity,
       product_image: item.imgs?.thumbnails?.[0] || null,
+      product_data: {
+        // Store complete product info at time of order
+        title: item.title,
+        slug: item.slug,
+        images: item.imgs,
+        sizes: item.sizes,
+        description: item.description,
+        beejMantra: item.beejMantra,
+        keyFeatures: item.keyFeatures,
+        benefits: item.benefits,
+        detail: item.detail
+      }
     }));
 
     await createOrderItems(orderItems);
@@ -90,7 +183,7 @@ export async function POST(req: NextRequest) {
     });
 
     const cashfreeData = await cashfreeResponse.json();
-    console.log("Cashfree Response:", cashfreeData);
+    console.log("💳 Cashfree Response:", cashfreeData);
 
     if (!cashfreeData.payment_session_id) {
       return NextResponse.json(
@@ -124,7 +217,7 @@ export async function POST(req: NextRequest) {
         orderStatus: 'pending',
       });
     } catch (telegramError) {
-      console.error('Failed to send Telegram notification:', telegramError);
+      console.error('❌ Failed to send Telegram notification:', telegramError);
       // Don't fail the request if Telegram fails
     }
 
@@ -134,7 +227,7 @@ export async function POST(req: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Create Order Error:', error);
+    console.error('💥 Create Order Error:', error);
     return NextResponse.json(
       { error: 'Failed to create order', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

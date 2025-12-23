@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:setup": "tsx src/lib/db/setup-database.ts",
     "db:test": "tsx src/lib/db/test-connection.ts",
     "db:init": "tsx src/lib/db/init.ts"
   },

@@ -1,11 +1,15 @@
-// Database query functions for orders, users, and payments
+// Database query functions for orders, users, payments, and all related functionality
 
 import { db } from './index';
-import type { Order, OrderItem, Payment, User, CreateOrderInput, CreateOrderItemInput, CreatePaymentInput } from './schema';
+import type { 
+  Order, OrderItem, Payment, User, ContactEnquiry,
+  CreateOrderInput, CreateOrderItemInput, CreatePaymentInput,
+  CreateContactEnquiryInput
+} from './schema';
 
 // ============ USER QUERIES ============
 
-export async function createUser(email: string, phone?: string, name?: string) {
+export async function createUser(email: string, phone?: string, name?: string): Promise<User> {
   const queryString = `
     INSERT INTO users (email, phone, name)
     VALUES ($1, $2, $3)
@@ -31,16 +35,41 @@ export async function getUserById(id: number): Promise<User | null> {
   return result[0] as User || null;
 }
 
+// ============ CONTACT ENQUIRY QUERIES ============
+
+export async function createContactEnquiry(enquiryData: CreateContactEnquiryInput & { ip_address?: string; user_agent?: string }): Promise<ContactEnquiry> {
+  const queryString = `
+    INSERT INTO contact_enquiries (
+      name, email, phone, subject, message, ip_address, user_agent
+    )
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    RETURNING *
+  `;
+  
+  const result = await db(queryString, [
+    enquiryData.name,
+    enquiryData.email,
+    enquiryData.phone || null,
+    enquiryData.subject || null,
+    enquiryData.message,
+    enquiryData.ip_address || null,
+    enquiryData.user_agent || null
+  ]);
+  
+  return result[0] as ContactEnquiry;
+}
+
 // ============ ORDER QUERIES ============
 
 export async function createOrder(orderData: CreateOrderInput): Promise<Order> {
   const queryString = `
     INSERT INTO orders (
       order_id, user_id, customer_email, customer_phone, customer_name,
-      shipping_address, billing_address, subtotal, shipping_fee, total_amount,
-      currency, status, payment_status, cashfree_order_id, notes
+      shipping_address, billing_address, subtotal, shipping_fee, tax_amount,
+      discount_amount, total_amount, currency, status, payment_status, 
+      cashfree_order_id, tracking_number, notes, admin_notes
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)
     RETURNING *
   `;
   
@@ -54,12 +83,16 @@ export async function createOrder(orderData: CreateOrderInput): Promise<Order> {
     orderData.billing_address ? JSON.stringify(orderData.billing_address) : null,
     orderData.subtotal,
     orderData.shipping_fee,
+    orderData.tax_amount || 0,
+    orderData.discount_amount || 0,
     orderData.total_amount,
     orderData.currency,
     orderData.status,
     orderData.payment_status,
     orderData.cashfree_order_id || null,
+    orderData.tracking_number || null,
     orderData.notes || null,
+    orderData.admin_notes || null,
   ]);
   
   return result[0] as Order;
@@ -68,12 +101,6 @@ export async function createOrder(orderData: CreateOrderInput): Promise<Order> {
 export async function getOrderByOrderId(orderId: string): Promise<Order | null> {
   const queryString = `SELECT * FROM orders WHERE order_id = $1 LIMIT 1`;
   const result = await db(queryString, [orderId]);
-  return result[0] as Order || null;
-}
-
-export async function getOrderById(id: number): Promise<Order | null> {
-  const queryString = `SELECT * FROM orders WHERE id = $1 LIMIT 1`;
-  const result = await db(queryString, [id]);
   return result[0] as Order || null;
 }
 
@@ -86,12 +113,12 @@ export async function updateOrderStatus(
   const params: any[] = [status];
   
   if (paymentStatus) {
-    queryString += `, payment_status = $2 WHERE order_id = $3 RETURNING *`;
-    params.push(paymentStatus, orderId);
-  } else {
-    queryString += ` WHERE order_id = $2 RETURNING *`;
-    params.push(orderId);
+    queryString += `, payment_status = $${params.length + 1}`;
+    params.push(paymentStatus);
   }
+  
+  queryString += ` WHERE order_id = $${params.length + 1} RETURNING *`;
+  params.push(orderId);
   
   const result = await db(queryString, params);
   return result[0] as Order || null;
@@ -116,16 +143,15 @@ export async function updateOrderCashfreeId(
 export async function createOrderItems(items: CreateOrderItemInput[]): Promise<OrderItem[]> {
   if (items.length === 0) return [];
   
-  // For Neon, we'll insert items one by one or use a transaction
-  // Let's use a simpler approach with individual inserts
   const results: OrderItem[] = [];
   
   for (const item of items) {
     const queryString = `
       INSERT INTO order_items (
-        order_id, product_id, product_title, product_slug, price, discounted_price, quantity, product_image
+        order_id, product_id, product_title, product_slug, product_size,
+        price, discounted_price, quantity, product_image, product_data
       )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING *
     `;
     
@@ -134,10 +160,12 @@ export async function createOrderItems(items: CreateOrderItemInput[]): Promise<O
       item.product_id,
       item.product_title,
       item.product_slug,
+      item.product_size || null,
       item.price,
       item.discounted_price,
       item.quantity,
-      item.product_image || null
+      item.product_image || null,
+      item.product_data ? JSON.stringify(item.product_data) : null
     ]);
     
     if (result[0]) {
@@ -166,9 +194,9 @@ export async function createPayment(paymentData: CreatePaymentInput): Promise<Pa
     INSERT INTO payments (
       order_id, cashfree_order_id, cashfree_payment_id, payment_session_id,
       amount, currency, payment_method, payment_status, transaction_id,
-      failure_reason, payment_data
+      gateway_response_code, failure_reason, refund_amount, refund_reason, payment_data
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
     RETURNING *
   `;
   
@@ -182,7 +210,10 @@ export async function createPayment(paymentData: CreatePaymentInput): Promise<Pa
     paymentData.payment_method || null,
     paymentData.payment_status,
     paymentData.transaction_id || null,
+    paymentData.gateway_response_code || null,
     paymentData.failure_reason || null,
+    paymentData.refund_amount || 0,
+    paymentData.refund_reason || null,
     paymentData.payment_data ? JSON.stringify(paymentData.payment_data) : null,
   ]);
   
@@ -248,7 +279,7 @@ export async function getOrderWithItems(orderId: string) {
   };
 }
 
-export async function getUserOrders(userId: number, limit = 50) {
+export async function getUserOrders(userId: number, limit = 50): Promise<Order[]> {
   const queryString = `
     SELECT * FROM orders 
     WHERE user_id = $1 
@@ -258,4 +289,3 @@ export async function getUserOrders(userId: number, limit = 50) {
   const result = await db(queryString, [userId, limit]);
   return result as Order[];
 }
-
