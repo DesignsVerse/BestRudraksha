@@ -175,17 +175,36 @@ export async function POST(req: NextRequest) {
         order_amount: amount,
         order_currency: 'INR',
         customer_details: {
-          customer_id: customerId || customerEmail,
+          customer_id: customerEmail, // Use email as customer ID for Cashfree
           customer_email: customerEmail,
-          customer_phone: customerPhone,
+          customer_phone: customerPhone || '9999999999', // Provide default if no phone
+          customer_name: customerName || 'Customer', // Provide default name
+        },
+        order_meta: {
+          return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/payment-success?order_id=${orderId}`,
+          notify_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/webhook`,
         },
       }),
     });
 
     const cashfreeData = await cashfreeResponse.json();
+    console.log("💳 Cashfree Response Status:", cashfreeResponse.status);
     console.log("💳 Cashfree Response:", cashfreeData);
 
+    if (!cashfreeResponse.ok) {
+      console.error("❌ Cashfree API Error:", cashfreeData);
+      return NextResponse.json(
+        { 
+          error: 'Failed to create payment order', 
+          details: cashfreeData.message || 'Cashfree API error',
+          cashfree_error: cashfreeData 
+        },
+        { status: 400 }
+      );
+    }
+
     if (!cashfreeData.payment_session_id) {
+      console.error("❌ No payment session ID received:", cashfreeData);
       return NextResponse.json(
         { error: 'Order token not received', data: cashfreeData },
         { status: 400 }
