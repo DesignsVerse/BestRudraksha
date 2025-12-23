@@ -58,8 +58,8 @@ async function testCashfreeIntegration() {
       customer_name: 'Test Customer',
     },
     order_meta: {
-      return_url: 'http://localhost:3000/payment-success',
-      notify_url: 'http://localhost:3000/api/webhook',
+      return_url: 'https://bestrudraksha.com/payment-success',
+      notify_url: 'https://bestrudraksha.com/api/webhook',
     },
   };
 

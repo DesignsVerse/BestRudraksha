@@ -175,6 +175,28 @@ export async function POST(req: NextRequest) {
     const cashfreeCustomerId = createCashfreeCustomerId(customerEmail);
     console.log("🆔 Generated Cashfree Customer ID:", cashfreeCustomerId);
 
+    // Get base URL - use HTTPS for Cashfree compatibility
+    const getBaseUrl = () => {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+      
+      // If we have a site URL, use it
+      if (siteUrl) {
+        // Ensure it's HTTPS for Cashfree (except for localhost in development)
+        if (siteUrl.startsWith('http://localhost')) {
+          // For localhost development, we'll use a placeholder HTTPS URL
+          // In production, this should be your actual domain
+          return 'https://bestrudraksha.com'; // Use your actual domain
+        }
+        return siteUrl.startsWith('https://') ? siteUrl : `https://${siteUrl.replace('http://', '')}`;
+      }
+      
+      // Default fallback - use your actual domain
+      return 'https://bestrudraksha.com';
+    };
+
+    const baseUrl = getBaseUrl();
+    console.log("🌐 Using base URL for Cashfree:", baseUrl);
+
     // Create Cashfree order
     const cashfreeResponse = await fetch('https://api.cashfree.com/pg/orders', {
       method: 'POST',
@@ -195,8 +217,8 @@ export async function POST(req: NextRequest) {
           customer_name: customerName || 'Customer', // Provide default name
         },
         order_meta: {
-          return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/payment-success?order_id=${orderId}`,
-          notify_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/webhook`,
+          return_url: `${baseUrl}/payment-success?order_id=${orderId}`,
+          notify_url: `${baseUrl}/api/webhook`,
         },
       }),
     });
