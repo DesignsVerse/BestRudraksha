@@ -5,8 +5,15 @@ export interface ValidationResult {
   errors: string[];
 }
 
-// Email validation
-export function validateEmail(email: string): ValidationResult {
+// Email validation (simple boolean version)
+export function validateEmail(email: string): boolean {
+  if (!email) return false;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email) && email.length <= 255;
+}
+
+// Email validation (detailed version)
+export function validateEmailDetailed(email: string): ValidationResult {
   const errors: string[] = [];
   
   if (!email) {
@@ -19,6 +26,64 @@ export function validateEmail(email: string): ValidationResult {
     if (email.length > 255) {
       errors.push('Email must be less than 255 characters');
     }
+  }
+  
+  return { isValid: errors.length === 0, errors };
+}
+
+// Password validation
+export function validatePassword(password: string): boolean {
+  if (!password) return false;
+  
+  // Password must be at least 8 characters long
+  if (password.length < 8) return false;
+  
+  // Must contain at least one uppercase letter
+  if (!/[A-Z]/.test(password)) return false;
+  
+  // Must contain at least one lowercase letter
+  if (!/[a-z]/.test(password)) return false;
+  
+  // Must contain at least one number
+  if (!/\d/.test(password)) return false;
+  
+  // Must contain at least one special character
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return false;
+  
+  return true;
+}
+
+// Password validation (detailed version)
+export function validatePasswordDetailed(password: string): ValidationResult {
+  const errors: string[] = [];
+  
+  if (!password) {
+    errors.push('Password is required');
+    return { isValid: false, errors };
+  }
+  
+  if (password.length < 8) {
+    errors.push('Password must be at least 8 characters long');
+  }
+  
+  if (!/[A-Z]/.test(password)) {
+    errors.push('Password must contain at least one uppercase letter');
+  }
+  
+  if (!/[a-z]/.test(password)) {
+    errors.push('Password must contain at least one lowercase letter');
+  }
+  
+  if (!/\d/.test(password)) {
+    errors.push('Password must contain at least one number');
+  }
+  
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    errors.push('Password must contain at least one special character');
+  }
+  
+  if (password.length > 128) {
+    errors.push('Password must be less than 128 characters');
   }
   
   return { isValid: errors.length === 0, errors };
@@ -186,7 +251,7 @@ export function validateCustomerData(customer: any): { isValid: boolean; errors:
   const sanitized: any = {};
   
   // Validate email
-  const emailValidation = validateEmail(customer.email);
+  const emailValidation = validateEmailDetailed(customer.email);
   if (!emailValidation.isValid) {
     errors.push(...emailValidation.errors);
   } else {
