@@ -161,6 +161,20 @@ export async function POST(req: NextRequest) {
 
     await createOrderItems(orderItems);
 
+    // Create a valid customer_id for Cashfree (alphanumeric with underscores/hyphens only)
+    const createCashfreeCustomerId = (email: string): string => {
+      // Replace @ and . with underscores, remove other special characters
+      return email
+        .toLowerCase()
+        .replace(/@/g, '_at_')
+        .replace(/\./g, '_')
+        .replace(/[^a-z0-9_-]/g, '')
+        .substring(0, 50); // Limit length
+    };
+
+    const cashfreeCustomerId = createCashfreeCustomerId(customerEmail);
+    console.log("🆔 Generated Cashfree Customer ID:", cashfreeCustomerId);
+
     // Create Cashfree order
     const cashfreeResponse = await fetch('https://api.cashfree.com/pg/orders', {
       method: 'POST',
@@ -175,7 +189,7 @@ export async function POST(req: NextRequest) {
         order_amount: amount,
         order_currency: 'INR',
         customer_details: {
-          customer_id: customerEmail, // Use email as customer ID for Cashfree
+          customer_id: cashfreeCustomerId, // Use properly formatted customer ID
           customer_email: customerEmail,
           customer_phone: customerPhone || '9999999999', // Provide default if no phone
           customer_name: customerName || 'Customer', // Provide default name

@@ -3,6 +3,16 @@
 
 require('dotenv').config({ path: '.env.local' });
 
+// Function to create valid Cashfree customer ID
+function createCashfreeCustomerId(email) {
+  return email
+    .toLowerCase()
+    .replace(/@/g, '_at_')
+    .replace(/\./g, '_')
+    .replace(/[^a-z0-9_-]/g, '')
+    .substring(0, 50);
+}
+
 async function testCashfreeIntegration() {
   console.log('🧪 Testing Cashfree Integration...\n');
 
@@ -18,14 +28,32 @@ async function testCashfreeIntegration() {
     return;
   }
 
+  // Test customer ID generation
+  const testEmails = [
+    'test@example.com',
+    'user.name@gmail.com',
+    'customer+tag@domain.co.in',
+    'messageakshat@gmail.com'
+  ];
+
+  console.log('🆔 Testing Customer ID Generation:');
+  testEmails.forEach(email => {
+    const customerId = createCashfreeCustomerId(email);
+    console.log(`${email} → ${customerId}`);
+  });
+  console.log('');
+
   // Test order creation
+  const testEmail = 'messageakshat@gmail.com';
+  const testCustomerId = createCashfreeCustomerId(testEmail);
+  
   const testOrderData = {
     order_id: `TEST-${Date.now()}`,
     order_amount: 100.00,
     order_currency: 'INR',
     customer_details: {
-      customer_id: 'test@example.com',
-      customer_email: 'test@example.com',
+      customer_id: testCustomerId,
+      customer_email: testEmail,
       customer_phone: '9999999999',
       customer_name: 'Test Customer',
     },
