@@ -23,6 +23,38 @@ export async function createUser(email: string, phone?: string, name?: string): 
   return result[0] as User;
 }
 
+export async function createUserWithPassword(email: string, passwordHash: string, name?: string, phone?: string): Promise<User> {
+  const queryString = `
+    INSERT INTO users (email, password_hash, name, phone)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+  `;
+  const result = await db(queryString, [email, passwordHash, name || null, phone || null]);
+  return result[0] as User;
+}
+
+export async function updateUserPassword(userId: number, passwordHash: string): Promise<User | null> {
+  const queryString = `
+    UPDATE users 
+    SET password_hash = $1, updated_at = CURRENT_TIMESTAMP
+    WHERE id = $2 
+    RETURNING *
+  `;
+  const result = await db(queryString, [passwordHash, userId]);
+  return result[0] as User || null;
+}
+
+export async function updateUserLastLogin(userId: number): Promise<User | null> {
+  const queryString = `
+    UPDATE users 
+    SET last_login = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
+    WHERE id = $1 
+    RETURNING *
+  `;
+  const result = await db(queryString, [userId]);
+  return result[0] as User || null;
+}
+
 export async function getUserByEmail(email: string): Promise<User | null> {
   const queryString = `SELECT * FROM users WHERE email = $1 LIMIT 1`;
   const result = await db(queryString, [email]);
