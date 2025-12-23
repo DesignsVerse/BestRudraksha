@@ -94,16 +94,39 @@ export function validatePhone(phone: string): ValidationResult {
   const errors: string[] = [];
   
   if (phone) {
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+    // Remove spaces, dashes, parentheses for validation
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    
+    // Allow phone numbers that:
+    // - Start with + followed by 1-15 digits
+    // - Start with 0 followed by 9-14 digits (for local numbers like Indian mobiles)
+    // - Start with 1-9 followed by 0-14 digits (for international without +)
+    const phoneRegex = /^(\+\d{1,15}|0\d{9,14}|[1-9]\d{0,14})$/;
+    
+    if (!phoneRegex.test(cleanPhone)) {
       errors.push('Invalid phone number format');
     }
-    if (phone.length > 20) {
+    
+    if (cleanPhone.length < 7) {
+      errors.push('Phone number must be at least 7 digits');
+    }
+    
+    if (cleanPhone.length > 20) {
       errors.push('Phone number must be less than 20 characters');
     }
   }
   
   return { isValid: errors.length === 0, errors };
+}
+
+// Simple phone validation (boolean version)
+export function validatePhoneSimple(phone: string): boolean {
+  if (!phone) return false;
+  
+  const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+  const phoneRegex = /^(\+\d{1,15}|0\d{9,14}|[1-9]\d{0,14})$/;
+  
+  return phoneRegex.test(cleanPhone) && cleanPhone.length >= 7 && cleanPhone.length <= 20;
 }
 
 // Name validation

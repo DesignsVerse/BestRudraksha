@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendEnquiryNotification } from '@/lib/telegram/bot';
-import { validateEmail, validateName, validatePhone, validateMessage, sanitizeString, sanitizeHtml } from '@/lib/validation';
+import { validateEmailDetailed, validateName, validatePhone, validateMessage, sanitizeString, sanitizeHtml } from '@/lib/validation';
 import { createContactEnquiry } from '@/lib/db/queries';
 
 export async function POST(req: NextRequest) {
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Validate email
-    const emailValidation = validateEmail(email);
+    const emailValidation = validateEmailDetailed(email);
     if (!emailValidation.isValid) {
       return NextResponse.json(
         { error: 'Invalid email', details: emailValidation.errors },
