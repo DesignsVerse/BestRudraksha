@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Breadcrumb from '@/components/Common/Breadcrumb';
 import SearchBar from '@/components/Search/SearchBar';
@@ -45,7 +45,8 @@ interface SearchResponse {
   };
 }
 
-const SearchPage = () => {
+// Component that uses useSearchParams - must be wrapped in Suspense
+const SearchPageContent = () => {
   const searchParams = useSearchParams();
   const [searchResults, setSearchResults] = useState<SearchResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -372,6 +373,19 @@ const SearchPage = () => {
         </div>
       </section>
     </>
+  );
+};
+
+// Main component with Suspense boundary
+const SearchPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600"></div>
+      </div>
+    }>
+      <SearchPageContent />
+    </Suspense>
   );
 };
 
