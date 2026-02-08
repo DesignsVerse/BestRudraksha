@@ -9,6 +9,7 @@ import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import Image from "next/image";
 import SearchBar from "@/components/Search/SearchBar";
+import { Menu } from "@/types/Menu";
 
 const Header: React.FC = () => {
   const [navigationOpen, setNavigationOpen] = useState<boolean>(false);
