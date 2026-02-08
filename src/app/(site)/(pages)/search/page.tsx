@@ -5,6 +5,9 @@ import Breadcrumb from '@/components/Common/Breadcrumb';
 import SearchBar from '@/components/Search/SearchBar';
 import { FaFilter, FaTh, FaList } from 'react-icons/fa';
 
+// Force dynamic rendering since we use useSearchParams()
+export const dynamic = 'force-dynamic';
+
 interface Product {
   id: number;
   title: string;
