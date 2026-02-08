@@ -8,8 +8,7 @@ import { useSelector } from "react-redux";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import Image from "next/image";
-import { Menu } from "@/types/Menu";
-import shopData from "@/components/Shop/shopData";
+import SearchBar from "@/components/Search/SearchBar";
 
 const Header: React.FC = () => {
   const [navigationOpen, setNavigationOpen] = useState<boolean>(false);
@@ -36,13 +35,6 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navigationOpen, searchOpen]);
-
-  // Filter search results
-  const searchResults = shopData
-    ? shopData.filter((item) =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : [];
 
   // Icons (unchanged)
   const SearchIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -334,82 +326,28 @@ const Header: React.FC = () => {
             </nav>
           </div>
 
-          {/* Updated Search Bar */}
+          {/* Enhanced Search Bar */}
           {searchOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start pt-20">
-              <div className="w-full max-w-[1160px] mx-auto px-4 sm:px-7.5 xl:px-0 bg-[#FFFAF5] shadow-lg border border-[#800000]/20 rounded-md">
-                <div className="relative py-4">
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search products..."
-                    className="w-full p-2 pl-10 border border-[#800000]/30 rounded-md focus:outline-none focus:border-[#800000] text-[#800000]"
-                    autoFocus
-                  />
-                  <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#800000]" />
-                  <button
-                    onClick={() => setSearchOpen(false)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#800000] hover:text-[#800000]/70"
-                  >
-                    <CloseIcon />
-                  </button>
-                </div>
-                {searchQuery && (
-                  <div className="max-h-[70vh] overflow-y-auto px-4 pb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {searchResults.length > 0 ? (
-                      searchResults.map((item) => {
-                        // Use the first size (Regular) for pricing
-                        const regularSize = item.sizes?.[0] || {
-                          price: 0,
-                          discountedPrice: undefined,
-                        };
-                        return (
-                          <Link
-                            key={item.id}
-                            href={`/shop/${item.slug}`}
-                            className="block p-4 border border-[#800000]/20 rounded-md hover:bg-[#800000]/10 transition-colors"
-                            onClick={() => setSearchOpen(false)}
-                          >
-                            <div className="flex items-center gap-4">
-                              <div className="relative w-16 h-16 flex-shrink-0">
-                                <Image
-                                  src={item.imgs?.thumbnails?.[0] || "/images/placeholder.png"}
-                                  alt={item.title}
-                                  fill
-                                  style={{ objectFit: "contain" }}
-                                />
-                              </div>
-                              <div>
-                                <h3 className="text-[#800000] font-medium text-sm">
-                                  {item.title}
-                                </h3>
-                                <div className="flex items-center gap-2 mt-1">
-                                  <span className="text-[#800000] font-semibold">
-                                    ₹{regularSize.price.toLocaleString("en-IN")}
-                                  </span>
-                                  {regularSize.discountedPrice &&
-                                    regularSize.discountedPrice !== regularSize.price && (
-                                      <span className="text-[#800000]/50 line-through text-xs">
-                                        ₹{regularSize.discountedPrice.toLocaleString("en-IN")}
-                                      </span>
-                                    )}
-                                </div>
-                                <div className="text-[#800000]/70 text-xs mt-1">
-                                  {item.reviews || 0} reviews
-                                </div>
-                              </div>
-                            </div>
-                          </Link>
-                        );
-                      })
-                    ) : (
-                      <div className="col-span-full py-4 text-center text-[#800000]/70">
-                        No products found
-                      </div>
-                    )}
+              <div className="w-full max-w-4xl mx-auto px-4">
+                <div className="bg-white rounded-lg shadow-xl p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold text-gray-800">Search Products</h3>
+                    <button
+                      onClick={() => setSearchOpen(false)}
+                      className="text-gray-400 hover:text-gray-600"
+                    >
+                      <CloseIcon />
+                    </button>
                   </div>
-                )}
+                  <SearchBar 
+                    onSearch={(query) => {
+                      setSearchOpen(false);
+                      // The SearchBar component will handle navigation
+                    }}
+                    showFilters={false}
+                  />
+                </div>
               </div>
             </div>
           )}

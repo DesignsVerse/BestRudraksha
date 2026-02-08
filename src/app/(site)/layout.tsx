@@ -15,6 +15,8 @@ import NavigationBar from "@/components/Common/NavigationBar";
 import type { Metadata } from "next";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import CallButton from "@/components/Common/WhatsAppButton";
+import { DefaultSeo } from 'next-seo';
+import { defaultSEO, organizationStructuredData, websiteStructuredData } from '@/lib/seo';
 export const metadata: Metadata = {
   title: "BestRudraksha.com | Authentic Rudraksha, Gemstones, Malas & Yantras",
   description:
@@ -96,7 +98,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData),
+          }}
+        />
+      </head>
       <body>
+        <DefaultSeo {...defaultSEO} />
         <ReduxProvider>
           <CartModalProvider>
             <ModalProvider>

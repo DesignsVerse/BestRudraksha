@@ -1,8 +1,22 @@
 User-agent: *
+Allow: /
 Disallow: /private/
 Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout
+Disallow: /my-account
+Disallow: /signin
+Disallow: /signup
+Disallow: /payment-success
+Disallow: /payment-failed
 
+# Allow Google and Bing bots specifically
+User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
 Sitemap: https://www.bestrudraksha.com/sitemap.xml
 
