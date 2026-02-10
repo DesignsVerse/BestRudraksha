@@ -107,15 +107,24 @@ const HeroCarousel = () => {
         {slides.map((src, index) => (
           <div key={index} className="carousel-slide">
             <div className="relative w-full h-full">
-              <Image
-                src={src}
-                alt={`headphone-${index + 1}`}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                sizes={isMobile ? "100vw" : "100vw"}
-                onError={() => console.error(`Failed to load image ${src}`)}
-              />
+              {src.toLowerCase().endsWith(".jfif") ? (
+                // Fallback to native <img> for jfif banner to avoid any Next/Image issues
+                <img
+                  src={src}
+                  alt={`banner-${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={src}
+                  alt={`banner-${index + 1}`}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                  sizes={isMobile ? "100vw" : "100vw"}
+                  onError={() => console.error(`Failed to load image ${src}`)}
+                />
+              )}
             </div>
           </div>
         ))}
