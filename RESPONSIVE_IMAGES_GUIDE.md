@@ -3,24 +3,10 @@
 ## Overview
 The website now supports responsive images that automatically display mobile-optimized images on mobile devices and desktop images on larger screens.
 
-## Image Naming Convention
+## Image Strategy
 
-### Automatic Detection (Recommended)
-If you follow this naming pattern, the system will automatically detect mobile images:
-
-**Desktop Image:**
-```
-/images/products/category/product-name.png
-```
-
-**Mobile Image (same location, with "(mobile)" suffix):**
-```
-/images/products/category/product-name(mobile).png
-```
-
-### Example:
-- Desktop: `/images/products/1-14-mukhi/1.png`
-- Mobile: `/images/products/1-14-mukhi/1(mobile).png`
+- By **default**, the same image is used on mobile and desktop.
+- If you provide an explicit `mobileSrc`, that file will be used **only on mobile**.
 
 ## How It Works
 
@@ -35,15 +21,9 @@ If you follow this naming pattern, the system will automatically detect mobile i
 4. ✅ `QuickViewModal` - Quick view modal
 5. ✅ `HeroCarousel` - Already had mobile/desktop support
 
-## Adding Mobile Images
+## Adding Mobile Images (Optional)
 
-### Option 1: Automatic Detection (Easiest)
-1. Place your desktop image: `/images/products/category/image.png`
-2. Place your mobile image: `/images/products/category/image(mobile).png`
-3. The system will automatically use the correct image based on screen size
-
-### Option 2: Explicit in Product Data
-You can also specify mobile images explicitly in `shopData.ts`:
+You can specify mobile images explicitly in `shopData.ts`:
 
 ```typescript
 imgs: {
@@ -97,12 +77,11 @@ public/images/
 
 ✅ **Implemented:**
 - ResponsiveImage component created
-- Product type updated to support mobile/desktop variants
+- Product type updated to support optional mobile variants
 - All product display components updated
-- Automatic mobile image detection
 
 ⏳ **To Do:**
-- Add mobile versions of existing product images
+- Add mobile versions only where you want a different crop/ratio
 - Optimize image file sizes
 - Consider using WebP format for better performance
 
@@ -111,12 +90,8 @@ public/images/
 1. **Current desktop image:**
    `/images/products/1-14-mukhi/1.png`
 
-2. **Add mobile version:**
-   `/images/products/1-14-mukhi/1(mobile).png`
-
-3. **That's it!** The system will automatically use:
-   - `1.png` on desktop/laptop (>= 768px)
-   - `1(mobile).png` on mobile (< 768px)
+2. **Optional mobile version (if you want a different mobile image):**
+   - Set `mobilePreviews` or `mobileThumbnails` in `shopData.ts` to point to that file.
 
 ## Notes
 

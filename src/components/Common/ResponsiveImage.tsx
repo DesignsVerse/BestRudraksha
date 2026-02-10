@@ -57,18 +57,12 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Generate mobile image path if not provided
+  // Resolve which mobile image to use (if any)
   const getMobileSrc = () => {
-    if (mobileSrc) return mobileSrc;
-    
-    // Auto-detect mobile image based on naming convention
-    // e.g., "/images/products/1.png" -> "/images/products/1(mobile).png"
-    const lastDot = src.lastIndexOf(".");
-    if (lastDot === -1) return src;
-    
-    const extension = src.substring(lastDot);
-    const basePath = src.substring(0, lastDot);
-    return `${basePath}(mobile)${extension}`;
+    // Only use a different image if mobileSrc is explicitly provided.
+    // Otherwise, always fall back to the main src to avoid broken images
+    // when mobile variants do not exist.
+    return mobileSrc || src;
   };
 
   // Determine which image to use
