@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import ResponsiveImage from "@/components/Common/ResponsiveImage";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import shopData from "@/components/Shop/shopData";
@@ -435,13 +436,16 @@ const ShopDetails = ({ params }: PageProps) => {
             <div className="lg:max-w-[550px] w-full">
               <div className="lg:min-h-[250px] bg-white rounded-xl shadow-lg bg-gray-100 relative flex items-center justify-center overflow-hidden">
                 {product.imgs?.previews && (
-                  <Image
+                  <ResponsiveImage
                     src={product.imgs.previews[previewImg]}
+                    mobileSrc={product.imgs.mobilePreviews?.[previewImg]}
                     alt={product.title}
-                    width={300}
-                    height={300}
+                    width={550}
+                    height={550}
                     priority
-                    className="rounded-lg object-cover transition-transform duration-300 hover:scale-105"
+                    className="rounded-lg transition-transform duration-300 hover:scale-105"
+                    objectFit="cover"
+                    sizes="(max-width: 768px) 100vw, 550px"
                   />
                 )}
               </div>

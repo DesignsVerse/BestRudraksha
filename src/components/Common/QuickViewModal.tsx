@@ -6,6 +6,7 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice"; // Import wishlist action
 import { useDispatch } from "react-redux";
 import Image from "next/image";
+import ResponsiveImage from "./ResponsiveImage";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { updateproductDetails } from "@/redux/features/product-details";
 
@@ -144,11 +145,14 @@ const QuickViewModal = () => {
                 </div>
 
                 <div className="relative z-1 overflow-hidden flex items-center justify-center w-full sm:min-h-[508px] bg-gray-1 rounded-lg border border-gray-3">
-                  <Image
+                  <ResponsiveImage
                     src={product.imgs?.previews?.[activePreview] || ""}
+                    mobileSrc={product.imgs?.mobilePreviews?.[activePreview]}
                     alt="product-details"
                     width={400}
                     height={400}
+                    objectFit="contain"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </div>
               </div>

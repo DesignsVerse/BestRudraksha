@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ResponsiveImage from "./ResponsiveImage";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
@@ -90,24 +91,18 @@ const ProductItem = ({ item }: { item: Product }) => {
       <div className="relative overflow-hidden rounded-t-xl">
         {/* Product Image */}
         <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
-  <Image
-    src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
-    alt={item.title}
-    width={300}
-    height={300}
-    className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-    style={{
-      // Disables mobile viewport scaling
-      transform: 'scale(1)',
-      // Ensures proper display on mobile
-      maxWidth: '100%',
-      height: 'auto'
-    }}
-    // Mobile-specific attributes
-    sizes="100vw"
-    quality={75}
-  />
-</Link>
+          <ResponsiveImage
+            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
+            mobileSrc={item.imgs?.mobilePreviews?.[0]}
+            alt={item.title}
+            width={300}
+            height={300}
+            className="w-full h-56 sm:h-64 transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={75}
+            objectFit="cover"
+          />
+        </Link>
 
         {/* Discount Badge - Always shown */}
         <span className="absolute top-1 right-1 bg-[#800000] text-white text-[9px] md:text-xs font-semibold px-2 py-[4px] md:px-2 md:py-1 rounded leading-tight">

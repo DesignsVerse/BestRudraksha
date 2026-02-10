@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import Image from "next/image";
+import ResponsiveImage from "@/components/Common/ResponsiveImage";
 import { toast } from "react-toastify"; // Import toast for notifications
 
 const SingleGridItem = ({ item }: { item: Product }) => {
@@ -86,24 +87,23 @@ const SingleGridItem = ({ item }: { item: Product }) => {
     <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
         <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
-          <Image
+          <ResponsiveImage
             src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
+            mobileSrc={item.imgs?.mobilePreviews?.[0]}
             alt={item.title || "Product Image"}
             width={300}
             height={300}
-            className="w-full h-56 sm:h-64 object-contain transition-transform duration-300 group-hover:scale-110"
+            className="w-full h-56 sm:h-64 transition-transform duration-300 group-hover:scale-110"
             style={{
               transform: "scale(0.7)",
               maxWidth: "100%",
               height: "auto",
               objectPosition: "center",
-            }}
+            } as React.CSSProperties}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={85}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = "/images/placeholder.png";
-            }}
+            objectFit="contain"
+            onError={() => {}}
           />
         </Link>
         <span className="absolute md:top-2 md:right-2 top-0 right-2  bg-[#800000] text-white md:text-xs text-[8px] font-semibold  px-1 py-0 rounded">

@@ -6,7 +6,15 @@ export type Product = {
   description: string;
   images: string[];
   sizes: { name: string; price: number; discountedPrice?: number }[];
-  imgs: { thumbnails: string[]; previews: string[] };
+  imgs: { 
+    thumbnails: string[]; 
+    previews: string[];
+    // Optional: explicit mobile/desktop variants
+    mobileThumbnails?: string[];
+    mobilePreviews?: string[];
+    desktopThumbnails?: string[];
+    desktopPreviews?: string[];
+  };
   beejMantra:string;
   keyFeatures:string[];
   benefits:string[];
