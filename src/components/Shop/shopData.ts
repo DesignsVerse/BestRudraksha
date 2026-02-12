@@ -285,7 +285,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/9.png"]
     },
     sizes: [
-      { name: "Regular", price: 16667, discountedPrice: 10000 },
+      { name: "Regular", price: 15833, discountedPrice: 9500 },
       // { name: "Premium", price: 4500, discountedPrice: 4000 }
     ]
   },
@@ -317,7 +317,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/10.png"]
     },
     sizes: [
-      { name: "Regular", price: 17500, discountedPrice: 10500 },
+      { name: "Regular", price: 16667, discountedPrice: 10000 },
       // { name: "Premium", price: 5500, discountedPrice: 5000 }
     ]
   },
@@ -349,7 +349,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/11.png"]
     },
     sizes: [
-      { name: "Regular", price: 19167, discountedPrice: 11500 },
+      { name: "Regular", price: 17500, discountedPrice: 10500 },
       // { name: "Premium", price: 6500, discountedPrice: 6000 }
     ]
   },
@@ -381,7 +381,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/12.png"]
     },
     sizes: [
-      { name: "Regular", price: 31667, discountedPrice: 19000 },
+      { name: "Regular", price: 19167, discountedPrice: 11500 },
       // { name: "Premium", price: 8000, discountedPrice: 7500 }
     ]
   },
@@ -413,7 +413,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/13.png"]
     },
     sizes: [
-      { name: "Regular", price: 60000, discountedPrice: 36000 },
+      { name: "Regular", price: 31667, discountedPrice: 19000 },
       // { name: "Premium", price: 10000, discountedPrice: 9500 }
     ]
   },
@@ -445,7 +445,7 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/14.png"]
     },
     sizes: [
-      { name: "Regular", price: 59000, discountedPrice: 35400 },
+      { name: "Regular", price: 59000, discountedPrice: 36000 },
       // { name: "Premium", price: 17000, discountedPrice: 16000 }
     ]
   },
@@ -1449,7 +1449,7 @@ const shopData: Product[] = [
         thumbnails: ["/images/products/mala/1.png"],
         previews: ["/images/products/mala/1.png"],
       },
-      sizes: [{ name: "Standard", price: 500, discountedPrice: 250 }],
+      sizes: [{ name: "Standard", price: 500, discountedPrice: 500 }],
     },
     {
       id: 47,
@@ -1574,9 +1574,110 @@ const shopData: Product[] = [
         previews: ["/images/products/mala/5.png"]
       },
       sizes: [{ name: "Standard", price: 1200, discountedPrice: 900 }]
+    },
+
+    {
+      id: 51,
+      title: "5 Mukhi Rudraksha Mala - Daily Wear Japa Mala",
+      slug: "5-mukhi-rudraksha-mala",
+      reviews: 11,
+      description:
+        "Original 5 Mukhi Rudraksha mala for daily japa, meditation and protection. Ideal for beginners and regular sadhaks.",
+      beejMantra: "Om Hreem Namah",
+      detail:
+        "This 5 Mukhi Rudraksha Mala is handcrafted from authentic, lab-tested beads. It is ideal for daily mantra chanting, meditation and spiritual grounding. Light-weight and comfortable for all-day wear.",
+      keyFeatures: [
+        "108+1 original 5 Mukhi Rudraksha beads",
+        "Hand-knotted for strength and durability",
+        "Ideal for daily japa and meditation",
+        "Energized and ready to wear",
+        "Comes with authenticity certificate"
+      ],
+      benefits: [
+        "Helps calm the mind and reduce stress",
+        "Supports focus during meditation and japa",
+        "Balances body energies and promotes peace",
+        "Offers protection from negative influences",
+        "Suitable for all age groups"
+      ],
+      images: ["/images/products/mala/5.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/5.png"],
+        previews: ["/images/products/mala/5.png"]
+      },
+      sizes: [
+        { name: "Standard", price: 1200, discountedPrice: 1200 }
+      ]
+    },
+
+    {
+      id: 52,
+      title: "5 Mukhi Baarik Rudraksha Mala - Fine Beads",
+      slug: "5-mukhi-baarik-rudraksha-mala",
+      reviews: 9,
+      description:
+        "Fine 5 Mukhi Rudraksha baarik mala with small beads for elegant daily wear and subtle spiritual protection.",
+      beejMantra: "Om Namah Shivaya",
+      detail:
+        "The 5 Mukhi Baarik Rudraksha Mala is made with small, uniformly sized beads for a sleek and comfortable look. Perfect for those who prefer a lighter mala that can be worn under clothes or as a stylish spiritual accessory.",
+      keyFeatures: [
+        "Original fine 5 Mukhi Rudraksha beads",
+        "Light-weight and comfortable for office or daily wear",
+        "Ideal for both men and women",
+        "Hand-knotted on strong thread",
+        "Includes authenticity certificate from Best Rudraksha"
+      ],
+      benefits: [
+        "Supports calmness and emotional balance",
+        "Ideal for people with busy schedules and stress",
+        "Balances the five elements in the body",
+        "Helps maintain a protective spiritual shield",
+        "Can be used for japa as well as normal wear"
+      ],
+      images: ["/images/products/mala/4.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/4.png"],
+        previews: ["/images/products/mala/4.png"]
+      },
+      sizes: [
+        { name: "Standard", price: 1350, discountedPrice: 1350 }
+      ]
+    },
+
+    {
+      id: 53,
+      title: "5 Mukhi Rudraksha Japa Mala - Traditional Chanting Mala",
+      slug: "5-mukhi-rudraksha-japa-mala",
+      reviews: 10,
+      description:
+        "Traditional 5 Mukhi Rudraksha japa mala designed especially for mantra chanting, puja and sadhana.",
+      beejMantra: "Om Namah Shivaya",
+      detail:
+        "This classic 5 Mukhi Rudraksha Japa Mala is crafted to support deep sadhana and mantra chanting. Each bead is carefully selected to maintain uniformity and comfort during long japa sessions.",
+      keyFeatures: [
+        "108+1 high-quality 5 Mukhi beads",
+        "Traditional knotting for smooth bead movement",
+        "Ideal for Shiva, Mahamrityunjaya and other mantras",
+        "Pre-energized and ready for use",
+        "Packed in a protective pouch with certificate"
+      ],
+      benefits: [
+        "Supports discipline in daily japa practice",
+        "Helps increase concentration and inner peace",
+        "Strengthens connection with Lord Shiva",
+        "Promotes spiritual growth and protection",
+        "Suitable for temple, home puja and meditation"
+      ],
+      images: ["/images/products/mala/3.png"],
+      imgs: {
+        thumbnails: ["/images/products/mala/3.png"],
+        previews: ["/images/products/mala/3.png"]
+      },
+      sizes: [
+        { name: "Standard", price: 1300, discountedPrice: 1300 }
+      ]
     }
-    
-  
+
 ];
 
 export default shopData;
