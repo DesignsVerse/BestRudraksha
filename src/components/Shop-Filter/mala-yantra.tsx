@@ -12,8 +12,8 @@ const Mala: React.FC = () => {
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
   const itemsPerPage = 12;
 
-  // Filter shopData to show only products with IDs 46 to 49
-  const specialRudrakshaBase = shopData.filter((item) => item.id >= 46 && item.id <= 50);
+  // Filter shopData to show only products with IDs 46 to 53 (Mala and Yantra category)
+  const specialRudrakshaBase = shopData.filter((item) => item.id >= 46 && item.id <= 53);
 
   // Sort data based on sizes[0]?.price
   const sortedGemstoneProducts = [...specialRudrakshaBase].sort((a: any, b: any) => {
@@ -28,10 +28,10 @@ const Mala: React.FC = () => {
 
 
   // Pagination logic
-  const totalItems = specialRudrakshaBase.length;
+  const totalItems = sortedGemstoneProducts.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedProducts = specialRudrakshaBase.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedProducts = sortedGemstoneProducts.slice(startIndex, startIndex + itemsPerPage);
 
   // Handle sort change
   const handleSortChange = (value: "normal" | "low-to-high" | "high-to-low") => {

@@ -13,8 +13,8 @@ const Shop: React.FC = () => {
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
   const itemsPerPage = 12;
 
-  // Filter shopData to show only products with IDs 15 to 23
-  const gemstoneProductsBase = shopData.filter((item) => item.id >= 1 && item.id <= 50);
+  // Filter shopData to show all products
+  const gemstoneProductsBase = shopData.filter((item) => item.id >= 1 && item.id <= 53);
 
   // Sort data based on sizes[0]?.price
   const sortedGemstoneProducts = [...gemstoneProductsBase].sort((a: Product, b: Product) => {
