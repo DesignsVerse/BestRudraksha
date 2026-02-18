@@ -367,8 +367,8 @@ INSERT INTO system_settings (key, value, description, type, is_public) VALUES
 ('enable_reviews', 'true', 'Enable product reviews', 'boolean', true),
 ('auto_approve_reviews', 'false', 'Auto approve product reviews', 'boolean', false),
 ('contact_email', 'info@bestrudraksha.com', 'Contact email address', 'string', true),
-('support_phone', '+919153164444', 'Support phone number', 'string', true),
-('whatsapp_number', '+919153164444', 'WhatsApp number', 'string', true),
+('support_phone', '+919413466075', 'Support phone number', 'string', true),
+('whatsapp_number', '+919413466075', 'WhatsApp number', 'string', true),
 ('business_address', '69/1, Near Harsiddhi Mandir, Yogipura, Jaisinghpura, Ujjain, Madhya Pradesh 456006', 'Business address', 'string', true)
 ON CONFLICT (key) DO NOTHING;
 

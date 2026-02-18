@@ -5,15 +5,15 @@ import { useEffect, useRef, useState } from "react";
 const HeroCarousel = () => {
   // Image sources for desktop and mobile
   const desktopSlides = [
-    // New desktop banner (Mahakal / laptop resolution) - shown first
-    "/IMG-20260209-WA0020(laptop).jpg",
+    // Shiva Lingam temple interior - shown first
+    "/shiva-lingam-temple.jpg",
     "/images/hero/hero-1.png",
     "/images/hero/hero-2.png",
     "/images/hero/hero-3.png",
   ];
   const mobileSlides = [
-    // New mobile banner (Mahakal mobile wallpaper) - shown first
-    "/Ujjain Shree Mahakal Wallpaper 4K(mobile).jfif",
+    // Shiva Lingam temple interior (mobile) - shown first
+    "/shiva-lingam-temple.jpg",
     "/images/hero/mobile-hero-1.png",
     "/images/hero/mobile-hero-2.png",
     "/images/hero/mobile-hero-3.png",

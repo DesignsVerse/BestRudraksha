@@ -129,8 +129,8 @@ export default function RootLayout({
         <ScrollToTop />
         <Footer />
         <NavigationBar />
-        <WhatsAppButton phoneNumber="+919153164444" label="Chat with Us" />
-        <CallButton phoneNumber="+919153164444" label="Contact Us" />
+        <WhatsAppButton phoneNumber="+919413466075" label="Chat with Us" />
+        <CallButton phoneNumber="+919413466075" label="Contact Us" />
       </body>
     </html>
   );
