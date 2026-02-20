@@ -90,18 +90,20 @@ const ProductItem = ({ item }: { item: Product }) => {
     <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
         {/* Product Image */}
-        <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
-          <ResponsiveImage
-            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
-            mobileSrc={item.imgs?.mobilePreviews?.[0]}
-            alt={item.title}
-            width={300}
-            height={300}
-            className="w-full h-56 sm:h-64 transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            quality={75}
-            objectFit="cover"
-          />
+        <Link href={`/shop/${item.slug}`} className="block overflow-hidden bg-gray-50">
+          <div className="w-full h-48 sm:h-56 flex items-center justify-center p-4">
+            <ResponsiveImage
+              src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
+              mobileSrc={item.imgs?.mobilePreviews?.[0]}
+              alt={item.title}
+              width={300}
+              height={300}
+              className="w-auto h-full max-w-full transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={75}
+              objectFit="contain"
+            />
+          </div>
         </Link>
 
         {/* Discount Badge - Always shown */}

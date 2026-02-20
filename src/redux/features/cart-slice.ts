@@ -8,6 +8,8 @@ type CartItem = {
   price: number;
   discountedPrice: number;
   quantity: number;
+  qualityType?: "nepali" | "indonesian";
+  selectedSize?: string;
   imgs?: {
     thumbnails: string[];
     previews: string[];
@@ -41,8 +43,13 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'> & { quantity?: number }>) => {
-      const { id, title, slug, price, quantity = 1, discountedPrice, imgs } = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const { id, title, slug, price, quantity = 1, discountedPrice, imgs, qualityType, selectedSize } = action.payload;
+      // Find existing item with same id, qualityType, and selectedSize
+      const existingItem = state.items.find((item) => 
+        item.id === id && 
+        item.qualityType === qualityType && 
+        item.selectedSize === selectedSize
+      );
 
       if (existingItem) {
         existingItem.quantity += quantity;
@@ -55,6 +62,8 @@ export const cart = createSlice({
           quantity,
           discountedPrice,
           imgs,
+          qualityType,
+          selectedSize,
         });
       }
       persistCart(state.items);

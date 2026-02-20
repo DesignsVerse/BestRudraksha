@@ -143,7 +143,7 @@ export const organizationStructuredData = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+91-9413466075',
+    telephone: '+91-9153164444',
     contactType: 'customer service',
     availableLanguage: ['English', 'Hindi']
   },

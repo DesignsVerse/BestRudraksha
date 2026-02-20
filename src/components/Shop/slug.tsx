@@ -32,6 +32,12 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   const wishlistItems = useAppSelector((state) => state.wishlistReducer.items);
   const isWishlisted = wishlistItems.some(item => item.id === product.id);
 
+  // Check if this is a 1-14 Mukhi Rudraksha product (IDs 1-14)
+  const isMukhiRudraksha = product?.id >= 1 && product?.id <= 14;
+
+  // Quality type state - default to Indonesian (only for 1-14 Mukhi Rudraksha)
+  const [qualityType, setQualityType] = useState<"nepali" | "indonesian">("indonesian");
+
   // Safely set default size or fallback
   const [selectedSize, setSelectedSize] = useState(
     product?.sizes?.[0] || { name: "Regular", price: 0, discountedPrice: 0 }
@@ -47,17 +53,36 @@ const ProductCard = ({ product, onToggleWishlist }) => {
     );
   }
 
+  // Calculate prices based on quality type (only for 1-14 Mukhi Rudraksha)
+  const getPriceForQuality = (price: number) => {
+    if (isMukhiRudraksha && qualityType === "indonesian") {
+      return Math.round(price / 2);
+    }
+    return price;
+  };
+
+  // Get current prices based on selected quality
+  const currentPrice = getPriceForQuality(selectedSize.price);
+  const currentDiscountedPrice = selectedSize.discountedPrice 
+    ? getPriceForQuality(selectedSize.discountedPrice)
+    : null;
+
   const handleAddToCartLocal = () => {
-    dispatch(
-      addItemToCart({
-        ...product,
-        quantity,
-        selectedSize: selectedSize.name,
-        price: selectedSize.price,
-        discountedPrice: selectedSize.discountedPrice,
-      })
-    );
-    toast.success(`${product.title} (${selectedSize.name}) added to cart!`, {
+    const cartItem = {
+      ...product,
+      quantity,
+      selectedSize: selectedSize.name,
+      price: currentPrice,
+      discountedPrice: currentDiscountedPrice || currentPrice,
+      ...(isMukhiRudraksha && { qualityType: qualityType }),
+    };
+
+    dispatch(addItemToCart(cartItem));
+    
+    const qualityText = isMukhiRudraksha 
+      ? `, ${qualityType.charAt(0).toUpperCase() + qualityType.slice(1)}`
+      : '';
+    toast.success(`${product.title} (${selectedSize.name}${qualityText}) added to cart!`, {
       position: "top-right",
       autoClose: 3000,
     });
@@ -65,16 +90,21 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   };
 
   const handleBuyNow = () => {
-    dispatch(
-      addItemToCart({
-        ...product,
-        quantity,
-        selectedSize: selectedSize.name,
-        price: selectedSize.price,
-        discountedPrice: selectedSize.discountedPrice,
-      })
-    );
-    toast.success(`${product.title} (${selectedSize.name}) added to cart!`, {
+    const cartItem = {
+      ...product,
+      quantity,
+      selectedSize: selectedSize.name,
+      price: currentPrice,
+      discountedPrice: currentDiscountedPrice || currentPrice,
+      ...(isMukhiRudraksha && { qualityType: qualityType }),
+    };
+
+    dispatch(addItemToCart(cartItem));
+    
+    const qualityText = isMukhiRudraksha 
+      ? `, ${qualityType.charAt(0).toUpperCase() + qualityType.slice(1)}`
+      : '';
+    toast.success(`${product.title} (${selectedSize.name}${qualityText}) added to cart!`, {
       position: "top-right",
       autoClose: 3000,
     });
@@ -158,12 +188,12 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       <div className="mb-6">
         <div className="flex items-center gap-3">
           <h3 className="text-2xl font-semibold text-[#800000]">
-            ₹{(selectedSize.discountedPrice || selectedSize.price).toLocaleString("en-IN")}
+            ₹{(currentDiscountedPrice || currentPrice).toLocaleString("en-IN")}
           </h3>
-          {selectedSize.discountedPrice &&
-            selectedSize.discountedPrice !== selectedSize.price && (
+          {currentDiscountedPrice &&
+            currentDiscountedPrice !== currentPrice && (
               <span className="text-gray-500 line-through">
-                ₹{selectedSize.price.toLocaleString("en-IN")}
+                ₹{currentPrice.toLocaleString("en-IN")}
                 {selectedSize.name !== "Regular" && (
                   <span className="text-sm text-gray-500 ml-2">
                     ({selectedSize.name})
@@ -174,9 +204,49 @@ const ProductCard = ({ product, onToggleWishlist }) => {
         </div>
       </div>
 
+      {/* Quality Toggle - Only for 1-14 Mukhi Rudraksha */}
+      {isMukhiRudraksha && (
+        <div className="mb-6">
+          <h4
+            style={{ fontWeight: "bold", color: "#000000" }}
+            className="text-md font-medium text-gray-700 mb-2"
+          >
+            Quality
+          </h4>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setQualityType("indonesian")}
+              className={`px-4 py-2 border rounded-lg font-medium transition-all ${
+                qualityType === "indonesian"
+                  ? "bg-[#800000] text-white border-[#800000]"
+                  : "bg-white border-gray-300 hover:bg-gray-100 text-gray-700"
+              }`}
+            >
+              Indonesian
+            </button>
+            <button
+              type="button"
+              onClick={() => setQualityType("nepali")}
+              className={`px-4 py-2 border rounded-lg font-medium transition-all ${
+                qualityType === "nepali"
+                  ? "bg-[#800000] text-white border-[#800000]"
+                  : "bg-white border-gray-300 hover:bg-gray-100 text-gray-700"
+              }`}
+            >
+              Nepali
+            </button>
+          </div>
+        </div>
+      )}
+
       <div style={{ marginBottom: "1rem", color: "#374151" }}>
         <span style={{ fontWeight: "bold", color: "#000000" }}>Origin:</span>{" "}
-        <span style={{ color: "#000000" }}>Nepali</span> <br />
+        <span style={{ color: "#000000" }}>
+          {isMukhiRudraksha 
+            ? qualityType.charAt(0).toUpperCase() + qualityType.slice(1)
+            : "Nepali"}
+        </span> <br />
         <span style={{ fontWeight: "bold", color: "#000000" }}>
           Description:
         </span>{" "}

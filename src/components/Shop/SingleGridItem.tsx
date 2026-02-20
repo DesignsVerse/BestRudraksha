@@ -86,25 +86,21 @@ const SingleGridItem = ({ item }: { item: Product }) => {
   return (
     <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
       <div className="relative overflow-hidden rounded-t-xl">
-        <Link href={`/shop/${item.slug}`} className="block overflow-hidden">
-          <ResponsiveImage
-            src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
-            mobileSrc={item.imgs?.mobilePreviews?.[0]}
-            alt={item.title || "Product Image"}
-            width={300}
-            height={300}
-            className="w-full h-56 sm:h-64 transition-transform duration-300 group-hover:scale-110"
-            style={{
-              transform: "scale(0.7)",
-              maxWidth: "100%",
-              height: "auto",
-              objectPosition: "center",
-            } as React.CSSProperties}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            quality={85}
-            objectFit="contain"
-            onError={() => {}}
-          />
+        <Link href={`/shop/${item.slug}`} className="block overflow-hidden bg-gray-50">
+          <div className="w-full h-48 sm:h-56 flex items-center justify-center p-4">
+            <ResponsiveImage
+              src={item.imgs?.previews?.[0] || "/images/placeholder.png"}
+              mobileSrc={item.imgs?.mobilePreviews?.[0]}
+              alt={item.title || "Product Image"}
+              width={300}
+              height={300}
+              className="w-auto h-full max-w-full transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={85}
+              objectFit="contain"
+              onError={() => {}}
+            />
+          </div>
         </Link>
         <span className="absolute md:top-2 md:right-2 top-0 right-2  bg-[#800000] text-white md:text-xs text-[8px] font-semibold  px-1 py-0 rounded">
           {discountPercentage > 0 ? `${discountPercentage}% OFF` : "0% OFF"}
