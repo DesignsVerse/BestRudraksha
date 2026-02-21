@@ -19,6 +19,25 @@ import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import RudrakshaComponent from "@/components/Shop/wearingguidline";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import { removeItemFromWishlist } from "@/redux/features/wishlist-slice";
+
+// Explicit Indonesian prices for 1-13 Mukhi Rudraksha (ID 1-13).
+// ID 14 currently falls back to 50% of Nepali price until a final price is provided.
+const INDONESIAN_PRICES: Record<number, number> = {
+  1: 2300,
+  2: 700,
+  3: 900,
+  4: 1200,
+  5: 550,
+  6: 1200,
+  7: 1600,
+  8: 3500,
+  9: 6000,
+ 10: 8500,
+ 11: 9500,
+ 12: 10000,
+ 13: 17000,
+};
+
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -56,8 +75,14 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   // Calculate prices based on quality type (only for 1-14 Mukhi Rudraksha)
   const getPriceForQuality = (price: number) => {
     if (isMukhiRudraksha && qualityType === "indonesian") {
+      // Use explicit Indonesian price when available, otherwise fall back to 50% of Nepali.
+      const indonesianPrice = INDONESIAN_PRICES[product.id];
+      if (indonesianPrice) {
+        return indonesianPrice;
+      }
       return Math.round(price / 2);
     }
+    // Nepali quality uses original Nepali price from product data.
     return price;
   };
 
