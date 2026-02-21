@@ -211,7 +211,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 -ml-2 md:-ml-3">
             <Link href="/">
               <div className="relative h-18 w-32 md:h-20 md:w-40">
                 <Image
