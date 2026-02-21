@@ -5,14 +5,12 @@ import { useEffect, useRef, useState } from "react";
 const HeroCarousel = () => {
   // Image sources for desktop and mobile
   const desktopSlides = [
-    // Shiva Lingam temple interior - shown first
-    "/shiva-lingam-temple.jpg",
     "/images/hero/hero-1.png",
     "/images/hero/hero-2.png",
     "/images/hero/hero-3.png",
   ];
   const mobileSlides = [
-    // Shiva Lingam temple interior (mobile) - shown first
+    // Shiva Lingam temple interior (mobile) - shown first, cropped to remove copyright
     "/shiva-lingam-temple.jpg",
     "/images/hero/mobile-hero-1.png",
     "/images/hero/mobile-hero-2.png",
@@ -101,33 +99,75 @@ const HeroCarousel = () => {
           .carousel-slide img {
             object-fit: cover; /* Ensure mobile images fit properly */
           }
+          /* Crop bottom of shiva-lingam-temple.jpg to remove copyright */
+          .carousel-slide:has(img[src="/shiva-lingam-temple.jpg"]),
+          .carousel-slide:has(img[src*="shiva-lingam-temple"]) {
+            overflow: hidden;
+          }
+          .carousel-slide:has(img[src="/shiva-lingam-temple.jpg"]) img,
+          .carousel-slide:has(img[src*="shiva-lingam-temple"]) img {
+            object-position: center top;
+            height: 110%;
+            transform: translateY(-5%);
+          }
         }
       `}</style>
       <div className="carousel-inner" ref={carouselRef}>
-        {slides.map((src, index) => (
-          <div key={index} className="carousel-slide">
-            <div className="relative w-full h-full">
-              {src.toLowerCase().endsWith(".jfif") ? (
-                // Fallback to native <img> for jfif banner to avoid any Next/Image issues
-                <img
-                  src={src}
-                  alt={`banner-${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={src}
-                  alt={`banner-${index + 1}`}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                  sizes={isMobile ? "100vw" : "100vw"}
-                  onError={() => console.error(`Failed to load image ${src}`)}
-                />
-              )}
+        {slides.map((src, index) => {
+          const isShivaImage = src.includes("shiva-lingam-temple");
+          return (
+            <div key={index} className="carousel-slide">
+              <div className="relative w-full h-full">
+                {isShivaImage && isMobile ? (
+                  // Special wrapper for Shiva image on mobile to crop bottom
+                  <div className="relative w-full h-full overflow-hidden">
+                    {src.toLowerCase().endsWith(".jfif") ? (
+                      <img
+                        src={src}
+                        alt={`banner-${index + 1}`}
+                        className="w-full h-[110%] object-cover object-top"
+                        style={{ transform: 'translateY(-5%)' }}
+                      />
+                    ) : (
+                      <div className="relative w-full h-[110%]" style={{ transform: 'translateY(-5%)' }}>
+                        <Image
+                          src={src}
+                          alt={`banner-${index + 1}`}
+                          fill
+                          className="object-cover object-top"
+                          priority={index === 0}
+                          sizes="100vw"
+                          onError={() => console.error(`Failed to load image ${src}`)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  // Normal image display for desktop and non-Shiva images
+                  <>
+                    {src.toLowerCase().endsWith(".jfif") ? (
+                      <img
+                        src={src}
+                        alt={`banner-${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src={src}
+                        alt={`banner-${index + 1}`}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                        sizes={isMobile ? "100vw" : "100vw"}
+                        onError={() => console.error(`Failed to load image ${src}`)}
+                      />
+                    )}
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className="pagination">
         {slides.map((_, index) => (
