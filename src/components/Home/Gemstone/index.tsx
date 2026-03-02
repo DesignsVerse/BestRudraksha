@@ -36,9 +36,9 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
 );
 
 const Gemstone: React.FC = () => {
-  if (HIDE_GEMSTONES) return null;
   const dispatch = useDispatch<AppDispatch>();
   const { openCartModal } = useCartModalContext(); // Added for cart sidebar
+
   // Filter gemstone products
   const gemstoneProducts: Product[] = shopData.slice(14, 19);
 
@@ -95,6 +95,10 @@ const Gemstone: React.FC = () => {
     },
     [dispatch]
   );
+
+  // Hide gemstones (temporary focus on Rudraksha)
+  // IMPORTANT: must be after hooks to satisfy react-hooks/rules-of-hooks
+  if (HIDE_GEMSTONES) return null;
 
   // Slider settings
   const sliderSettings = {

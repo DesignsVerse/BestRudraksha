@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url,
       siteName: 'BestRudraksha.com',
       images: seoData.openGraph?.images || [],
-      type: 'product',
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',

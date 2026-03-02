@@ -8,6 +8,11 @@ import shopData from "@/components/Shop/shopData";
 import { HIDE_GEMSTONES } from "@/lib/catalog";
 
 const Gemstones: React.FC = () => {
+  const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
+  const itemsPerPage = 12;
+
   if (HIDE_GEMSTONES) {
     return (
       <>
@@ -23,10 +28,6 @@ const Gemstones: React.FC = () => {
       </>
     );
   }
-  const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
-  const itemsPerPage = 12;
 
   // Filter shopData to show only products with IDs 15 to 23
   const gemstoneProductsBase = shopData.filter((item) => item.id >= 15 && item.id <= 23);
