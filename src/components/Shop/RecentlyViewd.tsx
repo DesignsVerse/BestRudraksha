@@ -3,6 +3,7 @@ import React from "react";
 import shopData from "@/components/Shop/shopData";
 import ProductItem from "@/components/Common/ProductItem";
 import Image from "next/image";
+import { getVisibleProducts } from "@/lib/catalog";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef, useEffect, useState } from "react";
@@ -23,7 +24,7 @@ const RecentlyViewdItems = () => {
   };
 
   useEffect(() => {
-    setRandomProducts(shuffleArray(shopData));
+    setRandomProducts(shuffleArray(getVisibleProducts(shopData)));
   }, []);
 
   const handlePrev = useCallback(() => {

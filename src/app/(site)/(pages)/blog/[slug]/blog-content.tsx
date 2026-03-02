@@ -12,6 +12,7 @@ import { useParams } from "next/navigation";
 import SingleGridItem from "@/components/Shop/SingleGridItem";
 import { Provider } from "react-redux";
 import {store} from "@/redux/store";
+import { getVisibleProducts } from "@/lib/catalog";
 
 const BlogDetailsWithSidebar = () => {
   const params = useParams();
@@ -38,7 +39,9 @@ const BlogDetailsWithSidebar = () => {
 
   // Dynamic Advertisement Component
   const Advertisement = () => {
-    const featuredProduct = shopData.find((p) => p.id === blog.productId) || shopData[0];
+    const visibleProducts = getVisibleProducts(shopData);
+    const featuredProduct =
+      visibleProducts.find((p) => p.id === blog.productId) || visibleProducts[0];
     const regularSize = featuredProduct.sizes?.[0] || { name: "Regular", price: 0 };
     const discountPercentage =
       regularSize.discountedPrice && regularSize.discountedPrice !== regularSize.price

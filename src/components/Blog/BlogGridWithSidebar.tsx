@@ -6,6 +6,7 @@ import SearchForm from "./SearchForm";
 import LatestPosts from "./LatestPosts";
 import LatestProducts from "./LatestProducts";
 import shopData from "@/components/Shop/shopData";
+import { getVisibleProducts } from "@/lib/catalog";
 
 const BlogGridWithSidebar: React.FC = () => {
   const categories = [
@@ -74,7 +75,7 @@ const BlogGridWithSidebar: React.FC = () => {
             <div className="lg:max-w-[370px] w-full">
               <SearchForm />
               <LatestPosts blogs={blogData} />
-              <LatestProducts products={shopData} />
+              <LatestProducts products={getVisibleProducts(shopData)} />
               <div className="shadow-1 bg-white rounded-xl mt-7.5">
                 <div className="px-4 sm:px-6 py-4.5 border-b border-gray-3">
                   <h2 className="font-medium text-lg text-dark">Tags</h2>

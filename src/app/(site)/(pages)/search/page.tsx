@@ -240,7 +240,6 @@ const SearchPageContent = () => {
                     <option value="">All Categories</option>
                     <option value="1-14 mukhi rudraksha">1-14 Mukhi Rudraksha</option>
                     <option value="special rudraksha">Special Rudraksha</option>
-                    <option value="gemstones">Gemstones</option>
                     <option value="mala and yantra">Mala and Yantra</option>
                   </select>
                 </div>

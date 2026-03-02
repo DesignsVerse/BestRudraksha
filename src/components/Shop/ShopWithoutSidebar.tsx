@@ -6,6 +6,7 @@ import SingleListItem from "../Shop/SingleListItem";
 import FilterSortSelects from "../Shop/FilterSortSelects"; // Your FilterSortSelects
 import shopData from "@/components/Shop/shopData";
 import { Product } from "@/types/product";
+import { getVisibleProducts } from "@/lib/catalog";
 
 const Shop: React.FC = () => {
   const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
@@ -13,11 +14,11 @@ const Shop: React.FC = () => {
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");
   const itemsPerPage = 12;
 
-  // Filter shopData to show all products
-  const gemstoneProductsBase = shopData.filter((item) => item.id >= 1 && item.id <= 53);
+  // Visible catalog (gemstones hidden for now)
+  const visibleProductsBase = getVisibleProducts(shopData);
 
   // Sort data based on sizes[0]?.price
-  const sortedGemstoneProducts = [...gemstoneProductsBase].sort((a: Product, b: Product) => {
+  const sortedGemstoneProducts = [...visibleProductsBase].sort((a: Product, b: Product) => {
     if (sortOption === "normal") return 0;
   
     // Use discountedPrice if available, otherwise use price

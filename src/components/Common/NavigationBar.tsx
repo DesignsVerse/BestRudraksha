@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faHouseChimney,
   faRing,
-  faGem as faGemSolid,
   faLeaf,
   faUserCircle
 } from '@fortawesome/free-solid-svg-icons';
@@ -21,10 +20,6 @@ const NavigationBar: FC = () => {
       <Link href="/shop-filter/special-rudraksha" className="flex flex-col items-center text-gray-600 hover:text-[#800000] transition-colors duration-200">
         <FontAwesomeIcon icon={faRing} className="text-xl" />
         <span className="text-xs mt-1 font-medium">Bracelets</span>
-      </Link>
-      <Link href="/shop-filter/gemstones" className="flex flex-col items-center text-gray-600 hover:text-[#800000] transition-colors duration-200">
-        <FontAwesomeIcon icon={faGemSolid} className="text-xl" />
-        <span className="text-xs mt-1 font-medium">Gemstones</span>
       </Link>
       <Link href="/shop" className="flex flex-col items-center text-gray-600 hover:text-[#800000] transition-colors duration-200">
         <FontAwesomeIcon icon={faLeaf} className="text-xl" />

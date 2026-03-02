@@ -4,6 +4,8 @@ import shopData from '@/components/Shop/shopData';
 import { Metadata } from 'next';
 import { getProductSEO, getProductStructuredData } from '@/lib/seo';
 import { getSiteUrl } from '@/lib/site';
+import { HIDE_GEMSTONES, isGemstoneProduct } from '@/lib/catalog';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -19,6 +21,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: 'Product Not Found | BestRudraksha.com',
       description: 'The requested product could not be found.',
+    };
+  }
+
+  if (HIDE_GEMSTONES && isGemstoneProduct(product)) {
+    return {
+      title: 'Product Not Found | BestRudraksha.com',
+      description: 'The requested product could not be found.',
+      robots: { index: false, follow: false },
     };
   }
 
@@ -62,6 +72,13 @@ const Shop = async ({ params }: PageProps) => {
   const { slug } = await params;
   const product = shopData.find((item) => item.slug === slug);
   const structuredData = product ? getProductStructuredData(product) : null;
+
+  if (!product) {
+    notFound();
+  }
+  if (HIDE_GEMSTONES && isGemstoneProduct(product)) {
+    notFound();
+  }
 
   return (
     <>

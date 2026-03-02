@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { HIDE_GEMSTONES } from '@/lib/catalog';
 
 const PromoBanner = () => {
   const [timeLeft, setTimeLeft] = useState({ 
@@ -104,7 +105,7 @@ const PromoBanner = () => {
                 className="flex flex-col sm:flex-row gap-4 items-start"
               >
                 <motion.a
-                  href="/products/rudraksha-mala"
+                  href="/shop-filter/mala-and-yantra"
                   className="relative overflow-hidden inline-flex items-center justify-center font-medium text-[#5A3410] bg-gradient-to-r from-[#FFD700] to-[#FFC107] hover:from-[#FFC107] hover:to-[#FFB800] py-3 px-8 sm:px-10 rounded-lg transition-all duration-300 shadow-lg group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -153,58 +154,60 @@ const PromoBanner = () => {
         {/* Secondary Promo Banners */}
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
           {/* Gemstone Pendant Banner */}
-          <motion.div
-            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2E4A7D] via-[#3A5A8A] to-[#4A90E2] p-6 sm:p-8 shadow-xl"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="absolute inset-0 opacity-10 bg-[url('/images/cross-pattern.png')] bg-[length:30px_30px]" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#4A90E2] rounded-full filter blur-[80px] opacity-20" />
-            
-            <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
-              <motion.div
-                className="relative w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Image
-                  src="/images/blog/blog-1.webp"
-                  alt="Gemstone Pendant"
-                  width={160}
-                  height={160}
-                  className="w-full h-full object-contain drop-shadow-lg"
-                  loading="lazy"
-                />
-                <div className="absolute -bottom-2 -right-2 bg-[#FFD700] text-[#5A3410] font-bold text-xs px-2 py-1 rounded">
-                  -20%
-                </div>
-              </motion.div>
-              
-              <div className="text-center sm:text-left">
-                <span className="block text-sm text-[#C8DFFF] mb-1">
-                  Natural Gemstones
-                </span>
-                <h3 className="font-serif text-xl sm:text-2xl text-white mb-2">
-                  Divine Protection Pendants
-                </h3>
-                <p className="text-[#C8DFFF] text-sm mb-4">
-                  Energized with planetary blessings for health and prosperity
-                </p>
-                <motion.a
-                  href="/products/gemstone-pendants"
-                  className="inline-flex items-center font-medium text-white bg-[#FFD700]/90 hover:bg-[#FFD700] py-2 px-6 rounded-full transition duration-300 shadow-md text-sm"
+          {!HIDE_GEMSTONES && (
+            <motion.div
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2E4A7D] via-[#3A5A8A] to-[#4A90E2] p-6 sm:p-8 shadow-xl"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="absolute inset-0 opacity-10 bg-[url('/images/cross-pattern.png')] bg-[length:30px_30px]" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#4A90E2] rounded-full filter blur-[80px] opacity-20" />
+
+              <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
+                <motion.div
+                  className="relative w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0"
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
-                  Shop Now
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </motion.a>
+                  <Image
+                    src="/images/blog/blog-1.webp"
+                    alt="Gemstone Pendant"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-contain drop-shadow-lg"
+                    loading="lazy"
+                  />
+                  <div className="absolute -bottom-2 -right-2 bg-[#FFD700] text-[#5A3410] font-bold text-xs px-2 py-1 rounded">
+                    -20%
+                  </div>
+                </motion.div>
+
+                <div className="text-center sm:text-left">
+                  <span className="block text-sm text-[#C8DFFF] mb-1">
+                    Natural Gemstones
+                  </span>
+                  <h3 className="font-serif text-xl sm:text-2xl text-white mb-2">
+                    Divine Protection Pendants
+                  </h3>
+                  <p className="text-[#C8DFFF] text-sm mb-4">
+                    Energized with planetary blessings for health and prosperity
+                  </p>
+                  <motion.a
+                    href="/shop-filter/gemstones"
+                    className="inline-flex items-center font-medium text-white bg-[#FFD700]/90 hover:bg-[#FFD700] py-2 px-6 rounded-full transition duration-300 shadow-md text-sm"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Shop Now
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </motion.a>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
 
           {/* Yantra Plate Banner */}
           <motion.div

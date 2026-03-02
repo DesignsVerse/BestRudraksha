@@ -14,6 +14,7 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import { toast } from "react-toastify"; // Added for toast notifications
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext"; // Added for cart sidebar
+import { HIDE_GEMSTONES } from "@/lib/catalog";
 
 // Custom Arrow Components for Slider
 const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
@@ -35,6 +36,7 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
 );
 
 const Gemstone: React.FC = () => {
+  if (HIDE_GEMSTONES) return null;
   const dispatch = useDispatch<AppDispatch>();
   const { openCartModal } = useCartModalContext(); // Added for cart sidebar
   // Filter gemstone products

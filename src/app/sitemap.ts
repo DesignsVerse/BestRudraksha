@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import shopData from '@/components/Shop/shopData';
 import blogData from '@/data/blogData.json';
 import { getSiteUrl } from '@/lib/site';
+import { HIDE_GEMSTONES, getVisibleProducts } from '@/lib/catalog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
@@ -74,12 +75,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/shop-filter/gemstones`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/shop-filter/special-rudraksha`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -100,7 +95,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Product pages - dynamically generated from shopData
-  const productPages: MetadataRoute.Sitemap = shopData.map((product) => ({
+  const visibleProducts = getVisibleProducts(shopData);
+  const productPages: MetadataRoute.Sitemap = visibleProducts.map((product) => ({
     url: `${baseUrl}/shop/${product.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,

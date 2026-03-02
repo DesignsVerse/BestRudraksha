@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { HIDE_GEMSTONES } from '@/lib/catalog';
 
 // Mock product data - replace with your actual product data source
 const mockProducts = [
@@ -101,6 +102,13 @@ export async function GET(req: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '12');
 
     let filteredProducts = mockProducts;
+
+    // Hide gemstones from search results (temporary focus on Rudraksha)
+    if (HIDE_GEMSTONES) {
+      filteredProducts = filteredProducts.filter(
+        (p) => (p.category || '').toLowerCase() !== 'gemstones'
+      );
+    }
 
     // Text search
     if (query) {

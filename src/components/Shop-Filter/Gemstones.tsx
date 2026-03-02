@@ -5,8 +5,24 @@ import SingleGridItem from "../Shop/SingleGridItem";
 import SingleListItem from "../Shop/SingleListItem";
 import FilterSortSelects from "../Shop/FilterSortSelects"; // Your FilterSortSelects
 import shopData from "@/components/Shop/shopData";
+import { HIDE_GEMSTONES } from "@/lib/catalog";
 
 const Gemstones: React.FC = () => {
+  if (HIDE_GEMSTONES) {
+    return (
+      <>
+        <Breadcrumb title={"Gemstones"} pages={["Gemstones"]} />
+        <section className="overflow-hidden relative pb-20 bg-[#FFFAF5]">
+          <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
+            <div className="rounded-lg bg-white shadow-md px-6 py-10 border border-gray-100 text-center">
+              <h2 className="text-xl font-semibold text-dark mb-2">Gemstones are temporarily unavailable</h2>
+              <p className="text-gray-600">We’re currently focusing on Rudraksha products.</p>
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
   const [productStyle, setProductStyle] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState<"normal" | "low-to-high" | "high-to-low">("normal");

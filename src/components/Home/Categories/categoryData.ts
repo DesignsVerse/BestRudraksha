@@ -10,12 +10,6 @@ const data: Category[] = [
     
   },
   {
-    title: "Gemstones",
-    id: 2,
-    img: "/images/home/Categories/2.png",
-    link: "/shop-filter/gemstones",
-  },
-  {
     title: "Special Rudraksha",
     id: 3,
     img: "/images/home/Categories/3.png",

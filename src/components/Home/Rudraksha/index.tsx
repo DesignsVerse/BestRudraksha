@@ -56,8 +56,8 @@ export default function Rudraksha() {
                 className="w-full"
               />
               <div className="p-4">
-                <h2 className="text-lg text-[#000000]">Gemstone</h2>
-                <a href="/shop-filter/gemstones" className="text-[#800000]">
+                <h2 className="text-lg text-[#000000]">Special Rudraksha</h2>
+                <a href="/shop-filter/special-rudraksha" className="text-[#800000]">
                   Explore More 
                 </a>
               </div>

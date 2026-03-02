@@ -215,11 +215,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/gemstones">
-                  Gemstone
-                </Link>
-              </li>
-              <li>
                 <Link className="ease-out duration-200 hover:text-[#800000]" href="/shop-filter/mala-and-yantra">
                   Mala and Yantra
                 </Link>

@@ -21,12 +21,6 @@ export const menuData: Menu[] = [
       },
       {
         id: 51,
-        title: "Gemstones",
-        newTab: false,
-        path: "/shop-filter/gemstones",
-      },
-      {
-        id: 51,
         title: "Special Rudraksha",
         newTab: false,
         path: "/shop-filter/special-rudraksha",

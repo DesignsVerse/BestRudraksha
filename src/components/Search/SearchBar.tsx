@@ -11,7 +11,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
   onSearch, 
-  placeholder = "Search for Rudraksha, Gemstones, Malas...",
+  placeholder = "Search for Rudraksha, Malas, Yantras...",
   showFilters = true 
 }) => {
   const [query, setQuery] = useState('');
@@ -28,9 +28,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     "5 Mukhi Rudraksha", 
     "7 Mukhi Rudraksha",
     "Rudraksha Mala",
-    "Blue Sapphire",
     "Gauri Shankar",
-    "Gemstones",
     "Meditation Mala",
     "Spiritual Beads",
     "Original Rudraksha"
@@ -188,12 +186,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
               className="px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 hover:text-orange-600 rounded-md transition-colors"
             >
               Malas
-            </button>
-            <button
-              onClick={() => handleSearch('gemstones')}
-              className="px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 hover:text-orange-600 rounded-md transition-colors"
-            >
-              Gemstones
             </button>
           </div>
         </div>

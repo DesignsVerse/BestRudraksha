@@ -1,6 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
 import Gemstones from "@/components/Shop-Filter/Gemstones";
+import { notFound } from "next/navigation";
+import { HIDE_GEMSTONES } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "All Gemstones | BestRudraksha.com - Authentic Gemstones India",
@@ -93,6 +95,9 @@ export const metadata: Metadata = {
 };
 
 const GemstonesPage = () => {
+  if (HIDE_GEMSTONES) {
+    notFound();
+  }
   return (
     <main>
       <Gemstones />
