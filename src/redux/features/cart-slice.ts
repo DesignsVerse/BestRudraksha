@@ -8,7 +8,7 @@ type CartItem = {
   price: number;
   discountedPrice: number;
   quantity: number;
-  qualityType?: "nepali" | "indonesian";
+  qualityType?: "standard" | "premium";
   selectedSize?: string;
   imgs?: {
     thumbnails: string[];
@@ -23,7 +23,28 @@ type InitialState = {
 const getInitialCart = (): CartItem[] => {
   if (typeof window !== "undefined") {
     const storedCart = localStorage.getItem("cartItems");
-    return storedCart ? JSON.parse(storedCart) : [];
+    if (!storedCart) return [];
+
+    // Backwards-compatible migration:
+    // "indonesian" -> "standard", "nepali" -> "premium"
+    const normalizeQualityType = (qt?: string) => {
+      if (qt === "indonesian") return "standard";
+      if (qt === "nepali") return "premium";
+      if (qt === "standard" || qt === "premium") return qt;
+      return undefined;
+    };
+
+    try {
+      const parsed = JSON.parse(storedCart) as any[];
+      return Array.isArray(parsed)
+        ? parsed.map((item) => ({
+            ...item,
+            qualityType: normalizeQualityType(item?.qualityType),
+          }))
+        : [];
+    } catch {
+      return [];
+    }
   }
   return [];
 };
@@ -44,10 +65,18 @@ export const cart = createSlice({
   reducers: {
     addItemToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'> & { quantity?: number }>) => {
       const { id, title, slug, price, quantity = 1, discountedPrice, imgs, qualityType, selectedSize } = action.payload;
+
+      // Normalize any legacy values that might still be passed around
+      const normalizedQualityType =
+        (qualityType as any) === "indonesian"
+          ? "standard"
+          : (qualityType as any) === "nepali"
+            ? "premium"
+            : qualityType;
       // Find existing item with same id, qualityType, and selectedSize
       const existingItem = state.items.find((item) => 
         item.id === id && 
-        item.qualityType === qualityType && 
+        item.qualityType === normalizedQualityType && 
         item.selectedSize === selectedSize
       );
 
@@ -62,7 +91,7 @@ export const cart = createSlice({
           quantity,
           discountedPrice,
           imgs,
-          qualityType,
+          qualityType: normalizedQualityType,
           selectedSize,
         });
       }

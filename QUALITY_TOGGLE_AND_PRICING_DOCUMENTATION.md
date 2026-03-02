@@ -1,14 +1,14 @@
 # Quality Toggle Feature & Pricing Documentation
 
 ## Overview
-This document outlines the implementation of the Quality Toggle feature for Rudraksha products and the updated Nepali pricing structure.
+This document outlines the implementation of the Quality Toggle feature for Rudraksha products using **Standard** and **Premium** categories (all beads are Nepali) and the updated pricing structure.
 
 ---
 
 ## 1. Quality Toggle Feature
 
 ### 1.1 Feature Description
-A toggle button has been added to the product detail page that allows users to switch between **Nepali** and **Indonesian** quality Rudraksha beads. This feature enables customers to view different pricing options based on the quality/origin of the product.
+A toggle button has been added to the product detail page that allows users to switch between **Standard** and **Premium** Rudraksha categories. This feature enables customers to view different pricing options based on the category/grade of the product (origin remains **Nepali**).
 
 ### 1.2 Product Scope
 - **Applies To**: Only 1-14 Mukhi Rudraksha products (Product IDs: 1-14)
@@ -19,17 +19,17 @@ A toggle button has been added to the product detail page that allows users to s
   - Malas and Yantras (IDs 46-53)
 
 ### 1.3 Default Behavior
-- **Default Quality**: Indonesian (set as default)
+- **Default Quality**: Standard (set as default)
 - **Pricing Logic**: 
-  - **Nepali Quality**: Shows original Nepali prices
-  - **Indonesian Quality**: Shows prices that are **half of Nepali prices** (rounded to nearest integer)
+  - **Premium**: Shows base (original) prices from product data
+  - **Standard**: Shows Standard prices (explicit mapping where available, otherwise **~50% of Premium**)
 
 ### 1.4 User Interface
 - Toggle buttons are displayed above the "Origin" section on product detail pages
 - Buttons are styled with the site's theme color (#800000) when active
 - Selected quality is reflected in:
   - Price display
-  - Origin label
+  - Quality label
   - Cart items
   - Toast notifications
 
@@ -53,9 +53,9 @@ A toggle button has been added to the product detail page that allows users to s
 // Check if product is 1-14 Mukhi Rudraksha
 const isMukhiRudraksha = product?.id >= 1 && product?.id <= 14;
 
-// Calculate prices based on quality
+// Calculate prices based on category
 const getPriceForQuality = (price: number) => {
-  if (isMukhiRudraksha && qualityType === "indonesian") {
+  if (isMukhiRudraksha && qualityType === "standard") {
     return Math.round(price / 2);
   }
   return price;
@@ -77,7 +77,7 @@ type CartItem = {
   price: number;
   discountedPrice: number;
   quantity: number;
-  qualityType?: "nepali" | "indonesian";
+  qualityType?: "standard" | "premium";
   selectedSize?: string;
   imgs?: {
     thumbnails: string[];
@@ -93,11 +93,11 @@ type CartItem = {
 
 ---
 
-## 3. Updated Nepali Pricing (1-14 Mukhi Rudraksha)
+## 3. Updated Pricing (1-14 Mukhi Rudraksha)
 
 ### 3.1 Price List
 
-| Product ID | Product Name | Old Price (₹) | New Nepali Price (₹) | Indonesian Price (₹) |
+| Product ID | Product Name | Old Price (₹) | Premium Price (₹) | Standard Price (₹) |
 |------------|--------------|---------------|---------------------|---------------------|
 | 1 | 1 Mukhi Rudraksha | 6,000 | **2,300** | 1,150 |
 | 2 | 2 Mukhi Rudraksha | 2,833 | **700** | 350 |
@@ -116,7 +116,7 @@ type CartItem = {
 
 ### 3.2 Pricing Notes
 - All prices are in Indian Rupees (₹)
-- Indonesian prices are automatically calculated as 50% of Nepali prices
+- Standard prices are either explicitly set (recommended) or approximated as ~50% of Premium
 - Prices are rounded to the nearest integer
 - No discount is applied to the base prices (discountedPrice = price)
 
@@ -127,16 +127,14 @@ type CartItem = {
 ### 4.1 Product Page Interaction
 
 1. **User visits a 1-14 Mukhi Rudraksha product page**
-   - Quality toggle is visible (default: Indonesian selected)
-   - Prices displayed reflect Indonesian pricing (half of Nepali)
+   - Quality toggle is visible (default: Standard selected)
+   - Prices displayed reflect Standard pricing
 
-2. **User toggles to Nepali quality**
-   - Prices update to show full Nepali prices
-   - Origin label changes to "Nepali"
+2. **User toggles to Premium**
+   - Prices update to show full Premium prices
 
-3. **User toggles back to Indonesian quality**
-   - Prices update to show Indonesian prices (half of Nepali)
-   - Origin label changes to "Indonesian"
+3. **User toggles back to Standard**
+   - Prices update to show Standard prices
 
 4. **User adds product to cart**
    - Quality type is saved with the cart item
@@ -164,13 +162,13 @@ Items are considered the same cart item only if they match:
 ### 5.2 Example Scenarios
 
 **Scenario 1: Same Product, Different Qualities**
-- 1 Mukhi Rudraksha (Nepali) - Quantity: 1
-- 1 Mukhi Rudraksha (Indonesian) - Quantity: 1
+- 1 Mukhi Rudraksha (Premium) - Quantity: 1
+- 1 Mukhi Rudraksha (Standard) - Quantity: 1
 - **Result**: Two separate cart items
 
 **Scenario 2: Same Product, Same Quality**
-- 1 Mukhi Rudraksha (Nepali) - Quantity: 1
-- User adds another 1 Mukhi Rudraksha (Nepali)
+- 1 Mukhi Rudraksha (Premium) - Quantity: 1
+- User adds another 1 Mukhi Rudraksha (Premium)
 - **Result**: Quantity increases to 2
 
 ---
@@ -192,7 +190,7 @@ ShopDetails Component
 
 ```typescript
 // Product-level state
-const [qualityType, setQualityType] = useState<"nepali" | "indonesian">("indonesian");
+const [qualityType, setQualityType] = useState<"standard" | "premium">("standard");
 const [selectedSize, setSelectedSize] = useState(...);
 
 // Computed values
@@ -234,7 +232,7 @@ const currentDiscountedPrice = getPriceForQuality(selectedSize.discountedPrice);
 
 ## 9. Summary
 
-The Quality Toggle feature has been successfully implemented to allow customers to choose between Nepali and Indonesian quality Rudraksha beads for 1-14 Mukhi products. The feature:
+The Quality Toggle feature has been successfully implemented to allow customers to choose between Standard and Premium categories for 1-14 Mukhi products (origin remains Nepali). The feature:
 
 - ✅ Provides clear pricing options
 - ✅ Maintains user-friendly interface

@@ -1606,7 +1606,8 @@ const shopData: Product[] = [
         previews: ["/images/products/mala/5.png"]
       },
       sizes: [
-        { name: "Standard", price: 1200, discountedPrice: 1200 }
+        { name: "Standard", price: 599, discountedPrice: 599 },
+        { name: "Premium", price: 1200, discountedPrice: 1200 }
       ]
     },
 
@@ -1640,7 +1641,8 @@ const shopData: Product[] = [
         previews: ["/images/products/mala/4.png"]
       },
       sizes: [
-        { name: "Standard", price: 1350, discountedPrice: 1350 }
+        { name: "Standard", price: 499, discountedPrice: 499 },
+        { name: "Premium", price: 1350, discountedPrice: 1350 }
       ]
     },
 
@@ -1674,7 +1676,8 @@ const shopData: Product[] = [
         previews: ["/images/products/mala/3.png"]
       },
       sizes: [
-        { name: "Standard", price: 1300, discountedPrice: 1300 }
+        { name: "Standard", price: 499, discountedPrice: 499 },
+        { name: "Premium", price: 1300, discountedPrice: 1300 }
       ]
     }
 

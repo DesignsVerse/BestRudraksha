@@ -20,22 +20,34 @@ import RudrakshaComponent from "@/components/Shop/wearingguidline";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import { removeItemFromWishlist } from "@/redux/features/wishlist-slice";
 
-// Explicit Indonesian prices for 1-13 Mukhi Rudraksha (ID 1-13).
-// ID 14 currently falls back to 50% of Nepali price until a final price is provided.
-const INDONESIAN_PRICES: Record<number, number> = {
+// Standard & Premium pricing for 1-13 Mukhi Rudraksha (ID 1-13).
+// NOTE: All beads are Nepali; "Standard/Premium" is a price/grade category (not origin).
+// ID 14 currently falls back to 50% of Premium price until a final Standard price is provided.
+const STANDARD_PRICES: Record<number, number> = {
   1: 2300,
-  2: 700,
-  3: 900,
-  4: 1200,
-  5: 550,
-  6: 1200,
-  7: 1600,
+  2: 599,
+  3: 799,
+  4: 799,
+  5: 399,
+  6: 799,
+  7: 799,
   8: 3500,
   9: 6000,
  10: 8500,
  11: 9500,
  12: 10000,
  13: 17000,
+};
+
+// Premium prices where they differ from data defaults.
+// For IDs not listed here, Premium falls back to product.sizes price.
+const PREMIUM_PRICES: Record<number, number> = {
+  2: 700,
+  3: 900,
+  4: 1200,
+  5: 550,
+  6: 1200,
+  7: 1600,
 };
 
 interface PageProps {
@@ -54,8 +66,8 @@ const ProductCard = ({ product, onToggleWishlist }) => {
   // Check if this is a 1-14 Mukhi Rudraksha product (IDs 1-14)
   const isMukhiRudraksha = product?.id >= 1 && product?.id <= 14;
 
-  // Quality type state - default to Indonesian (only for 1-14 Mukhi Rudraksha)
-  const [qualityType, setQualityType] = useState<"nepali" | "indonesian">("indonesian");
+  // Category type state - default to Standard (only for 1-14 Mukhi Rudraksha)
+  const [qualityType, setQualityType] = useState<"standard" | "premium">("standard");
 
   // Safely set default size or fallback
   const [selectedSize, setSelectedSize] = useState(
@@ -72,17 +84,23 @@ const ProductCard = ({ product, onToggleWishlist }) => {
     );
   }
 
-  // Calculate prices based on quality type (only for 1-14 Mukhi Rudraksha)
+  // Calculate prices based on category (only for 1-14 Mukhi Rudraksha)
   const getPriceForQuality = (price: number) => {
-    if (isMukhiRudraksha && qualityType === "indonesian") {
-      // Use explicit Indonesian price when available, otherwise fall back to 50% of Nepali.
-      const indonesianPrice = INDONESIAN_PRICES[product.id];
-      if (indonesianPrice) {
-        return indonesianPrice;
+    if (isMukhiRudraksha && qualityType === "standard") {
+      // Use explicit Standard price when available, otherwise fall back to 50% of Premium.
+      const standardPrice = STANDARD_PRICES[product.id];
+      if (standardPrice) {
+        return standardPrice;
       }
       return Math.round(price / 2);
     }
-    // Nepali quality uses original Nepali price from product data.
+    if (isMukhiRudraksha && qualityType === "premium") {
+      const premiumPrice = PREMIUM_PRICES[product.id];
+      if (premiumPrice) {
+        return premiumPrice;
+      }
+    }
+    // Premium (or non-mukhi) uses original (base) price from product data.
     return price;
   };
 
@@ -241,25 +259,25 @@ const ProductCard = ({ product, onToggleWishlist }) => {
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={() => setQualityType("indonesian")}
+              onClick={() => setQualityType("standard")}
               className={`px-4 py-2 border rounded-lg font-medium transition-all ${
-                qualityType === "indonesian"
+                qualityType === "standard"
                   ? "bg-[#800000] text-white border-[#800000]"
                   : "bg-white border-gray-300 hover:bg-gray-100 text-gray-700"
               }`}
             >
-              Indonesian
+              Standard
             </button>
             <button
               type="button"
-              onClick={() => setQualityType("nepali")}
+              onClick={() => setQualityType("premium")}
               className={`px-4 py-2 border rounded-lg font-medium transition-all ${
-                qualityType === "nepali"
+                qualityType === "premium"
                   ? "bg-[#800000] text-white border-[#800000]"
                   : "bg-white border-gray-300 hover:bg-gray-100 text-gray-700"
               }`}
             >
-              Nepali
+              Premium
             </button>
           </div>
         </div>
@@ -268,9 +286,7 @@ const ProductCard = ({ product, onToggleWishlist }) => {
       <div style={{ marginBottom: "1rem", color: "#374151" }}>
         <span style={{ fontWeight: "bold", color: "#000000" }}>Origin:</span>{" "}
         <span style={{ color: "#000000" }}>
-          {isMukhiRudraksha 
-            ? qualityType.charAt(0).toUpperCase() + qualityType.slice(1)
-            : "Nepali"}
+          Nepali
         </span> <br />
         <span style={{ fontWeight: "bold", color: "#000000" }}>
           Description:
