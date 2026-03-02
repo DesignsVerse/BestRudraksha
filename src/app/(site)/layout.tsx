@@ -16,10 +16,14 @@ import type { Metadata } from "next";
 import WhatsAppButton from "@/components/Common/WhatsAppButton";
 import CallButton from "@/components/Common/WhatsAppButton";
 import { organizationStructuredData, websiteStructuredData } from '@/lib/seo';
+import { getSiteUrl } from '@/lib/site';
+
+const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   title: "BestRudraksha.com | Authentic Rudraksha, Gemstones, Malas & Yantras",
   description:
     "Shop authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual products for astrology, meditation, and wellness in India!",
+  metadataBase: new URL(siteUrl),
   keywords: [
     "BestRudraksha",
     "authentic Rudraksha",
@@ -59,11 +63,11 @@ export const metadata: Metadata = {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
       "Explore authentic Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. India’s trusted store for spiritual wellness!",
-    url: "https://www.bestrudraksha.com",
+    url: siteUrl,
     siteName: "BestRudraksha.com",
     images: [
       {
-        url: "https://www.bestrudraksha.com/images/hero/home-gemstone.png",
+        url: `${siteUrl}/images/hero/home-gemstone.png`,
         width: 1200,
         height: 630,
         alt: "BestRudraksha Spiritual Products",
@@ -77,10 +81,10 @@ export const metadata: Metadata = {
     title: "BestRudraksha.com | Trusted Spiritual Products",
     description:
       "Shop Rudraksha, gemstones, malas, and yantras at BestRudraksha.com. Trusted spiritual store in India!",
-    images: ["https://www.bestrudraksha.com/images/hero/home-gemstone.png"],
+    images: [`${siteUrl}/images/hero/home-gemstone.png`],
   },
   alternates: {
-    canonical: "https://www.bestrudraksha.com",
+    canonical: siteUrl,
   },
   other: {
     "geo.region": "IN",

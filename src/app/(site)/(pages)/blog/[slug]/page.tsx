@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import blogData from '@/data/blogData.json';
-import { getBlogSEO } from '@/lib/seo';
+import { getBlogSEO, getBlogStructuredData } from '@/lib/seo';
 import BlogDetailsWithSidebar from './blog-content';
+import { getSiteUrl } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -11,6 +12,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const blog = blogData.find((b) => b.slug === slug);
+  const siteUrl = getSiteUrl();
 
   if (!blog) {
     return {
@@ -21,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const seoData = getBlogSEO(blog);
   const excerpt = blog.sections?.[0]?.content?.substring(0, 150) || seoData.description;
+  const url = `${siteUrl}/blog/${slug}`;
 
   return {
     title: seoData.title,
@@ -29,11 +32,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: blog.title,
       description: excerpt,
-      url: `https://www.bestrudraksha.com/blog/${slug}`,
+      url,
       siteName: 'BestRudraksha.com',
       images: blog.img ? [
         {
-          url: `https://www.bestrudraksha.com${blog.img}`,
+          url: `${siteUrl}${blog.img}`,
           width: 1200,
           height: 630,
           alt: blog.title,
@@ -46,9 +49,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: blog.title,
       description: excerpt,
+      images: blog.img ? [`${siteUrl}${blog.img}`] : [],
     },
     alternates: {
-      canonical: `https://www.bestrudraksha.com/blog/${slug}`,
+      canonical: url,
     },
   };
 }
@@ -60,8 +64,24 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogPage = ({ params }: PageProps) => {
-  return <BlogDetailsWithSidebar />;
+const BlogPage = async ({ params }: PageProps) => {
+  const { slug } = await params;
+  const blog = blogData.find((b) => b.slug === slug);
+  const structuredData = blog ? getBlogStructuredData(blog) : null;
+
+  return (
+    <>
+      <BlogDetailsWithSidebar />
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      )}
+    </>
+  );
 };
 
 export default BlogPage;

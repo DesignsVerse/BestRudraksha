@@ -11,6 +11,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Canonicalize host: redirect non-www -> www (avoid SEO duplicate content)
+  if (host === "bestrudraksha.com") {
+    return NextResponse.redirect(
+      `https://www.bestrudraksha.com${request.nextUrl.pathname}${request.nextUrl.search}`,
+      301
+    );
+  }
+
   // Agar protocol http hai to redirect karo
   if (request.headers.get("x-forwarded-proto") === "http") {
     return NextResponse.redirect(

@@ -1,11 +1,14 @@
 import { neon } from '@neondatabase/serverless';
 
 // Get database connection string from environment variable
-const connectionString = "postgresql://neondb_owner:npg_jwdmuKD48qfg@ep-dawn-band-adjrr8of-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-;
+// IMPORTANT: Never hardcode credentials in source control.
+// Use .env.local (development) / platform environment variables (production).
+const connectionString =
+  process.env.DATABASE_URL ||
+  process.env.NEON_DATABASE_URL;
 
 if (!connectionString) {
-  throw new Error('DATABASE_URL environment variable is not set');
+  throw new Error('DATABASE_URL (or NEON_DATABASE_URL) environment variable is not set');
 }
 
 // Create Neon HTTP client

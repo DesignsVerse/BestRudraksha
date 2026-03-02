@@ -1,6 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://bestrudraksha.com',
+  // NOTE: This repo uses Next.js App Router `src/app/sitemap.ts` + `src/app/robots.ts`.
+  // Keeping this config file is harmless, but it should match the canonical domain.
+  siteUrl: process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bestrudraksha.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: [
@@ -31,11 +33,7 @@ module.exports = {
         ],
       },
     ],
-    additionalSitemaps: [
-      'https://bestrudraksha.com/sitemap-products.xml',
-      'https://bestrudraksha.com/sitemap-categories.xml',
-      'https://bestrudraksha.com/sitemap-blog.xml',
-    ],
+    additionalSitemaps: [],
   },
   transform: async (config, path) => {
     // Custom priority and changefreq based on page type

@@ -3,6 +3,7 @@ import React from 'react';
 import shopData from '@/components/Shop/shopData';
 import { Metadata } from 'next';
 import { getProductSEO, getProductStructuredData } from '@/lib/seo';
+import { getSiteUrl } from '@/lib/site';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -12,6 +13,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = shopData.find((item) => item.slug === slug);
+  const siteUrl = getSiteUrl();
 
   if (!product) {
     return {
@@ -23,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seoData = getProductSEO(product);
   const selectedSize = product.sizes?.[0];
   const price = selectedSize?.discountedPrice || selectedSize?.price || 0;
+  const url = `${siteUrl}/shop/${slug}`;
 
   return {
     title: seoData.title,
@@ -31,18 +34,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: seoData.openGraph?.title as string,
       description: seoData.openGraph?.description as string,
-      url: `https://www.bestrudraksha.com/shop/${slug}`,
+      url,
       siteName: 'BestRudraksha.com',
       images: seoData.openGraph?.images || [],
-      type: 'website',
+      type: 'product',
     },
     twitter: {
       card: 'summary_large_image',
       title: seoData.title,
       description: seoData.description,
+      images: (seoData.openGraph?.images || []).map((img: any) => img?.url).filter(Boolean) as string[],
     },
     alternates: {
-      canonical: `https://www.bestrudraksha.com/shop/${slug}`,
+      canonical: url,
     },
     other: {
       'product:price:amount': price.toString(),

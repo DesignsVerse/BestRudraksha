@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
 import shopData from '@/components/Shop/shopData';
 import blogData from '@/data/blogData.json';
+import { getSiteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.bestrudraksha.com';
+  const baseUrl = getSiteUrl();
   const currentDate = new Date().toISOString();
 
   // Static pages

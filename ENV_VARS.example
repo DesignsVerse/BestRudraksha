@@ -1,0 +1,28 @@
+############################################
+# BestRudraksha - Environment Variables
+# Create a `.env.local` file locally with these values.
+############################################
+
+# --- Site ---
+# e.g. https://www.bestrudraksha.com (recommended in production)
+NEXT_PUBLIC_SITE_URL=
+
+# --- Database (Neon/Postgres) ---
+# Example:
+# DATABASE_URL=postgresql://USER:PASSWORD@HOST/DB?sslmode=require
+DATABASE_URL=
+
+# Optional alias (supported by code):
+NEON_DATABASE_URL=
+
+# --- Cashfree ---
+CASHFREE_CLIENT_ID=
+CASHFREE_CLIENT_SECRET=
+
+# Webhook signature secret (required in production for verification)
+CASHFREE_WEBHOOK_SECRET=
+
+# --- Telegram notifications ---
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+

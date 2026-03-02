@@ -2,17 +2,17 @@
 const defaultSEOConfig = {
   title: 'BestRudraksha.com - Original Certified Rudraksha Beads Online India',
   description: 'Buy authentic, certified Rudraksha beads online. Original 1-21 Mukhi Rudraksha, Malas, Bracelets with lab certification. Free shipping across India. Spiritual healing & meditation.',
-  canonical: 'https://bestrudraksha.com',
+  canonical: 'https://www.bestrudraksha.com',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://bestrudraksha.com',
+    url: 'https://www.bestrudraksha.com',
     siteName: 'BestRudraksha.com',
     title: 'BestRudraksha.com - Original Certified Rudraksha Beads Online India',
     description: 'Buy authentic, certified Rudraksha beads online. Original 1-21 Mukhi Rudraksha, Malas, Bracelets with lab certification. Free shipping across India.',
     images: [
       {
-        url: 'https://bestrudraksha.com/images/og-image.jpg',
+        url: 'https://www.bestrudraksha.com/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'BestRudraksha - Original Certified Rudraksha Beads',
@@ -58,10 +58,9 @@ const defaultSEOConfig = {
       name: 'msapplication-TileColor',
       content: '#800000'
     },
-    {
-      property: 'fb:app_id',
-      content: 'your_facebook_app_id'
-    }
+    ...(process.env.NEXT_PUBLIC_FB_APP_ID
+      ? [{ property: 'fb:app_id', content: process.env.NEXT_PUBLIC_FB_APP_ID }]
+      : [])
   ],
   additionalLinkTags: [
     {

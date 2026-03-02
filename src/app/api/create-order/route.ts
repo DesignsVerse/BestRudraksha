@@ -175,7 +175,7 @@ export async function POST(req: NextRequest) {
     const cashfreeCustomerId = createCashfreeCustomerId(customerEmail);
     console.log("🆔 Generated Cashfree Customer ID:", cashfreeCustomerId);
 
-    // Get base URL - use HTTPS for Cashfree compatibility
+    // Get base URL - use HTTPS and canonical domain for Cashfree URLs
     const getBaseUrl = () => {
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
       
@@ -185,13 +185,13 @@ export async function POST(req: NextRequest) {
         if (siteUrl.startsWith('http://localhost')) {
           // For localhost development, we'll use a placeholder HTTPS URL
           // In production, this should be your actual domain
-          return 'https://bestrudraksha.com'; // Use your actual domain
+          return 'https://www.bestrudraksha.com'; // Use your canonical domain
         }
         return siteUrl.startsWith('https://') ? siteUrl : `https://${siteUrl.replace('http://', '')}`;
       }
       
       // Default fallback - use your actual domain
-      return 'https://bestrudraksha.com';
+      return 'https://www.bestrudraksha.com';
     };
 
     const baseUrl = getBaseUrl();
