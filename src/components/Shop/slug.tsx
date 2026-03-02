@@ -84,31 +84,53 @@ const ProductCard = ({ product, onToggleWishlist }) => {
     );
   }
 
+  // Helper to normalize any price so it ends with ..99 (e.g. 700 -> 699)
+  const normalizeTo99 = (value: number | null | undefined): number | null => {
+    if (value === null || value === undefined || Number.isNaN(value)) return null;
+    const int = Math.round(value);
+    if (int % 100 === 99) return int;
+    const base = Math.floor(int / 100) * 100;
+    return base + 99;
+  };
+
   // Calculate prices based on category (only for 1-14 Mukhi Rudraksha)
-  const getPriceForQuality = (price: number) => {
+  const getPriceForQuality = (price: number, opts?: { isDiscounted?: boolean }) => {
+    const isDiscounted = opts?.isDiscounted ?? false;
+
     if (isMukhiRudraksha && qualityType === "standard") {
-      // Use explicit Standard price when available, otherwise fall back to 50% of Premium.
-      const standardPrice = STANDARD_PRICES[product.id];
-      if (standardPrice) {
-        return standardPrice;
+      // Standard: explicit "offer" price, derive MRP (about 40% higher)
+      const baseOffer = STANDARD_PRICES[product.id] ?? price;
+      if (isDiscounted) {
+        return baseOffer;
       }
-      return Math.round(price / 2);
+      const approxMrp = Math.round(baseOffer / 0.6); // target ~40% OFF
+      return approxMrp;
     }
+
     if (isMukhiRudraksha && qualityType === "premium") {
-      const premiumPrice = PREMIUM_PRICES[product.id];
-      if (premiumPrice) {
-        return premiumPrice;
+      const premiumOverride = PREMIUM_PRICES[product.id];
+      if (isDiscounted) {
+        // Use override if present, otherwise fall back to selectedSize.discountedPrice or price
+        return premiumOverride ?? selectedSize.discountedPrice ?? price;
       }
+      // For MRP, prefer size price, otherwise derive from discounted
+      const baseMrp = selectedSize.price || premiumOverride || Math.round((selectedSize.discountedPrice ?? price) / 0.6);
+      return baseMrp;
     }
-    // Premium (or non-mukhi) uses original (base) price from product data.
+
+    // Non-mukhi products: respect original price/discount
     return price;
   };
 
-  // Get current prices based on selected quality
-  const currentPrice = getPriceForQuality(selectedSize.price);
-  const currentDiscountedPrice = selectedSize.discountedPrice 
-    ? getPriceForQuality(selectedSize.discountedPrice)
-    : null;
+  // Get current prices based on selected quality and normalize to ..99
+  const rawPrice = getPriceForQuality(selectedSize.price, { isDiscounted: false });
+  const rawDiscounted =
+    selectedSize.discountedPrice !== undefined && selectedSize.discountedPrice !== null
+      ? getPriceForQuality(selectedSize.discountedPrice, { isDiscounted: true })
+      : null;
+
+  const currentPrice = normalizeTo99(rawPrice)!;
+  const currentDiscountedPrice = normalizeTo99(rawDiscounted);
 
   const handleAddToCartLocal = () => {
     const cartItem = {
