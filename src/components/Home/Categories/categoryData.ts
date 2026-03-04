@@ -21,6 +21,12 @@ const data: Category[] = [
     img: "/images/home/Categories/4.png",
     link: "/shop-filter/mala-and-yantra",
   },
+  {
+    title: "Yantra",
+    id: 5,
+    img: "/images/home/Categories/2.png",
+    link: "/shop-filter/mala-and-yantra",
+  },
 ];
 
 export default data;

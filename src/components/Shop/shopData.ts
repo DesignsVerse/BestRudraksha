@@ -254,8 +254,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/8.png"]
     },
     sizes: [
-      { name: "Standard", price: 15833, discountedPrice: 9500 },
-      // { name: "Premium", price: 3500, discountedPrice: 3000 }
+      { name: "Standard", price: 5799, discountedPrice: 3499 },
+      { name: "Premium", price: 15833, discountedPrice: 9499 }
     ]
   },
   {
@@ -286,8 +286,8 @@ const shopData: Product[] = [
       previews: ["/images/products/1-14-mukhi/9.png"]
     },
     sizes: [
-      { name: "Standard", price: 15833, discountedPrice: 9500 },
-      // { name: "Premium", price: 4500, discountedPrice: 4000 }
+      { name: "Standard", price: 9999, discountedPrice: 5999 },
+      { name: "Premium", price: 15833, discountedPrice: 9499 }
     ]
   },
   {
