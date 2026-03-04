@@ -211,8 +211,8 @@ const Header: React.FC = () => {
           </div>
 
           {/* Logo */}
-          <div className="flex-shrink-0 -ml-2 md:-ml-3">
-            <Link href="/">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <Link href="/" className="flex items-center">
               <div className="relative h-18 w-32 md:h-20 md:w-40">
                 <Image
                   src="/images/logo/logo.png"
@@ -223,6 +223,9 @@ const Header: React.FC = () => {
                 />
               </div>
             </Link>
+            <span className="hidden sm:block text-[10px] md:text-xs text-gray-600 font-medium whitespace-nowrap">
+              Based in Ujjain
+            </span>
           </div>
 
           {/* Desktop Navigation Menu */}
