@@ -223,7 +223,7 @@ const Header: React.FC = () => {
                 />
               </div>
             </Link>
-            <span className="hidden sm:block text-[10px] md:text-xs text-gray-600 font-medium whitespace-nowrap">
+            <span className="text-[9px] sm:text-[10px] md:text-xs text-gray-600 font-medium whitespace-nowrap">
               Based in Ujjain
             </span>
           </div>
